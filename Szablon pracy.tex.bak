@@ -1,0 +1,315 @@
+% 1. Należy w programie ustawić zgodne kodowanie, w tym przypadku jest UTF-8. 
+% 2. Kompilować ten plik za pomocą pdfLatex.
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Ustawienia pracy.
+%____________________________________________________________________________________________
+
+% Obowiązkowo! %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definiowanie stylu i formatu pracy.
+\documentclass[a4paper,twoside,12pt]{book}	% twoside - dwustronnie		 
+\usepackage{polski}		 		% ustawienie języka
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts, amsmath, amsthm, amssymb}
+\usepackage[utf8]{inputenc}	
+\usepackage{latexsym}
+\usepackage{indentfirst} 				% wcięcia akapitu
+\linespread{1.5}					% odstęp między liniami
+\usepackage{geometry}
+\geometry{lmargin=3.5cm, rmargin=3cm}	% ustawienie marginesów, lewy większy na oprawę
+
+\usepackage{url}
+\usepackage{enumerate}				% numeracja
+\usepackage{amsopn}
+\usepackage{graphicx} 				% grafika
+\usepackage{epstopdf}				% grafika formatu eps
+\usepackage{tabularx} 				% tabele
+\usepackage{hyperref} 				% łącza
+\usepackage{picture} 				% rysunki
+\usepackage{upgreek}				% greckie symbole
+
+\usepackage{listings}				% listingi
+\usepackage{color}					% kolory
+
+
+ % Polecenie usunięcia paginy na pustej stronie.
+\newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}} 	
+
+
+% Zmiana nazwy rozdziału z listingami, domyślnie jest Listings.
+\renewcommand{\lstlistlistingname}{Spis listingów}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% koniec
+
+
+
+% Dodatkowo %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Definicje własnych otoczeń.
+\theoremstyle{definition}
+\newtheorem{dfn}{Definicja}[chapter]
+\newtheorem{prz}[dfn]{Przykład}
+
+\theoremstyle{remark}
+\newtheorem{wsk}[dfn]{Wniosek}
+% koniec
+
+
+% Definiowanie własnego stylu listingu.
+\lstset{
+  frame             	= lines,
+  basicstyle        	= \linespread{1}\ttfamily,%\small\footnotesize,
+  columns           	= fullflexible,
+  showstringspaces  = false,
+  commentstyle      	= \color{gray}\upshape,
+  numbers           	= left,
+  numbersep         	= 5pt,
+  stepnumber        	= 1,
+  captionpos        	= t,
+  numberstyle      	= \tiny,
+}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% koniec	 
+
+
+
+\begin{document}
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Strona tytułowa.
+%____________________________________________________________________________________________
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\makeatother 
+% Tutaj wszystko należny wypełnić w nawiasach {}, nic więcej nie zmieniać!
+
+\author{\textbf{Piotr Jasina}}        	% Podaj imię i nazwisko.
+\title{Identyfikacja inteligentnych kontraktów w sieci Ethereum}      % Podaj tytuł polski.
+\date{{\textbf{Lublin rok \the\year}}}	% Nic nie zmieniaj, rok wygeneruje automatycznie.
+\def\engtitle{Ethereum smart contracts identification} % Podaj tytuł angielski.
+
+\def\kierunek{Informatyka}		% Podaj kierunek studiów.
+\def\specjalnosc{.....}			% Podaj specjalność, jeśli istnieje.
+\def\nralbumu{279183}			% Podaj nr albumu.
+
+\def\rodzaj{licencjacka}			% Podaj rodzaj pracy.
+\def\zaklad{Zakładzie Cyberbezpieczeństwa}	% Podaj nazwę zakładu Twojego promotora.
+\def\promotor{dr. Damiana Rusinka}	% Podaj promotora.
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Poniżej w {titlepage} nic nie zmieniać.
+
+\renewcommand{\maketitle}{
+\begin{titlepage}
+\begin{table}
+\begin{tabular}{c@{\hspace{10mm}}|@{\hspace{3mm}}l}
+\multicolumn{2}{@{\hspace{15mm}}l}{\vspace{-31mm}} \\
+\multicolumn{2}{l}{\hspace{-20mm}\includegraphics[scale=0.4]{UMCS}} \\ 
+\multicolumn{2}{@{\hspace{16mm}}l}{\vspace{7mm}} \\
+
+\multicolumn{2}{@{\hspace{16mm}}l}{\Large UNIWERSYTET MARII CURIE-SKŁODOWSKIEJ} \\
+\multicolumn{2}{@{\hspace{16mm}}l}{\vspace{-4mm}} \\
+\multicolumn{2}{@{\hspace{16mm}}l}{\Large W LUBLINIE} \\
+\multicolumn{2}{@{\hspace{16mm}}l}{\vspace{-4mm}} \\
+\multicolumn{2}{@{\hspace{16mm}}l}{\Large Wydział Matematyki, Fizyki i Informatyki} \\
+\multicolumn{2}{@{\hspace{16mm}}l}{\vspace{16mm}} \\
+
+& \multicolumn{1}{m{13cm}}{Kierunek: \kierunek} \\
+% Jeśli nie ma specjalności, to należy zakomentować poniższą linijkę!
+% & \multicolumn{1}{m{13cm}}{Specjalność: \specjalnosc} \\
+& \\
+& \multicolumn{1}{m{13cm}}{\@author} \\
+& \multicolumn{1}{m{13cm}}{nr albumu: \nralbumu} \\
+& \\
+& \\
+& \multicolumn{1}{m{13cm}}{\Large\textbf{\@title}} \\
+& \\
+& \multicolumn{1}{m{13cm}}{\engtitle} \\
+& \\
+& \\
+& \multicolumn{1}{m{13cm}}{Praca \rodzaj} \\	
+& \vspace{-7mm} \\
+& \multicolumn{1}{m{13cm}}{napisana w \zaklad} \\
+& \vspace{-7mm} \\
+& \multicolumn{1}{m{13cm}}{pod kierunkiem \promotor} \\
+\multicolumn{2}{@{\hspace{20mm}}l}{\vspace{7mm}} \\
+\multicolumn{2}{@{\hspace{20mm}}l}{\@date}
+\end{tabular}
+\end{table}
+\end{titlepage}
+}
+% koniec 
+
+% Tworzenie strony tytułowej.
+\maketitle
+% Wyczyszczenie z numeracji strony za stroną tytułową. 
+\clearemptydoublepage
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Spis treści. 
+%____________________________________________________________________________________________
+\tableofcontents 		
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 	
+\clearemptydoublepage			
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Wstęp pracy.
+%____________________________________________________________________________________________
+\chapter*{Wstęp}					% bez numeru rozdziału
+\addcontentsline{toc}{chapter}{Wstęp} 	% bez numeru w spisie treści
+
+...
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage 
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Rozdział 1.
+%____________________________________________________________________________________________
+\chapter[Ethereum]{Ethereum}
+% W nawiasach [] zapisujemy skróconą nazwę rozdziału, pojawiający się w paginie górnej oraz w spisie treści.
+% W nawiasach {} zapisujemy pełną nazwę rozdziału.
+% '\protect \\' służy do dzielenia długiej nazwy rozdziału.
+
+\section{Historia}
+
+Literatura: \cite{autor1, autor2}.
+
+
+\section{Opis platformy}
+
+Literatura: \cite{autor1, autor2}.
+
+\section{Ethereum Virtual Machine}
+
+Literatura: \cite{autor1, autor2}.
+
+\section{Inteligentne kontrakty}
+
+Literatura: \cite{autor1, autor2}.
+
+
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage 
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Rozdział 2.
+%____________________________________________________________________________________________
+\chapter[Solidity]{Solidity}
+
+\section{Sygnatura funkcji}
+
+Literatura: \cite{autor1, autor2}.
+
+
+\section{Selektor funkcji}
+
+Literatura: \cite{autor1, autor2}.
+
+\section{Generowanie akcesorów podczas kompilacji}
+
+Literatura: \cite{autor1, autor2}.
+
+
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage 
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Rozdział 3.
+%____________________________________________________________________________________________
+\chapter[Projekt Aplikacji]{Projekt Aplikacji}
+
+\section{Funkcjonalnosc}
+
+Literatura: \cite{autor1, autor2}.
+
+
+\section{Architektura}
+
+Literatura: \cite{autor1, autor2}.
+
+\subsection{Wyszukiwanie sygnatur funkcji w kodzie źródłowym}
+
+Literatura: \cite{autor1, autor2}.
+
+\subsection{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
+
+Literatura: \cite{autor1, autor2}.
+
+\subsection{Szukanie implementacji na podstawie kodu bajtowego}
+
+Literatura: \cite{autor1, autor2}.
+
+
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage 
+
+
+
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Bibliografia.
+%____________________________________________________________________________________________
+\phantomsection
+\begin{thebibliography}{99}
+\phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.
+\addcontentsline{toc}{chapter}{Bibliografia}		% Dodanie do spisu treści.
+
+\bibitem{autor2} Bibliografia 1. \url{http://www.google.com}.
+\bibitem{autor1} Bibliografia 2. \emph{Nazwa}. 
+
+\end{thebibliography}
+
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage					
+% koniec
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Spis tabel.
+%____________________________________________________________________________________________
+\phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.	
+\listoftables
+\addcontentsline{toc}{chapter}{Spis tabel}		% Dodanie do spisu treści.
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage
+% koniec
+
+%____________________________________________________________________________________________
+%____________________________________________________________________________________________
+% Spis rysunków.
+%____________________________________________________________________________________________
+\phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.
+\listoffigures
+\addcontentsline{toc}{chapter}{Spis rysunków}
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage
+% koniec
+
+%____________________________________________________________________________________________%____________________________________________________________________________________________
+% Spis listingów. 
+%____________________________________________________________________________________________
+\phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Spis listingów} 
+% Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
+\clearemptydoublepage
+% koniec
+
+\end{document}
