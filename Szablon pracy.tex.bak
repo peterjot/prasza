@@ -184,20 +184,20 @@
 
 \section{Historia}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 
 \section{Opis platformy}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \section{Ethereum Virtual Machine}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \section{Inteligentne kontrakty}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -212,16 +212,16 @@ Literatura: \cite{autor1, autor2}.
 
 \section{Sygnatura funkcji}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 
 \section{Selektor funkcji}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \section{Generowanie akcesorów podczas kompilacji}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -233,27 +233,50 @@ Literatura: \cite{autor1, autor2}.
 % Rozdział 3.
 %____________________________________________________________________________________________
 \chapter[Projekt Aplikacji]{Projekt Aplikacji}
+Celem mojej pracy licencjackiej było utworzenie aplikacji internetowej umożliwiającej identyfikacje  inteligentnych kontraktów wykorzystywanych w sieci Ethereum. Dzięki aplikacji użytkownik po wprowadzeniu na stronie kodu bajtowego kontraktu jest w stanie otrzymać najbardziej prawdopodobną implementacje kontraktu napisana w języku Solidity bazując na bazie danych aplikacji.
 
-\section{Funkcjonalnosc}
+Poniżej zostało opisane działanie aplikacji wraz ze szczegółowym opisem funkcjonalności, architektury oraz wykorzystanych technologi.
+\section{Funkcjonalność}
+Po wejściu na stronę główną aplikacji użytkownik zobaczy w górnej części menu, w którym ma do wyboru: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz dokumentacje API aplikacji. Na stronie głównej poniżej menu znajduje się opis aplikacji wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych aplikacji.
 
-Literatura: \cite{autor1, autor2}.
+\subsection{Identyfikacja inteligentnych kontraktów}
+Pierwsza opcja dostępną w menu jest identyfikacja inteligentnych kontraktów. Po naciśnięciu  przycisku na menu, użytkownik zostanie przekierowany na podstronę na której ma możliwość wprowadzenia kodu bajtowego w systemie szesnastkowym.
+
+Podczas wprowadzania kodu istnieje możliwość wprowadzenia kodu z prefiksem "0x" oraz bez tego prefixu. Jeśli użytkownik poda kod z prefiksem to aplikacja podczas przetwarzania tego kodu zignoruje niepotrzebne znaki. Takie rozwiązanie zostało zastosowane w celu zapewnienia użytkownikowi większej wygody oraz komfortu w korzystaniu z aplikacji. Użytkownik nie będzie musiał zastanawiać się czy dodać prefiks, czy nie, ponieważ obie opcje są wspierane.
+
+Pomyślne wprowadzone dane wykorzystywane do identyfikacji zatwierdzamy przyciskiem "Submit", a następnie po stronie serwerowej aplikacji rozpoczynany jest proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje. W rezultacie ---jak widzimy na rysunku TUTAJ BEDZIE ZDJECIE :D--- utrzymujemy listę wyszukanych implementacji posortowanych malejąco według współczynnika dopasowania. Jeśli klikniemy przyciskiem na jedną z wyświetlonych pozycji to w nowej karcie przeglądarki otworzy się podstrona z implementacją kontraktu wraz z podświetleniem składni języka Solidity.
+
+\subsection{Wprowadzanie kodu źródłowego kontraktu do aplikacji}
+Kolejna funkcjonalnością dostępną dla użytkownika jest możliwość dodania własnego kodu źródłowego kontraktu napisanego w języku Solidity. Opcja ta umożliwia użytkownikom wsparcie aktualnej bazy danych o kolejne kody źródłowe inteligentnych kontraktów, w wyniku takiego działania wszyscy pozostali użytkownicy maja większa szanse na precyzyjną identyfikacje kontraktu. Jak widać na rysunku --TUTAJ RYSUNEK--, ze względu na wygodę użytkowników korzystających z aplikacji, zostały utworzone dwie możliwości wprowadzania kodów źródłowych.
+
+Pierwsza opcja umożliwia wprowadzenie lokalnego pliku zawierającego kod źródłowy z dysku komputera za przeglądarki internetowej.
+
+Druga możliwością jest wklejenie kodu źródłowego bezpośrednio do pola tekstowego. Druga opcja została utworzona ponieważ, podczas korzystania z aplikacji użytkownik może bezpośrednio skopiować kod źródłowy, który jest w dowolnym innym źródle tekstowym i wkleić go bezpośrednio do mojej aplikacji bez konieczności tworzenia pliku tymczasowego.
+
+
+
+\subsection{Interfejs programistyczny aplikacji}
 
 
 \section{Architektura}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \subsection{Wyszukiwanie sygnatur funkcji w kodzie źródłowym}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \subsection{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
 
 \subsection{Szukanie implementacji na podstawie kodu bajtowego}
 
-Literatura: \cite{autor1, autor2}.
+Literatura: \cite{autor1, autor2}. TODO
+
+\section{Wykorzystane technologie}
+
+Literatura: \cite{autor1, autor2}. TODO
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
