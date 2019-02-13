@@ -11,14 +11,14 @@
 \BOOKMARK [0][-]{chapter.3}{Projekt Aplikacji}{}% 11
 \BOOKMARK [1][-]{section.3.1}{Funkcjonalnosc}{chapter.3}% 12
 \BOOKMARK [2][-]{subsection.3.1.1}{Identyfikacja inteligentnych kontrakt\363w}{section.3.1}% 13
-\BOOKMARK [2][-]{subsection.3.1.2}{Wprowadzanie kodu zr\363d\233owego kontraktu do aplikacji}{section.3.1}% 14
+\BOOKMARK [2][-]{subsection.3.1.2}{Dodanie kodu zr\363d\233owego kontraktu do aplikacji}{section.3.1}% 14
 \BOOKMARK [2][-]{subsection.3.1.3}{Interfejs programistyczny aplikacji}{section.3.1}% 15
 \BOOKMARK [1][-]{section.3.2}{Architektura}{chapter.3}% 16
 \BOOKMARK [2][-]{subsection.3.2.1}{Wyszukiwanie sygnatur funkcji w kodzie zr\363d\233owym}{section.3.2}% 17
 \BOOKMARK [2][-]{subsection.3.2.2}{Wyszukiwanie selektor\363w funkcji w kodzie bajtowym}{section.3.2}% 18
 \BOOKMARK [2][-]{subsection.3.2.3}{Szukanie implementacji na podstawie kodu bajtowego}{section.3.2}% 19
 \BOOKMARK [1][-]{section.3.3}{Wykorzystane technologie}{chapter.3}% 20
-\BOOKMARK [0][-]{section*.5}{Bibliografia}{}% 21
-\BOOKMARK [0][-]{chapter*.7}{Spis tabel}{}% 22
-\BOOKMARK [0][-]{chapter*.9}{Spis rysunk\363w}{}% 23
-\BOOKMARK [0][-]{chapter*.11}{Spis listing\363w}{}% 24
+\BOOKMARK [0][-]{section*.8}{Bibliografia}{}% 21
+\BOOKMARK [0][-]{chapter*.10}{Spis tabel}{}% 22
+\BOOKMARK [0][-]{chapter*.12}{Spis rysunk\363w}{}% 23
+\BOOKMARK [0][-]{chapter*.14}{Spis listing\363w}{}% 24
