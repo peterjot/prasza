@@ -238,17 +238,25 @@ Celem mojej pracy licencjackiej było stworzenie aplikacji internetowej umożliw
 
 Poniżej zostało opisane działanie aplikacji wraz ze szczegółowym opisem funkcjonalności, architektury oraz wykorzystanych technologi.
 \section{Funkcjonalność}
-Podczas korzystania z aplikacji uzytkownik ma dostepne trzy funkcjonalnosci: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz dokumentacje API aplikacji. Na stronie głównej poniżej menu znajduje się opis aplikacji wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych aplikacji oraz podstawowymi definicjami związanymi z aplikacją.
+Podczas korzystania z aplikacji uzytkownik ma dostepne trzy funkcjonalnosci: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz interfejs programistyczny aplikacji. Na stronie głównej poniżej menu znajduje się opis aplikacji wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych aplikacji oraz podstawowe definicje związane z projektem aplikacji.
 
 \subsection{Identyfikacja inteligentnych kontraktów}
-Pierwsza opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Identyfikacje kontraktów rozpocząć będąc na stronie główniej lub za pomocą podstrony do której można się dostać klikając przycisk \textbf{Identify bytecode} znajdujący się w menu. W przypadku wprowadzenia kodu bajtowego na stronie głównej zostaniemy przekierowani na podstronę na której pojawią się wyniki identyfikacji kontraktu. Jeśli użytkownik wykorzysta opcje z menu to będzie musiał na podstronie wprowadzić kod bajtowy swojego kontraktu. W obydwu przypadkach, zarówno na stronie głównej, jak i podstronie dedykowanej tej funkcjonalności, kod bajtowy należy wprowadzać w szesnastkowym systemie liczbowym.
+Pierwsza opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Identyfikacje kontraktu można rozpocząć będąc na stronie główniej lub na podstronie dedykowanej specjalnie identyfikacji kontraktów. Zarówno na stronie głównej, jak i na podstronie znajduje się pole w którym można wprowadzić kod bajtowy. Po wprowadzeniu danych użytkownik zatwierdza je w obu przypadkach klikając przycisk \textbf{Identify}. Natomiast, jeśli użytkownik chce udać się na podstronę, należy wybrać przycisk w menu o nazwie \textbf{Identify bytecode}, następnie użytkownik zostanie przekierowany na podstronę dedykowaną identyfikacji kontraktów. W przypadku wprowadzenia kodu bajtowego na stronie głównej zostaniemy również przekierowani na podstronę z taka różnica, ze pojawią się od razu wyniki identyfikacji kontraktu. Zarówno na stronie głównej, jak i podstronie dedykowanej identyfikacji, użytkownik jest zobowiązany wprowadzać kod bajtowy w szesnastkowym systemie liczbowym, w innym wypadku identyfikacja nie przejdzie prawidłowo.
+
 
 Podczas wprowadzania kodu istnieje możliwość wprowadzenia kodu z prefiksem \textbf{0x} lub bez tego prefixu. Jeśli użytkownik poda kod z prefiksem to aplikacja podczas przetwarzania tego kodu zignoruje ten prefiks. Takie rozwiązanie zostało zastosowane w celu zapewnienia użytkownikowi większej wygody oraz komfortu w korzystaniu z aplikacji. Użytkownik nie będzie musiał zastanawiać się czy kopiując kod bajtowy z dowolnego źródła, jest on z prefiksem czy nie, ponieważ obie opcje są wspierane.
 
-Pomyślne wprowadzone dane wykorzystywane do identyfikacji zatwierdzamy przyciskiem "Submit", a następnie po stronie serwerowej aplikacji rozpoczynany jest proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje. W rezultacie jak możemy zobaczyć na rysunku \ref{rys:wynik_identyfikacji} użytkownik otrzymuje listę wyszukanych dziesięciu najbardziej prawdopodobnych implementacji posortowanych malejąco według współczynnika dopasowania. 
-Mimo że domyślnie jest wyświetlanych tylko dziesięć najbardziej prawdopodobnych implementacji istnieje też możliwość pobrania wszystkich wyników identyfikacji kontraktu używając przycisku \textbf{Get all}. Jak widać na rysunku \ref{rys:wynik_identyfikacji}, przycisk \textbf{Get all} znajduje się pod pierwszą dziesiątka wyników. Po naciśnięciu przycisku strona zostanie zaladowana ponownie oraz zostanie wyświetlona pełna lista identyfikatorów plików wraz ze współczynnikiem dopasowania do kodu bajtowego.
 
-Po naciśnięciu w jedną z wyświetlanych implementacji, użytkowniki w nowej karcie przeglądarki otworzy się specjalna podstrona umożliwiająca podgląd implementacji. Jak widać na rysunku \ref{rys:podglad_impelementacji} kod źródłowy kontraktu jest wyświetlany z podświetleniem składni przygotowanym dla języka Solidity, natomiast po lewej stronie można zobaczyć specjalnie przygotowaną numeracje wierszy która ma za zadanie ułatwić poruszanie się po kodzie źródłowym na stronie. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony nie zostawały kopiowane wraz z nim liczby identyfikujące konkretną linie w kodzie.
+Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem \textbf{Identify}, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje posortowane malejąco według współczynnika dopasowania. W rezultacie jak możemy zobaczyć na rysunku \ref{rys:wynik_identyfikacji} użytkownik otrzymuje listę dziesięciu najbardziej prawdopodobnych implementacji.
+
+Mimo że domyślnie jest wyświetlanych tylko dziesięć najbardziej prawdopodobnych implementacji, istnieje też możliwość pobrania wszystkich wyników identyfikacji kontraktu używając przycisku \textbf{Get all}. Jak widać na rysunku \ref{rys:wynik_identyfikacji}, przycisk \textbf{Get all} znajduje się pod pierwszą dziesiątka wyników. Po naciśnięciu przycisku strona zostanie załadowana ponownie wraz z pełną lista identyfikatorów plików i ich współczynnikami dopasowania.
+
+
+Po naciśnięciu w jedną z wyświetlanych implementacji, użytkownikowi pojawi się w nowej karcie przeglądarki podstrona umożliwiająca podgląd implementacji.
+
+
+Jak widać na rysunku \ref{rys:podglad_impelementacji} kod źródłowy kontraktu jest wyświetlany ze specjalnie przygotowanym dla języka Solidity podświetleniem składni przygotowanym, natomiast po lewej stronie można zobaczyć przygotowaną numeracje wierszy, która ma za zadanie ułatwić nawigację po kodzie źródłowym na stronie internetowej. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony, nie były kopiowane z nim liczby identyfikujące konkretną linie w kodzie.
+
 
 \begin{figure}[bp!]\centering 	
 \includegraphics[scale=0.3]{wynik_identyfikacji.png}
@@ -263,7 +271,7 @@ Po naciśnięciu w jedną z wyświetlanych implementacji, użytkowniki w nowej k
 \end{figure}
 
 \subsection{Dodanie kodu źródłowego kontraktu do aplikacji}
-Kolejna funkcjonalnością dostępną dla użytkownika jest możliwość dodania własnego kodu źródłowego kontraktu napisanego w języku Solidity. Opcja ta umożliwia użytkownikowi uzupełnienie aktualnej bazy danych o kolejne kody źródłowe inteligentnych kontraktów, w wyniku takiego działania wszyscy pozostali użytkownicy maja większa szanse na precyzyjną identyfikacje kontraktu. W celu wykorzystania tej funkcjonalności użytkownik musi użyć przycisku \textbf{Upload solidity}, po czym zostanie on przekierowany na podstronę na której będzie mógł wprowadzić kod źródłowy, który zostanie przesłany do serwera aplikacji. Zostały utworzone dwie możliwości wprowadzania kodów źródłowych. 
+Kolejna funkcjonalnością dostępną dla użytkownika jest możliwość dodania własnego kodu źródłowego kontraktu napisanego w języku Solidity. Opcja ta umożliwia użytkownikowi uzupełnienie aktualnej bazy danych o kolejne kody źródłowe inteligentnych kontraktów. W rezultacie zgromadzenia dużej ilości implementacji w bazie danych, wszyscy pozostali użytkownicy maja większą szansę na precyzyjną identyfikacje kontraktu. W celu wykorzystania tej funkcjonalności użytkownik musi zdobyć autoryzowany dostęp poprzez zalogowanie się i uwierzytelnienie za pomocą panelu logowania. Zakładając, że osoba korzystająca z tej części aplikacji posiada odpowiednie uprawnienia to po naciśnięciu przycisku \textbf{Upload solidity}, zostanie przekierowana na podstronę, na której ma możliwość wprowadzenia kodu źródłowego. Zostały utworzone dwie możliwości wprowadzania kodów źródłowych, które opiszę poniżej. 
 
 
 Pierwszą sposobem jest przesłanie do aplikacji pliku zawierającego implementacje kontraktu napisana w języku Solidity. W tym przypadku użytkownik powinien kliknąć przycisk \textbf{Browse}, który umożliwi mu wybranie za pomocą przeglądarki internetowej konkretnego pliku znajdującego się na dysku lokalnym, a następnie zatwierdzić go przyciskiem \textbf{Upload} znajdującym się obok wcześniej wspomnianego przycisku. 
@@ -276,9 +284,21 @@ Innym sposobem na przesłanie kodu źródłowego do aplikacji jest wklejenie kod
 \subsection{Interfejs programistyczny aplikacji}
 Trzecia funkcjonalnością aplikacji jest interfejs programistyczny. Umożliwia on tworzenie własnego oprogramowania oraz skryptów, bazując na utworzonej prze zemnie aplikacji, przez innych programistów. Dzięki temu można wykorzystać mechanizmy zaimplementowane w aplikacji w celu rozszerzenia ich w innej aplikacji lub w celu zautomatyzowania niektórych procesów bez wykorzystania GUI (ang. graphical user interface) aplikacji.
 
-W celu skorzystania z interfejsu programistycznego należy utworzyć specjalne żądanie HTTP. Za pomocą interfejsu aplikacji użytkownik ma możliwość dostarczenia na serwer nowego kodu źródłowego, pobrania kodu źródłowego na podstawie na podstawie hasza wcześniej przesłanego pliku źródłowego oraz identyfikacje kontraktu wykorzystujac.
+
+W celu skorzystania z interfejsu programistycznego należy utworzyć żądanie HTTP. Za pomocą żądania HTTP użytkownik aplikacji ma możliwość dostarczenia na serwer nowego kodu źródłowego, pobrania kodu źródłowego na podstawie hasza kodu źródłowego znajdującego się na serwerze oraz identyfikacje kontraktu.
+
 
 Przykładowym zastosowaniem API (ang. Application programming interface) może być utworzenie skryptu umożliwiającego zautomatyzowanie wysyłania kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji. W tym przypadku użytkownik, który chce przesłać nowy plik do aplikacji musi najpierw przejść proces autoryzacji, natomiast pozostałe funkcje API nie wymagają uwierzytelniania użytkownika przez aplikacje.
+
+
+\subsubsection{Pobieranie informacji o kodzie źródłowym z API}
+Jeśli użytkownik chce pobrać za pomocą API informacje o konkretnym kodzie źródłowym kontraktu, w tym celu powinien utworzyć żądanie HTTP. W przypadku tej funkcjonalności nie jest wymagane uwierzytelnienie użytkownika. 
+
+Na listingu \ref{lst:przykladowezadaniehttp} można zaobserwować przykładowe żądanie HTTP, które jest wykorzystane w celu pobrania informacji o konkretnym kodzie źródłowym.
+Użytkownik podczas korzystania z API powinien zwrócić szczególna uwagę na wykorzystywaną metodę w nagłówku HTTP, ponieważ interfejs aplikacji wspiera tylko wybrane metody. Na listingu \ref{lst:przykladowezadaniehttp} widać, że używaną metodą jest \textbf{GET}, która jest jedną z kilku dostępnych metod w standardzie \textit{HTTP/1.1}, istnieją też między innymi metody: \textit{POST}, \textit{HEAD}, \textit{PUT} czy \textit{DELETE}. Metody HTTP zostały opisane szczegółowo w sekcji 9.2 dokumentu RFC2616 \cite{rfc2616}.
+
+
+Zaraz za metoda GET, można zobaczyć listingu \ref{lst:przykladowezadaniehttp}, znajduje się adres pod którym zostanie wysyłane żądanie. Na końcu adresu po znaku zapytania podane zostały atrybuty o nazwie \textit{fileHash} ze wskazaną wartością hasza pliku. Odpowiedzią na tak przygotowane zapytanie będzie w tym przypadku zwykły tekst implementację kontraktu oraz status HTTP 200, mówiący użytkownikowi, że wszystko poszło dobrze. W sytuacji gdy, użytkownik otrzyma status HTTP 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu.
 
 \begin{center}
 \lstset{language=XML}
@@ -295,19 +315,12 @@ Accept-Language: pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7
 \end{lstlisting}
 \end{center}
 
-\subsubsection{Pobieranie informacji o kodzie zrodlowym z API}
-Jeśli użytkownik chce pobrać z aplikacji informacje o konkretnym kodzie źródłowym danego pliku, w tym celu powinien utworzyć żądanie HTTP. W przypadku tej aplikacji do wykonania tej czynności nie jest potrzebne uwierzytelnienie użytkownika. Na listingu \ref{lst:przykladowezadaniehttp} można zaobserwować przykładowe żądanie HTTP, które jest wykorzystane w celu pobrania informacji o konkretnym kodzie źródłowym. 
-
-Użytkownik podczas korzystania z API powinien zwrócić szczególna uwagę na wykorzystywaną metodę w nagłówku HTTP, ponieważ interfejs aplikacji wspiera tylko wybrane metody. W tym przypadku w pierwszej linii na listingu \ref{lst:przykladowezadaniehttp} widać, że używaną metodą jest \textbf{GET}, która jest jedną z kilku dostępnych metod w standardzie \textit{HTTP/1.1}, istnieją też między innymi metody: \textit{POST}, \textit{HEAD}, \textit{PUT} czy \textit{DELETE}. Metody HTTP zostały opisane szczegółowo w sekcji 9.2 dokumentu RFC2616 \cite{rfc2616}.
-
-Po metodzie GET, jak widać na listingu \ref{lst:przykladowezadaniehttp}, znajduje się adres pod którym zostanie wysyłane żądanie. Na końcu adresu po znaku zapytania podawany jest atrybut o nazwie \textit{fileHash} ze wskazaną wartością hasza pliku. Przykładową odpowiedz w formacie JSON (w skróconej formie) możemy zobaczyc na listingu \ref{lst:przykladodpowiedzijson}:
-
-
 
 \subsubsection{Identyfikacja inteligentnego kontraktu za pomocą API}
-Podczas identyfikacji inteligentnego kontraktu, za pomocą interfejsu programistycznego, żądanie wygląda nieco inaczej niż poprzednio. Podczas identyfikacji wykorzystywana jest metoda POST. W nagłówku HTTP należy wiec wprowadzić tą metodę, a następie podać ścieżkę \textit{/api/bytecode}, pod którą należy wysłać żądanie. W przypadku metody POST opisanej w sekcji 9.5 dokumentu RFC2616 \cite{rfc2616} podajemy poniżej nagłówka zawartość, która będzie przesłana do serwera. W odróżnieniu od wykorzystanej poprzednio metody GET, tutaj zawartość zostaje podana poniżej nagłówka zamiast w adresie.
+Podczas identyfikacji inteligentnego kontraktu, za pomocą interfejsu programistycznego, żądanie pokazane na listingu \ref{lst:przykladowezadaniehttp} musimy nieco zmodyfikować. Podczas identyfikacji wykorzystywana jest metoda POST. W nagłówku HTTP należy więc wprowadzić tą metodę zamiast GET, a następie zmienić ścieżkę na \textit{/api/bytecode}. Pod podana ścieżką zostanie wysłane żądanie HTTP. W przypadku metody POST opisanej w sekcji 9.5 dokumentu \mbox{RFC2616} \cite{rfc2616} podajemy poniżej nagłówka zawartość, która będzie przesłana do serwera. W odróżnieniu od wykorzystanej poprzednio metody GET, tutaj atrybuty powinny zostać podane poniżej nagłówka, zamiast w adresie.
 
-API pod adresem \/api\/bytecode wymaga od użytkownika dwóch atrybutów o nazwach: bytecode oraz allFiles.
+
+API pod adresem \mbox{/api/bytecode} wymaga od użytkownika dwóch atrybutów o nazwach: bytecode oraz allFiles.
 Poniżej nagłówka HTTP w żądaniu należy wprowadzić odpowiednio zakodowane atrybuty. W celu zakodowania listy atrybutów, każdy atrybut zapisuje się w postaci:
 \begin{verbatim}
 NAZWA_ATRYBUTU=WARTOSC_ATRYBUTU
@@ -317,7 +330,8 @@ NAZWA_ATRYBUTU=WARTOSC_ATRYBUTU
 bytecode=KOD_BAJTOWY&allFiles=WARTOSC_LOGICZNA. 
 \end{verbatim}
 
-W tym przypadku wartość KOD\_BAJTOWY użytkownik musi zamienić na swój kod bajtowy, który chce przeanalizować oraz WARTOSC\_LOGICZNA należy zamienić na napis \textit{true} lub \textit{false}, w zależności czy chcemy w rezultacie otrzymać wszystkie pliki, które brały udział, czy chcemy otrzymać tylko pierwsze dziesięć najbardziej pasujących plików. Dodatkowo w nagłówku należy wprowadzić parametr \textbf{Content-Length}, dla którego należy podać długość wysyłanych. Przykładowo dla zawartości:
+
+W tym przypadku wartość \mbox{KOD\_BAJTOWY} użytkownik musi zamienić na swój kod bajtowy, który chce przeanalizować, a \mbox{WARTOSC\_LOGICZNA} należy zamienić na napis \textit{true} lub \textit{false}, w zależności od tego, czy chcemy w rezultacie otrzymać wszystkie dopasowania implementacji, czy chcemy otrzymać tylko pierwszą dziesiątkę najbardziej pasujących. Dodatkowo w nagłówku należy wprowadzić parametr \textbf{Content-Length}, którego wartością powinna być długość wysyłanych danych. Przykładowo dla zawartości:
 \begin{verbatim}
 bytecode=234a12b45&allFiles=true
 \end{verbatim}
@@ -325,19 +339,20 @@ fragment nagłówka powinien wyglądać następująco:
 \begin{verbatim}
 Content-Length: 32
 \end{verbatim}
-W rezultacie zapytania użytkownik otrzyma listę składająca się z haszu pliku oraz współczynnika dopasowania danego pliku w formacie JSON.
+W rezultacie zapytania, użytkownik otrzyma status HTTP 200, listę składająca się z haszu pliku oraz współczynnika dopasowania danego pliku w formacie JSON. W sytuacji, gdy dla konkretnego kodu bajtowego nie udało się dopasować żadnej implementacji, zwrócony zostanie status HTTP 404 mówiący o tym, że nic nie udało się znaleźć.
 
 
 \subsubsection{Przesyłanie nowego kodu źródłowego za pomocą API}
-Podczas przesyłania nowego kodu źródłowego przy wykorzystaniu API istnieje możliwość przesłania kodu źródłowego. W odróżnieniu od sposobu opisanego powyżej, teraz nie będą używane atrybuty z nazwami, tylko zostanie wysłane żądanie HTTP w którym pod nagłówkiem będzie wprowadzony tylko kod źródłowy. 
+W aplikacji istnieje możliwość przesłania kodu źródłowego w sposób programowy, wykorzystując API. W odróżnieniu od sposobu opisanego powyżej, teraz nie będą używane atrybuty z nazwami, tylko zostanie wysłane żądanie HTTP, którego ciałem będzie czysty tekst, czyli będzie wprowadzony tylko kod źródłowy bez wykorzystywania nazw atrybutów. 
 
-W celu wysłania takiego żądania najpierw użytkownik musi zostać uwierzytelniony, w innym przypadku proba dodania nowego kodu źródłowego do aplikacji ukończy się niepowodzeniem. Zakładając, że użytkownik został uwierzytelniony to bazując na przykładowym żądaniu HTTP z listingu \ref{lst:przykladowezadaniehttp} należy wprowadzić poniżej nagłówka cały kod źródłowy kontraktu. 
+
+W celu wysłania takiego żądania najpierw użytkownik musi zostać uwierzytelniony, w innym przypadku próba dodania nowego kodu źródłowego do aplikacji ukończy się niepowodzeniem. Zakładając, że użytkownik został uwierzytelniony oraz bazując na przykładowym żądaniu HTTP z listingu \ref{lst:przykladowezadaniehttp}, należy wprowadzić poniżej nagłówka cały kod źródłowy kontraktu. Natomiast w nagłówku użytkownik musi ustawić metodę POST, wskazać ścieżkę na \mbox{/api/solidityFiles} oraz analogicznie do sekcji wyżej, ustawić wartość \mbox{\textit{Content-Length}} w zależności od długości przesyłanych danych. 
+
 
 Należy pamiętać, że kod źródłowy musi być zaimplementowany w języku Solidity, w innym wypadku otrzymamy fałszywe informacje. 
 
-Dodatkowo w żądaniu należy zmienić metodę na POST, wskazać ścieżkę na \/api//solidityFiles\/ oraz analogicznie do sekcji wyżej ustawić wartość \textit{Content-Length} w zależności od długości przesyłanych danych.
 
-Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera utrzymujemy status HTTP 200, informujący nas, że wszystko poszło pomyślnie. Następnie w informacji zwrotnej użytkownik otrzymuje przesłany przez niego kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych w nim funkcji wraz z akcesoriami generowanymi podczas kompilacji. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane zwracane przez API po dodaniu nowego kodu źródłowego.
+Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera utrzymujemy status HTTP 200, który informuje osobę korzystającą z API, że wszystko poszło pomyślnie. Dodatkowo w informacji zwrotnej użytkownik otrzymuje przesłany przez niego kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych w nim funkcji wraz z akcesoriami generowanymi podczas kompilacji. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane zwracane przez API po prawidłowym dodaniu nowego kodu źródłowego.
 
 \begin{center}
 \lstset{language=XML}
@@ -358,6 +373,8 @@ Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera utrzymujemy status 
 }
 \end{lstlisting}
 \end{center}
+
+Pod atrybutem \textbf{sourceCodeHash} została umieszczona wartość hasza pliku źródłowego, natomiast pod atrybutem \textbf{sourceCode} znajduje sie przeslana przez uzytkownika implementacja w języku Solidity. Kolejnym elementem otrzymanej odpowiedzi w formacie JSON jest \textbf{solidityFunction}, pod tą nazwa znajduje się lista funkcji znalezionych w przesłanym kodzie zawierająca selektor oraz sygnaturę poszczegolnej funkcji.
 
 \section{Architektura}
 
