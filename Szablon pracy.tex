@@ -234,14 +234,15 @@ Literatura: \cite{autor1, autor2}. TODO
 % Rozdział 3.
 %____________________________________________________________________________________________
 \chapter[Projekt Aplikacji]{Projekt Aplikacji}
-Celem mojej pracy licencjackiej było stworzenie aplikacji internetowej umożliwiającej identyfikację  inteligentnych kontraktów wykorzystywanych w sieci Ethereum. Dzięki aplikacji użytkownik po wprowadzeniu na stronie kodu bajtowego kontraktu jest w stanie otrzymać najbardziej prawdopodobną implementacje kontraktu napisana w języku Solidity bazując na bazie danych aplikacji.
+Celem mojej pracy licencjackiej było stworzenie umożliwiającej identyfikację  inteligentnych kontraktów wykorzystywanych w sieci Ethereum. Dzięki aplikacji użytkownik po wprowadzeniu na stronie kodu bajtowego kontraktu jest w stanie otrzymać najbardziej prawdopodobną implementacje kontraktu napisana w języku Solidity bazując na bazie danych aplikacji.
 
-Poniżej zostało opisane działanie aplikacji wraz ze szczegółowym opisem funkcjonalności, architektury oraz wykorzystanych technologi.
-\section{Funkcjonalność}
-Literatura: \cite{rfc2616}.
+Aplikacja realizująca cel pracy została stworzona przy wykorzystaniu frameworka Spring Boot, jest to aplikacja internetowa, dzięki czemu można ja wykorzystać wielu urządzeniach bez konieczności instalacji. W celu przechowywania danych wykorzystano nierelacyjną bazę danych MongoDB.
+
+Poniżej opisałem działanie aplikacji wraz ze szczegółowym opisem funkcjonalności, architektury oraz wykorzystanych technologi.
+\section{Opis funkcjonalności}
 
 
-Podczas korzystania z aplikacji uzytkownik ma dostepne trzy funkcjonalnosci: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz interfejs programistyczny aplikacji. Na stronie głównej poniżej menu znajduje się opis aplikacji wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych aplikacji oraz podstawowe definicje związane z projektem aplikacji.
+Na stronie głównej znajduje się opis aplikacji wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych oraz podstawowe definicje związane z aplikacją. Cała aplikacji udostępnia trzy główne funkcjonalności: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz interfejs programistyczny aplikacji. Wszystkie funkcjonalności zostały opisane poniżej
 
 \subsection{Identyfikacja inteligentnych kontraktów}
 Pierwsza opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Identyfikacje kontraktu można rozpocząć będąc na stronie główniej lub na podstronie dedykowanej specjalnie identyfikacji kontraktów. Zarówno na stronie głównej, jak i na podstronie znajduje się pole w którym można wprowadzić kod bajtowy. Po wprowadzeniu danych użytkownik zatwierdza je w obu przypadkach klikając przycisk \textbf{Identify}. Natomiast, jeśli użytkownik chce udać się na podstronę, należy wybrać przycisk w menu o nazwie \textbf{Identify bytecode}, następnie użytkownik zostanie przekierowany na podstronę dedykowaną identyfikacji kontraktów. W przypadku wprowadzenia kodu bajtowego na stronie głównej zostaniemy również przekierowani na podstronę z taka różnica, ze pojawią się od razu wyniki identyfikacji kontraktu. Zarówno na stronie głównej, jak i podstronie dedykowanej identyfikacji, użytkownik jest zobowiązany wprowadzać kod bajtowy w szesnastkowym systemie liczbowym, w innym wypadku identyfikacja nie przejdzie prawidłowo.
@@ -252,7 +253,13 @@ Podczas wprowadzania kodu istnieje możliwość wprowadzenia kodu z prefiksem \t
 
 Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem \textbf{Identify}, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje posortowane malejąco według współczynnika dopasowania. W rezultacie jak możemy zobaczyć na rysunku \ref{rys:wynik_identyfikacji} użytkownik otrzymuje listę dziesięciu najbardziej prawdopodobnych implementacji.
 
-Mimo że domyślnie jest wyświetlanych tylko dziesięć najbardziej prawdopodobnych implementacji, istnieje też możliwość pobrania wszystkich wyników identyfikacji kontraktu używając przycisku \textbf{Get all}. Jak widać na rysunku \ref{rys:wynik_identyfikacji}, przycisk \textbf{Get all} znajduje się pod pierwszą dziesiątka wyników. Po naciśnięciu przycisku strona zostanie załadowana ponownie wraz z pełną lista identyfikatorów plików i ich współczynnikami dopasowania.
+\begin{figure}[bp!]\centering 	
+\includegraphics[scale=0.55]{wynik_identyfikacji.png}
+\caption{Wynik identyfikacji inteligentnego kontraktu}
+\label{rys:wynik_identyfikacji}
+\end{figure}
+
+Mimo że domyślnie jest wyświetlanych tylko dziesięć najbardziej prawdopodobnych implementacji, istnieje też możliwość pobrania wszystkich wyników identyfikacji kontraktu używając przycisku \textbf{Get all}. Jak widać na rysunku \ref{rys:wynik_identyfikacji}, przycisk \textbf{Get all} znajduje się pod pierwszą dziesiątka wyników. Po naciśnięciu przycisku strona zostanie załadowana ponownie wraz z pełną listą haszy plików i ich współczynnikami dopasowania.
 
 
 Po naciśnięciu w jedną z wyświetlanych implementacji, użytkownikowi pojawi się w nowej karcie przeglądarki podstrona umożliwiająca podgląd implementacji.
@@ -261,20 +268,15 @@ Po naciśnięciu w jedną z wyświetlanych implementacji, użytkownikowi pojawi 
 Jak widać na rysunku \ref{rys:podglad_impelementacji} kod źródłowy kontraktu jest wyświetlany ze specjalnie przygotowanym dla języka Solidity podświetleniem składni przygotowanym, natomiast po lewej stronie można zobaczyć przygotowaną numeracje wierszy, która ma za zadanie ułatwić nawigację po kodzie źródłowym na stronie internetowej. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony, nie były kopiowane z nim liczby identyfikujące konkretną linie w kodzie.
 
 
-\begin{figure}[bp!]\centering 	
-\includegraphics[scale=0.3]{wynik_identyfikacji.png}
-\caption{Wynik identyfikacji inteligentnego kontraktu}
-\label{rys:wynik_identyfikacji}
-\end{figure}
 
 \begin{figure}[bp!]\centering 	
-\includegraphics[scale=0.3]{podglad_impelementacji.png}
+\includegraphics[scale=0.6]{podglad_impelementacji.png}
 \caption{Podgląd implementacji}
 \label{rys:podglad_impelementacji}
 \end{figure}
 
 \subsection{Dodanie kodu źródłowego kontraktu do aplikacji}
-Kolejna funkcjonalnością dostępną dla użytkownika jest możliwość dodania własnego kodu źródłowego kontraktu napisanego w języku Solidity. Opcja ta umożliwia użytkownikowi uzupełnienie aktualnej bazy danych o kolejne kody źródłowe inteligentnych kontraktów. W rezultacie zgromadzenia dużej ilości implementacji w bazie danych, wszyscy pozostali użytkownicy maja większą szansę na precyzyjną identyfikacje kontraktu. W celu wykorzystania tej funkcjonalności użytkownik musi zdobyć autoryzowany dostęp poprzez zalogowanie się i uwierzytelnienie za pomocą panelu logowania. Zakładając, że osoba korzystająca z tej części aplikacji posiada odpowiednie uprawnienia to po naciśnięciu przycisku \textbf{Upload solidity}, zostanie przekierowana na podstronę, na której ma możliwość wprowadzenia kodu źródłowego. Zostały utworzone dwie możliwości wprowadzania kodów źródłowych, które opiszę poniżej. 
+Kolejna funkcjonalnością dostępną dla użytkownika jest możliwość dodania własnego kodu źródłowego kontraktu napisanego w języku Solidity. Opcja ta umożliwia użytkownikowi uzupełnienie aktualnej bazy danych o kolejne kody źródłowe inteligentnych kontraktów. W rezultacie zgromadzenia dużej ilości implementacji w bazie danych, wszyscy pozostali użytkownicy maja większą szansę na precyzyjną identyfikacje kontraktu. W celu wykorzystania tej funkcjonalności użytkownik musi zalogować się za pomocą panelu logowania. Zakładając, że osoba korzystająca z tej części aplikacji posiada już odpowiednie uprawnienia to po naciśnięciu przycisku \textbf{Upload solidity}, zostanie przekierowana na podstronę, na której ma możliwość wprowadzenia kodu źródłowego. Zostały utworzone dwie możliwości wprowadzania kodów źródłowych, które opiszę poniżej. 
 
 
 Pierwszą sposobem jest przesłanie do aplikacji pliku zawierającego implementacje kontraktu napisana w języku Solidity. W tym przypadku użytkownik powinien kliknąć przycisk \textbf{Browse}, który umożliwi mu wybranie za pomocą przeglądarki internetowej konkretnego pliku znajdującego się na dysku lokalnym, a następnie zatwierdzić go przyciskiem \textbf{Upload} znajdującym się obok wcześniej wspomnianego przycisku. 
@@ -282,6 +284,18 @@ Pierwszą sposobem jest przesłanie do aplikacji pliku zawierającego implementa
 
 Innym sposobem na przesłanie kodu źródłowego do aplikacji jest wklejenie kodu źródłowego bezpośrednio do formularza znajdującego się po prawej części strony internetowej. Ta opcja została utworzona w celu zapewnienia użytkownikowi większej elastyczności i komfortu w korzystaniu z aplikacji. Przykładowo podczas korzystania z aplikacji, użytkownik może bezpośrednio skopiować kod źródłowy, który jest w dowolnym innym źródle tekstowym np. innej stronie internetowej i wkleić go bezpośrednio do aplikacji bez konieczności tworzenia pliku tymczasowego.
 
+
+Po prawidłowym dodaniu kodu źródłowego do aplikacji, użytkownik powinien zobaczyć podobny rezultat do tego na rysunku \ref{rys:ekran_pozuploadowaniu}. W momencie dodania nowej implementacji, na stronie pojawia się hasz dodanego pliku oraz lista sygnatur funkcji wraz z ich selektorami. 
+
+Użytkownik ma możliwość przeglądania kodu źródłowego, który wysłał na serwer. W tym celu należy nacisnąć na hasz pliku wyświetlany poniżej formularza dodawania,  następnie użytkownik zostanie przeniesiony na stronę na której może zobaczyć dodany przez siebie kod źródłowy z numeracją linii oraz podświetleniem składni.
+
+Na dolnej części rysunku \ref{rys:ekran_pozuploadowaniu} znajduje się tabela z funkcjami wyszukanymi w implementacji. W kolumnie \textbf{Signature} znajdują się wszystkie sygnatury funkcji, natomiast w kolumnie \textbf{Selector} odpowiadajace im selektory funkcji.
+
+\begin{figure}[bp!]\centering 	
+\includegraphics[scale=0.6]{ekran_pozuploadowaniu.png}
+\caption{Rezultat przesłania inteligentnego kontraktu do aplikacji}
+\label{rys:ekran_pozuploadowaniu}
+\end{figure}
 
 
 \subsection{Interfejs programistyczny aplikacji}
@@ -349,17 +363,23 @@ W rezultacie zapytania, użytkownik otrzyma status HTTP 200, listę składająca
 W aplikacji istnieje możliwość przesłania kodu źródłowego w sposób programowy, wykorzystując API. W odróżnieniu od sposobu opisanego powyżej, teraz nie będą używane atrybuty z nazwami, tylko zostanie wysłane żądanie HTTP, którego ciałem będzie czysty tekst, czyli będzie wprowadzony tylko kod źródłowy bez wykorzystywania nazw atrybutów. 
 
 
-W celu wysłania takiego żądania najpierw użytkownik musi zostać uwierzytelniony, w innym przypadku próba dodania nowego kodu źródłowego do aplikacji ukończy się niepowodzeniem. Zakładając, że użytkownik został uwierzytelniony oraz bazując na przykładowym żądaniu HTTP z listingu \ref{lst:przykladowezadaniehttp}, należy wprowadzić poniżej nagłówka cały kod źródłowy kontraktu. Natomiast w nagłówku użytkownik musi ustawić metodę POST, wskazać ścieżkę na \mbox{/api/solidityFiles} oraz analogicznie do sekcji wyżej, ustawić wartość \mbox{\textit{Content-Length}} w zależności od długości przesyłanych danych. 
+W celu wysłania takiego żądania najpierw użytkownik musi zostać uwierzytelniony, w innym przypadku próba dodania nowego kodu źródłowego do aplikacji ukończy się niepowodzeniem. 
+
+Użytkownik w celu uwierzytelnienia musi wysłać metodą POST w żądaniu HTTP swój login i hasło na adres \textbf{/login}. W odpowiedzi otrzyma identyfikator sesji, który znajduje się pod zmienną \textbf{JSESSIONID}. Aby wykorzystać zasoby, które wymagają uwierzytelniania, należy dodać identyfikator sesji do nagłówka wykorzystując atrybut Cookie. Przykładowa linia nagłówka zawierająca informacje o sesji:
+\begin{verbatim}
+Cookie: JSESSIONID=50F52FEF5F831800C7E3BD080EF7B495
+\end{verbatim}
+Od tej pory, podczas korzystania z zasobów wymagających uwierzytelnienia należy wysyłać wszystkie żądania HTTP wraz z polem ciasteczka. 
 
 
-Należy pamiętać, że kod źródłowy musi być zaimplementowany w języku Solidity, w innym wypadku otrzymamy fałszywe informacje. 
+Posiadając identyfikator sesji oraz dane, które użytkownik chce przesłać, należy teraz zmodyfikować przykładowe żądanie HTTP z listingu \ref{lst:przykladowezadaniehttp}. Pierwszym krokiem jest ustawienie metody HTTP na POST. Następnie należy wskazać ścieżkę pod którą chcemy wykonać operacje, w tym przypadku \mbox{/api/solidityFiles}. Ostatnią rzeczą będzie wprowadzenie danych poniżej nagłówka oraz ustawienie długości przesyłanych danych w atrybucie \mbox{\textit{Content-Length}}
 
 
-Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera utrzymujemy status HTTP 200, który informuje osobę korzystającą z API, że wszystko poszło pomyślnie. Dodatkowo w informacji zwrotnej użytkownik otrzymuje przesłany przez niego kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych w nim funkcji wraz z akcesoriami generowanymi podczas kompilacji. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane zwracane przez API po prawidłowym dodaniu nowego kodu źródłowego.
+Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera użytkownik otrzymuje status HTTP 200, który informuje osobę korzystającą z API, że wszystko poszło pomyślnie. W dodatku w użytkownik otrzymuje przesłany przez niego kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych sygnatur funkcji. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane w formacie JSON, zwracane przez API po prawidłowym dodaniu nowego kodu źródłowego.
 
 \begin{center}
 \lstset{language=XML}
-\begin{lstlisting}[caption=Przykładowa odpowiedz w formacie JSON(w skróconej formie), label=lst:przykladodpowiedzijson]
+\begin{lstlisting}[caption=Przykładowa odpowiedz w formacie JSON, label=lst:przykladodpowiedzijson]
 {
     "sourceCodeHash": "0x80b739cbf3e89eeea1a96d9cfcf0567ddfef2af82eb14d2c5f97862f71e56265",
     "sourceCode": "pragma solidity ^0.4.25;\n\ncontract Hello {\n\n\tstring public message;\n\t\n\tconstructor(string initialMessage) public {\n\t\tmessage = initialMessage;\n\t}\n\t\n\tfunction setMessage(string newMessage) public {\n\t\tmessage = newMessage;\n\t}\n\n}",
@@ -377,21 +397,164 @@ Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera utrzymujemy status 
 \end{lstlisting}
 \end{center}
 
-Pod atrybutem \textbf{sourceCodeHash} została umieszczona wartość hasza pliku źródłowego, natomiast pod atrybutem \textbf{sourceCode} znajduje sie przeslana przez uzytkownika implementacja w języku Solidity. Kolejnym elementem otrzymanej odpowiedzi w formacie JSON jest \textbf{solidityFunction}, pod tą nazwa znajduje się lista funkcji znalezionych w przesłanym kodzie zawierająca selektor oraz sygnaturę poszczególnych funkcji.
+Pod atrybutem \textbf{sourceCodeHash} została umieszczona wartość hasza pliku źródłowego, natomiast pod atrybutem \textbf{sourceCode} znajduje się przesłana przez użytkownika implementacja w języku Solidity. Następnym elementem odpowiedzi jest \textbf{solidityFunction}, pod tą nazwa znajduje się lista funkcji znalezionych na podstawie przesłanej implementacji.
 
-\section{Architektura}
+\section{Przedstawienie architektury}
+
+W tym podrozdziale omówię architekturę aplikacji wykorzystywaną do zaimplementowania opisanych w sekcji 3.1 funkcjonalności. Pokaże z jakich komponentów składa się aplikacja oraz opisze zależności miedzy nimi.
+
+
+
+Na rysunku \ref{rys:architektura} została przedstawiona architektura całej aplikacji w której skład wchodzi sześc komponentów.
+
+
+\subsection{Połączenie z bazą danych}
+Baza danych - jest to czesc aplikacji odpowiedzialna za obsluge bazy danych. W przypadku tej aplikacji komponent tez zostal zrealizowany za pomoca frameworka Spring Boot oraz projektu Spring Data MongoDB umozliwaiajacego integracje z baza danych MongoDB. 
+
+Aplikacja jest zarzadzana za pomoca narzedzia Apache Maven ulatwiajacego budowanie projektu oraz zarzadzanie zaleznosciami. Konfiguracja narzedzia Maven dla projektu jest zapisywana w pliku \textbf{pom.xml}
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Przyklad dodania zależności w pliku pom.xml, label=lst:dodaniezaleznosci]
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
+        </dependency>
+\end{lstlisting}
+\end{center}
+
+Na listingu \ref{lst:dodaniezaleznosci} zostal przedstawiony fragment pliku \textbf{pom.xml} odpowiedzialny za dodanie modulu spring-boot-start-data-mongodb umozliwaiajacego integracje frameworka Spring Boot z baza danych MongoDB. Wszystkie pozostale zewnetrzne moduly zostaja dodawane w analogiczny sposob do aplikacji.
+
+Kolejnym krokiem w zapewnieniu polaczenia aplikacji z baza danych MongoDB jest skonfigurowanie pliku application.properties wykorzystywanego przez framework Spring Boot. Przykladowa zawartosc pliku application.properties zostala przedstawiona na listingu \ref{lst:applicationproperties}.
+ 
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Przyklad dodania zaleznosci w pliku pom.xml, label=lst:applicationproperties]
+spring.data.mongodb.uri=mongodb://${ADMIN_DB_LOGIN}:${ADMIN_DB_PASSWORD}@ds129904.mlab.com:29904/${DATABASE_NAME_CONTRACT}
+admin.login=${ADMIN_LOGIN}
+admin.password=${ADMIN_PASSWORD}
+\end{lstlisting}
+\end{center}
+
+W przypadku konfiguracji połączenia z bazą danych ważne jest podanie URI do bazy danych w atrybucie: \begin{verbatim}
+spring.data.mongodb.uri
+\end{verbatim}
+Spring umożliwia w pliku application.properties wykorzystanie zmiennych środowiskowych, w tym celu nalezy skorzystac ze skladni 
+\begin{verbatim}
+${NAZWA_PLIKU}
+\end{verbatim}
+Dzięki temu można zabezpieczyć aplikacje przed wyciekiem poufnych informacji, ponieważ wszystkie wrażliwe informacje są wyciągnięte poza kod źródłowy aplikacji. W tym przypadku na listingu \ref{lst:applicationproperties} widać ze dane logowania do bazy dan
+
+W celu wykorzystania bazy danych w kodzie Javy, nalezy utworzyc repozytoria ktora pozwola zapisywac obiekty bo bazy danych. Utworzone w aplikacji repozytorium mozna zobaczyc na listingu ponizej:
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Stworzenie repozytorium za pomoca Spring Data MongoDb, label=lst:repozytoriummongo]
+@Repository
+interface SolidityFileRepository extends MongoRepository<SolidityFile, String> {
+
+    @Query("{\"solidityFunctions\": {$elemMatch: {\"selector\": {$in: ?0}}}}")
+    List<SolidityFile> findSolidityFilesBySelectorContainsAll(List<String> functionSelector);
+
+    Optional<SolidityFile> findBySourceCodeHash(String sourceCodeHash);
+}
+\end{lstlisting}
+\end{center}
+
+W pierwszej lini znajduje sie @Repository, jest to adnotacja informujaca framework, ze interfejs ten jest abstrakcja repozytorium, ktore utworzy framework.
+
+Kolejna adnotacja jest @Query wewnatrz ktorej znajduje sie zapytanie do bazy danych MongoDB, pytajace o liste plikow, w ktorych znajduja sie przekazane przez uzytkownika selektory funkcji.
+
+Repozytorium to jest wykorzystywane do operacji z baza danych, wszystkie dane wyciagniete z bazy danych zostaja zapisywane w postaci obiektow zdefiniowanych w jezku Java. Aby to umozliwiec nalezalo utworzyc odpowiednie klasy do ktorych framework bedzie zapisywal informacje pobrane z bazy danych. Te same klasy sa tez wykorzystywane w momencie gdy chcemy zapisac cos do bazy danych. W tym przypadku do zapisu i odczytu jest wykorzystywana klasa SolidityFily, ktorej implementacje widac na listingu dsdddd.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Przyklad klasy wykorzystywanej przez Spring Data MongoDb, label=lst:przykladencji]
+public class SolidityFile {
+
+    @Id
+    private final String sourceCodeHash;
+    private final String sourceCode;
+    private final Set<SolidityFunction> solidityFunctions;
+
+    SolidityFile(String sourceCodeHash, String sourceCode, Set<SolidityFunction> solidityFunctions) {
+        requireNonNull(sourceCodeHash, "Expected not-null sourceCodeHash");
+        requireNonNull(sourceCode, "Expected not-null sourceCode");
+        requireNonNull(solidityFunctions, "Expected not-null solidityFunctions");
+        this.sourceCodeHash = sourceCodeHash;
+        this.sourceCode = sourceCode;
+        this.solidityFunctions = solidityFunctions;
+    }
+
+    public String getSourceCodeHash() { return sourceCodeHash; }
+
+    public String getSourceCode() { return sourceCode; }
+
+    public Set<SolidityFunction> getSolidityFunctions() { return solidityFunctions; }
+
+    @Override
+    public String toString() {
+        return "SolidityFile{" + "sourceCodeHash='" 
+                 + sourceCodeHash
+        	 + '\'' + ", sourceCode='" + sourceCode + '\'' 
+        	 + ", solidityFunctions=" + solidityFunctions + '}';
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof SolidityFile)) return false;
+        SolidityFile that = (SolidityFile) o;
+        return Objects.equals(sourceCodeHash, that.sourceCodeHash) &&
+                Objects.equals(sourceCode, that.sourceCode) &&
+                Objects.equals(solidityFunctions, that.solidityFunctions);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(sourceCodeHash, sourceCode, solidityFunctions);
+    }
+}
+\end{lstlisting}
+\end{center}
+
+Klasa ta sklada sie z atrybutow, z ktorych jeden atrybut powinien byc z adnotacja @Id ktora informuje Springa, ze jest to identyfikator klasy. Poza atrybutami znajduje sie konstruktor klasy ktory przypisuje parametron konstruktora, wartosci w atrybutach klasy. Dodatkowo konstruktor posiada metody upewniajace osoby korzystajaca z klasy ze nie zostana wprowadzone tam wartosci null.
+
+Kolejnym elementem tej klasy sa akcesory, nadpisana metoda toString na taka ktora bedzie przedstawiac stan obiektu oraz nadpisane metody equals oraz hashCode, które są wykorzystywane podczas porownywania lub korzystania z kolekcji zaimplementowanych w Javie.
+
+Klasa SolidityFile przechowuje liste obiektow klasy SolidityFunction. Klasa SolidityFunction zostala zaimplementowana w analogiczny sposob z taka roznica ze posiada ona dwa atrybuty oraz nie posiada adnotacji @Id. Adnotacja @Id nie jest w tym przypadku konieczna poniewaz ta klasa nie bedzie wykorzystywana jako niezalezny obiekt w bazie danych, tylko bedzie zawsze czescia jakiegos pliku, czyli czescia obiektu klasy SolidityFile.
+
+
+
+Bytecode Controller - jest to komponent odpowiedzialny ze obsluge żadan http wysylanych przez klienta do aplikajci. Kontroler ma za zadanie mapowanie adresu /bytecode obslugujac metody GET oraz POST. 
+
+W przypadku gdy uzytkownik wejdzie na wymieniony adres realizowana jest metoda GET, wtedy kontroler za pomoca frameworka Spring Boot oraz Spring Web MVC wysyla do klienta kod HTML. W rezultacie uzytkownik otrzymuje strone ktora nastepnie umozliwia przeslanie kodu bajtowego.
+
+    @GetMapping("/bytecode")
+    public String showPage(Model model) {
+        requireNonNull(model, "Expected not-null model");
+
+        model.addAttribute("implementationsWithValueOfMatch", new HashMap<>());
+        return "bytecode-page";
+    }
+    
+Po poprawnym wyrenderowaniu kodu html, uzytkownik ma do dyspozycji formularz w ktorym moze wprowadzic by
+
+\begin{figure}[bp!]\centering 	
+\includegraphics[scale=0.8]{architektura.png}
+\caption{Architektura aplikacji}
+\label{rys:architektura}
+\end{figure}
+
+\section{Wyszukiwanie sygnatur funkcji w kodzie źródłowym}
 
 Literatura: \cite{autor1, autor2}. TODO
 
-\subsection{Wyszukiwanie sygnatur funkcji w kodzie źródłowym}
+\section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
 Literatura: \cite{autor1, autor2}. TODO
 
-\subsection{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
-
-Literatura: \cite{autor1, autor2}. TODO
-
-\subsection{Szukanie implementacji na podstawie kodu bajtowego}
+\section{Dopasowywanie implementacji na podstawie kodu bajtowego}
 
 Literatura: \cite{autor1, autor2}. TODO
 
