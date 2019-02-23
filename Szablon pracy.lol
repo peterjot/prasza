@@ -1,6 +1,12 @@
-\contentsline {lstlisting}{\numberline {3.1}Przykladowe \IeC {\.z}\IeC {\k a}danie HTTP}{18}{lstlisting.3.1}% 
-\contentsline {lstlisting}{\numberline {3.2}Przyk\IeC {\l }adowa odpowiedz w formacie JSON}{21}{lstlisting.3.2}% 
-\contentsline {lstlisting}{\numberline {3.3}Przyklad dodania zale\IeC {\.z}no\IeC {\'s}ci w pliku pom.xml}{23}{lstlisting.3.3}% 
-\contentsline {lstlisting}{\numberline {3.4}Przyklad dodania zaleznosci w pliku pom.xml}{23}{lstlisting.3.4}% 
-\contentsline {lstlisting}{\numberline {3.5}Stworzenie repozytorium za pomoca Spring Data MongoDb}{24}{lstlisting.3.5}% 
-\contentsline {lstlisting}{\numberline {3.6}Przyklad klasy wykorzystywanej przez Spring Data MongoDb}{25}{lstlisting.3.6}% 
+\contentsline {lstlisting}{\numberline {3.1}\IeC {\.Z}\IeC {\k a}danie wysy\IeC {\l }ane w celu pobrania kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{18}{lstlisting.3.1}% 
+\contentsline {lstlisting}{\numberline {3.2}\IeC {\.Z}\IeC {\k a}danie wysylane w celu identyfikacji kontraktu za pomoc\IeC {\k a} API}{19}{lstlisting.3.2}% 
+\contentsline {lstlisting}{\numberline {3.3}Przesy\IeC {\l }anie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego za pomoc\IeC {\k a} API}{20}{lstlisting.3.3}% 
+\contentsline {lstlisting}{\numberline {3.4}Przyk\IeC {\l }adowa odpowiedz w formacie JSON}{21}{lstlisting.3.4}% 
+\contentsline {lstlisting}{\numberline {3.5}Przyklad dodania zale\IeC {\.z}no\IeC {\'s}ci w pliku pom.xml}{23}{lstlisting.3.5}% 
+\contentsline {lstlisting}{\numberline {3.6}Kofiguracja bazy danych}{24}{lstlisting.3.6}% 
+\contentsline {lstlisting}{\numberline {3.7}Stworzenie repozytorium za pomoc\IeC {\k a} Spring Data MongoDB}{24}{lstlisting.3.7}% 
+\contentsline {lstlisting}{\numberline {3.8}Przyklad klasy wykorzystywanej przez Spring Data MongoDb}{26}{lstlisting.3.8}% 
+\contentsline {lstlisting}{\numberline {3.9}Metoda kontrolera mapuj\IeC {\k a}ca \IeC {\.z}\IeC {\k a}dania POST}{29}{lstlisting.3.9}% 
+\contentsline {lstlisting}{\numberline {3.10}Przechwytywanie \IeC {\.z}\IeC {\k a}dania o dodanie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{31}{lstlisting.3.10}% 
+\contentsline {lstlisting}{\numberline {3.11}Metoda wyszukujaca sygnatury funkcji}{32}{lstlisting.3.11}% 
+\contentsline {lstlisting}{\numberline {3.12}Metoda odbieraj\IeC {\k a}ca \IeC {\.z}\IeC {\k a}danie o zapisanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego na serwerze}{33}{lstlisting.3.12}% 

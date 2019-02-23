@@ -248,9 +248,6 @@ Na stronie głównej znajduje się opis aplikacji wraz z aktualna liczba kodów 
 Pierwsza opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Identyfikacje kontraktu można rozpocząć będąc na stronie główniej lub na podstronie dedykowanej specjalnie identyfikacji kontraktów. Zarówno na stronie głównej, jak i na podstronie znajduje się pole w którym można wprowadzić kod bajtowy. Po wprowadzeniu danych użytkownik zatwierdza je w obu przypadkach klikając przycisk \textbf{Identify}. Natomiast, jeśli użytkownik chce udać się na podstronę, należy wybrać przycisk w menu o nazwie \textbf{Identify bytecode}, następnie użytkownik zostanie przekierowany na podstronę dedykowaną identyfikacji kontraktów. W przypadku wprowadzenia kodu bajtowego na stronie głównej zostaniemy również przekierowani na podstronę z taka różnica, ze pojawią się od razu wyniki identyfikacji kontraktu. Zarówno na stronie głównej, jak i podstronie dedykowanej identyfikacji, użytkownik jest zobowiązany wprowadzać kod bajtowy w szesnastkowym systemie liczbowym, w innym wypadku identyfikacja nie przejdzie prawidłowo.
 
 
-Podczas wprowadzania kodu istnieje możliwość wprowadzenia kodu z prefiksem \textbf{0x} lub bez tego prefixu. Jeśli użytkownik poda kod z prefiksem to aplikacja podczas przetwarzania tego kodu zignoruje ten prefiks. Takie rozwiązanie zostało zastosowane w celu zapewnienia użytkownikowi większej wygody oraz komfortu w korzystaniu z aplikacji. Użytkownik nie będzie musiał zastanawiać się czy kopiując kod bajtowy z dowolnego źródła, jest on z prefiksem czy nie, ponieważ obie opcje są wspierane.
-
-
 Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem \textbf{Identify}, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje posortowane malejąco według współczynnika dopasowania. W rezultacie jak możemy zobaczyć na rysunku \ref{rys:wynik_identyfikacji} użytkownik otrzymuje listę dziesięciu najbardziej prawdopodobnych implementacji.
 
 \begin{figure}[bp!]\centering 	
@@ -299,90 +296,94 @@ Na dolnej części rysunku \ref{rys:ekran_pozuploadowaniu} znajduje się tabela 
 
 
 \subsection{Interfejs programistyczny aplikacji}
-Trzecia funkcjonalnością aplikacji jest interfejs programistyczny. Umożliwia on tworzenie własnego oprogramowania oraz skryptów, bazując na utworzonej prze zemnie aplikacji, przez innych programistów. Dzięki temu można wykorzystać mechanizmy zaimplementowane w aplikacji w celu rozszerzenia ich w innej aplikacji lub w celu zautomatyzowania niektórych procesów bez wykorzystania GUI (ang. graphical user interface) aplikacji.
+Trzecia funkcjonalnością aplikacji jest interfejs programistyczny. Umożliwia on tworzenie przez innych użytkowników własnego oprogramowania bazując na istniejącej aplikacji. Dzięki temu można wykorzystać mechanizmy zaimplementowane w aplikacji w celu rozszerzenia ich w innej aplikacji lub w celu zautomatyzowania niektórych procesów bez wykorzystania GUI (ang. graphical user interface) aplikacji.
 
 
-W celu skorzystania z interfejsu programistycznego należy utworzyć żądanie HTTP. Za pomocą żądania HTTP użytkownik aplikacji ma możliwość dostarczenia na serwer nowego kodu źródłowego, pobrania kodu źródłowego na podstawie hasza kodu źródłowego znajdującego się na serwerze oraz identyfikacje kontraktu.
+W celu skorzystania z interfejsu programistycznego należy utworzyć żądanie HTTP. Za pomocą żądania użytkownik aplikacji ma możliwość dostarczenia na serwer nowego kodu źródłowego, pobrania istniejącego kodu źródłowego z bazy danych aplikacji oraz identyfikację kontraktu. Zarówno zadania jak i odpowiedzi są charakterystyczne dla protokołu HTTP.
 
 
-Przykładowym zastosowaniem API (ang. Application programming interface) może być utworzenie skryptu umożliwiającego zautomatyzowanie wysyłania kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji. W tym przypadku użytkownik, który chce przesłać nowy plik do aplikacji musi najpierw przejść proces autoryzacji, natomiast pozostałe funkcje API nie wymagają uwierzytelniania użytkownika przez aplikacje.
+Przykładowym zastosowaniem API (ang. Application programming interface) jest utworzenie skryptu umożliwiającego zautomatyzowane wysyłanie kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji. W tym przypadku użytkownik, który chce przesłać nowy plik do aplikacji musi najpierw przejść proces autoryzacji, a następnie wykonać wybrane żądanie HTTP.
 
 
 \subsubsection{Pobieranie informacji o kodzie źródłowym z API}
-Jeśli użytkownik chce pobrać za pomocą API informacje o konkretnym kodzie źródłowym kontraktu, w tym celu powinien utworzyć żądanie HTTP. W przypadku tej funkcjonalności nie jest wymagane uwierzytelnienie użytkownika. 
 
-Na listingu \ref{lst:przykladowezadaniehttp} można zaobserwować przykładowe żądanie HTTP, które jest wykorzystane w celu pobrania informacji o konkretnym kodzie źródłowym.
-Użytkownik podczas korzystania z API powinien zwrócić szczególna uwagę na wykorzystywaną metodę w nagłówku HTTP, ponieważ interfejs aplikacji wspiera tylko wybrane metody. Na listingu \ref{lst:przykladowezadaniehttp} widać, że używaną metodą jest \textbf{GET}, która jest jedną z kilku dostępnych metod w standardzie \textit{HTTP/1.1}, istnieją też między innymi metody: \textit{POST}, \textit{HEAD}, \textit{PUT} czy \textit{DELETE}. Metody HTTP zostały opisane szczegółowo w sekcji 9.2 dokumentu RFC2616 \cite{rfc2616}.
-
-
-Zaraz za metoda GET, można zobaczyć listingu \ref{lst:przykladowezadaniehttp}, znajduje się adres pod którym zostanie wysyłane żądanie. Na końcu adresu po znaku zapytania podane zostały atrybuty o nazwie \textit{fileHash} ze wskazaną wartością hasza pliku. Odpowiedzią na tak przygotowane zapytanie będzie w tym przypadku zwykły tekst implementację kontraktu oraz status HTTP 200, mówiący użytkownikowi, że wszystko poszło dobrze. W sytuacji gdy, użytkownik otrzyma status HTTP 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu.
+Aplikacja umożliwia pobranie kodu źródłowego wykorzystując interfejs programistyczny. Użytkownik API musi posiadać hasz pliku, który jest umieszczany w adresie żądania HTTP. Hasz pliku może otrzymać w odpowiedzi na identyfikacje kodu bajtowego lub po przesłaniu nowej implementacji na serwer. Przykładowe żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji gdy, użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierajaca status 500 oznacza ze wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego.
 
 \begin{center}
 \lstset{language=XML}
-\begin{lstlisting}[caption=Przykladowe żądanie HTTP, label=lst:przykladowezadaniehttp]
-GET /api/solidityFiles/sourceCode?fileHash=0x06c61b8e505d7a407af9a91bdff8085560e90a133c77ab32bde32e686f6a8d52 HTTP/1.1
-Host: contractmy.herokuapp.com
-Connection: keep-alive
-Cache-Control: max-age=0
-Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.96 Safari/537.36
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
-Accept-Encoding: gzip, deflate, br
-Accept-Language: pl-PL,pl;q=0.9,en-US;q=0.8,en;q=0.7
+\begin{lstlisting}[caption=Żądanie wysyłane w celu pobrania kodu źródłowego, label=lst:zadanieokodzrodlowy]
+GET /api/sourceCode/0x06c61b8e505d7a407af9a91bdff8085560e90a133c77ab32bde32e686f6a8d52.sol HTTP/1.1
+Host: localhost:8080
+Accept: text/plain;charset=UTF-8
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.109 Safari/537.36
 \end{lstlisting}
 \end{center}
 
 
+
 \subsubsection{Identyfikacja inteligentnego kontraktu za pomocą API}
-Podczas identyfikacji inteligentnego kontraktu, za pomocą interfejsu programistycznego, żądanie pokazane na listingu \ref{lst:przykladowezadaniehttp} musimy nieco zmodyfikować. Podczas identyfikacji wykorzystywana jest metoda POST. W nagłówku HTTP należy więc wprowadzić tą metodę zamiast GET, a następie zmienić ścieżkę na \textit{/api/bytecode}. Pod podana ścieżką zostanie wysłane żądanie HTTP. W przypadku metody POST opisanej w sekcji 9.5 dokumentu \mbox{RFC2616} \cite{rfc2616} podajemy poniżej nagłówka zawartość, która będzie przesłana do serwera. W odróżnieniu od wykorzystanej poprzednio metody GET, tutaj atrybuty powinny zostać podane poniżej nagłówka, zamiast w adresie.
+
+W celu identyfikacji kontraktu należy wyslać żadanie pod adres \mbox{/api/bytecode}. W ciele żądanie jest wymagane od użytkownika podanie dwóch atrybutów o nazwach: \textbf{bytecode} oraz \textbf{allFiles}. Wartości są zakodowane poprzez przypisanie do nazwy atrybutu wartość oraz połączenie wszystkich atrybutów za pomocą ampersandu. Poprawny przykład żądania można zobaczyć na listingu \ref{lst:identyfikacjaapi}.
 
 
-API pod adresem \mbox{/api/bytecode} wymaga od użytkownika dwóch atrybutów o nazwach: bytecode oraz allFiles.
-Poniżej nagłówka HTTP w żądaniu należy wprowadzić odpowiednio zakodowane atrybuty. W celu zakodowania listy atrybutów, każdy atrybut zapisuje się w postaci:
-\begin{verbatim}
-NAZWA_ATRYBUTU=WARTOSC_ATRYBUTU
-\end{verbatim}
-łącząc je wszystkie ampersandem. Poprawnie zakodowana zawartość w żądaniu HTTP w tym przypadku powinna wyglądać następująco: 
-\begin{verbatim}
-bytecode=KOD_BAJTOWY&allFiles=WARTOSC_LOGICZNA. 
-\end{verbatim}
 
 
-W tym przypadku wartość \mbox{KOD\_BAJTOWY} użytkownik musi zamienić na swój kod bajtowy, który chce przeanalizować, a \mbox{WARTOSC\_LOGICZNA} należy zamienić na napis \textit{true} lub \textit{false}, w zależności od tego, czy chcemy w rezultacie otrzymać wszystkie dopasowania implementacji, czy chcemy otrzymać tylko pierwszą dziesiątkę najbardziej pasujących. Dodatkowo w nagłówku należy wprowadzić parametr \textbf{Content-Length}, którego wartością powinna być długość wysyłanych danych. Przykładowo dla zawartości:
-\begin{verbatim}
-bytecode=234a12b45&allFiles=true
-\end{verbatim}
-fragment nagłówka powinien wyglądać następująco:
-\begin{verbatim}
-Content-Length: 32
-\end{verbatim}
-W rezultacie zapytania, użytkownik otrzyma status HTTP 200, listę składająca się z haszu pliku oraz współczynnika dopasowania danego pliku w formacie JSON. W sytuacji, gdy dla konkretnego kodu bajtowego nie udało się dopasować żadnej implementacji, zwrócony zostanie status HTTP 404 mówiący o tym, że nic nie udało się znaleźć.
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Żądanie wysylane w celu identyfikacji kontraktu za pomocą API, label=lst:identyfikacjaapi]
+POST /api/bytecode HTTP/1.1
+Host: localhost:8080
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 13
+
+bytecode=60803350200fe56abcede00229&allFiles=false
+
+\end{lstlisting}
+\end{center}
+
+Na listingu \ref{lst:identyfikacjaapi} do atrybutu \textbf{bytecode} został wprowadzony kod bajtowy kontraktu. Do zmiennej \textbf{allFiles} została wprowadzona wartość \textbf{false}, wiec w rezultacie zostanie zwrócone dziesięć najbardziej prawdopodobnych implementacji, natomiast jeśli użytkownik chce zobaczyć jak wyglądają pozostałe dopasowania należy ustawić tą zmienną na \textbf{true}. W żądaniu został wprowadzony nagłówek \textbf{Content-Length}, określający długość przesyłanych danych, natomiast \textbf{Content-Type} oznacza rodzaj przesyłanych danych. 
+
+
+Jeśli wszystko pójdzie pomyślnie użytkownik otrzyma status HTTP 200 oraz listę składająca się z haszu pliku oraz współczynnika dopasowania danego pliku w formacie JSON. W przypadku gdy nie zostanie dopasowana żadna implementacja to aplikacja zwróci status 404, natomiast jeśli w aplikacji wystąpi błąd to zostanie zwrócony status 500.
 
 
 \subsubsection{Przesyłanie nowego kodu źródłowego za pomocą API}
-W aplikacji istnieje możliwość przesłania kodu źródłowego w sposób programowy, wykorzystując API. W odróżnieniu od sposobu opisanego powyżej, teraz nie będą używane atrybuty z nazwami, tylko zostanie wysłane żądanie HTTP, którego ciałem będzie czysty tekst, czyli będzie wprowadzony tylko kod źródłowy bez wykorzystywania nazw atrybutów. 
+
+Gdy użytkownik chce przesłać nowy kontrakt do aplikacji, musi przejść proces uwierzytelniania. W tym celu nalezy do żądania dodać nagłówek \textbf{Authorization}. Składnia nagłówka wygląda następująco:
+\mbox{\textbf{Authorization: <type> <credentials>}}. W miejscu \textbf{type} należy podać Basic, a w miejscu \textbf{credentials} zakodowane za pomocą Base64 według schematu \textbf{login:haslo} dane do autoryzacji. Na przykładzie z listingu \ref{lst:dodaniedoapi} został przesłany kod źródłowy wykorzystując login: 123 oraz hasło: 123.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Przesyłanie kodu źródłowego za pomocą API, label=lst:dodaniedoapi]
+POST /api/solidityFiles HTTP/1.1
+Host: localhost:8080
+Content-Type: text/plain
+Accept: application/json
+Authorization: Basic MTIzOjEyMw==
+Content-Length: 221
+Accept: application/json
+
+pragma solidity ^0.4.21;
+contract Hello {
+    string public message;
+    function setMessage(string newMessage) public {
+        message = newMessage;
+    }
+}
+
+\end{lstlisting}
+\end{center}
 
 
-W celu wysłania takiego żądania najpierw użytkownik musi zostać uwierzytelniony, w innym przypadku próba dodania nowego kodu źródłowego do aplikacji ukończy się niepowodzeniem. 
 
-Użytkownik w celu uwierzytelnienia musi wysłać metodą POST w żądaniu HTTP swój login i hasło na adres \textbf{/login}. W odpowiedzi otrzyma identyfikator sesji, który znajduje się pod zmienną \textbf{JSESSIONID}. Aby wykorzystać zasoby, które wymagają uwierzytelniania, należy dodać identyfikator sesji do nagłówka wykorzystując atrybut Cookie. Przykładowa linia nagłówka zawierająca informacje o sesji:
-\begin{verbatim}
-Cookie: JSESSIONID=50F52FEF5F831800C7E3BD080EF7B495
-\end{verbatim}
-Od tej pory, podczas korzystania z zasobów wymagających uwierzytelnienia należy wysyłać wszystkie żądania HTTP wraz z polem ciasteczka. 
-
-
-Posiadając identyfikator sesji oraz dane, które użytkownik chce przesłać, należy teraz zmodyfikować przykładowe żądanie HTTP z listingu \ref{lst:przykladowezadaniehttp}. Pierwszym krokiem jest ustawienie metody HTTP na POST. Następnie należy wskazać ścieżkę pod którą chcemy wykonać operacje, w tym przypadku \mbox{/api/solidityFiles}. Ostatnią rzeczą będzie wprowadzenie danych poniżej nagłówka oraz ustawienie długości przesyłanych danych w atrybucie \mbox{\textit{Content-Length}}
-
-
-Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera użytkownik otrzymuje status HTTP 200, który informuje osobę korzystającą z API, że wszystko poszło pomyślnie. W dodatku w użytkownik otrzymuje przesłany przez niego kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych sygnatur funkcji. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane w formacie JSON, zwracane przez API po prawidłowym dodaniu nowego kodu źródłowego.
+Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera użytkownik powinien otrzymac status HTTP 200. Poza statusem, zostaje przesłany przez niego przesłany kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych sygnatur funkcji wraz z ich selektorami. W przypadku wystąpienia błędu na serwerze zostaje zwrócony status 500. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane zawarte w odpowiedzi od serwera.
 
 \begin{center}
 \lstset{language=XML}
 \begin{lstlisting}[caption=Przykładowa odpowiedz w formacie JSON, label=lst:przykladodpowiedzijson]
 {
-    "sourceCodeHash": "0x80b739cbf3e89eeea1a96d9cfcf0567ddfef2af82eb14d2c5f97862f71e56265",
-    "sourceCode": "pragma solidity ^0.4.25;\n\ncontract Hello {\n\n\tstring public message;\n\t\n\tconstructor(string initialMessage) public {\n\t\tmessage = initialMessage;\n\t}\n\t\n\tfunction setMessage(string newMessage) public {\n\t\tmessage = newMessage;\n\t}\n\n}",
+    "sourceCodeHash": "0x8dea780e1286d12a957d40597b9171a5187f87f6e3f8303505bc53a4453ad5b6",
+    "sourceCode": "pragma solidity ^0.4.21;\r\ncontract Hello {\r\n    string public message;\r\n    function setMessage(string newMessage) public {\r\n        message = newMessage;\r\n    }\r\n}",
     "solidityFunctions": [
         {
             "selector": "e21f37ce",
@@ -397,21 +398,39 @@ Po pomyślnym przesłaniu kontraktu, w odpowiedzi od serwera użytkownik otrzymu
 \end{lstlisting}
 \end{center}
 
-Pod atrybutem \textbf{sourceCodeHash} została umieszczona wartość hasza pliku źródłowego, natomiast pod atrybutem \textbf{sourceCode} znajduje się przesłana przez użytkownika implementacja w języku Solidity. Następnym elementem odpowiedzi jest \textbf{solidityFunction}, pod tą nazwa znajduje się lista funkcji znalezionych na podstawie przesłanej implementacji.
 
 \section{Przedstawienie architektury}
 
-W tym podrozdziale omówię architekturę aplikacji wykorzystywaną do zaimplementowania opisanych w sekcji 3.1 funkcjonalności. Pokaże z jakich komponentów składa się aplikacja oraz opisze zależności miedzy nimi.
+W tym podrozdziale omówię architekturę aplikacji która realizuje opisane w sekcji 3.1 funkcjonalności. Na wstępie pokrótce opisze elementy systemu, a te bardziej złożone w swoim działaniu opiszę w podrozdziałach.
+
+
+Jak widać na rysunku \ref{rys:architektura} pierwsza warstwa aplikacji składa się z kontrolerów, które obsługują połączenie, miedzy serwerem, a przeglądarką internetowa. Celem kontrolerów jest obsługa żądań HTTP i wywoływanie określonych akcji na pozostałej części systemu oraz wyświetlanie użytkownikowi wyników w postaci kodu HTML. Do tworzenia strony internetowej został wykorzystany moduł Spring Thymeleaf oraz Bootstrap 
+
+\begin{figure}[bp!]\centering 	
+\includegraphics[scale=0.8]{architektura.png}
+\caption{Architektura aplikacji}
+\label{rys:architektura}
+\end{figure}
+
+\textbf{Disassembler} - Jest to klasa odpowiedzialna analizę przekazanego kodu bajtowego. W rezultacie zwraca listę instrukcji zawartych w kodzie. Szczegółowe działanie tej klasy zostało opisane w dalszej części pracy, w sekcji 3.4 dotyczącej wyszukiwania selektorów funkcji w kodzie bajtowym. 
+
+
+\textbf{Solidity Parser} - Odpowiada wyciągniecie z kodu źródłowego listy funkcji składających się z sygnatury oraz selektora. Sposób tworzenie selektorów funkcji oraz wyciągania z kodu źródłowego sygnatur funkcji został przedstawiony w sekcji 3.5
+
+
+\textbf{Solidity Service} - jest to klasa odpowiedzialna za odczytywanie danych z bazy danych oraz za przygotowanie przesłanych danych przez użytkownika przed zapisem w bazie danych.
+
+
+\textbf{Bytecode Service} - odpowiada za dopasowywanie kodu bajtowego do kontraktu. W tym celu wykorzystuje opisane wyżej klasy Disassembler oraz Solidity, które w połączeniu umożliwiają wyznaczenie współczynnika dopasowania pomiędzy konkretnym plikiem, a kodem bajtowym. Sposób dopasowywania oraz wyznaczania współczynnika dopasowania został opisany w sekcji 3.5 która znajduje się w dalszej części pracy.
+
+\textbf{Database} - jest to cześć aplikacji odpowiedzialna za komunikację z bazą danych oraz mapowanie danych przechowywanych w bazie danych na obiekty Javowe. W tym fragmencie aplikacji interfejs role pośrednika miedzy serwisem, a realną bazą danych, pełni interfejs \mbox{SolidityFileRepository}, który wykorzystuje moduł \mbox{Spring Data MongoDB}. Rola implementacji tego interfejsu spoczywa na frameworku Spring. Sczegoly lączenia z bazą danych zostały opisane w sekcji 3.2.1
 
 
 
-Na rysunku \ref{rys:architektura} została przedstawiona architektura całej aplikacji w której skład wchodzi sześc komponentów. Pierwsza warstwa aplikacji, sa to kontrolery, ktore obsluguja ząadania HTTP, a następnie komunikują się z pozostałą częścią aplikacji. Aplikacja sklada sie z trzech kontrolerow, odpowiedzialnych obsluge kodu bajtowego, solidity oraz API aplikacji. Isteniją dodatkowo trze mniejsze kontrolery, pierwszy jest odpowiedzialny za wyświetlanie strony głównej, drugi za ekran logowania oraz ostatni za wyświetlanie strony błędu.
+\section{Połączenie z bazą danych}
+W celu integracji aplikacji z baza danych MongoDB został wykorzystany framework Spring oraz moduł Spring Data MongoDB. W związku z tym, że projekt aplikacji jest budowany za pomocż narzędzia Apache Maven, należy dodać do pliku \textbf{pom.xml} wykorzystywany moduł w projekcie. 
 
-
-\subsection{Połączenie z bazą danych}
-Baza danych - jest to czesc aplikacji odpowiedzialna za obsluge bazy danych. W przypadku tej aplikacji komponent tez zostal zrealizowany za pomoca frameworka Spring Boot oraz projektu Spring Data MongoDB umozliwaiajacego integracje z baza danych MongoDB. 
-
-Aplikacja jest zarzadzana za pomoca narzedzia Apache Maven ulatwiajacego budowanie projektu oraz zarzadzanie zaleznosciami. Konfiguracja narzedzia Maven dla projektu jest zapisywana w pliku \textbf{pom.xml}
+Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \textbf{pom.xml} odpowiedzialny za dodawanie modułu \mbox{\textbf{spring-boot-start-data-mongodb}} do projektu z wykorzystaniem Mavena. Dodawanie innych modułów jest analogiczne do przykładu z listingu.
 
 \begin{center}
 \lstset{language=XML}
@@ -423,33 +442,28 @@ Aplikacja jest zarzadzana za pomoca narzedzia Apache Maven ulatwiajacego budowan
 \end{lstlisting}
 \end{center}
 
-Na listingu \ref{lst:dodaniezaleznosci} zostal przedstawiony fragment pliku \textbf{pom.xml} odpowiedzialny za dodanie modulu spring-boot-start-data-mongodb umozliwaiajacego integracje frameworka Spring Boot z baza danych MongoDB. Wszystkie pozostale zewnetrzne moduly zostaja dodawane w analogiczny sposob do aplikacji.
-
-Kolejnym krokiem w zapewnieniu polaczenia aplikacji z baza danych MongoDB jest skonfigurowanie pliku application.properties wykorzystywanego przez framework Spring Boot. Przykladowa zawartosc pliku application.properties zostala przedstawiona na listingu \ref{lst:applicationproperties}.
+W pliku konfiguracyjnym \mbox{\textbf{application.properties}}, który jest wykorzystywany przez framework \mbox{Spring}, należy skonfigurować dane do połączenia z bazą danych. Przykładowa zawartość pliku konfiguracyjnego została przedstawiona na listingu \ref{lst:applicationproperties}.
  
 \begin{center}
 \lstset{language=XML}
-\begin{lstlisting}[caption=Przyklad dodania zaleznosci w pliku pom.xml, label=lst:applicationproperties]
+\begin{lstlisting}[caption=Kofiguracja bazy danych, label=lst:applicationproperties]
 spring.data.mongodb.uri=mongodb://${ADMIN_DB_LOGIN}:${ADMIN_DB_PASSWORD}@ds129904.mlab.com:29904/${DATABASE_NAME_CONTRACT}
 admin.login=${ADMIN_LOGIN}
 admin.password=${ADMIN_PASSWORD}
 \end{lstlisting}
 \end{center}
 
-W przypadku konfiguracji połączenia z bazą danych ważne jest podanie URI do bazy danych w atrybucie: \begin{verbatim}
-spring.data.mongodb.uri
-\end{verbatim}
-Spring umożliwia w pliku application.properties wykorzystanie zmiennych środowiskowych, w tym celu nalezy skorzystac ze skladni 
+Spring umożliwia wykorzystanie zmiennych środowiskowych w pliku konfiguracyjnym. Przykładem takiego zastosowania jest linia przedstawiona poniżej:
 \begin{verbatim}
-${NAZWA_PLIKU}
+admin.login=${ADMIN_LOGIN}
 \end{verbatim}
-Dzięki temu można zabezpieczyć aplikacje przed wyciekiem poufnych informacji, ponieważ wszystkie wrażliwe informacje są wyciągnięte poza kod źródłowy aplikacji. W tym przypadku na listingu \ref{lst:applicationproperties} widać ze dane logowania do bazy dan
+Dzięki temu można zabezpieczyć aplikacje przed wyciekiem wrażliwych danych takich jak loginy i hasła do bazy danych, podczas upubliczniania kodu źródłowego na przykład w repozytorium na GitHub.
 
-W celu wykorzystania bazy danych w kodzie Javy, nalezy utworzyc repozytoria ktora pozwola zapisywac obiekty bo bazy danych. Utworzone w aplikacji repozytorium mozna zobaczyc na listingu ponizej:
+Po skonfigurowaniu pliku \mbox{\textbf{pom.xml}} oraz \mbox{\textbf{application.properties}}, został utworzony interfejs \mbox{\textbf{SolidityFileRepository}}, który umożliwia serwisom aplikacji wykonywanie operacji na bazie danych oraz ustala mapowanie obiektów z bazy danych na obiekty klasy \mbox{\textbf{SolidityFile}}. Utworzone w aplikacji repozytorium można zobaczyć na listingu \ref{lst:repozytoriummongo}.
 
 \begin{center}
 \lstset{language=XML}
-\begin{lstlisting}[caption=Stworzenie repozytorium za pomoca Spring Data MongoDb, label=lst:repozytoriummongo]
+\begin{lstlisting}[caption=Stworzenie repozytorium za pomocą Spring Data MongoDB, label=lst:repozytoriummongo]
 @Repository
 interface SolidityFileRepository extends MongoRepository<SolidityFile, String> {
 
@@ -461,11 +475,13 @@ interface SolidityFileRepository extends MongoRepository<SolidityFile, String> {
 \end{lstlisting}
 \end{center}
 
-W pierwszej lini znajduje sie @Repository, jest to adnotacja informujaca framework, ze interfejs ten jest abstrakcja repozytorium, ktore utworzy framework.
+W pierwszej linii listingu \ref{lst:repozytoriummongo} znajduje się adnotacja \mbox{\textbf{@Repository}} pełniąca role stereotypu oraz informująca Springa, że ten interfejs jest wykorzystywany, w celu wykonywania operacji z bazą danych.
 
-Kolejna adnotacja jest @Query wewnatrz ktorej znajduje sie zapytanie do bazy danych MongoDB, pytajace o liste plikow, w ktorych znajduja sie przekazane przez uzytkownika selektory funkcji.
+Kolejna adnotacja jest \mbox{\textbf{@Query}}. Jej parametrem jest wykorzystywane zapytanie do bazy danych MongoDB, pytające o listę plików, w których znajdują się przekazane przez użytkownika selektory funkcji. W ten sposób można przypisać konkretnej metodzie z \mbox{\textbf{SolidityFileRepository}}, konkretne zapytanie, które ma wykonać.
 
-Repozytorium to jest wykorzystywane do operacji z baza danych, wszystkie dane wyciagniete z bazy danych zostaja zapisywane w postaci obiektow zdefiniowanych w jezku Java. Aby to umozliwiec nalezalo utworzyc odpowiednie klasy do ktorych framework bedzie zapisywal informacje pobrane z bazy danych. Te same klasy sa tez wykorzystywane w momencie gdy chcemy zapisac cos do bazy danych. W tym przypadku do zapisu i odczytu jest wykorzystywana klasa SolidityFily, ktorej implementacje widac na listingu dsdddd.
+Jeśli metoda w interfejsie nie posiada wspomnianej adnotacji, wtedy framework wygeneruje zapytanie do bazy danych, bazując na nazwie metody oraz przyjmowanych i zwracanych danych przez metodę.
+
+W celu wykorzystania tego interfejsu konieczne było utworzenie klasy reprezentującej encję bazodanowa w aplikacji. Na listingu \ref{lst:przykladencji} została przedstawiona taka klasa \mbox{\textbf{SolidityFile}}. Składa się ona z trzech atrybutów, z haszu kodu źródłowego, kodu źródłowego, oraz listy funkcji znalezionych w tym kodzie źródłowym. Atrybut sourceCodeHash został utworzony ze względu na brak możliwości zapewnienia unikalności samego kodu źródłowego, którego rozmiar jest zbyt duży by przetwarzać w bazie danych. Tworzeniem haszu zajmuje się klasa \mbox{\textbf{SolidityService}} będąca na rysunku \ref{rys:architektura} w wyższej warstwie. Dodatkowo poza zapewnieniem unikalności, hasz jest identyfikatorem kodu źródłowego w bazie danych, w związku z tym posiada on adnotacje \mbox{\textbf{@Id}}, która informuje że atrybut ten jest identyfikatorem w bazie danych. W związku z tym ze hasz jest identyfikatorem, jest on też unikalny, a unikalny hasz daje unikalny kod źródłowy. Jeśli wartość pod adnotacja nie została wcześniej przypisana to moduł \mbox{\textbf{Spring Data MongoDB}} automatycznie wygeneruje identyfikator dla nowego obiektu i przypisze go do wskazanego przez adnotacje atrybutu.
 
 \begin{center}
 \lstset{language=XML}
@@ -487,9 +503,7 @@ public class SolidityFile {
     }
 
     public String getSourceCodeHash() { return sourceCodeHash; }
-
     public String getSourceCode() { return sourceCode; }
-
     public Set<SolidityFunction> getSolidityFunctions() { return solidityFunctions; }
 
     @Override
@@ -497,8 +511,7 @@ public class SolidityFile {
         return "SolidityFile{" + "sourceCodeHash='" 
                  + sourceCodeHash
         	 + '\'' + ", sourceCode='" + sourceCode + '\'' 
-        	 + ", solidityFunctions=" + solidityFunctions + '}';
-    }
+        	 + ", solidityFunctions=" + solidityFunctions + '}';}
 
     @Override
     public boolean equals(Object o) {
@@ -507,48 +520,157 @@ public class SolidityFile {
         SolidityFile that = (SolidityFile) o;
         return Objects.equals(sourceCodeHash, that.sourceCodeHash) &&
                 Objects.equals(sourceCode, that.sourceCode) &&
-                Objects.equals(solidityFunctions, that.solidityFunctions);
-    }
+                Objects.equals(solidityFunctions, that.solidityFunctions);}
 
     @Override
     public int hashCode() {
-        return Objects.hash(sourceCodeHash, sourceCode, solidityFunctions);
-    }
+        return Objects.hash(sourceCodeHash, sourceCode, solidityFunctions);}
 }
 \end{lstlisting}
 \end{center}
 
-Klasa ta sklada sie z atrybutow, z ktorych jeden atrybut powinien byc z adnotacja @Id ktora informuje Springa, ze jest to identyfikator klasy. Poza atrybutami znajduje sie konstruktor klasy ktory przypisuje parametron konstruktora, wartosci w atrybutach klasy. Dodatkowo konstruktor posiada metody upewniajace osoby korzystajaca z klasy ze nie zostana wprowadzone tam wartosci null.
+Klasa ta została stworzona tak, aby uniknąć niechcianych modyfikacji pól obiektów tej klasy przez aplikację. Pola zostały ustawione na \textbf{final}, a wartości obiektu można przypisać tylko podczas jego inicjalizacji. W związku z tym, że plik solidity zawsze ma hasz, kod źródłowy oraz listę funkcji w momencie zapisywania do bazy danych, zostały w konstruktorze wykorzystane metody sprawdzające, czy przypadkiem użytkownik nie wprowadził wartości \textbf{null}. Jeśli zostanie wprowadzona w konstruktorze taka wartość, wtedy aplikacja zgłasza wyjątek i informuje, że dzieje się coś niedobrego. Dzięki temu aplikacja została zabezpieczona przed niechcianym i niekontrolowanym przekazywaniem \textbf{null}i w inne części systemu.
 
-Kolejnym elementem tej klasy sa akcesory, nadpisana metoda toString na taka ktora bedzie przedstawiac stan obiektu oraz nadpisane metody equals oraz hashCode, które są wykorzystywane podczas porownywania lub korzystania z kolekcji zaimplementowanych w Javie.
+Kolejnym elementem tej klasy są akcesory, nadpisana metoda \textbf{toString} w taki sposób, który będzie zrozumiale przedstawiać stan obiektu oraz nadpisane metody \textbf{equals} i \textbf{hashCode}, które są wykorzystywane przez kolekcje, wykorzystywane w Javie, oraz inne klasy z nimi związane.
 
-Klasa SolidityFile przechowuje liste obiektow klasy SolidityFunction. Klasa SolidityFunction zostala zaimplementowana w analogiczny sposob z taka roznica ze posiada ona dwa atrybuty oraz nie posiada adnotacji @Id. Adnotacja @Id nie jest w tym przypadku konieczna poniewaz ta klasa nie bedzie wykorzystywana jako niezalezny obiekt w bazie danych, tylko bedzie zawsze czescia jakiegos pliku, czyli czescia obiektu klasy SolidityFile.
+Ponieważ klasa \textbf{SolidityFunction} jest wykorzystywana w klasie \textbf{SolidityFile}, została ona zaimplementowana w analogiczny sposób z taką różnicą, że posiada ona atrybuty: \textbf{selector} oraz \textbf{signature} typu \textbf{String}. W dodatku w tej klasie nie została użyta adnotacja \mbox{\textbf{@Id}}, ponieważ nie jest ona używana jako niezależny obiekt w bazie danych, tylko jest zawsze częścią obiektu klasy \textbf{SolidityFile}.
 
 
+\section{Identyfikacja sygnatur funkcji w kodzie źródłowym}
 
-Bytecode Controller - jest to komponent odpowiedzialny ze obsluge żadan http wysylanych przez klienta do aplikajci. Kontroler ma za zadanie mapowanie adresu /bytecode obslugujac metody GET oraz POST. 
 
-W przypadku gdy uzytkownik wejdzie na wymieniony adres realizowana jest metoda GET, wtedy kontroler za pomoca frameworka Spring Boot oraz Spring Web MVC wysyla do klienta kod HTML. W rezultacie uzytkownik otrzymuje strone ktora nastepnie umozliwia przeslanie kodu bajtowego.
+Wyszukiwanie sygnatur funkcji jest rozpoczynane w momencie przesłania nowego kodu źródłowego przez uzytkownika do aplikacji. Podczas wyszukiwania sygnatur funkcji są też generowane selektory funkcji, które są wykorzystywane podczas identyfikacji kodu bajtowego, który również posiada w sobie selektory funkcji. Dzięki temu cała aplikacja jest w stanie dopasować kod bajtowy do konkretnej implementacji. Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna tzn. są one dodatkowo generowane przez kompilator \textbf{Ethereum Virtual Machine} dla publicznych atrybutów kontraktów. 
 
-    @GetMapping("/bytecode")
-    public String showPage(Model model) {
-        requireNonNull(model, "Expected not-null model");
 
-        model.addAttribute("implementationsWithValueOfMatch", new HashMap<>());
-        return "bytecode-page";
-    }
-    
-Po poprawnym wyrenderowaniu kodu html, uzytkownik ma do dyspozycji formularz w ktorym moze wprowadzic by
+W przypadku API wykorzystywana jest klasa \textbf{SolidityApiController}, którą widać na rysunku \ref{rys:szukanie_funkcji}. Zadaniem tej klasy jest nasłuchiwanie adresów związanych z API, zwracanie danych w formacie JSON lub zwykłego tekstu oraz komunikowanie się z obiektem klasy \textbf{SolidityService}. 
 
 \begin{figure}[bp!]\centering 	
-\includegraphics[scale=0.8]{architektura.png}
-\caption{Architektura aplikacji}
-\label{rys:architektura}
+\includegraphics[scale=0.9]{szukanie_funkcji.png}
+\caption{Schemat zależności miedzy klasami podczas identyfikacji sygnatur funkcji}
+\label{rys:szukanie_funkcji}
 \end{figure}
 
-\section{Wyszukiwanie sygnatur funkcji w kodzie źródłowym}
+Jeśli użytkownik korzysta ze zwykłej strony internetowej, wtedy przetwarzaniem żądań HTTP zajmuje się \textbf{SolidityController}. Klasa ta działa podobnie do poprzedniej, z taka różnica, że ten kontroler nasłuchuje inne adresy oraz zamiast zwracać dane w formacie JSON lub zwykłego tekstu, zajmuje się generowaniem kodu HTML, który jest wyświetlany u użytkownika.
 
-Literatura: \cite{autor1, autor2}. TODO
+
+\subsection{Kontroler interfejsu programistycznego}
+
+Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController}. Adnotacje, które wykorzystuje ta metoda są częścią modułu \textbf{Spring MVC}. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres pod którym aplikacja oczekuje żądania. 
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Metoda kontrolera mapująca żądania POST, label=lst:kontrolerapiupload]
+@PostMapping("/api/solidityFiles")
+public ResponseEntity<SolidityFile> uploadFile(@RequestBody String sourceCode) throws IOException {
+    requireNonNull(sourceCode, "Expected not-null sourceCode");
+    return ResponseEntity.ok(solidityService.save(sourceCode));
+}
+\end{lstlisting}
+\end{center}
+
+Kolejną wykorzystaną adnotacją jest \mbox{\textbf{@RequestBody}}. Adnotacja ta informuje framework, o tym żeby ciało żądania HTTP było umieszczona pod zmienną przy której jest adnotacja. 
+
+Ostatnia rzeczą, która pochodzi z modułu \textbf{Spring MVC} jest klasa \textbf{ResponseEntity}. Umożliwia ona zwrócenie statusu HTTP z danymi zwracanymi przez metodę. Dzięki temu framework wie jaki status ma zwrócić użytkownikowi.
+
+Głównym celem tej metody jest zapisanie za pomocą serwisu nowego kodu źródłowego do aplikacji, w związku z tym na listingu \ref{lst:kontrolerapiupload} widać wywołanie metody \textbf{save} na atrybucie \mbox{\textbf{solidityService}}. Implementacja wywoływanej metody została opisana w dalszej części podrozdziału.
+
+Nad cała klasą \mbox{\textbf{SolidityApiController}} znajduje się adnotacja \textbf{@RestController}, ktora informuje Springa, że jest to kontroler wykorzystywany do tworzenia API Restowego. Dzięki tej adnotacji domyślnie kontroler będzie na przykład starał się zwrócić dane w formacie JSON.
+
+\subsection{Kontroler strony internetowej}
+
+\textbf{SolidityControler}, jest to kontroler odpowiedzialny za tworzenie strony internetowej  w postaci kodu HTML jest oznaczony adnotacja \textbf{@Controller}. Działa on podobnie jak wcześniej opisany kontroler. Główną różnica jest to ze w odpowiedzi zwraca kod HTML, który jest wyświetlany jako strona internetowa u użytkownika. Do generowania kodu HTML zostal wykorzystany moduł \textbf{Thymeleaf}. To w jaki sposób dodaje się nowe moduły do projektu zostało przedstawione na przykład na listingu \ref{lst:dodaniezaleznosci}
+
+Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadki API, tylko w tym przypadku za pomocą \textbf{return} zwracana jest nazwa pliku zawierającego szablon HTML. Spring widząc, ze zwrócono taką nazwę przeszukuje katalog \textbf{resources}, znajdujący się w projekcie, w celu odnalezienia pasującego szablonu HTML. Istnieje możliwość przekazania danych do szablonu. W tym celu wykorzystywany jest parametr model, na którym wywoływana jest metoda \textbf{addAttribute}. Dane które są przekazywane za pomocą metody \textbf{addAtribute} pochodzą z obiektu klasy \textbf{SolidityFile}.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Przechwytywanie żądania o dodanie nowego kodu źródłowego, label=lst:uploadowanie]
+@PostMapping("/solidity/text")
+public String handleSourceCodeUpload(@RequestParam("sourceCode") String sourceCode, Model model) throws Exception {
+    requireNonNull(sourceCode, "Expected not-null sourceCode");
+    requireNonNull(model, "Expected not-null model");
+
+    SolidityFile savedSolidityFile = solidityService.save(sourceCode);
+
+    model.addAttribute("solidityFileFunctions", savedSolidityFile.getSolidityFunctions());
+    model.addAttribute("solidityFileHash", savedSolidityFile.getSourceCodeHash());
+    return "solidity-page";
+}
+\end{lstlisting}
+\end{center}
+
+\subsection{Przetwarzanie kodu źródłowego}
+
+Oba kontrolery korzystają z obiektu klasy \textbf{SolidityService}. Jak widać na rysunku \ref{rys:szukanie_funkcji}, klasa ta wykorzystuje: \textbf{SolidityParser} oraz opisaną już wcześniej, w sekcji 3.3, klasę \textbf{SolidityFileRepository}. 
+
+Serwis po otrzymaniu kodu źródłowego od kontrolerów, przekazuje po jednej linii do parsera, który definiuje czy w danej linii jest sygnatura funkcji. Następnie jeśli znaleziono sygnaturę to zostaje ona zwracana wraz z jej selektorem. Po sparsowaniu w serwisie wszystkich linii kodu źródłowego, jest do bazy danych zapisywany obiekt klasy \textbf{SolidityFile}, który składa się z hasza, kod źródłowego oraz listy funkcji znajdujących się w kodzie źródłowym kontraktu.
+
+Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} można zaobserwować główną metodę wyszukującą funkcję. Metoda przyjmuje pojedyncza linie kodu źródłowego, a zwraca w rezultacie obiekt klasy generycznej \textbf{Optional<SolidityFunction>}. Metoda ta sprawdza cztery możliwe przypadku kiedy powinna wykryć funkcje w kodzie źródłowym.
+
+W celu wykrywania błędów w wyrażeniach regularych lub metodach wyszukujących funkcji, sprawdzane jest czy w danej linii została wykryta tylko jedna funkcja. Jeśli okaże się, ze wykryto więcej niż jedna funkcje, oznacza to że któraś z tych metod fałszywie wykrywa. Co prawda obniża to wydajność aplikacji, ale w przypadku fałszywych wyników zastanie zwrócony wyjątek. Wszystkie cztery przypadki zostały opisane w dalszej części pracy.
+
+\textbf{Optional} jest to klasa, która zabezpieczenia przed przekazywaniem referencji na wartość \textbf{null}. Dzięki temu że wartość \textbf{null} nie będzie przekazywana dalej, łatwiej jest zlokalizować miejsce usterki, ponieważ podczas pobierania obiektu z klasy \textbf{Optional}, jeśli jest ona pusta, zostaje wyrzucony wyjątek \textbf{NoSuchElementException}. Klasa \textbf{Optional} została wprowadzona w ósmej wersji Javy \cite{java8doc}.
+
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Metoda wyszukujaca sygnatury funkcji, label=lst:wyszukiwaniesygnaturyfunkcji]
+    Optional<SolidityFunction> findFunctionInLine(String line) {
+        List<Optional<SolidityFunction>> functions =
+                Stream.of(
+                        findFunctionSignature(line),
+                        findMappingGetter(line),
+                        findArrayGetter(line),
+                        findNormalVariableGetter(line)
+                ).filter(Optional::isPresent).collect(toList());
+
+        if (functions.size() > 1) {
+            throw new IllegalStateException("Expected only one function, but found :" + functions.size());
+        } else if (functions.size() == 1) {
+            return functions.listIterator().next();
+        }
+        return Optional.empty();
+    }
+\end{lstlisting}
+\end{center}
+
+\subsubsection{Wykrywanie sygnatury zadeklarowanej funkcji}
+
+Pierwszym przypadkiem, są funkcje jawnie zadeklarowane w kodzie źródłowym nie posiadające modyfikatora \textbf{internal} lub \textbf{private}. W celu wykrycia takich funkcji wykorzystane zostało wyrażenie regularne zaprezentowane poniżej:
+\begin{verbatim}
+^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
+\end{verbatim}
+
+W wyrażeniu tym zostały wykorzystane dwie grupy. Pierwsza grupa wyciąga z linii kodu źródłowego nazwę funkcji, natomiast drugą sygnaturę funkcji. Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} widać metodę wyszukującą sygnaturę funkcji za pomocą przygotowanego wyrażenia regularnego.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Metoda odbierająca żądanie o zapisanie kodu źródłowego na serwerze, label=lst:wyszukiwaniesygnaturyfunkcjizfunkjci]
+    private Optional<SolidityFunction> findFunctionSignature(String line) {
+        Matcher matcher = FUNCTION_PATTERN.matcher(line);
+        if (matcher.find()) {
+            String functionName = matcher.group(FUNCTION_NAME_GROUP_ID);
+            String functionArguments = matcher.group(FUNCTION_ARGUMENTS_GROUP_ID);
+            String functionSignature = normalizeFunctionSignature(functionName, functionArguments);
+            String functionSelector = getFunctionSelector(functionSignature);
+            return Optional.of(new SolidityFunction(functionSelector, functionSignature));
+        }
+        return Optional.empty();
+    }
+\end{lstlisting}
+\end{center}
+
+\subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu mapa}
+
+TODO
+
+\subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}
+
+TODO
+
+\subsubsection{Wykrywanie sygnatury funkcji dla pozostałych publicznych atrybutów}
+    
+    TODO
 
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
@@ -579,6 +701,7 @@ Literatura: \cite{autor1, autor2}. TODO
 \addcontentsline{toc}{chapter}{Bibliografia}		% Dodanie do spisu treści.
 
 \bibitem{rfc2616} Network Working Group \url{https://www.ietf.org/rfc/rfc2616.txt}.
+\bibitem{java8doc} Oracle \url{https://docs.oracle.com/javase/8/docs/}.
 \bibitem{autor1} Bibliografia 2. \emph{Nazwa}. 
 
 \end{thebibliography}
