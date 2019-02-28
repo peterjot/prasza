@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  23 FEB 2019 20:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  26 FEB 2019 02:29
 entering extended mode
 **"./Szablon pracy.tex"
 ("Szablon pracy.tex"
@@ -693,32 +693,29 @@ Rozdzia\PlPrIeC {\l } 3.
 <wynik_identyfikacji.png, id=210, 778.40813pt x 629.35126pt>
 File: wynik_identyfikacji.png Graphic file (type png)
 <use wynik_identyfikacji.png>
-Package pdftex.def Info: wynik_identyfikacji.png  used on input line 254.
+Package pdftex.def Info: wynik_identyfikacji.png  used on input line 253.
 (pdftex.def)             Requested size: 428.1258pt x 346.14426pt.
 
-Overfull \hbox (15.56082pt too wide) in paragraph at lines 254--255
+Overfull \hbox (15.56082pt too wide) in paragraph at lines 253--254
  [][] 
  []
 
-[12] [13 <./wynik_identyfikacji.png>]
-<podglad_impelementacji.png, id=224, 648.17157pt x 558.58687pt>
+<podglad_impelementacji.png, id=212, 648.17157pt x 558.58687pt>
 File: podglad_impelementacji.png Graphic file (type png)
 <use podglad_impelementacji.png>
-Package pdftex.def Info: podglad_impelementacji.png  used on input line 270.
+Package pdftex.def Info: podglad_impelementacji.png  used on input line 265.
 (pdftex.def)             Requested size: 388.90594pt x 335.15471pt.
- [14] [15 <./podglad_impelementacji.png>]
-<ekran_pozuploadowaniu.png, id=236, 682.04813pt x 432.11438pt>
-File: ekran_pozuploadowaniu.png Graphic file (type png)
-<use ekran_pozuploadowaniu.png>
-Package pdftex.def Info: ekran_pozuploadowaniu.png  used on input line 292.
-(pdftex.def)             Requested size: 409.23204pt x 259.27061pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [16]
-Underfull \vbox (badness 3746) has occurred while \output is active []
-
- [17 <./ekran_pozuploadowaniu.png>]
+ [12]
+[13 <./wynik_identyfikacji.png>] [14 <./podglad_impelementacji.png>]
+<ekran_pozuploadowaniu.png, id=232, 682.04813pt x 432.11438pt>
+File: ekran_pozuploadowaniu.png Graphic file (type png)
+<use ekran_pozuploadowaniu.png>
+Package pdftex.def Info: ekran_pozuploadowaniu.png  used on input line 283.
+(pdftex.def)             Requested size: 409.23204pt x 259.27061pt.
+ [15]
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1
 .sty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
@@ -726,117 +723,140 @@ File: lstlang1.sty 2018/09/02 1.7 listings language file
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.
 sty"
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-)
+) [16 <./ekran_pozuploadowaniu.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 314.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 314.
+nput line 301.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 301.
 
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (8.71204pt too wide) in paragraph at lines 315--316
+Overfull \hbox (8.71204pt too wide) in paragraph at lines 302--303
 [][] 
  []
 
-[18]
-Overfull \hbox (25.43626pt too wide) in paragraph at lines 352--354
-\T1/cmr/m/n/12 Skªad-nia na-gªów-ka wy-gl¡-da na-st¦-pu-j¡-co: [].
+
+Overfull \hbox (0.37782pt too wide) in paragraph at lines 312--313
+[]\T1/cmr/m/n/12 W ce-lu iden-ty-fi-ka-cji kon-trak-tu na-le-»y wy-sªa¢ »¡-da-n
+ie pod ad-res [].
  []
 
-[19] [20]
-Overfull \hbox (30.9364pt too wide) in paragraph at lines 385--386
+[17] [18]
+Overfull \hbox (30.9364pt too wide) in paragraph at lines 370--371
 [][] 
  []
 
-<architektura.png, id=299, 502.87875pt x 251.94125pt>
+
+Underfull \vbox (badness 1248) has occurred while \output is active []
+
+ [19]
+<architektura.png, id=309, 593.21625pt x 261.97874pt>
 File: architektura.png Graphic file (type png)
 <use architektura.png>
-Package pdftex.def Info: architektura.png  used on input line 410.
-(pdftex.def)             Requested size: 402.30354pt x 201.55327pt.
-[21]
-Underfull \vbox (badness 3965) has occurred while \output is active []
+Package pdftex.def Info: architektura.png  used on input line 392.
+(pdftex.def)             Requested size: 415.24854pt x 183.38387pt.
 
- [22 <./architektura.png>] [23] [24] [25] [26] [27]
-<szukanie_funkcji.png, id=412, 322.20375pt x 251.94125pt>
+Overfull \hbox (2.68356pt too wide) in paragraph at lines 392--393
+ [][] 
+ []
+
+[20 <./architektura.png>] [21] [22] [23] [24]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [25]
+[26]
+<szukanie_funkcji.png, id=408, 322.20375pt x 251.94125pt>
 File: szukanie_funkcji.png Graphic file (type png)
 <use szukanie_funkcji.png>
-Package pdftex.def Info: szukanie_funkcji.png  used on input line 548.
+Package pdftex.def Info: szukanie_funkcji.png  used on input line 537.
 (pdftex.def)             Requested size: 289.98068pt x 226.74503pt.
- [28] [29 <./szukanie_funkcji.png>]
-[30] [31] [32]
-Overfull \hbox (155.39633pt too wide) in paragraph at lines 642--642
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [27 <./szukanie_funkcji.png>] [28] [29] [30]
+Overfull \hbox (155.39633pt too wide) in paragraph at lines 631--631
 []\T1/cmtt/m/n/12 ^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\
 )\s*(?!.*(internal|private)).*$[] 
  []
 
-[33]
-Overfull \hbox (3.48355pt too wide) in paragraph at lines 675--675
+[31]
+Overfull \hbox (3.48355pt too wide) in paragraph at lines 664--664
 []\T1/cmr/bx/n/17.28 Wyszukiwanie se-lek-to-rów funk-cji w ko-dzie baj-
  []
 
 
-LaTeX Warning: Citation `autor2' on page 34 undefined on input line 677.
+LaTeX Warning: Citation `autor2' on page 32 undefined on input line 666.
 
 
-LaTeX Warning: Citation `autor2' on page 34 undefined on input line 681.
+Underfull \vbox (badness 2119) has occurred while \output is active []
+
+ [32]
+
+LaTeX Warning: Citation `autor2' on page 33 undefined on input line 670.
 
 
-LaTeX Warning: Citation `autor2' on page 34 undefined on input line 685.
+LaTeX Warning: Citation `autor2' on page 33 undefined on input line 674.
 
-[34] [35] [36
 
-] [37
+Overfull \hbox (2.55pt too wide) has occurred while \output is active
+\T1/cmr/m/sl/12 3.5.  WYSZUKIWANIE SELEKTORÓW FUNKCJI W KODZIE BAJTOWYM \T1/cmr
+/m/n/12 33
+ []
 
-] [38
+[33] [34
+
+] [35
+
+] [36
 
 ] ("Szablon pracy.lot")
 \tf@lot=\write5
 \openout5 = `"Szablon pracy.lot"'.
 
- [39
+ [37
 
-] [40
+] [38
 
 ] ("Szablon pracy.lof")
 \tf@lof=\write6
 \openout6 = `"Szablon pracy.lof"'.
 
 
-[41
+[39
 
-] [42
+] [40
 
 ] ("Szablon pracy.lol")
 \tf@lol=\write7
 \openout7 = `"Szablon pracy.lol"'.
 
- [43
+ [41
 
-] [44
+] [42
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 745.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 745.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 734.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 734.
  ("Szablon pracy.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 745.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 745.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 734.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 734.
 Package rerunfilecheck Info: File `"Szablon pracy".out' has not changed.
 (rerunfilecheck)             Checksum: CF3BD84205F9E7900E9F0C65E1117615;2026.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 745.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 734.
  ) 
 Here is how much of TeX's memory you used:
- 9137 strings out of 492946
- 132835 string characters out of 3125823
- 465053 words of memory out of 3000000
+ 9135 strings out of 492946
+ 132821 string characters out of 3125823
+ 483927 words of memory out of 3000000
  12590 multiletter control sequences out of 15000+200000
  18787 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,13n,49p,1303b,2000s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,49p,1278b,1970s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ectt1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -849,9 +869,9 @@ petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
 cbx1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on "Szablon pracy.pdf" (44 pages, 416365 bytes).
+Output written on "Szablon pracy.pdf" (42 pages, 413985 bytes).
 PDF statistics:
- 1101 PDF objects out of 1200 (max. 8388607)
- 243 named destinations out of 1000 (max. 500000)
+ 1094 PDF objects out of 1200 (max. 8388607)
+ 241 named destinations out of 1000 (max. 500000)
  255 words of extra memory for PDF output out of 10000 (max. 10000000)
 
