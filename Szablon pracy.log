@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  26 FEB 2019 02:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  9 MAR 2019 21:36
 entering extended mode
 **"./Szablon pracy.tex"
 ("Szablon pracy.tex"
@@ -485,22 +485,22 @@ Package color Info: Driver file: pdftex.def on input line 147.
  ("Szablon pracy.aux")
 \openout1 = `"Szablon pracy.aux"'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 80.
-LaTeX Font Info:    ... okay on input line 80.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 81.
+LaTeX Font Info:    ... okay on input line 81.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -553,7 +553,7 @@ kii"
 \everyMPtoPDFconversion=\toks35
 )
 \AtBeginShipoutBox=\box34
-Package hyperref Info: Link coloring OFF on input line 80.
+Package hyperref Info: Link coloring OFF on input line 81.
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/hyperref\nameref.
 sty"
@@ -565,28 +565,28 @@ Package: gettitlestring 2016/05/16 v1.5 Cleanup title references (HO)
 )
 \c@section@level=\count130
 )
-LaTeX Info: Redefining \ref on input line 80.
-LaTeX Info: Redefining \pageref on input line 80.
-LaTeX Info: Redefining \nameref on input line 80.
+LaTeX Info: Redefining \ref on input line 81.
+LaTeX Info: Redefining \pageref on input line 81.
+LaTeX Info: Redefining \nameref on input line 81.
  ("Szablon pracy.out") ("Szablon pracy.out")
 \@outlinefile=\write3
 \openout3 = `"Szablon pracy.out"'.
 
 \c@lstlisting=\count131
-LaTeX Font Info:    Try loading font information for OML+plm on input line 151.
+LaTeX Font Info:    Try loading font information for OML+plm on input line 152.
 
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/polski\omlplm.fd"
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMS+plsy on input line 151
+LaTeX Font Info:    Try loading font information for OMS+plsy on input line 152
 .
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/polski\omsplsy.fd
 "
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Try loading font information for OMX+plex on input line 151
+LaTeX Font Info:    Try loading font information for OMX+plex on input line 152
 .
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/polski\omxplex.fd
@@ -594,22 +594,22 @@ LaTeX Font Info:    Try loading font information for OMX+plex on input line 151
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 151.
+(Font)              <12> on input line 152.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 151.
+(Font)              <8> on input line 152.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 151.
-LaTeX Font Info:    Try loading font information for U+msa on input line 151.
+(Font)              <6> on input line 152.
+LaTeX Font Info:    Try loading font information for U+msa on input line 152.
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd"
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 151.
+LaTeX Font Info:    Try loading font information for U+msb on input line 152.
  ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 "
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+lasy on input line 151.
+LaTeX Font Info:    Try loading font information for U+lasy on input line 152.
  ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\ulasy.fd"
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
@@ -621,20 +621,20 @@ Package epstopdf Info: Source file: <UMCS.eps>
 (epstopdf)                    size: 19136 bytes
 (epstopdf)             Command: <epstopdf --outfile=UMCS-eps-converted-to.pdf U
 MCS.eps>
-(epstopdf)             \includegraphics on input line 151.
+(epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
 <UMCS-eps-converted-to.pdf, id=115, 536.0025pt x 187.70125pt>
 File: UMCS-eps-converted-to.pdf Graphic file (type pdf)
 <use UMCS-eps-converted-to.pdf>
-Package pdftex.def Info: UMCS-eps-converted-to.pdf  used on input line 151.
+Package pdftex.def Info: UMCS-eps-converted-to.pdf  used on input line 152.
 (pdftex.def)             Requested size: 214.3972pt x 75.07916pt.
 
-Overfull \hbox (17.2431pt too wide) in paragraph at lines 151--151
+Overfull \hbox (17.2431pt too wide) in paragraph at lines 152--152
 [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 23.13231pt on input line 151.
+LaTeX Warning: Float too large for page by 23.13231pt on input line 152.
 
 [1{C:/Users/petjot/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./UMCS-e
 ps-converted-to.pdf>] [2
@@ -654,33 +654,12 @@ ps-converted-to.pdf>] [2
 
 ]
 Rozdzia\PlPrIeC {\l } 1.
-
-LaTeX Warning: Citation `autor2' on page 7 undefined on input line 188.
-
-
-LaTeX Warning: Citation `autor2' on page 7 undefined on input line 193.
-
-
-LaTeX Warning: Citation `autor2' on page 7 undefined on input line 197.
-
-
-LaTeX Warning: Citation `autor2' on page 7 undefined on input line 201.
-
 [7
 
 ] [8
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
-
-LaTeX Warning: Citation `autor2' on page 9 undefined on input line 216.
-
-
-LaTeX Warning: Citation `autor2' on page 9 undefined on input line 221.
-
-
-LaTeX Warning: Citation `autor2' on page 9 undefined on input line 225.
-
 [9
 
 ] [10
@@ -690,7 +669,7 @@ Rozdzia\PlPrIeC {\l } 3.
 [11
 
 ]
-<wynik_identyfikacji.png, id=210, 778.40813pt x 629.35126pt>
+<wynik_identyfikacji.png, id=202, 778.40813pt x 629.35126pt>
 File: wynik_identyfikacji.png Graphic file (type png)
 <use wynik_identyfikacji.png>
 Package pdftex.def Info: wynik_identyfikacji.png  used on input line 253.
@@ -700,7 +679,7 @@ Overfull \hbox (15.56082pt too wide) in paragraph at lines 253--254
  [][] 
  []
 
-<podglad_impelementacji.png, id=212, 648.17157pt x 558.58687pt>
+<podglad_impelementacji.png, id=204, 648.17157pt x 558.58687pt>
 File: podglad_impelementacji.png Graphic file (type png)
 <use podglad_impelementacji.png>
 Package pdftex.def Info: podglad_impelementacji.png  used on input line 265.
@@ -710,7 +689,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [12]
 [13 <./wynik_identyfikacji.png>] [14 <./podglad_impelementacji.png>]
-<ekran_pozuploadowaniu.png, id=232, 682.04813pt x 432.11438pt>
+<ekran_pozuploadowaniu.png, id=224, 682.04813pt x 432.11438pt>
 File: ekran_pozuploadowaniu.png Graphic file (type png)
 <use ekran_pozuploadowaniu.png>
 Package pdftex.def Info: ekran_pozuploadowaniu.png  used on input line 283.
@@ -751,112 +730,127 @@ Overfull \hbox (30.9364pt too wide) in paragraph at lines 370--371
 Underfull \vbox (badness 1248) has occurred while \output is active []
 
  [19]
-<architektura.png, id=309, 593.21625pt x 261.97874pt>
+<architektura.png, id=301, 753.81625pt x 353.32pt>
 File: architektura.png Graphic file (type png)
 <use architektura.png>
 Package pdftex.def Info: architektura.png  used on input line 392.
-(pdftex.def)             Requested size: 415.24854pt x 183.38387pt.
-
-Overfull \hbox (2.68356pt too wide) in paragraph at lines 392--393
- [][] 
- []
+(pdftex.def)             Requested size: 376.90721pt x 176.65956pt.
 
 [20 <./architektura.png>] [21] [22] [23] [24]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [25]
 [26]
-<szukanie_funkcji.png, id=408, 322.20375pt x 251.94125pt>
+<szukanie_funkcji.png, id=399, 322.20375pt x 251.94125pt>
 File: szukanie_funkcji.png Graphic file (type png)
 <use szukanie_funkcji.png>
-Package pdftex.def Info: szukanie_funkcji.png  used on input line 537.
+Package pdftex.def Info: szukanie_funkcji.png  used on input line 536.
 (pdftex.def)             Requested size: 289.98068pt x 226.74503pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [27 <./szukanie_funkcji.png>] [28] [29] [30]
-Overfull \hbox (155.39633pt too wide) in paragraph at lines 631--631
-[]\T1/cmtt/m/n/12 ^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\
-)\s*(?!.*(internal|private)).*$[] 
+ [27 <./szukanie_funkcji.png>] [28] [29]
+
+LaTeX Warning: Citation `java8doc' on page 30 undefined on input line 600.
+
+[30] [31] [32]
+Overfull \hbox (0.21321pt too wide) in paragraph at lines 667--668
+[]\T1/cmr/m/n/12 Po po-my±l-nej iden-ty-fi-ka-cji za-de-kla-ro-wa-nej funk-cji 
+zwra-ca-ny jest obiekt \T1/cmr/bx/n/12 Optio-
  []
 
-[31]
-Overfull \hbox (3.48355pt too wide) in paragraph at lines 664--664
+[33] [34] [35] [36] [37]
+Overfull \hbox (3.48355pt too wide) in paragraph at lines 807--807
 []\T1/cmr/bx/n/17.28 Wyszukiwanie se-lek-to-rów funk-cji w ko-dzie baj-
  []
 
 
-LaTeX Warning: Citation `autor2' on page 32 undefined on input line 666.
+LaTeX Warning: Citation `autor1' on page 38 undefined on input line 809.
 
 
-Underfull \vbox (badness 2119) has occurred while \output is active []
-
- [32]
-
-LaTeX Warning: Citation `autor2' on page 33 undefined on input line 670.
+LaTeX Warning: Citation `autor2' on page 38 undefined on input line 809.
 
 
-LaTeX Warning: Citation `autor2' on page 33 undefined on input line 674.
+LaTeX Warning: Citation `autor1' on page 38 undefined on input line 813.
 
 
-Overfull \hbox (2.55pt too wide) has occurred while \output is active
-\T1/cmr/m/sl/12 3.5.  WYSZUKIWANIE SELEKTORÓW FUNKCJI W KODZIE BAJTOWYM \T1/cmr
-/m/n/12 33
+LaTeX Warning: Citation `autor2' on page 38 undefined on input line 813.
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38]
+
+LaTeX Warning: Citation `autor1' on page 39 undefined on input line 817.
+
+
+LaTeX Warning: Citation `autor2' on page 39 undefined on input line 817.
+
+
+Overfull \hbox (51.56868pt too wide) has occurred while \output is active
+\T1/cmr/m/sl/12 3.6.  DOPASOWYWANIE IMPLEMENTACJI NA PODSTAWIE KODU BAJTOWEGO \
+T1/cmr/m/n/12 39
  []
 
-[33] [34
+[39] [40
 
-] [35
+]
+Underfull \hbox (badness 10000) in paragraph at lines 836--837
+[]\T1/cmr/m/n/12 Solidity Gram-mar []$\T1/cmtt/m/n/12 https : / / github . com 
+/ ethereum / solidity / blob /
+ []
 
-] [36
+[41
+
+] [42
 
 ] ("Szablon pracy.lot")
 \tf@lot=\write5
 \openout5 = `"Szablon pracy.lot"'.
 
- [37
+ [43
 
-] [38
+] [44
 
 ] ("Szablon pracy.lof")
 \tf@lof=\write6
 \openout6 = `"Szablon pracy.lof"'.
 
+ [45
 
-[39
+] [46
 
-] [40
-
-] ("Szablon pracy.lol")
+]
+("Szablon pracy.lol")
 \tf@lol=\write7
 \openout7 = `"Szablon pracy.lol"'.
 
- [41
+ [47
 
-] [42
+] [48
 
 ]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 734.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 734.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 877.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 877.
  ("Szablon pracy.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 734.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 734.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 877.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 877.
 Package rerunfilecheck Info: File `"Szablon pracy".out' has not changed.
 (rerunfilecheck)             Checksum: CF3BD84205F9E7900E9F0C65E1117615;2026.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 734.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 877.
  ) 
 Here is how much of TeX's memory you used:
- 9135 strings out of 492946
- 132821 string characters out of 3125823
- 483927 words of memory out of 3000000
- 12590 multiletter control sequences out of 15000+200000
+ 9220 strings out of 492946
+ 134129 string characters out of 3125823
+ 484299 words of memory out of 3000000
+ 12616 multiletter control sequences out of 15000+200000
  18787 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,13n,49p,1278b,1970s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,49p,1278b,2022s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ectt1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -869,9 +863,9 @@ petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
 cbx1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on "Szablon pracy.pdf" (42 pages, 413985 bytes).
+Output written on "Szablon pracy.pdf" (48 pages, 445971 bytes).
 PDF statistics:
- 1094 PDF objects out of 1200 (max. 8388607)
- 241 named destinations out of 1000 (max. 500000)
+ 1216 PDF objects out of 1440 (max. 8388607)
+ 300 named destinations out of 1000 (max. 500000)
  255 words of extra memory for PDF output out of 10000 (max. 10000000)
 

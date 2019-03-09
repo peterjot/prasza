@@ -1,3 +1,4 @@
+
 % 1. Należy w programie ustawić zgodne kodowanie, w tym przypadku jest UTF-8. 
 % 2. Kompilować ten plik za pomocą pdfLatex.
 
@@ -185,20 +186,19 @@
 
 \section{Historia}
 
-Literatura: \cite{autor1, autor2}. TODO
-
+TODO
 
 \section{Opis platformy}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 \section{Ethereum Virtual Machine}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 \section{Inteligentne kontrakty}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -213,16 +213,16 @@ Literatura: \cite{autor1, autor2}. TODO
 
 \section{Sygnatura funkcji}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 
 \section{Selektor funkcji}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 \section{Generowanie akcesorów podczas kompilacji}
 
-Literatura: \cite{autor1, autor2}. TODO
+TODO
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -389,7 +389,7 @@ Po pomyślnym przesłaniu kontraktu w odpowiedzi od serwera użytkownik otrzymuj
 W tym podrozdziale omówię architekturę aplikacji, która realizuje funkcjonalności opisane w sekcji 3.1. Poniżej zostały krótko opisane główne klasy będące częścią aplikacji, widoczne na rysunku \ref{rys:architektura}.
 
 \begin{figure}[bp!]\centering 	
-\includegraphics[scale=0.7]{architektura.png}
+\includegraphics[scale=0.5]{architektura.png}
 \caption{Architektura aplikacji}
 \label{rys:architektura}
 \end{figure}
@@ -424,10 +424,10 @@ Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \te
 \begin{center}
 \lstset{language=XML}
 \begin{lstlisting}[caption=Przyklad dodania zależności w pliku pom.xml, label=lst:dodaniezaleznosci]
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-mongodb</artifactId>
-        </dependency>
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-mongodb</artifactId>
+</dependency>
 \end{lstlisting}
 \end{center}
 
@@ -476,7 +476,6 @@ W celu wykorzystania tego interfejsu konieczne było utworzenie klasy reprezentu
 \lstset{language=XML}
 \begin{lstlisting}[caption=Przyklad klasy wykorzystywanej przez Spring Data MongoDb, label=lst:przykladencji]
 public class SolidityFile {
-
     @Id
     private final String sourceCodeHash;
     private final String sourceCode;
@@ -604,62 +603,206 @@ W celu wykrywania błędów w wyrażeniach regularnych lub metodach wyszukujący
 \begin{center}
 \lstset{language=XML}
 \begin{lstlisting}[caption=Metoda wyszukujaca sygnatury funkcji, label=lst:wyszukiwaniesygnaturyfunkcji]
-    Optional<SolidityFunction> findFunctionInLine(String line) {
-        List<Optional<SolidityFunction>> functions =
-                Stream.of(
-                        findFunctionSignature(line),
-                        findMappingGetter(line),
-                        findArrayGetter(line),
-                        findNormalVariableGetter(line)
-                ).filter(Optional::isPresent).collect(toList());
+Optional<SolidityFunction> findFunctionInLine(String line) {
+    List<Optional<SolidityFunction>> functions =
+            Stream.of(
+                    findFunctionSignature(line),
+                    findMappingGetter(line),
+                    findArrayGetter(line),
+                    findNormalVariableGetter(line)
+            ).filter(Optional::isPresent).collect(toList());
 
-        if (functions.size() > 1) {
-            throw new IllegalStateException("Expected only one function, but found :" + functions.size());
-        } else if (functions.size() == 1) {
-            return functions.listIterator().next();
-        }
-        return Optional.empty();
+    if (functions.size() > 1) {
+        throw new IllegalStateException("Expected only one function, but found :" + functions.size());
+    } else if (functions.size() == 1) {
+        return functions.listIterator().next();
     }
+    return Optional.empty();
+}
 \end{lstlisting}
 \end{center}
 
 \subsubsection{Wykrywanie sygnatury zadeklarowanej funkcji}
 
-Pierwszym przypadkiem, są funkcje jawnie zadeklarowane w kodzie źródłowym nie posiadające modyfikatora \textbf{internal} lub \textbf{private}. W celu wykrycia takich funkcji wykorzystane zostało wyrażenie regularne zaprezentowane poniżej:
-\begin{verbatim}
-^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
-\end{verbatim}
+Pierwszym przypadkiem, są funkcje jawnie zadeklarowane w kodzie źródłowym nie posiadające modyfikatora \textbf{internal} lub \textbf{private}. Wykrywaniem takiej funkcji zajmuje się funkcja \textbf{findFunctionSignature} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji}. W celu wykrycia linii w kodzie źródłowym zawierającej zadeklarowaną funkcje, wykorzystywane jest wyrażenie regularne zaprezentowane poniżej:
 
-W wyrażeniu tym zostały wykorzystane dwie grupy. Pierwsza grupa wyciąga z linii kodu źródłowego nazwę funkcji, natomiast drugą sygnaturę funkcji. Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} widać metodę wyszukującą sygnaturę funkcji za pomocą przygotowanego wyrażenia regularnego.
+\begin{lstlisting}[numbers=none]
+^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
+\end{lstlisting}
+
+W wyrażeniu zostały wykorzystane dwie grupy. Pierwsza grupa wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu zrodlowego frazy function, po której następuje nazwa funkcji oraz w nawiasach lista parametrów.
+
+Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} widać metodę wyszukującą sygnaturę funkcji za pomocą przygotowanego wyrażenia regularnego.
 
 \begin{center}
 \lstset{language=XML}
 \begin{lstlisting}[caption=Metoda odbierająca żądanie o zapisanie kodu źródłowego na serwerze, label=lst:wyszukiwaniesygnaturyfunkcjizfunkjci]
-    private Optional<SolidityFunction> findFunctionSignature(String line) {
-        Matcher matcher = FUNCTION_PATTERN.matcher(line);
-        if (matcher.find()) {
-            String functionName = matcher.group(FUNCTION_NAME_GROUP_ID);
-            String functionArguments = matcher.group(FUNCTION_ARGUMENTS_GROUP_ID);
-            String functionSignature = normalizeFunctionSignature(functionName, functionArguments);
-            String functionSelector = getFunctionSelector(functionSignature);
-            return Optional.of(new SolidityFunction(functionSelector, functionSignature));
-        }
-        return Optional.empty();
+private Optional<SolidityFunction> findFunctionSignature(String line) {
+    Matcher matcher = FUNCTION_PATTERN.matcher(line);
+    if (matcher.find()) {
+        String functionName = matcher.group(FUNCTION_NAME_GROUP_ID);
+        String functionArguments = matcher.group(FUNCTION_ARGUMENTS_GROUP_ID);
+        String functionSignature = normalizeFunctionSignature(functionName, functionArguments);
+        String functionSelector = getFunctionSelector(functionSignature);
+        return Optional.of(new SolidityFunction(functionSelector, functionSignature));
     }
+    return Optional.empty();
+}
+\end{lstlisting}
+\end{center}
+
+Po wykryciu funkcji za pomocą wyrażenia regularnego, wyciagana jest informacja o argumentach i nazwie funkcji z podanej linii. Metoda \textbf{normalizeFunctionSignature} tworzy sygnaturę funkcji wykorzystując jej parametry i nazwę. Sygnatura składa się z nazwy, nawiasów oraz typów parametrow funkcji. Niektóre typy parametrów zostają sprowadzone do postaci kanonicznej, natomiast pozostałe typy pozostają bez zmian. Poniżej zostały przedstawione typy, które zostają sprowadzane do postaci kanonicznej:
+
+
+\begin{verbatim}
+uint => uint256
+int  => int256
+byte => bytes1
+\end{verbatim}
+
+Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor funkcji na podstawie sygnatury. 
+
+Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Do tworzenia hasza sygnatury została wykorzystana biblioteka \textbf{web3j}, która udostępnia metodę \textbf{sha3String}, która zwraca hasz w systemie szesnastkowym. Z hasza zostają pobrane cztery pierwsze bajty, które są selektorem funkcji. 
+
+Po pomyślnej identyfikacji zadeklarowanej funkcji zwracany jest obiekt \textbf{Optional<SolidityFunction>}, który przechowuje informacje o sygnaturze oraz selektorze funkcji.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Metoda generująca selektor funkcji, label=lst:metoda_generująca_selektor_funkcji]
+private String getFunctionSelector(String normalizedFunctionSignature) {
+    return sha3String(normalizedFunctionSignature).substring(2, 10);
+}
 \end{lstlisting}
 \end{center}
 
 \subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu mapa}
 
-TODO
+Drugim przypadkiem kiedy istnieje możliwość wykrycia sygnatury funkcji w kodzie źródłowym jest zmienna publiczna typu mapa. W tym przypadku nie jest jawnie w kodzie zrodlowym pokazane ze jest tutaj sygnatura funkcji. W tej sekcji przedstawię jak wygenerować sygnaturę funkcji na podstawie takiego atrybutu.
+
+W celu sprawdzenia czy dana linia kodu spełnia ten przypadek, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
+
+\begin{lstlisting}[numbers=none]
+^\\s*mapping\\s*\\(\\s*([a-zA-Z][a-zA-Z]*)\\s*=>\\s*(.*)\\s*\\)\\s*public\\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(=.*)?\\s*;+\\s*(//.*)?$
+\end{lstlisting}
+
+Jeśli dana linia nie została dopasowana do powyższego wyrażenia regularnego, wtedy zwracany jest od razu pusty \textbf{Optional}.
+
+Pierwsza grupa w wyrażeniu regularnym oznacza typ klucza mapowania, natomiast druga typ zwracanej wartości przez mapę. Trzecia grupa jest to nazwa atrybutu. Typ klucza mapowania jest częścią sygnatury funkcji, która będzie w późniejszym etapie tworzona. Jeśli typ zwracany przez mapę jest typem tablicowym lub kolejna mapą wtedy należy dodać kolejny parametr do tworzonej sygnatury funkcji. 
+
+Na listingu \ref{lst:petla_szukajaca_tablic_lub_map} została przedstawiona pętla będąca częścią metody \textbf{findMappingGetter}. Pętla działa dopóki występuje zagnieżdżanie map lub tablica. 
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Pętla wyszukująca tablicę lub mapę w typie zwracanym przez mapę, label=lst:petla_szukajaca_tablic_lub_map]
+while (true) {
+    Matcher mappingMatcher = MAPPING_PATTERN.matcher(mappingValue);
+    Matcher arrayMatcher = ARRAY_PATTERN.matcher(mappingValue);
+
+    if (mappingMatcher.find()) {
+        String canonicalArgument = toCanonicalType(mappingMatcher.group(MAPPING_KEY_GROUP_ID));
+        canonicalMappingKeys.add(canonicalArgument);
+        mappingValue = mappingMatcher.group(MAPPING_VALUE_GROUP_ID);
+        continue;
+    }
+    if (arrayMatcher.find()) {
+        String arrayValue = arrayMatcher.group(ARRAY_VALUE_GROUP_ID);
+        int dimensionCount = getArrayDimensionCount(arrayValue);
+        for (int i = 0; i < dimensionCount; i++) {
+           canonicalMappingKeys.add(CANONICAL_ARRAY_KEY_TYPE);
+        }
+    }
+    break;
+} 
+\end{lstlisting}
+\end{center}     
+
+Do wyszukiwania map w typie zwracanym zostało wykorzystane kolejne wyrażenie regularne, które widać poniżej:
+
+\begin{lstlisting}[numbers=none]
+^\s*mapping\s*\(\s*([a-zA-Z0-9][a-zA-Z0-9]*)\s*=>\s*(.*)\s*\)\s*
+\end{lstlisting}
+
+Po pomyślnym wyszukaniu za pomocą wyrażenia, wykorzystane zostają dwie zdefiniowane w nim grupy. Pierwsza grupa wyciąga z fragmentu napisu informacje o typie klucza, natomiast druga o typie zwracanej wartości przez mapę. 
+
+Typ klucza mapy jest dodawany do listy typów parametrów generowanej sygnatury funkcji, natomiast typ zwracany jest wykorzystany podczas sprawdzania w kolejnej iteracji pętli. Jeśli w danej iteracji pętli nie znaleziono mapy w typie zwracanym przez poprzednia mapę, wtedy będzie to ostatnia iteracja pętli.
+
+
+Wszystkie typy przed dodaniem do listy parametrów sygnatury funkcji zostają najpierw sprowadzone do postaci kanoniczej.
+
+
+W przypadku gdy nie wykryto mapy sprawdzane jest, czy zwracanym typem jest tablica. W tym celu wykorzystane zostało następujące wyrażenie regularne:
+
+\begin{lstlisting}[numbers=none]
+^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*
+\end{lstlisting}
+
+W wyrażeniu została wykorzystana jedna grupa, która służy do wyznaczenia ilości wymiarów tablicy. Dla każdego wymiaru zostaje dodany parametr typu \textbf{uint256} do listy parametrów sygnatury. Wykrycie tablicy w typie zwracanym przez mapę jest tez równoznaczne z ostatnia iteracja pętli.
+
+Ostatnim krokiem jest wygenerowanie sygnatury funkcji za pomocą nazwy funkcji oraz listy zgromadzonych parametrów. Na listingu \ref{lst:tworzenie_solidity_function} widać w jaki sposób jest formułowana sygnatura funkcji, z której następnie jest generowany selektor oraz tworzony obiekt typu \textbf{Optional<SolidityFunction>}.
+
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Tworzenie SolidityFunction na podstawie nazwy funkcji i listy typów, label=lst:tworzenie_solidity_function]
+String functionSignature = mappingName + "(" + join(",", canonicalMappingKeys) + ")";
+String functionSelector = getFunctionSelector(functionSignature);
+return Optional.of(new SolidityFunction(functionSelector, functionSignature));
+\end{lstlisting}
+\end{center}   
 
 \subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}
 
-TODO
+Trzecia metoda widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jest metoda \textbf{findArrayGetter}.
+Do wykrywania atrybutu będącego tablicą, zostało zastosowane wyrażenie regularne przedstawione poniżej
+
+\begin{lstlisting}[numbers=none]
+^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*public\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
+\end{lstlisting}
+
+Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Następna grupa znajdująca się po wyrazie \textbf{public} reprezentuje nazwę atrybutu.
+
+Wyrażenie regularne bierze pod uwagę opcjonalną deklaracje wartosci podczas deklaracji.
+
+Jeśli przekazana do metody linia kodu nie zostanie dopasowana przy użyciu wyrażenia regularnego, wtedy metoda zwraca pusty obiekt \textbf{Optional}.
+
+Liczba wymiaru tablicy zostaje policzona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodana do listy typów parametrów typ \textbf{uint256}. 
+
+Następnie bazując na nazwie oraz liście typów tworzony jest obiekt \textbf{Optional<SolidityFunction>} analogiczny sposób jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
 
 \subsubsection{Wykrywanie sygnatury funkcji dla pozostałych publicznych atrybutów}
     
-    TODO
+Ostatnim przypadkiem który należy rozpatrzyć podczas analizy kodu źródłowego są atrybuty, które nie są tablicami i mapami. Ten przypadek odzwierciedla metoda \textbf{findNormalVariableGetter} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jako ostatnia z czterech metod wykorzystywany do analizy linii kodu źródłowego. Zostało zastosowane tutaj wyrażenie regularne przedstawione poniżej: 
+
+\begin{lstlisting}[numbers=none]
+^\s*[a-zA-Z0-9][a-zA-Z0-9]*\s*(\bconstant)*\s*public\s*(\bconstant)*\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
+\end{lstlisting}
+
+Wyrażenie regularne wyszukuje linię w której znajduje się deklaracja atrybutu publicznego, który może opcjonalnie posiadać modyfikator \textbf{constant}. Wyrażenie oczywiście pomija deklarację publicznych tablic lub map. 
+
+Sygnatura funkcji składa się z nazwy atrybutu wyodrębnianej za pomocą grupy zdefiniowanej w wyrażeniu regularnym. W tym przypadku sygnatura funkcji nie ma żadnych parametrów, wiec wystarczy po nazwie dodać pusty nawias. 
+
+Selektor funkcji jest generowany analogicznie jak w pozostałych przypadkach. Na listingu \ref{lst:metoda_nie_tablica_nie_mapa} widać metodę \textbf{findNormalVariableGetter} generującą sygnaturę na podstawie tego rodzaju atrybutu.
+
+\begin{center}
+\lstset{language=XML}
+\begin{lstlisting}[caption=Metoda wyszukujaca sygnature funkcji dla atrybutów niebędących mapą ani tablica, label=lst:metoda_nie_tablica_nie_mapa]
+private Optional<SolidityFunction> findNormalVariableGetter(String line) {
+    Matcher matcher = NORMAL_VARIABLE_PATTERN.matcher(line);
+    if (matcher.find()) {
+        LOGGER.info("Found public normal variable: {}", line);
+        String variableName = matcher.group(NORMAL_VARIABLE_NAME_GROUP_ID);
+
+        String functionSignature = variableName + "()";
+        String functionSelector = getFunctionSelector(functionSignature);
+
+        return Optional.of(new SolidityFunction(functionSelector, functionSignature));
+    }
+    return Optional.empty();
+}
+\end{lstlisting}
+\end{center} 
+
+Wszystkie wykryte funkcje w poszczególnych liniach implementacji, zostają zapisane w bazie danych wraz z analizowanym kodem źródłowym oraz jego haszem.
 
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
@@ -689,9 +832,9 @@ Literatura: \cite{autor1, autor2}. TODO
 \phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.
 \addcontentsline{toc}{chapter}{Bibliografia}		% Dodanie do spisu treści.
 
-\bibitem{rfc2616} Network Working Group \url{https://www.ietf.org/rfc/rfc2616.txt}.
-\bibitem{java8doc} Oracle \url{https://docs.oracle.com/javase/8/docs/}.
-\bibitem{autor1} Bibliografia 2. \emph{Nazwa}. 
+\bibitem{rfc2616} Network Working Group \url{https://www.ietf.org/rfc/rfc2616.txt}
+\bibitem{gramatykasolidity} Solidity Grammar \url{https://github.com/ethereum/solidity/blob/develop/docs/grammar.txt}
+\bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}. 
 
 \end{thebibliography}
 

@@ -23,13 +23,13 @@
 \contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{29}{subsection.3.4.2}% 
 \contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{30}{subsection.3.4.3}% 
 \contentsline {subsubsection}{Wykrywanie sygnatury zadeklarowanej funkcji}{31}{section*.6}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{32}{section*.7}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}{32}{section*.8}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{32}{section*.9}% 
-\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{33}{section.3.5}% 
-\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{33}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{33}{section.3.7}% 
-\contentsline {chapter}{Bibliografia}{35}{section*.12}% 
-\contentsline {chapter}{Spis tabel}{37}{chapter*.14}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{39}{chapter*.16}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{41}{chapter*.18}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{33}{section*.7}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}{36}{section*.8}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{37}{section*.9}% 
+\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{38}{section.3.5}% 
+\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{39}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{39}{section.3.7}% 
+\contentsline {chapter}{Bibliografia}{41}{section*.12}% 
+\contentsline {chapter}{Spis tabel}{43}{chapter*.14}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{45}{chapter*.16}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{47}{chapter*.18}% 
