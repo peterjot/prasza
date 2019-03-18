@@ -19,17 +19,17 @@
 \contentsline {section}{\numberline {3.2}Przedstawienie architektury}{20}{section.3.2}% 
 \contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{21}{section.3.3}% 
 \contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{26}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{28}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{29}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{30}{subsection.3.4.3}% 
+\contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{27}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{28}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{29}{subsection.3.4.3}% 
 \contentsline {subsubsection}{Wykrywanie sygnatury zadeklarowanej funkcji}{31}{section*.6}% 
 \contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{33}{section*.7}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}{36}{section*.8}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{37}{section*.9}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu tablicowego}{35}{section*.8}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{36}{section*.9}% 
 \contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{38}{section.3.5}% 
-\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{39}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{39}{section.3.7}% 
-\contentsline {chapter}{Bibliografia}{41}{section*.12}% 
-\contentsline {chapter}{Spis tabel}{43}{chapter*.14}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{45}{chapter*.16}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{47}{chapter*.18}% 
+\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{38}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{38}{section.3.7}% 
+\contentsline {chapter}{Bibliografia}{39}{section*.12}% 
+\contentsline {chapter}{Spis tabel}{41}{chapter*.14}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{43}{chapter*.16}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{45}{chapter*.18}% 

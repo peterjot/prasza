@@ -245,7 +245,7 @@ W tym rozdziale znajduje się opis funkcjonalności, architektury, implementacji
 Na stronie głównej aplikacji znajduje się opis wraz z aktualna liczba kodów źródłowych znajdujących się w bazie danych oraz podstawowe definicje związane z aplikacją. Cała aplikacji udostępnia trzy główne funkcjonalności: identyfikację inteligentnych kontraktu, wprowadzanie plików źródłowych kontraktów do aplikacji oraz interfejs programistyczny aplikacji. Wszystkie funkcjonalności zostały opisane poniżej.
 
 \subsection{Identyfikacja inteligentnych kontraktów}
-Pierwszą opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Zarówno na stronie głównej jak i podstronie znajduje się pole, w którym można wprowadzić kod bajtowy. Po wprowadzeniu danych użytkownik zatwierdza je w obu przypadkach klikając przycisk \textbf{Identify}. Przycisk \textbf{Identify bytecode}, służy do przejścia na podstronę związaną z identyfikacją kontraktu.
+Pierwszą opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontraktów. Zarówno na stronie głównej, jak i podstronie znajduje się pole, w którym można wprowadzić kod bajtowy. Po wprowadzeniu danych użytkownik zatwierdza je, w obu przypadkach klikając przycisk \textbf{Identify}. Przycisk \textbf{Identify bytecode}, służy do przejścia na podstronę związaną z identyfikacją kontraktu.
 
 Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem \textbf{Identify}, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje kontraktu, posortowane malejąco według współczynnika dopasowania. Na rysunku \ref{rys:wynik_identyfikacji} został przedstawiony przykładowy wynik identyfikacji.
 
@@ -255,10 +255,10 @@ Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem \textbf{Identify}, aplika
 \label{rys:wynik_identyfikacji}
 \end{figure}
 
-Domyślnie jest wyświetlanych dziesięć najbardziej prawdopodobnych implementacji, po naciśnięciu przycisku \textbf{Get all}, znajdującego się pod lista kontraktów, zostaną wyświetlone wszystkie dopasowania.
+Domyślnie jest wyświetlanych dziesięć najbardziej prawdopodobnych implementacji, po naciśnięciu przycisku \textbf{Get all}, znajdującego się pod listą kontraktów, zostaną wyświetlone wszystkie dopasowania.
 
 
-Po naciśnięciu w jedną z wyświetlanych implementacji, użytkownik zostanie przeniesiony na podstronę umożliwiającą podgląd implementacji. Na rysunku \ref{rys:podglad_impelementacji} znajduje się przykład przeglądania kodu źródłowego na stronie. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony, nie były kopiowane z nim liczby identyfikujące konkretną linie w kodzie. Istnieje tez możliwość pobrania kodu źródłowego ze strony z rozszerzeniem \textbf{.sol}
+Po naciśnięciu w jedną z wyświetlanych implementacji użytkownik zostanie przeniesiony na podstronę umożliwiającą podgląd implementacji. Na rysunku \ref{rys:podglad_impelementacji} znajduje się przykład przeglądania kodu źródłowego na stronie. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony, nie były kopiowane z nim liczby identyfikujące konkretną linię w kodzie. Istnieje też możliwość pobrania kodu źródłowego ze strony z rozszerzeniem \textbf{.sol}
 
 
 \begin{figure}[bp!]\centering 	
@@ -268,16 +268,16 @@ Po naciśnięciu w jedną z wyświetlanych implementacji, użytkownik zostanie p
 \end{figure}
 
 \subsection{Dodanie kodu źródłowego kontraktu do aplikacji}
-Strona umożliwia dodanie własnego kodu źródłowego kontraktu napisanego w języku \textbf{Solidity}. W tym celu należy zalogować się za pomocą panelu logowania, który zostaje wyświetlony automatycznie przy probie korzystania z autoryzowanych funkcjonalności aplikacji. Po kliknięciu w \textbf{Identify Solidity} oraz zalogowaniu się na stronie, pojawiają się dwie możliwości wprowadzania kodów źródłowych.
+Strona umożliwia dodanie własnego kodu źródłowego kontraktu napisanego w języku \textbf{Solidity}. W tym celu należy zalogować się za pomocą panelu logowania, który zostaje wyświetlony automatycznie przy próbie korzystania z autoryzowanych funkcjonalności aplikacji. Po kliknięciu w \textbf{Identify Solidity} oraz zalogowaniu się na stronie, pojawiają się dwie możliwości wprowadzania kodów źródłowych.
 
 
-Pierwszą sposobem jest przesłanie do aplikacji pliku zawierającego implementacje kontraktu. W tym celu użytkownik powinien nacisnąć przycisk \textbf{Browse} i wybrać konkretny plik, a następnie zatwierdzić go przyciskiem \textbf{Upload} widocznym na rysunku \ref{rys:ekran_pozuploadowaniu}. 
+Pierwszym sposobem jest przesłanie do aplikacji pliku zawierającego implementacje kontraktu. W tym celu użytkownik powinien nacisnąć przycisk \textbf{Browse} i wybrać konkretny plik, a następnie zatwierdzić go przyciskiem \textbf{Upload} widocznym na rysunku \ref{rys:ekran_pozuploadowaniu}. 
 
 
 Innym sposobem na przesłania kodu źródłowego do aplikacji jest wklejenie kodu źródłowego bezpośrednio do formularza znajdującego się po prawej części strony internetowej.
 
 
-Po prawidłowym dodaniu kodu źródłowego do aplikacji, użytkownik powinien zobaczyć podobny rezultat do tego na rysunku \ref{rys:ekran_pozuploadowaniu}. W momencie dodania nowej implementacji, na stronie pojawia się hasz dodanego pliku oraz lista sygnatur funkcji wraz z ich selektorami. Po naciśnięciu na wyświetlany na rysunku \ref{rys:ekran_pozuploadowaniu} hasz pliku, użytkownikowi wyświetli się przesłany kod źródłowy.
+Po prawidłowym dodaniu kodu źródłowego do aplikacji użytkownik powinien zobaczyć podobny rezultat do tego na rysunku \ref{rys:ekran_pozuploadowaniu}. W momencie dodania nowej implementacji, na stronie pojawia się hasz dodanego pliku oraz lista sygnatur funkcji wraz z ich selektorami. Po naciśnięciu na wyświetlany na rysunku \ref{rys:ekran_pozuploadowaniu} hasz pliku, użytkownikowi wyświetli się przesłany kod źródłowy.
 
 \begin{figure}[bp!]\centering 	
 \includegraphics[scale=0.6]{ekran_pozuploadowaniu.png}
@@ -287,14 +287,14 @@ Po prawidłowym dodaniu kodu źródłowego do aplikacji, użytkownik powinien zo
 
 
 \subsection{Interfejs programistyczny aplikacji}
-Trzecia funkcjonalnością aplikacji jest interfejs programistyczny. Dzięki niemu można wykorzystać mechanizmy zaimplementowane w aplikacji w innej aplikacji. Przykładowym zastosowaniem API (ang. Application programming interface) jest utworzenie skryptu umożliwiającego zautomatyzowane wysyłanie kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji.
+Trzecią funkcjonalnością aplikacji jest interfejs programistyczny. Dzięki niemu można wykorzystać mechanizmy zaimplementowane w aplikacji w innej aplikacji. Przykładowym zastosowaniem API jest utworzenie skryptu umożliwiającego zautomatyzowane wysyłanie kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji.
 
 Użytkownik za pomocą API ma możliwość pobrania informacji o kodzie źródłowym, identyfikacji kontraktu oraz przesłania nowego kontraktu do aplikacji.
 
 
 \subsubsection{Pobieranie informacji o kodzie źródłowym z API}
 
-Podczas pobierania informacji o kodzie źródłowym, użytkownik musi posiadać identyfikator pliku, który chce pobrać. Żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji gdy, użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierająca status 500 oznacza, że wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego.
+Podczas pobierania informacji o kodzie źródłowym, użytkownik musi posiadać identyfikator pliku, który chce pobrać. Żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji, gdy użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierająca status 500 oznacza, że wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego.
 
 \begin{center}
 \lstset{language=XML}
@@ -330,7 +330,7 @@ bytecode=60803350200fe56abcede00229&allFiles=false
 Na listingu \ref{lst:identyfikacjaapi} do atrybutu \textbf{bytecode} został wprowadzony kod bajtowy kontraktu. Do zmiennej \textbf{allFiles} została wprowadzona wartość \textbf{false}, wiec w rezultacie zostanie zwrócone przez aplikację dziesięć najbardziej prawdopodobnych implementacji. Jeśli użytkownik chce pobrać wszystkie możliwe dopasowania, należy ustawić tą zmienną na \textbf{true}. W żądaniu został wprowadzony nagłówek \textbf{Content-Length} określający długość przesyłanych danych oraz \textbf{Content-Type} oznaczający rodzaj przesyłanych danych. 
 
 
-Jeśli wszystko poszło pomyślnie użytkownik otrzyma status HTTP 200 oraz listę składającą się z haszu pliku oraz współczynnika dopasowania danego pliku w formacie \textbf{JSON}. W przypadku gdy nie zostanie dopasowana żadna implementacja, to aplikacja zwróci status 404, natomiast jeśli w aplikacji wystąpi błąd to zostanie zwrócony status 500.
+Jeśli wszystko poszło pomyślnie, użytkownik otrzyma status HTTP 200 wraz z listą składającą się z haszu pliku i współczynnika dopasowania danego pliku w formacie \textbf{JSON}. W przypadku gdy nie zostanie dopasowana żadna implementacja, to aplikacja zwróci status 404, natomiast jeśli w aplikacji wystąpi błąd, to zostanie zwrócony status 500.
 
 
 \subsubsection{Przesyłanie nowego kodu źródłowego za pomocą API}
@@ -397,7 +397,7 @@ W tym podrozdziale omówię architekturę aplikacji, która realizuje funkcjonal
 \begin{description}
 \item[LoginController] jest to klasa wyświetlająca ekran logowania
 
-\item[ErrorController] jej zadaniem jest przechwytywane wszystkich błędy w aplikacji. Po złapaniu błędu, użytkownikowi zostaje wyświetlona strona informująca, że pojawił się błąd w aplikacji, dodatkowo wszystkie błędy zostają logowane.
+\item[ErrorController] jej zadaniem jest przechwytywane wszystkich błędy w aplikacji. Po złapaniu błędu użytkownikowi zostaje wyświetlona strona informująca, że pojawił się błąd w aplikacji, dodatkowo wszystkie błędy zostają logowane.
 
 \item[BytecodeController] służy do wyświetlania użytkownikowi strony związanej z identyfikacją kodu bajtowego oraz do mapowania żądań HTTP służących do identyfikacji. 
 
@@ -409,15 +409,15 @@ W tym podrozdziale omówię architekturę aplikacji, która realizuje funkcjonal
 
 \item[SolidityService] jest to klasa odpowiedzialna za odczytywanie danych z bazy danych oraz za przygotowanie przesłanych danych przed zapisem w bazie danych.
 
-\item[BytecodeService] odpowiada za dopasowywanie kodu bajtowego do kontraktu. W tym celu serwis wykorzystuje opisane wyżej klasy \textbf{Disassembler} oraz \textbf{Solidity}, które w połączeniu umożliwiają wyznaczenie współczynnika dopasowania pomiędzy konkretnym plikiem, a kodem bajtowym. Szczegółowo zostało to opisane w sekcji 3.5, która znajduje się w dalszej części pracy.
+\item[BytecodeService] odpowiada za dopasowywanie kodu bajtowego do kontraktu. W tym celu serwis wykorzystuje opisane wyżej klasy \textbf{Disassembler} oraz \textbf{Solidity}, które w połączeniu umożliwiają wyznaczenie współczynnika dopasowania pomiędzy konkretnym plikiem a kodem bajtowym. Szczegółowo zostało to opisane w sekcji 3.5, która znajduje się w dalszej części pracy.
 
-\item[SolidityFileRepository] jest to część aplikacji odpowiedzialna za komunikację z bazą danych oraz mapowanie danych przechowywanych w bazie danych na obiekty. Repozytorium jest interfejsem, który wykorzystuje moduł \mbox{\textbf{Spring Data MongoDB}}. Implementacja tego interfejsu spoczywa na frameworku Spring. Sczegóły łączenia z bazą danych zostały opisane w sekcji 3.3
+\item[SolidityFileRepository] jest to część aplikacji odpowiedzialna za komunikację z bazą danych oraz mapowanie danych przechowywanych w bazie danych na obiekty. Repozytorium jest interfejsem, który wykorzystuje moduł \mbox{\textbf{Spring Data MongoDB}}. Implementacja tego interfejsu spoczywa na frameworku Spring. Szczegóły łączenia z bazą danych zostały opisane w sekcji 3.3
 
 \end{description}
 
 
 \section{Połączenie z bazą danych}
-W celu integracji aplikacji z baza danych \textbf{MongoDB} został wykorzystany framework \textbf{Spring} oraz moduł \textbf{Spring Data MongoDB}. W związku z tym, że projekt aplikacji jest budowany za pomocą narzędzia \textbf{Apache Maven}, należy dodać do pliku \textbf{pom.xml} wykorzystywane moduły. 
+W celu integracji aplikacji z bazą danych \textbf{MongoDB} został wykorzystany framework \textbf{Spring} oraz moduł \textbf{Spring Data MongoDB}. W związku z tym, że projekt aplikacji jest budowany za pomocą narzędzia \textbf{Apache Maven}, należy dodać do pliku \textbf{pom.xml} wykorzystywane moduły. 
 
 Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \textbf{pom.xml} odpowiedzialny za dodawanie modułu \mbox{\textbf{spring-boot-start-data-mongodb}} do projektu. Dodawanie innych modułów jest analogiczne do przykładu z listingu.
 
@@ -527,23 +527,18 @@ Ponieważ klasa \textbf{SolidityFunction} jest wykorzystywana w klasie \textbf{S
 \section{Identyfikacja sygnatur funkcji w kodzie źródłowym}
 
 
-Wyszukiwanie sygnatur funkcji jest rozpoczynane w momencie przesłania nowego kodu źródłowego przez użytkownika do aplikacji. Podczas wyszukiwania sygnatur funkcji są też generowane selektory funkcji, które są wykorzystywane podczas identyfikacji kodu bajtowego. Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna tzn. są one dodatkowo generowane przez kompilator \textbf{Ethereum Virtual Machine} dla publicznych atrybutów kontraktów. 
+Wyszukiwanie sygnatur funkcji jest rozpoczynane w momencie przesłania nowego kodu źródłowego przez użytkownika do aplikacji. Podczas wyszukiwania sygnatur funkcji są generowane selektory funkcji, które są wykorzystywane podczas identyfikacji kodu bajtowego. Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna, ponieważ są one dodatkowo generowane przez kompilator \textbf{Ethereum Virtual Machine} dla publicznych atrybutów kontraktów \cite{soliditydoc}. 
 
 
-W przypadku API wykorzystywana jest klasa \textbf{SolidityApiController}, którą widać na rysunku \ref{rys:szukanie_funkcji}. Zadaniem tej klasy jest nasłuchiwanie adresów związanych z API, zwracanie danych w formacie \textbf{JSON} lub zwykłego tekstu oraz komunikowanie się z obiektem klasy \textbf{SolidityService}. 
+W przypadku API wykorzystywana jest klasa \textbf{SolidityApiController}, którą widać na rysunku \ref{rys:architektura}. Zadaniem tej klasy jest nasłuchiwanie adresów związanych z API, zwracanie danych do użytkownika w formacie \textbf{JSON} lub zwykłego tekstu oraz komunikowanie się z obiektem klasy \textbf{SolidityService}. 
 
-\begin{figure}[bp!]\centering 	
-\includegraphics[scale=0.9]{szukanie_funkcji.png}
-\caption{Schemat zależności miedzy klasami podczas identyfikacji sygnatur funkcji}
-\label{rys:szukanie_funkcji}
-\end{figure}
 
 Jeśli użytkownik korzysta ze zwykłej strony internetowej, wtedy przetwarzaniem żądań HTTP zajmuje się \textbf{SolidityController}. Klasa ta działa podobnie do poprzedniej, z taka różnica, że ten kontroler nasłuchuje inne adresy oraz zwraca dane w postaci kodu \textbf{HTML}, zamiast w formacie \textbf{JSON} lub zwykłego tekstu.
 
 
 \subsection{Kontroler interfejsu programistycznego}
 
-Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController} umożliwiająca przesyłanie kodu źródłowego. Adnotacje, które wykorzystuje ta metoda są częścią modułu \textbf{Spring MVC}. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres pod którym aplikacja oczekuje żądania. 
+Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController} umożliwiająca przesyłanie kodu źródłowego. Adnotacje, które wykorzystuje ta metoda, są częścią modułu \textbf{Spring MVC}. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres, pod którym aplikacja oczekuje żądania. 
 
 \begin{center}
 \lstset{language=XML}
@@ -558,17 +553,17 @@ public ResponseEntity<SolidityFile> uploadFile(@RequestBody String sourceCode) t
 
 Kolejną adnotacją jest \mbox{\textbf{@RequestBody}}. Adnotacja ta informuje framework o tym, żeby ciało żądania HTTP było umieszczone pod zmienną, przy której jest adnotacja. 
 
-Ostatnia rzeczą, która pochodzi z modułu \textbf{Spring MVC} jest klasa \textbf{ResponseEntity}. Umożliwia ona zwrócenie statusu HTTP z danymi zwracanymi przez metodę. Dzięki temu framework wie jaki status ma zwrócić użytkownikowi.
+Ostatnią rzeczą, która pochodzi z modułu \textbf{Spring MVC} jest klasa \textbf{ResponseEntity}. Umożliwia ona zwrócenie statusu HTTP z danymi zwracanymi przez metodę. Dzięki temu framework wie jaki status ma zwrócić użytkownikowi.
 
 Głównym celem tej metody jest zapisanie za pomocą serwisu nowego kodu źródłowego do aplikacji, w związku z tym na listingu \ref{lst:kontrolerapiupload} widać wywołanie metody \textbf{save} na atrybucie \mbox{\textbf{solidityService}}. Implementacja wywoływanej metody została opisana w dalszej części pracy.
 
-Nad cała klasą \mbox{\textbf{SolidityApiController}} znajduje się adnotacja \textbf{@RestController}, która informuje Springa, że jest to kontroler wykorzystywany do tworzenia API Restowego.
+Nad całą klasą \mbox{\textbf{SolidityApiController}} znajduje się adnotacja \textbf{@RestController}, która informuje Springa, że jest to kontroler wykorzystywany do tworzenia API Restowego.
 
 \subsection{Kontroler strony internetowej}
 
-\textbf{SolidityControler}, jest to kontroler odpowiedzialny za tworzenie strony internetowej  w postaci kodu HTML jest oznaczony adnotacja \textbf{@Controller}. Działa on podobnie jak wcześniej opisany kontroler. Główną różnica jest to ze w odpowiedzi zwraca kod HTML, który jest wyświetlany jako strona internetowa u użytkownika. Do generowania kodu HTML zostal wykorzystany moduł \textbf{Thymeleaf}. To w jaki sposób dodaje się nowe moduły do projektu zostało przedstawione na przykład na listingu \ref{lst:dodaniezaleznosci}
+\textbf{SolidityControler}, jest to kontroler odpowiedzialny, za tworzenie strony internetowej  w postaci kodu HTML jest oznaczony adnotacja \textbf{@Controller}. Działa on podobnie jak wcześniej opisany kontroler. Główną różnicą jest to, że w odpowiedzi zwraca kod HTML, który jest wyświetlany jako strona internetowa u użytkownika. Do generowania kodu HTML został wykorzystany moduł \textbf{Thymeleaf}. W jaki sposób są dodawane nowe moduły do projektu, zostało przedstawione na przykład na listingu \ref{lst:dodaniezaleznosci}
 
-Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadki API, tylko w tym przypadku za pomocą \textbf{return} zwracana jest nazwa pliku zawierającego szablon HTML. Spring widząc, ze zwrócono taką nazwę przeszukuje katalog \textbf{resources}, znajdujący się w projekcie, w celu odnalezienia pasującego szablonu HTML. Istnieje możliwość przekazania danych do szablonu. W tym celu wykorzystywany jest parametr model, na którym wywoływana jest metoda \textbf{addAttribute}. Dane które są przekazywane za pomocą metody \textbf{addAtribute} pochodzą z obiektu klasy \textbf{SolidityFile}.
+Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadki API, tylko w tym przypadku za pomocą \textbf{return} zwracana jest nazwa pliku zawierającego szablon HTML. Spring widząc, że zwrócono taką nazwę, przeszukuje katalog \textbf{resources}, znajdujący się w projekcie, w celu odnalezienia pasującego szablonu HTML. Istnieje możliwość przekazania danych do szablonu. W tym celu wykorzystywany jest parametr model, na którym wywoływana jest metoda \textbf{addAttribute}. Dane, które są przekazywane za pomocą metody \textbf{addAtribute} pochodzą z obiektu klasy \textbf{SolidityFile}.
 
 \begin{center}
 \lstset{language=XML}
@@ -589,16 +584,15 @@ public String handleSourceCodeUpload(@RequestParam("sourceCode") String sourceCo
 
 \subsection{Przetwarzanie kodu źródłowego}
 
-Oba kontrolery korzystają z obiektu klasy \textbf{SolidityService}. Jak widać na rysunku \ref{rys:szukanie_funkcji}, klasa ta wykorzystuje: \textbf{SolidityParser} oraz opisaną już wcześniej, w sekcji 3.3, klasę \textbf{SolidityFileRepository}. 
+Oba kontrolery korzystają z obiektu klasy \textbf{SolidityService}. Jak widać na rysunku \ref{rys:architektura}, klasa ta wykorzystuje: \textbf{SolidityParser} oraz opisaną już wcześniej, w sekcji 3.3, klasę \textbf{SolidityFileRepository}. 
 
-Serwis po otrzymaniu kodu źródłowego od kontrolerów, przekazuje po jednej linii do parsera, który definiuje czy w danej linii jest sygnatura funkcji. Następnie jeśli znaleziono sygnaturę to zostaje ona zwracana wraz z jej selektorem. Po sparsowaniu w serwisie wszystkich linii kodu źródłowego, jest do bazy danych zapisywany obiekt klasy \textbf{SolidityFile}, który składa się z hasza, kod źródłowego oraz listy funkcji znajdujących się w kodzie źródłowym kontraktu.
+Serwis po otrzymaniu kodu źródłowego od kontrolerów przekazuje po jednej linii do parsera, który definiuje czy w danej linii jest sygnatura funkcji. Jeśli podczas parsowania linii znaleziono sygnaturę funkcji, to zostaje ona dodana wraz z selektorem do listy funkcji analizowanego pliku. Po przeanalizowaniu wszystkich linii tworzony jest obiekt \textbf{SolidityFile}, który następnie jest zapisywany do bazy danych.
 
-Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} można zaobserwować główną metodę wyszukującą funkcję. Metoda przyjmuje pojedyncza linie kodu źródłowego, a zwraca w rezultacie obiekt klasy generycznej \textbf{Optional<SolidityFunction>}. Metoda ta sprawdza cztery możliwe przypadku kiedy powinna wykryć funkcje w kodzie źródłowym.
+Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} można zaobserwować główną metodę klasy \textbf{SolidityParser} wyszukującą funkcję. Metoda przyjmuje pojedynczą linię kodu źródłowego, a w rezultacie zwraca obiekt klasy \textbf{Optional<SolidityFunction>}. Metoda sprawdza cztery możliwe przypadki, w których istnieje możliwość wykrycia funkcji w kodzie źródłowym.
 
-W celu wykrywania błędów w wyrażeniach regularnych lub metodach wyszukujących funkcji, sprawdzane jest czy w danej linii została wykryta tylko jedna funkcja. Jeśli okaże się, ze wykryto więcej niż jedna funkcje, oznacza to że któraś z tych metod fałszywie wykrywa. Co prawda obniża to wydajność aplikacji, ale w przypadku fałszywych wyników zastanie zwrócony wyjątek. Wszystkie cztery przypadki zostały opisane w dalszej części pracy.
+W celu wykrywania błędów w wyrażeniach regularnych lub metodach wyszukujących funkcji sprawdzane jest czy w danej linii została wykryta tylko jedna funkcja. Jeśli okaże się, że wykryto więcej niż jedna funkcje, oznacza to, że jedna z tych metod fałszywie wykrywa. Takie rozwiązanie obniża to wydajność aplikacji, ale w przypadku fałszywych wyników zastanie zwrócony wyjątek. Wszystkie cztery przypadki zostały opisane w dalszej części pracy.
 
-\textbf{Optional} jest to klasa, która zabezpieczenia przed przekazywaniem referencji na wartość \textbf{null}. Dzięki temu że wartość \textbf{null} nie będzie przekazywana dalej, łatwiej jest zlokalizować miejsce usterki, ponieważ podczas pobierania obiektu z klasy \textbf{Optional}, jeśli jest ona pusta, zostaje wyrzucony wyjątek \textbf{NoSuchElementException}. Klasa \textbf{Optional} została wprowadzona w ósmej wersji Javy \cite{java8doc}.
-
+\textbf{Optional} jest to generyczna klasa, która zabezpiecza przed przypadkowym odwołaniem do referencji o wartości \textbf{null} oraz pozwala zabezpieczyć przed nieoczekiwanym przekazywaniem wartości \textbf{null} wewnątrz aplikacji. 
 
 \begin{center}
 \lstset{language=XML}
@@ -624,13 +618,13 @@ Optional<SolidityFunction> findFunctionInLine(String line) {
 
 \subsubsection{Wykrywanie sygnatury zadeklarowanej funkcji}
 
-Pierwszym przypadkiem, są funkcje jawnie zadeklarowane w kodzie źródłowym nie posiadające modyfikatora \textbf{internal} lub \textbf{private}. Wykrywaniem takiej funkcji zajmuje się funkcja \textbf{findFunctionSignature} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji}. W celu wykrycia linii w kodzie źródłowym zawierającej zadeklarowaną funkcje, wykorzystywane jest wyrażenie regularne zaprezentowane poniżej:
+Pierwszym przypadkiem są funkcje jawnie zadeklarowane w kodzie źródłowym nie posiadające modyfikatora \textbf{internal} lub \textbf{private}. Wykrywaniem takiej funkcji zajmuje się metoda \textbf{findFunctionSignature} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji}. Do wyszukiwania sygnatury zadeklarowanej funkcji zostało wykorzystane wyrażenie regularne zaprezentowane poniżej:
 
 \begin{lstlisting}[numbers=none]
 ^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
 \end{lstlisting}
 
-W wyrażeniu zostały wykorzystane dwie grupy. Pierwsza grupa wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu zrodlowego frazy function, po której następuje nazwa funkcji oraz w nawiasach lista parametrów.
+Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu źródłowego frazy \textbf{function}, po której następuje nazwa funkcji oraz lista parametrów w nawiasach.
 
 Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} widać metodę wyszukującą sygnaturę funkcji za pomocą przygotowanego wyrażenia regularnego.
 
@@ -651,18 +645,16 @@ private Optional<SolidityFunction> findFunctionSignature(String line) {
 \end{lstlisting}
 \end{center}
 
-Po wykryciu funkcji za pomocą wyrażenia regularnego, wyciagana jest informacja o argumentach i nazwie funkcji z podanej linii. Metoda \textbf{normalizeFunctionSignature} tworzy sygnaturę funkcji wykorzystując jej parametry i nazwę. Sygnatura składa się z nazwy, nawiasów oraz typów parametrow funkcji. Niektóre typy parametrów zostają sprowadzone do postaci kanonicznej, natomiast pozostałe typy pozostają bez zmian. Poniżej zostały przedstawione typy, które zostają sprowadzane do postaci kanonicznej:
+Po wykryciu funkcji za pomocą wyrażenia regularnego wyciągana jest informacja o argumentach oraz nazwie funkcji z przekazanej linii. Metoda \textbf{normalizeFunctionSignature} tworzy sygnaturę funkcji za pomocą listy parametrów i nazwy. Sygnatura składa się z nazwy, nawiasów oraz typów parametrów funkcji. Niektóre typy parametrów zostają sprowadzone do postaci kanonicznej, natomiast pozostałe typy pozostają bez zmian. Poniżej zostały przedstawione typy, które zostają sprowadzane do postaci kanonicznej:
 
 
-\begin{verbatim}
-uint => uint256
-int  => int256
+\begin{center}
+uint => uint256\\
+int => int256\\
 byte => bytes1
-\end{verbatim}
+\end{center}
 
-Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor funkcji na podstawie sygnatury. 
-
-Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Do tworzenia hasza sygnatury została wykorzystana biblioteka \textbf{web3j}, która udostępnia metodę \textbf{sha3String}, która zwraca hasz w systemie szesnastkowym. Z hasza zostają pobrane cztery pierwsze bajty, które są selektorem funkcji. 
+Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor. Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Sygnatura funkcji zostaje haszowana za pomocą \textbf{SHA3}, następnie z hasza pobierane są cztery pierwsze bajty, które są selektorem funkcji. Metoda \textbf{sha3String} zwraca hasz w systemie szesnastkowym w postaci napisu.  Do tworzenia hasza została wykorzystana biblioteka \textbf{web3j}, która udostępnia metodę \textbf{sha3String}. 
 
 Po pomyślnej identyfikacji zadeklarowanej funkcji zwracany jest obiekt \textbf{Optional<SolidityFunction>}, który przechowuje informacje o sygnaturze oraz selektorze funkcji.
 
@@ -677,15 +669,12 @@ private String getFunctionSelector(String normalizedFunctionSignature) {
 
 \subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu mapa}
 
-Drugim przypadkiem kiedy istnieje możliwość wykrycia sygnatury funkcji w kodzie źródłowym jest zmienna publiczna typu mapa. W tym przypadku nie jest jawnie w kodzie zrodlowym pokazane ze jest tutaj sygnatura funkcji. W tej sekcji przedstawię jak wygenerować sygnaturę funkcji na podstawie takiego atrybutu.
-
-W celu sprawdzenia czy dana linia kodu spełnia ten przypadek, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
+Drugim przypadkiem jest atrybut publiczny typu mapa. Teraz nie jest jawnie pokazane w kodzie źródłowym, że istnieje tutaj sygnatura funkcji, ponieważ jest ona generowana przez kompilator. W tej sekcji przedstawię jak wygenerować sygnaturę funkcji na podstawie takiego atrybutu. W celu sprawdzenia czy dana linia kodu spełnia ten przypadek, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
 
 \begin{lstlisting}[numbers=none]
 ^\\s*mapping\\s*\\(\\s*([a-zA-Z][a-zA-Z]*)\\s*=>\\s*(.*)\\s*\\)\\s*public\\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(=.*)?\\s*;+\\s*(//.*)?$
 \end{lstlisting}
 
-Jeśli dana linia nie została dopasowana do powyższego wyrażenia regularnego, wtedy zwracany jest od razu pusty \textbf{Optional}.
 
 Pierwsza grupa w wyrażeniu regularnym oznacza typ klucza mapowania, natomiast druga typ zwracanej wartości przez mapę. Trzecia grupa jest to nazwa atrybutu. Typ klucza mapowania jest częścią sygnatury funkcji, która będzie w późniejszym etapie tworzona. Jeśli typ zwracany przez mapę jest typem tablicowym lub kolejna mapą wtedy należy dodać kolejny parametr do tworzonej sygnatury funkcji. 
 
@@ -716,15 +705,15 @@ while (true) {
 \end{lstlisting}
 \end{center}     
 
-Do wyszukiwania map w typie zwracanym zostało wykorzystane kolejne wyrażenie regularne, które widać poniżej:
+Do wyszukiwania map w typie zwracanym przez mapę zostało wykorzystane kolejne wyrażenie regularne, które widać poniżej:
 
 \begin{lstlisting}[numbers=none]
 ^\s*mapping\s*\(\s*([a-zA-Z0-9][a-zA-Z0-9]*)\s*=>\s*(.*)\s*\)\s*
 \end{lstlisting}
 
-Po pomyślnym wyszukaniu za pomocą wyrażenia, wykorzystane zostają dwie zdefiniowane w nim grupy. Pierwsza grupa wyciąga z fragmentu napisu informacje o typie klucza, natomiast druga o typie zwracanej wartości przez mapę. 
+Po wykryciu mapy za pomocą wyrażenia, wykorzystane zostają dwie zdefiniowane w nim grupy. Pierwsza grupa wyciąga z fragmentu deklaracji mapy informacje o typie klucza, natomiast druga o typie zwracanej przez nią wartości. 
 
-Typ klucza mapy jest dodawany do listy typów parametrów generowanej sygnatury funkcji, natomiast typ zwracany jest wykorzystany podczas sprawdzania w kolejnej iteracji pętli. Jeśli w danej iteracji pętli nie znaleziono mapy w typie zwracanym przez poprzednia mapę, wtedy będzie to ostatnia iteracja pętli.
+Typ klucza zagnieżdżonej mapy jest dodawany do listy typów parametrów generowanej sygnatury funkcji, natomiast typ zwracany przez mapę jest wykorzystany podczas analizy w kolejnej iteracji pętli. Jeśli w danej iteracji pętli nie znaleziono mapy w typie zwracanym przez poprzednia mapę, wtedy będzie to ostatnia iteracja pętli.
 
 
 Wszystkie typy przed dodaniem do listy parametrów sygnatury funkcji zostają najpierw sprowadzone do postaci kanoniczej.
@@ -736,9 +725,9 @@ W przypadku gdy nie wykryto mapy sprawdzane jest, czy zwracanym typem jest tabli
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*
 \end{lstlisting}
 
-W wyrażeniu została wykorzystana jedna grupa, która służy do wyznaczenia ilości wymiarów tablicy. Dla każdego wymiaru zostaje dodany parametr typu \textbf{uint256} do listy parametrów sygnatury. Wykrycie tablicy w typie zwracanym przez mapę jest tez równoznaczne z ostatnia iteracja pętli.
+W wyrażeniu została wykorzystana jedna grupa, która służy do wyznaczenia ilości wymiarów tablicy. Dla każdego wymiaru zostaje dodany parametr typu \textbf{uint256} do listy parametrów sygnatury. Wspomniany parametr reprezentuje indeks tablicy. Wykrycie tablicy w typie zwracanym przez mapę jest równoznaczne z ostatnia iteracja pętli.
 
-Ostatnim krokiem jest wygenerowanie sygnatury funkcji za pomocą nazwy funkcji oraz listy zgromadzonych parametrów. Na listingu \ref{lst:tworzenie_solidity_function} widać w jaki sposób jest formułowana sygnatura funkcji, z której następnie jest generowany selektor oraz tworzony obiekt typu \textbf{Optional<SolidityFunction>}.
+Ostatnim krokiem jest wygenerowanie sygnatury funkcji za pomocą nazwy funkcji oraz listy zgromadzonych parametrów. Na listingu \ref{lst:tworzenie_solidity_function} widać w jaki sposób jest formułowana sygnatura funkcji, następnie jest generowany z jej selektor oraz tworzony obiekt typu \textbf{Optional<SolidityFunction>}.
 
 
 \begin{center}
@@ -750,28 +739,23 @@ return Optional.of(new SolidityFunction(functionSelector, functionSignature));
 \end{lstlisting}
 \end{center}   
 
-\subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutu tablicowych}
+\subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu tablicowego}
 
 Trzecia metoda widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jest metoda \textbf{findArrayGetter}.
-Do wykrywania atrybutu będącego tablicą, zostało zastosowane wyrażenie regularne przedstawione poniżej
+Do wykrywania atrybutu będącego tablicą, zostało zastosowane wyrażenie regularne przedstawione poniżej:
 
 \begin{lstlisting}[numbers=none]
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*public\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
 \end{lstlisting}
 
-Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Następna grupa znajdująca się po wyrazie \textbf{public} reprezentuje nazwę atrybutu.
+Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Następna grupa, znajdująca się po wyrazie \textbf{public}, reprezentuje nazwę atrybutu. Wyrażenie regularne bierze pod uwagę opcjonalną inicjalizację wartości podczas deklaracji.
 
-Wyrażenie regularne bierze pod uwagę opcjonalną deklaracje wartosci podczas deklaracji.
 
-Jeśli przekazana do metody linia kodu nie zostanie dopasowana przy użyciu wyrażenia regularnego, wtedy metoda zwraca pusty obiekt \textbf{Optional}.
-
-Liczba wymiaru tablicy zostaje policzona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodana do listy typów parametrów typ \textbf{uint256}. 
-
-Następnie bazując na nazwie oraz liście typów tworzony jest obiekt \textbf{Optional<SolidityFunction>} analogiczny sposób jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
+Liczba wymiarów tablicy zostaje policzona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodany typ \textbf{uint256} do listy typów parametrów. Bazując na nazwie oraz liście typów tworzony jest obiekt \textbf{Optional<SolidityFunction>} w analogiczny sposób jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
 
 \subsubsection{Wykrywanie sygnatury funkcji dla pozostałych publicznych atrybutów}
     
-Ostatnim przypadkiem który należy rozpatrzyć podczas analizy kodu źródłowego są atrybuty, które nie są tablicami i mapami. Ten przypadek odzwierciedla metoda \textbf{findNormalVariableGetter} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jako ostatnia z czterech metod wykorzystywany do analizy linii kodu źródłowego. Zostało zastosowane tutaj wyrażenie regularne przedstawione poniżej: 
+Ostatnim przypadkiem, który należało rozpatrzyć wykrywania sygnatury funkcji, są wszystkie atrybuty niebędące tablicami lub mapami. Ten przypadek odzwierciedla metoda \textbf{findNormalVariableGetter} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jako ostatnia z czterech metod wykorzystywany do analizy linii kodu źródłowego. Zostało zastosowane tutaj wyrażenie regularne przedstawione poniżej: 
 
 \begin{lstlisting}[numbers=none]
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*\s*(\bconstant)*\s*public\s*(\bconstant)*\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
@@ -802,7 +786,7 @@ private Optional<SolidityFunction> findNormalVariableGetter(String line) {
 \end{lstlisting}
 \end{center} 
 
-Wszystkie wykryte funkcje w poszczegolnych liniach 
+Wszystkie wykryte funkcje w poszczególnych liniach implementacji, zostają zapisane w bazie danych wraz z analizowanym kodem źródłowym oraz jego haszem.
 
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
@@ -835,6 +819,7 @@ Literatura: \cite{autor1, autor2}. TODO
 \bibitem{rfc2616} Network Working Group \url{https://www.ietf.org/rfc/rfc2616.txt}
 \bibitem{gramatykasolidity} Solidity Grammar \url{https://github.com/ethereum/solidity/blob/develop/docs/grammar.txt}
 \bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}. 
+\bibitem{soliditydoc} Solidity Documentation - Getter Functions \url{https://solidity.readthedocs.io/en/v0.5.5/contracts.html#getter-functions}
 
 \end{thebibliography}
 
