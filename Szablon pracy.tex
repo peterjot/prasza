@@ -184,9 +184,28 @@
 % W nawiasach {} zapisujemy pełną nazwę rozdziału.
 % '\protect \\' służy do dzielenia długiej nazwy rozdziału.
 
+\textbf{Ethereum} jest to otwarta platforma oparta o technologie blockchain, która umożliwia użytkownikom tworzenie i uruchamianie zdecentralizowanych aplikacji. \textbf{Ethereum} podobnie jak \textbf{Bitcoin} nie jest kontrolowane ani nie ma swojego właściciela. Ponieważ \textbf{Boitcoin} był mało elastyczny i miał ograniczenia co do rozwoju, stworzono właśnie \textbf{Ethereum} które miało zapewnić większa elastyczność podczas korzystania \cite{whatisethereum}. 
+
+\textbf{Ethereum} w odróżnieniu od \textbf{Bitcoin}, umożliwia wrzucanie na blockchain aplikacji, do których uruchomienia wykorzystuje \textbf{Ethereum Virtual Machine}. Do tworzenia aplikacji na tę platformę został specjalnie stworzony  język \textbf{Solidity}.
+
 \section{Historia}
 
-TODO
+Początki \textbf{Ethereum} zostały opisane przez programistę Vitalika Buterina w 2013 roku, kiedy jeszcze \textbf{Ethereum} nie nazywało się \textbf{Ethereum}. Programista Vitalik w październiku 2013 roku pracował z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. \textbf{Mastercoin} było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy \cite{vitalikethereumprehistory}. 
+
+W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu \textbf{Ethereum} oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina \cite{vitalikethereumprehistory}.
+
+
+Na początku lipca 2014 \textbf{Ethereum} rozdysponowało początkowy przydział krypto waluty \textbf{Ether} będącej częścią platformy \textbf{Ethereum}. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju \textbf{Ethereum} \cite{ethersaleastatisticaloverview}.
+
+Po wyprzedaży eteru, rozwojem \textbf{Ethereum} zajmowała się organizacja non-profit o nazwie \textbf{ETH DEV}, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
+
+W listopadzie 2014 roku \textbf{ETH DEV} zorganizowało w Berlinie wydarzenie \textbf{DEVCON-0}, które przyciągnęło programistów z całego świata interesujących się \textbf{Ethereum} \cite{devcon0}.
+
+Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchmoieniem, zorganizowane przez miedzy innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej \textbf{pyethereum}. Kontrola bezpieczeństwa wprowadziła do protokołu kilka malych zmian. Jedną zmianą było wprowadzenie funkcji haszującej \textbf{SHA3} dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS \cite{whyethereumusesecuretries}.
+
+Siec \textbf{Ethereum} została uruchomiona 30 lipca 2015 roku. Był to moment, w którym użytkownicy przystąpili do sieci \textbf{Ethereum}, aby uzyskać eter z bloków górniczych. Natomiast programiści zaczęli pisać inteligentne umowy oraz zdecentralizowane aplikacje gotowe do wdrożenia w sieci \textbf{Ethereum}. Była to wersja testowa, ale jak się okazało, była ona bardziej udana, niż ktokolwiek by się tego spodziewał \cite{proceswydaniaethereum}.
+
+Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną \textbf{DEVCON-1}, odbyła się ona w Londynie na początku listopada 2015 roku. Konferencja trwała pięć dni, a przedstawiano na niej ponad 100 prezentacji, paneli dyskusyjnych oraz krótkich rozmów. W konferencji wzięło udział ponad 400 uczestników, była to mieszanka przedsiębiorców, myślicieli, programistów oraz przedstawicieli biznesowych. W konferencji brały udział duże firmy jak IBM czy Microsoft, co wyraźnie wskazywało na duże zainteresowanie ta technologia \cite{historyofethereum}. 
 
 \section{Opis platformy}
 
@@ -889,7 +908,15 @@ Literatura: \cite{autor1, autor2}. TODO
 \phantomsection						% Służy do poprawnej nawigacji odnośnika w spisie treści.
 \addcontentsline{toc}{chapter}{Bibliografia}		% Dodanie do spisu treści.
 
+
+\bibitem{whatisethereum} \url{http://ethdocs.org/en/latest/introduction/what-is-ethereum.html}
+\bibitem{vitalikethereumprehistory} Vitalik Buterin \emph{A Prehistory of the Ethereum Protocol} \url{https://vitalik.ca/2017-09-15-prehistory.html}
+\bibitem{ethersaleastatisticaloverview} Ethereum Blog \emph{Ether Sale: A Statistical Overview } \url{https://blog.ethereum.org/2014/08/08/ether-sale-a-statistical-overview/}
+\bibitem{devcon0} Ethereum \emph{DEVCON-8 recap} \url{https://blog.ethereum.org/2014/12/05/d%CE%BEvcon-0-recap/}
+\bibitem{whyethereumusesecuretries} Seung Woo Kim \emph{Secure Tree: Why State Tries Key is 256 Bits} \url{https://medium.com/codechain/secure-tree-why-state-tries-key-is-256-bits-1276beb68485}
 \bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
+\bibitem{historyofethereum} Ethereum Homestead \emph{History of Ethereum } \url{https://ethereum-homestead.readthedocs.io/en/latest/introduction/history-of-ethereum.html}
+\bibitem{proceswydaniaethereum} Ethereum \emph{Ethereum Launch Process} \url{https://ethereum.github.io/blog/2015/03/03/ethereum-launch-process/}
 \bibitem{soliditygrammar} Ethereum \emph{Solidity Grammar} \url{https://github.com/ethereum/solidity/blob/develop/docs/grammar.txt}
 \bibitem{deconstructingsmartcontract} Alejandro Santander \emph{Deconstructing a Solidity Contract} \url{https://blog.zeppelin.solutions/deconstructing-a-solidity-contract-part-i-introduction-832efd2d7737}. 
 \bibitem{reversingethereumsmartcontract} Brandon Arvanaghi \emph{Reversing Ethereum Smart Contracts} \url{https://arvanaghi.com/blog/reversing-ethereum-smart-contracts/}.

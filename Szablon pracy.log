@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  10 MAR 2019 22:26
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  22 MAR 2019 23:48
 entering extended mode
 **"./Szablon pracy.tex"
 ("Szablon pracy.tex"
@@ -623,7 +623,7 @@ Package epstopdf Info: Source file: <UMCS.eps>
 MCS.eps>
 (epstopdf)             \includegraphics on input line 152.
 Package epstopdf Info: Output file is already uptodate.
-<UMCS-eps-converted-to.pdf, id=115, 536.0025pt x 187.70125pt>
+<UMCS-eps-converted-to.pdf, id=123, 536.0025pt x 187.70125pt>
 File: UMCS-eps-converted-to.pdf Graphic file (type pdf)
 <use UMCS-eps-converted-to.pdf>
 Package pdftex.def Info: UMCS-eps-converted-to.pdf  used on input line 152.
@@ -656,45 +656,49 @@ ps-converted-to.pdf>] [2
 Rozdzia\PlPrIeC {\l } 1.
 [7
 
-] [8
+]
+Underfull \vbox (badness 2205) has occurred while \output is active []
+
+ [8]
+[9] [10
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
-[9
+[11
 
-] [10
+] [12
 
 ]
 Rozdzia\PlPrIeC {\l } 3.
-[11
+[13
 
 ]
-<wynik_identyfikacji.png, id=202, 778.40813pt x 629.35126pt>
+<wynik_identyfikacji.png, id=236, 778.40813pt x 629.35126pt>
 File: wynik_identyfikacji.png Graphic file (type png)
 <use wynik_identyfikacji.png>
-Package pdftex.def Info: wynik_identyfikacji.png  used on input line 253.
+Package pdftex.def Info: wynik_identyfikacji.png  used on input line 272.
 (pdftex.def)             Requested size: 428.1258pt x 346.14426pt.
 
-Overfull \hbox (15.56082pt too wide) in paragraph at lines 253--254
+Overfull \hbox (15.56082pt too wide) in paragraph at lines 272--273
  [][] 
  []
 
-<podglad_impelementacji.png, id=204, 648.17157pt x 558.58687pt>
+<podglad_impelementacji.png, id=238, 648.17157pt x 558.58687pt>
 File: podglad_impelementacji.png Graphic file (type png)
 <use podglad_impelementacji.png>
-Package pdftex.def Info: podglad_impelementacji.png  used on input line 265.
+Package pdftex.def Info: podglad_impelementacji.png  used on input line 284.
 (pdftex.def)             Requested size: 388.90594pt x 335.15471pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [12]
-[13 <./wynik_identyfikacji.png>] [14 <./podglad_impelementacji.png>]
-<ekran_pozuploadowaniu.png, id=224, 682.04813pt x 432.11438pt>
+ [14]
+[15 <./wynik_identyfikacji.png>] [16 <./podglad_impelementacji.png>]
+<ekran_pozuploadowaniu.png, id=257, 682.04813pt x 432.11438pt>
 File: ekran_pozuploadowaniu.png Graphic file (type png)
 <use ekran_pozuploadowaniu.png>
-Package pdftex.def Info: ekran_pozuploadowaniu.png  used on input line 283.
+Package pdftex.def Info: ekran_pozuploadowaniu.png  used on input line 302.
 (pdftex.def)             Requested size: 409.23204pt x 259.27061pt.
- [15]
+ [17]
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstlang1
 .sty"
 File: lstlang1.sty 2018/09/02 1.7 listings language file
@@ -702,144 +706,246 @@ File: lstlang1.sty 2018/09/02 1.7 listings language file
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/listings\lstmisc.
 sty"
 File: lstmisc.sty 2018/09/02 1.7 (Carsten Heinz)
-) [16 <./ekran_pozuploadowaniu.png>]
+) [18 <./ekran_pozuploadowaniu.png>]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 301.
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 301.
+nput line 320.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 320.
 
 
 ("C:\Users\petjot\AppData\Local\Programs\MiKTeX 2.9\tex/latex/base\t1cmtt.fd"
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (8.71204pt too wide) in paragraph at lines 302--303
+Overfull \hbox (8.71204pt too wide) in paragraph at lines 321--322
 [][] 
  []
 
 
-Overfull \hbox (0.37782pt too wide) in paragraph at lines 312--313
+Overfull \hbox (0.37782pt too wide) in paragraph at lines 331--332
 []\T1/cmr/m/n/12 W ce-lu iden-ty-fi-ka-cji kon-trak-tu na-le-»y wy-sªa¢ »¡-da-n
 ie pod ad-res [].
  []
 
-[17] [18]
-Overfull \hbox (30.9364pt too wide) in paragraph at lines 370--371
+[19] [20]
+Overfull \hbox (30.9364pt too wide) in paragraph at lines 387--388
 [][] 
  []
 
 
 Underfull \vbox (badness 1248) has occurred while \output is active []
 
- [19]
-<architektura.png, id=301, 753.81625pt x 353.32pt>
+ [21]
+<architektura.png, id=340, 753.81625pt x 353.32pt>
 File: architektura.png Graphic file (type png)
 <use architektura.png>
-Package pdftex.def Info: architektura.png  used on input line 392.
+Package pdftex.def Info: architektura.png  used on input line 409.
 (pdftex.def)             Requested size: 376.90721pt x 176.65956pt.
 
-[20 <./architektura.png>] [21] [22] [23] [24]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+[22 <./architektura.png>] [23] [24] [25] [26] [27] [28] [29] [30]
 
- [25]
-[26] [27] [28] [29] [30] [31]
-Overfull \hbox (0.21321pt too wide) in paragraph at lines 659--660
+LaTeX Warning: Reference `soliditygrammar' on page 31 undefined on input line 6
+31.
+
+[31] [32]
+Overfull \hbox (0.21321pt too wide) in paragraph at lines 672--673
 []\T1/cmr/m/n/12 Po po-my±l-nej iden-ty-fi-ka-cji za-de-kla-ro-wa-nej funk-cji 
 zwra-ca-ny jest obiekt \T1/cmr/bx/n/12 Optio-
  []
 
-[32] [33] [34] [35]
-Overfull \hbox (2.9937pt too wide) in paragraph at lines 758--759
+[33] [34] [35]
+Overfull \hbox (2.9937pt too wide) in paragraph at lines 762--763
 []\T1/cmr/m/n/12 Ostatnim przy-pad-kiem, któ-ry na-le-»a-ªo roz-pa-trzy¢ wy-kry
 -wa-nia sy-gna-tu-ry funk-
  []
 
-[36]
-Overfull \hbox (3.48355pt too wide) in paragraph at lines 791--791
+
+Underfull \vbox (badness 7186) has occurred while \output is active []
+
+ [36]
+[37]
+Overfull \hbox (3.48355pt too wide) in paragraph at lines 795--795
 []\T1/cmr/bx/n/17.28 Wyszukiwanie se-lek-to-rów funk-cji w ko-dzie baj-
  []
 
-
-LaTeX Warning: Citation `autor1' on page 37 undefined on input line 793.
-
-
-LaTeX Warning: Citation `autor2' on page 37 undefined on input line 793.
-
-[37]
-
-LaTeX Warning: Citation `autor1' on page 38 undefined on input line 797.
-
-
-LaTeX Warning: Citation `autor2' on page 38 undefined on input line 797.
-
-
-LaTeX Warning: Citation `autor1' on page 38 undefined on input line 801.
-
-
-LaTeX Warning: Citation `autor2' on page 38 undefined on input line 801.
-
 [38]
-Underfull \hbox (badness 10000) in paragraph at lines 820--821
-[]\T1/cmr/m/n/12 Solidity Gram-mar []$\T1/cmtt/m/n/12 https : / / github . com 
-/ ethereum / solidity / blob /
+Overfull \hbox (2.55pt too wide) has occurred while \output is active
+\T1/cmr/m/sl/12 3.5.  WYSZUKIWANIE SELEKTORÓW FUNKCJI W KODZIE BAJTOWYM \T1/cmr
+/m/n/12 39
+ []
+
+[39]
+Underfull \vbox (badness 3954) has occurred while \output is active []
+
+ [40]
+
+LaTeX Warning: Citation `autor1' on page 41 undefined on input line 889.
+
+
+LaTeX Warning: Citation `autor2' on page 41 undefined on input line 889.
+
+
+Overfull \hbox (2.55pt too wide) has occurred while \output is active
+\T1/cmr/m/sl/12 3.5.  WYSZUKIWANIE SELEKTORÓW FUNKCJI W KODZIE BAJTOWYM \T1/cmr
+/m/n/12 41
+ []
+
+[41]
+
+LaTeX Warning: Citation `autor1' on page 42 undefined on input line 893.
+
+
+LaTeX Warning: Citation `autor2' on page 42 undefined on input line 893.
+
+[42]
+Underfull \hbox (badness 10000) in paragraph at lines 912--913
+[][]$\T1/cmtt/m/n/12 http : / / ethdocs . org / en / latest / introduction / wh
+at-[]is-[]ethereum .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 822--823
-[]\T1/cmr/m/n/12 Solidity Do-cu-men-ta-tion - Get-ter Func-tions []$\T1/cmtt/m/
-n/12 https : / / solidity .
+Underfull \hbox (badness 2221) in paragraph at lines 914--915
+[]\T1/cmr/m/n/12 Ethereum Blog \T1/cmr/m/it/12 Ether Sa-le: A Sta-ti-sti-cal Ov
+e-rview  []$\T1/cmtt/m/n/12 https : / / blog .
  []
 
-[39
+
+Underfull \hbox (badness 10000) in paragraph at lines 916--917
+[]\T1/cmr/m/n/12 Seung Woo Kim \T1/cmr/m/it/12 Se-cu-re Tree: Why Sta-te Tries
+ []
 
 
-] [40
+Underfull \hbox (badness 10000) in paragraph at lines 916--917
+\T1/cmr/m/it/12 Key is 256 Bits []$\T1/cmtt/m/n/12 https : / / medium . com / c
+odechain /
+ []
+
+[43
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 921--922
+[]\T1/cmr/m/n/12 Alejandro San-tan-der \T1/cmr/m/it/12 De-con-struc-ting a So-l
+i-di-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 921--922
+\T1/cmr/m/it/12 ty Con-tract []$\T1/cmtt/m/n/12 https : / / blog . zeppelin . s
+olutions /
+ []
+
+
+Overfull \hbox (31.97032pt too wide) in paragraph at lines 921--922
+\T1/cmtt/m/n/12 deconstructing-[]a-[]solidity-[]contract-[]part-[]i-[]introduct
+ion-[]832efd2d7737$[]\T1/cmr/m/n/12 . 
+ []
+
+
+Underfull \hbox (badness 3780) in paragraph at lines 922--923
+[]\T1/cmr/m/n/12 Brandon Arva-na-ghi \T1/cmr/m/it/12 Re-ver-sing Ethe-reum Smar
+t Con-tracts []$\T1/cmtt/m/n/12 https : / /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 923--924
+[]\T1/cmr/m/n/12 Solidity Do-cu-men-ta-tion \T1/cmr/m/it/12 Get-ter Func-tions 
+[]$\T1/cmtt/m/n/12 https : / / solidity .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
+[]\T1/cmr/m/n/12 Elliot Bet-ti-lyon \T1/cmr/m/it/12 What Is an API and Why Sho-
+uld I
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 924--925
+\T1/cmr/m/it/12 Use One? []$\T1/cmtt/m/n/12 https : / / medium . com / @TebbaVo
+nMathenstien /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
+[]\T1/cmr/m/n/12 Dinesh Ba-la-ji \T1/cmr/m/it/12 Un-der-stan-ding HTML Form En-
+co-ding: URL En-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 926--927
+\T1/cmr/m/it/12 co-ded and Mul-ti-part Forms []$\T1/cmtt/m/n/12 https : / / dev
+ . to / sidthesloth92 /
+ []
+
+
+Overfull \hbox (45.3173pt too wide) in paragraph at lines 926--927
+\T1/cmtt/m/n/12 understanding-[]html-[]form-[]encoding-[]url-[]encoded-[]and-[]
+multipart-[]forms-[]3lpa$[]\T1/cmr/m/n/12 . 
+ []
+
+
+Underfull \hbox (badness 1590) in paragraph at lines 928--929
+\T1/cmr/m/it/12 tion Al-to-ge-ther - and Ke-ep It Pret-ty []$\T1/cmtt/m/n/12 ht
+tps : / / dzone . com / articles /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 929--930
+[]\T1/cmr/m/n/12 Baeldung \T1/cmr/m/it/12 Spring Web An-no-ta-tions []$\T1/cmtt
+/m/n/12 https : / / www . baeldung . com /
+ []
+
+
+Underfull \hbox (badness 1845) in paragraph at lines 930--931
+\T1/cmr/m/it/12 tes []$\T1/cmtt/m/n/12 https : / / www . thymeleaf . org / doc 
+/ articles / springmvcaccessdata .
+ []
+
+[44] [45] [46
 
 ] ("Szablon pracy.lot")
 \tf@lot=\write5
 \openout5 = `"Szablon pracy.lot"'.
 
- [41
+ [47
 
-] [42
+] [48
 
 ] ("Szablon pracy.lof")
 \tf@lof=\write6
 \openout6 = `"Szablon pracy.lof"'.
 
- [43
-
-] [44
+ [49
 
 ]
-("Szablon pracy.lol")
+[50
+
+] ("Szablon pracy.lol" [51
+
+])
 \tf@lol=\write7
 \openout7 = `"Szablon pracy.lol"'.
 
- [45
-
-] [46
-
-]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 862.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 862.
+ [52]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 970.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 970.
  ("Szablon pracy.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 862.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 862.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 970.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 970.
 Package rerunfilecheck Info: File `"Szablon pracy".out' has not changed.
-(rerunfilecheck)             Checksum: CF3BD84205F9E7900E9F0C65E1117615;2026.
+(rerunfilecheck)             Checksum: 15C64C7DB3D46B6C5A185EAE3BB46F4E;2221.
 
 
 LaTeX Warning: There were undefined references.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 862.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 970.
  ) 
 Here is how much of TeX's memory you used:
- 9213 strings out of 492946
- 133993 string characters out of 3125823
- 484231 words of memory out of 3000000
- 12612 multiletter control sequences out of 15000+200000
+ 9313 strings out of 492946
+ 135775 string characters out of 3125823
+ 462288 words of memory out of 3000000
+ 12637 multiletter control sequences out of 15000+200000
  18787 words of font info for 49 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,13n,49p,1278b,1972s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 42i,13n,49p,855b,1972s stack positions out of 5000i,500n,10000p,200000b,50000s
  <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600
 \ecti1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappe
 n/ec/dpi600\ectt1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljf
@@ -852,9 +958,9 @@ petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
 cbx1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on "Szablon pracy.pdf" (46 pages, 437120 bytes).
+Output written on "Szablon pracy.pdf" (52 pages, 491257 bytes).
 PDF statistics:
- 1207 PDF objects out of 1440 (max. 8388607)
- 298 named destinations out of 1000 (max. 500000)
- 250 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1428 PDF objects out of 1440 (max. 8388607)
+ 373 named destinations out of 1000 (max. 500000)
+ 266 words of extra memory for PDF output out of 10000 (max. 10000000)
 
