@@ -349,7 +349,7 @@ Użytkownik za pomocą API ma możliwość pobrania informacji o kodzie źródł
 Podczas pobierania informacji o kodzie źródłowym, użytkownik musi posiadać identyfikator pliku, który chce pobrać. Żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji, gdy użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierająca status 500 oznacza, że wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego \cite{resthttpstatuscode}.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Żądanie wysyłane w celu pobrania kodu źródłowego, label=lst:zadanieokodzrodlowy]
 GET /api/sourceCode/0x06c61b8e505d7a407af9a91bdff8085560e90a133c77ab32bde32e686f6a8d52.sol HTTP/1.1
 Host: localhost:8080
@@ -365,7 +365,7 @@ W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/b
 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Żądanie wysylane w celu identyfikacji kontraktu za pomocą API, label=lst:identyfikacjaapi]
 POST /api/bytecode HTTP/1.1
 Host: localhost:8080
@@ -388,7 +388,6 @@ Jeśli wszystko poszło pomyślnie, użytkownik otrzyma status HTTP 200 wraz z l
 Gdy użytkownik chce przesłać nowy kontrakt do aplikacji, musi przejść proces uwierzytelniania. W tym celu należy do żądania dodać nagłówek \textbf{Authorization}. W nagłówku należy podać typ autoryzacji oraz zakodowane dane logowania za pomocą \textbf{Base64} według schematu \textbf{login:haslo}. Na przykładzie z listingu \ref{lst:dodaniedoapi} został przesłany kod źródłowy, natomiast do autoryzacji wykorzystano login: 123 oraz hasło: 123.
 
 \begin{center}
-\lstset{language=XML}
 \begin{lstlisting}[caption=Przesyłanie kodu źródłowego za pomocą API, label=lst:dodaniedoapi]
 POST /api/solidityFiles HTTP/1.1
 Host: localhost:8080
@@ -414,7 +413,6 @@ contract Hello {
 Po pomyślnym przesłaniu kontraktu w odpowiedzi od serwera użytkownik otrzymuje status HTTP 200. W odpowiedzi zostaje również przesłany kod źródłowy, hasz stworzony na podstawie kodu źródłowego oraz listę znalezionych sygnatur funkcji wraz z ich selektorami. W przypadku wystąpienia błędu na serwerze zostaje zwrócony status 500. Na listingu \ref{lst:przykladodpowiedzijson} można zaobserwować przykładowe dane zawarte w odpowiedzi od serwera.
 
 \begin{center}
-\lstset{language=XML}
 \begin{lstlisting}[caption=Przykładowa odpowiedz w formacie JSON, label=lst:przykladodpowiedzijson]
 {
     "sourceCodeHash": "0x8dea780e1286d12a957d40597b9171a5187f87f6e3f8303505bc53a4453ad5b6",
@@ -483,10 +481,9 @@ Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \te
 \end{lstlisting}
 \end{center}
 
-W pliku konfiguracyjnym \mbox{\textbf{application.properties}}, który jest wykorzystywany przez framework, należy skonfigurować dane do połączenia z bazą danych. Przykładowa zawartość pliku konfiguracyjnego została przedstawiona na listingu \ref{lst:applicationproperties} \cite{mongoguide}.
+W pliku konfiguracyjnym \mbox{\textbf{application.properties}} zostały skonfigurowane dane do połączenia z bazą danych. Przykładowa zawartość pliku konfiguracyjnego została przedstawiona na listingu \ref{lst:applicationproperties} \cite{mongoguide}.
  
 \begin{center}
-\lstset{language=XML}
 \begin{lstlisting}[caption=Kofiguracja bazy danych, label=lst:applicationproperties]
 spring.data.mongodb.uri=mongodb://${ADMIN_DB_LOGIN}:${ADMIN_DB_PASSWORD}@ds129904.mlab.com:29904/${DATABASE_NAME_CONTRACT}
 admin.login=${ADMIN_LOGIN}
@@ -495,10 +492,10 @@ admin.password=${ADMIN_PASSWORD}
 \end{center}
 
 
-Po skonfigurowaniu pliku \mbox{\textbf{pom.xml}} oraz \mbox{\textbf{application.properties}}, należało utworzonyć interfejs \mbox{\textbf{SolidityFileRepository}}, który umożliwia serwisom aplikacji wykonywanie operacji na bazie danych oraz ustala mapowanie obiektów z bazy danych na obiekty klasy \mbox{\textbf{SolidityFile}}. Utworzone w aplikacji repozytorium można zobaczyć na listingu \ref{lst:repozytoriummongo}.
+Po skonfigurowaniu pliku \mbox{\textbf{pom.xml}} oraz \mbox{\textbf{application.properties}}, należało utworzyć interfejs \mbox{\textbf{SolidityFileRepository}}, który umożliwia serwisom aplikacji wykonywanie operacji na bazie danych oraz ustala mapowanie obiektów z bazy danych na obiekty klasy \mbox{\textbf{SolidityFile}}. Utworzone w aplikacji repozytorium można zobaczyć na listingu \ref{lst:repozytoriummongo}.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Stworzenie repozytorium za pomocą Spring Data MongoDB, label=lst:repozytoriummongo]
 @Repository
 interface SolidityFileRepository extends MongoRepository<SolidityFile, String> {
@@ -511,18 +508,19 @@ interface SolidityFileRepository extends MongoRepository<SolidityFile, String> {
 \end{lstlisting}
 \end{center}
 
-W pierwszej linii listingu \ref{lst:repozytoriummongo} znajduje się adnotacja \mbox{\textbf{@Repository}} pełniąca role stereotypu oraz informująca Springa, że ten interfejs jest wykorzystywany, w celu wykonywania operacji z bazą danych.
+W pierwszej linii listingu \ref{lst:repozytoriummongo} znajduje się adnotacja \mbox{\textbf{@Repository}} pełniącą rolę stereotypu informującego framework, że ten interfejs jest wykorzystywany, w celu wykonywania operacji z bazą danych.
 
-Kolejna adnotacja jest \mbox{\textbf{@Query}}. Jej parametrem jest zapytanie do bazy danych \textbf{MongoDB}, pytające o listę plików, które posiadają w sobie część przekazanych przez użytkownika selektorów funkcji. Za pomocą tej adnotacji można przypisać konkretnej metodzie z \mbox{\textbf{SolidityFileRepository}} konkretne zapytanie, które ma wykonać.
+Kolejną adnotacją jest \mbox{\textbf{@Query}}. Parametrem tej adnotacji jest zapytanie do bazy danych \textbf{MongoDB}, wykonujące zapytanie o listę plików, które posiadają w sobie część przekazanych przez użytkownika selektorów funkcji. Za pomocą tej adnotacji można przypisać konkretnej metodzie z \mbox{\textbf{SolidityFileRepository}} konkretne zapytanie, które aplikacja ma wykonać.
 
 Jeśli metoda w interfejsie nie posiada wspomnianej adnotacji, wtedy framework wygeneruje zapytanie do bazy danych, bazując na nazwie metody oraz przyjmowanych i zwracanych przez metodę typach danych.
 
-W celu wykorzystania \mbox{\textbf{SolidityFileRepository}} konieczne było utworzenie klasy reprezentującej encję w aplikacji. Na listingu \ref{lst:przykladencji} została przedstawiona taka klasa \mbox{\textbf{SolidityFile}}. Składa się ona z trzech atrybutów: haszu kodu źródłowego, kodu źródłowego, oraz listy funkcji znalezionych w tym kodzie źródłowym. 
+Na listingu \ref{lst:przykladencji} została przedstawiona klasa \mbox{\textbf{SolidityFile}}, która reprezentuje obiekt przechowywany w bazie danych. Składa się ona z trzech atrybutów: haszu kodu źródłowego, kodu źródłowego, oraz listy funkcji znalezionych w tym kodzie źródłowym. 
 
-Atrybut \textbf{sourceCodeHash} został utworzony w celu zapewnienia unikalności kodu źródłowego, ponieważ w bazie danych nie umożliwia nałożenia jej bezpośrednio na kod źródłowy ze względu na duży rozmiar. Tworzeniem haszu zajmuje się klasa \mbox{\textbf{SolidityService}} znajdująca się na rysunku \ref{rys:architektura}. Ponieważ hasz jest unikalny jest on również identyfikatorem kodu źródłowego w bazie danych, dlatego posiada on adnotację \mbox{\textbf{@Id}}.
+
+Atrybut \textbf{sourceCodeHash} został utworzony, ponieważ baza danych nie umożliwia utworzenia unikalnego atrybutu w bazie danych z taką duża ilością znaków jak kod źródłowy. Tworzeniem haszu odbywa się w klasie \mbox{\textbf{SolidityService}} widocznej się na rysunku \ref{rys:architektura}. Hasz kodu źródłowego jest identyfikatorem, wiec posiada adnotację \mbox{\textbf{@Id}}.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Przyklad klasy wykorzystywanej przez Spring Data MongoDb, label=lst:przykladencji]
 public class SolidityFile {
     @Id
@@ -584,7 +582,7 @@ Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że czę�
 Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController} umożliwiająca przesyłanie kodu źródłowego. Adnotacje, które wykorzystuje ta metoda, są częścią modułu \textbf{Spring MVC}. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres, pod którym aplikacja oczekuje żądania \cite{springmvc}. 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Metoda kontrolera mapująca żądania POST, label=lst:kontrolerapiupload]
 @PostMapping("/api/solidityFiles")
 public ResponseEntity<SolidityFile> uploadFile(@RequestBody String sourceCode) throws IOException {
@@ -606,7 +604,7 @@ Głównym celem tej metody jest zapisanie nowego kodu źródłowego do aplikacji
 \textbf{SolidityControler} jest to klasa odpowiedzialna, za tworzenie strony internetowej korzystając z szablonów HTML oraz modułu \textbf{Thymeleaf}. Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadku API, tylko w tym przypadku zwracana zostaje zwrócona nazwa szablonu wykorzystywanego do renderowania strony. Istnieje możliwość przekazania danych do szablonu, w tym celu wykorzystywany jest parametr \textbf{model}, na którym wywoływana jest metoda \textbf{addAttribute} \cite{thymeleafguide}.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Przechwytywanie żądania o dodanie nowego kodu źródłowego, label=lst:uploadowanie]
 @PostMapping("/solidity/text")
 public String handleSourceCodeUpload(@RequestParam("sourceCode") String sourceCode, Model model) throws Exception {
@@ -627,7 +625,7 @@ public String handleSourceCodeUpload(@RequestParam("sourceCode") String sourceCo
 \textbf{SolidityService} po otrzymaniu kodu źródłowego od kontrolerów przekazuje po jednej linii do  \textbf{SolidityParser}, który definiuje czy w danej linii jest sygnatura funkcji. Jeśli podczas parsowania linii znaleziono sygnaturę funkcji, to zostaje ona dodana wraz z selektorem do listy funkcji. Po przeanalizowaniu wszystkich linii tworzony jest obiekt \textbf{SolidityFile}, który następnie za pomocą \textbf{SolidityFileRepository} jest zapisywany do bazy danych.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Metoda wyszukujaca sygnatury funkcji, label=lst:wyszukiwaniesygnaturyfunkcji]
 Optional<SolidityFunction> findFunctionInLine(String line) {
     List<Optional<SolidityFunction>> functions =
@@ -666,7 +664,7 @@ Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, 
 Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} została przedstawiona metoda wyszukującą sygnaturę funkcji za pomocą przedstawionego wyrażenia regularnego.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Metoda odbierająca żądanie o zapisanie kodu źródłowego na serwerze, label=lst:wyszukiwaniesygnaturyfunkcjizfunkjci]
 private Optional<SolidityFunction> findFunctionSignature(String line) {
     Matcher matcher = FUNCTION_PATTERN.matcher(line);
@@ -682,7 +680,7 @@ private Optional<SolidityFunction> findFunctionSignature(String line) {
 \end{lstlisting}
 \end{center}
 
-Po wykryciu funkcji za pomocą wyrażenia regularnego wyciągana jest informacja o parametrach i nazwie funkcji z przekazanej linii. Za pomocą tych informacji metoda \textbf{normalizeFunctionSignature} tworzy sygnaturę funkcji. Sygnatura składa się z nazwy oraz typów parametrów funkcji podanych w nawiasie. Niektóre typy parametrów zostają sprowadzone do postaci kanonicznej, natomiast pozostałe typy pozostają bez zmian. Poniżej zostały przedstawione typy, które zostają sprowadzane do postaci kanonicznej:
+Po wykryciu funkcji za pomocą wyrażenia regularnego wyciągana jest informacja o parametrach i nazwie funkcji z przekazanej linii. Za pomocą wyciągniętych informacji metoda \textbf{normalizeFunctionSignature} tworzy sygnaturę funkcji. Sygnatura składa się z nazwy oraz typów parametrów funkcji podanych w nawiasie. Niektóre typy parametrów zostają sprowadzone do postaci kanonicznej, natomiast pozostałe typy pozostają bez zmian. Poniżej zostały przedstawione typy, które zostają sprowadzane do postaci kanonicznej:
 
 
 \begin{center}
@@ -691,10 +689,10 @@ int => int256\\
 byte => bytes1
 \end{center}
 
-Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor. Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Sygnatura funkcji zostaje haszowana za pomocą funkcji haszujacej \textbf{SHA3}, następnie z hasza pobierane są cztery pierwsze bajty, które są selektorem funkcji. Metoda \textbf{sha3String} zwraca hasz w systemie szesnastkowym w postaci napisu. 
+Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor. Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Sygnatura funkcji zostaje haszowana za pomocą funkcji \textbf{sha3String}, ktora pochodzi z biblioteki \textbf{web3j}, następnie z hasza pobierane są cztery pierwsze bajty, które są selektorem funkcji. Metoda \textbf{sha3String} zwraca hasz w systemie szesnastkowym w postaci napisu, dlatego wyłuskiwane są znaki od dwa do dziesięć. 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=java}
 \begin{lstlisting}[caption=Metoda generująca selektor funkcji, label=lst:metoda_generująca_selektor_funkcji]
 private String getFunctionSelector(String normalizedFunctionSignature) {
     return sha3String(normalizedFunctionSignature).substring(2, 10);
@@ -702,23 +700,25 @@ private String getFunctionSelector(String normalizedFunctionSignature) {
 \end{lstlisting}
 \end{center}
 
-Po pomyślnej identyfikacji zadeklarowanej funkcji zwracany jest obiekt \textbf{Optional<SolidityFunction>}, który przechowuje informacje o sygnaturze oraz selektorze funkcji. Analizując w ten sposób każdą linie kontraktu, \textbf{SolidityService} uzyskuje zbiór obiektów \textbf{SolidityFunction}.
+Po pomyślnej identyfikacji zadeklarowanej funkcji zwracany jest obiekt \textbf{Optional<SolidityFunction>} przez metodę \textbf{findFunctionSignature}. Analizując w ten sposób każdą linię kodu źródłowego kontraktu, \textbf{SolidityService} uzyskuje zbiór obiektów \textbf{SolidityFunction}.
 
-\subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu mapa}
+\subsubsection{Generowanie sygnatury funkcji dla publicznych atrybutów typu mapa}
 
-Drugim przypadkiem jest atrybut publiczny typu mapa. Teraz nie jest jawnie pokazane w kodzie źródłowym, że istnieje tutaj sygnatura funkcji, ponieważ jest ona generowana przez kompilator. W tej sekcji przedstawię jak wygenerować sygnaturę funkcji na podstawie takiego atrybutu. W celu sprawdzenia czy dana linia kodu spełnia ten przypadek, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
+Drugim rodzajem jest atrybut publiczny typu \textbf{mapping}. W tym przypadku nie zostało jawnie pokazane, że istnieje w kodzie źródłowym sygnatura funkcji, ponieważ jest ona generowana przez kompilator \cite{soliditygetterfunction}. W tej sekcji przedstawię proces generowania sygnatury funkcji na podstawie wspomnianego atrybutu. 
+
+W celu wykrycia deklaracji mapy w kodzie źródłowym, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
 
 \begin{lstlisting}[numbers=none]
 ^\\s*mapping\\s*\\(\\s*([a-zA-Z][a-zA-Z]*)\\s*=>\\s*(.*)\\s*\\)\\s*public\\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\\s*(=.*)?\\s*;+\\s*(//.*)?$
 \end{lstlisting}
 
 
-Pierwsza grupa w wyrażeniu regularnym oznacza typ klucza mapowania, natomiast druga typ zwracanej wartości przez mapę. Trzecia grupa jest to nazwa atrybutu. Typ klucza mapowania jest częścią sygnatury funkcji, która będzie w późniejszym etapie tworzona. Jeśli typ zwracany przez mapę jest typem tablicowym lub kolejna mapą wtedy należy dodać kolejny parametr do tworzonej sygnatury funkcji. 
+Pierwsza grupa w wyrażeniu regularnym oznacza typ klucza mapy, natomiast druga typ zwracanej wartości przez mapę. Trzecia grupa oznacza nazwę atrybutu, która również jest nazwa sygnatury funkcji. Typ klucza mapowania jest umieszczany w parametrze tworzonej sygnatury funkcji. Jeśli typ zwracany przez mapę jest typem tablicowym lub kolejną mapą, wtedy należy dodać kolejny parametr do sygnatury funkcji. 
 
-Na listingu \ref{lst:petla_szukajaca_tablic_lub_map} została przedstawiona pętla będąca częścią metody \textbf{findMappingGetter}. Pętla działa dopóki występuje zagnieżdżanie map lub tablica. 
+Na listingu \ref{lst:petla_szukajaca_tablic_lub_map} została przedstawiona pętla, która jest częścią metody \textbf{findMappingGetter}. Pętla działa dopóki występuje zagnieżdżanie map. 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Pętla wyszukująca tablicę lub mapę w typie zwracanym przez mapę, label=lst:petla_szukajaca_tablic_lub_map]
 while (true) {
     Matcher mappingMatcher = MAPPING_PATTERN.matcher(mappingValue);
@@ -742,33 +742,30 @@ while (true) {
 \end{lstlisting}
 \end{center}     
 
-Do wyszukiwania map w typie zwracanym przez mapę zostało wykorzystane kolejne wyrażenie regularne, które widać poniżej:
+Do wyszukiwania map w typie zwracanym przez poprzednią mapę zostało wykorzystane następujące wyrażenie regularne:
 
 \begin{lstlisting}[numbers=none]
 ^\s*mapping\s*\(\s*([a-zA-Z0-9][a-zA-Z0-9]*)\s*=>\s*(.*)\s*\)\s*
 \end{lstlisting}
 
-Po wykryciu mapy za pomocą wyrażenia, wykorzystane zostają dwie zdefiniowane w nim grupy. Pierwsza grupa wyciąga z fragmentu deklaracji mapy informacje o typie klucza, natomiast druga o typie zwracanej przez nią wartości. 
+Pierwsza grupa wyrażenia wyciąga z fragmentu deklaracji mapy informacje o typie klucza, natomiast druga o typie zwracanej przez nią wartości.
+Typ klucza zagnieżdżonej mapy jest dodawany do listy typów parametrów generowanej sygnatury funkcji, natomiast typ zwracany przez mapę jest wykorzystany z tym samym wyrażeniem regularnym w kolejnej iteracji pętli. 
 
-Typ klucza zagnieżdżonej mapy jest dodawany do listy typów parametrów generowanej sygnatury funkcji, natomiast typ zwracany przez mapę jest wykorzystany podczas analizy w kolejnej iteracji pętli. Jeśli w danej iteracji pętli nie znaleziono mapy w typie zwracanym przez poprzednia mapę, wtedy będzie to ostatnia iteracja pętli.
-
-
-Wszystkie typy przed dodaniem do listy parametrów sygnatury funkcji zostają najpierw sprowadzone do postaci kanoniczej.
-
-
-W przypadku gdy nie wykryto mapy sprawdzane jest, czy zwracanym typem jest tablica. W tym celu wykorzystane zostało następujące wyrażenie regularne:
+W przypadku, gdy nie wykryto mapy, jest sprawdzane, czy zwracanym typem jest tablica. W tym celu wykorzystane zostało następujące wyrażenie regularne:
 
 \begin{lstlisting}[numbers=none]
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*
 \end{lstlisting}
 
-W wyrażeniu została wykorzystana jedna grupa, która służy do wyznaczenia ilości wymiarów tablicy. Dla każdego wymiaru zostaje dodany parametr typu \textbf{uint256} do listy parametrów sygnatury. Wspomniany parametr reprezentuje indeks tablicy. Wykrycie tablicy w typie zwracanym przez mapę jest równoznaczne z ostatnia iteracja pętli.
+W wyrażeniu została określona grupa, która służy do wyznaczenia ilości wymiarów tablicy. Dla każdego wymiaru zostaje dodany parametr typu \textbf{uint256} do listy parametrów sygnatury. Wspomniany parametr reprezentuje indeks tablicy. Wykrycie tablicy w typie zwracanym przez mapę jest równoznaczne z ostatnią iteracja pętli.
 
-Ostatnim krokiem jest wygenerowanie sygnatury funkcji za pomocą nazwy funkcji oraz listy zgromadzonych parametrów. Na listingu \ref{lst:tworzenie_solidity_function} widać w jaki sposób jest formułowana sygnatura funkcji, następnie jest generowany z jej selektor oraz tworzony obiekt typu \textbf{Optional<SolidityFunction>}.
+Ostatnim krokiem jest wygenerowanie sygnatury funkcji za pomocą nazwy funkcji oraz listy zgromadzonych typów parametrów. Wszystkie typy przed dodaniem do listy zostają najpierw sprowadzone do postaci kanoniczej.
+
+Na listingu \ref{lst:tworzenie_solidity_function} widać w jaki sposób jest formułowana sygnatura funkcji, następnie jest generowany z jej selektor oraz tworzony obiekt typu\\ \textbf{Optional<SolidityFunction>}.
 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Tworzenie SolidityFunction na podstawie nazwy funkcji i listy typów, label=lst:tworzenie_solidity_function]
 String functionSignature = mappingName + "(" + join(",", canonicalMappingKeys) + ")";
 String functionSelector = getFunctionSelector(functionSignature);
@@ -778,34 +775,36 @@ return Optional.of(new SolidityFunction(functionSelector, functionSignature));
 
 \subsubsection{Wykrywanie sygnatury funkcji dla publicznych atrybutów typu tablicowego}
 
-Trzecia metoda widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jest metoda \textbf{findArrayGetter}.
-Do wykrywania atrybutu będącego tablicą, zostało zastosowane wyrażenie regularne przedstawione poniżej:
+Trzecią metodą widoczną na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jest \textbf{findArrayGetter}. Metoda służy do wykrywania publicznego atrybutu, który jest tablicą i w tym celu wykorzystuje wyrażenie regularne przedstawione poniżej:
+
 
 \begin{lstlisting}[numbers=none]
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*((\s*\[\s*[a-zA-Z0-9]*\s*]\s*)+)\s*public\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
 \end{lstlisting}
 
-Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Następna grupa, znajdująca się po wyrazie \textbf{public}, reprezentuje nazwę atrybutu. Wyrażenie regularne bierze pod uwagę opcjonalną inicjalizację wartości podczas deklaracji.
+Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Kolejna grupa, znajdująca się po wyrazie \textbf{public}, reprezentuje nazwę atrybutu. Wyrażenie regularne bierze pod uwagę możliwość inicjalizacji wartości podczas deklaracji atrybutu.
 
 
-Liczba wymiarów tablicy zostaje policzona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodany typ \textbf{uint256} do listy typów parametrów. Bazując na nazwie oraz liście typów tworzony jest obiekt \textbf{Optional<SolidityFunction>} w analogiczny sposób jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
+Liczba wymiarów tablicy zostaje określona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodany typ \textbf{uint256} do listy typów parametrów, ponieważ tablica posiada numeryczny indeks \cite{solidityarrayindex}.
+
+ Bazując na nazwie oraz liście typów tworzony jest obiekt\\ \textbf{Optional<SolidityFunction>} w analogiczny sposób, jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
 
 \subsubsection{Wykrywanie sygnatury funkcji dla pozostałych publicznych atrybutów}
     
-Ostatnim przypadkiem, który należało rozpatrzyć wykrywania sygnatury funkcji, są wszystkie atrybuty niebędące tablicami lub mapami. Ten przypadek odzwierciedla metoda \textbf{findNormalVariableGetter} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jako ostatnia z czterech metod wykorzystywany do analizy linii kodu źródłowego. Zostało zastosowane tutaj wyrażenie regularne przedstawione poniżej: 
+Ostatnim przypadkiem, który należało rozpatrzyć podczas wykrywania sygnatury funkcji, są wszystkie atrybuty zadeklarowane jako publiczne niebędące tablicami lub mapami. Ten przypadek odzwierciedla metoda \textbf{findNormalVariableGetter} widoczna na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} jako ostatnia z czterech metod wykorzystywany do analizy linii kodu źródłowego. Zostało zastosowane tutaj wyrażenie regularne przedstawione poniżej: 
 
 \begin{lstlisting}[numbers=none]
 ^\s*[a-zA-Z0-9][a-zA-Z0-9]*\s*(\bconstant)*\s*public\s*(\bconstant)*\s*([a-zA-Z_$][a-zA-Z_$0-9]*)\s*(=.*)?\s*;+\s*(//.*)?$
 \end{lstlisting}
 
-Wyrażenie regularne wyszukuje linię w której znajduje się deklaracja atrybutu publicznego, który może opcjonalnie posiadać modyfikator \textbf{constant}. Wyrażenie oczywiście pomija deklarację publicznych tablic lub map. 
+Wyrażenie regularne wyszukuje linię, w której znajduje się deklaracja atrybutu publicznego, który może opcjonalnie posiadać modyfikator \textbf{constant}. Wyrażenie deklaracje atrybutow bez typu \textbf{mapping} oraz tablic. 
 
-Sygnatura funkcji składa się z nazwy atrybutu wyodrębnianej za pomocą grupy zdefiniowanej w wyrażeniu regularnym. W tym przypadku sygnatura funkcji nie ma żadnych parametrów, wiec wystarczy po nazwie dodać pusty nawias. 
+Sygnatura funkcji składa się z nazwy atrybutu wyodrębnianej za pomocą grupy zdefiniowanej w wyrażeniu regularnym. W tym przypadku sygnatura funkcji nie posiada żadnych parametrów, wiec wystarczy po nazwie dodać pusty nawias. 
 
 Selektor funkcji jest generowany analogicznie jak w pozostałych przypadkach. Na listingu \ref{lst:metoda_nie_tablica_nie_mapa} widać metodę \textbf{findNormalVariableGetter} generującą sygnaturę na podstawie tego rodzaju atrybutu.
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Metoda wyszukujaca sygnature funkcji dla atrybutów niebędących mapą ani tablica, label=lst:metoda_nie_tablica_nie_mapa]
 private Optional<SolidityFunction> findNormalVariableGetter(String line) {
     Matcher matcher = NORMAL_VARIABLE_PATTERN.matcher(line);
@@ -828,23 +827,23 @@ Wszystkie wykryte funkcje w poszczególnych liniach implementacji, zostają zapi
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
 
-Podczas identyfikacji inteligentnego kontraktu podawany jest bajt kod, który posiada w sobie zakodowane selektory funkcji. Następnie na podstawie selektorów funkcji zawartych w kodzie bajtowym, zostają dopasowane implementacje inteligentnych kontraktów przechowywane w bazie danych. 
+Podczas identyfikacji inteligentnego kontraktu podawany jest kod bajtowy, który posiada w sobie informacje selektory funkcji. Następnie na podstawie selektorów funkcji zawartych w kodzie bajtowym, zostają dopasowane implementacje inteligentnych kontraktów przechowywane w bazie danych. 
 
-W tym podrozdziale przedstawię w jaki sposób na podstawie kodu bajtowego są wyszukiwane selektory funkcji wykorzystywane podczas dopasowywania implementacji.
+W tym podrozdziale przedstawię, w jaki sposób na podstawie kodu bajtowego są wyszukiwane selektory funkcji wykorzystywane podczas dopasowywania implementacji.
 
 
-W celu wykrycia selektorów funkcji, należy najpierw uzyskać listę instrukcji wykonywanych w kodzie bajtowym wraz z parametrami tych instrukcji. Do tego posłuży klasa \textbf{Dissassembler}, do której jest przekazywany kod bajtowy za pomocą metody \textbf{dissassembly} . W rezultacie wspomnianej metody zwracana jest lista instrukcji reprezentowanych przez klase \textbf{Instruction}. Klasa \textbf{Instruction} składa się z dwóch atrybutów: \textbf{opcode} typu \textbf{Opcode} oraz \textbf{hexParameters} typu \textbf{String}.
+W celu wykrycia selektorów funkcji należy najpierw uzyskać listę instrukcji wykonywanych w kodzie bajtowym wraz z parametrami tych instrukcji. Do tego posłuży klasa \textbf{Dissassembler}, do której jest przekazywany kod bajtowy za pomocą metody \textbf{dissassembly} . W rezultacie wspomnianej metody zwracana jest lista instrukcji reprezentowanych przez klase \textbf{Instruction}. Klasa \textbf{Instruction} składa się z dwóch atrybutów: \textbf{opcode} typu \textbf{Opcode} oraz \textbf{hexParameters} typu \textbf{String}.
 
 \subsection{Reprezentacja operacji EVM wewnątrz aplikacji}
 
-\textbf{Opcode} jest to typ wyliczeniowy, który definiuje wszystkie kody operacji jakie można wykonać na \textbf{Ethereum Virtual Machine}. Wszystkie te operacje zostały opisane w dokumencie definiującym \textbf{EVM} \cite{ethereumyellowpaper}.
+\textbf{Opcode} jest to typ wyliczeniowy, który definiuje wszystkie kody operacji, jakie można wykonać na \textbf{Ethereum Virtual Machine}. Wszystkie te operacje zostały opisane w dokumencie definiującym \textbf{EVM} \cite{ethereumyellowpaper}.
 
 
-Typ wyliczeniowy posiada w sobie trzy atrybuty: \textbf{hexValue}, \textbf{operandSize} oraz \textbf{description}, które są przekazywane w konstruktorze. Na listingu \ref{lst:fragment_opcodow} widać fragment deklaracji poszczególnych operacji. Pierwszym parametrem konstruktora jest \textbf{hexValue}, czyli kod operacji w postaci szesnastkowej. Następnie podawany jest \textbf{operandSize}, który określa rozmiar parametru danej operacji za pomocą liczby bajtów. Ostatnia przekazywana informacją jest opis operacji.
+Typ wyliczeniowy posiada w sobie trzy atrybuty: \textbf{hexValue}, \textbf{operandSize} oraz \textbf{description}, które są przekazywane w konstruktorze. Na listingu \ref{lst:fragment_opcodow} widać fragment deklaracji poszczególnych operacji. Pierwszym parametrem konstruktora jest \textbf{hexValue}, czyli kod operacji w postaci szesnastkowej. Następnie podawany jest \textbf{operandSize}, który określa rozmiar parametru danej operacji za pomocą liczby bajtów. Ostatnią przekazywaną informacją jest opis operacji.
 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Fragment kodu źródłowego definiującego kody operacji w typie wyliczeniowym, label=lst:fragment_opcodow]
 ...
 MSIZE(0x59, 0, "Get the size of active memory in bytes."),
@@ -858,10 +857,10 @@ PUSH3(0x62, 3, "Place 3-byte item on stack."),
 \end{lstlisting}
 \end{center} 
 
-Ponieważ kod bajtowy przechowuje operacje w postaci szesnastkowej, w tym celu została utworzona klasa \textbf{OpcodeTable}, która mapuje kod operacji na konkretny obiekt typu \textbf{Opcode} \cite{deconstructingsmartcontract}. Klas \textbf{OpcodeTable} została zaprezentowana na listingu \ref{lst:mapowanie_na_opcode}. W przypadku, gdy podany kod nie posiada swojego odpowiednika w typie wyliczeniowym, wtedy zostaje zwrócony kod \textbf{UNKNOWNCODE}. 
+Ponieważ kod bajtowy przechowuje kody operacji oraz ich parametry w postaci szesnastkowej, w tym celu została utworzona klasa \textbf{OpcodeTable}, która umożliwia mapowanie kodu operacji na konkretny obiekt zdefiniowany w typie wyliczeniowym \textbf{Opcode}. Klasa \textbf{OpcodeTable} została zaprezentowana na listingu \ref{lst:mapowanie_na_opcode}. W przypadku, gdy podany kod nie posiada swojego odpowiednika w typie wyliczeniowym, wtedy zostaje zwrócony kod \textbf{UNKNOWNCODE}. 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Klasa mapujaca identyfikator operacji na reprezentacje operacji typu wyliczeniowego, label=lst:mapowanie_na_opcode]
 class OpcodeTable {
     private OpcodeTable() {
@@ -893,12 +892,12 @@ class OpcodeTable {
 \end{lstlisting}
 \end{center} 
 
-\subsection{Wyszukiwanie instrukcji z kodu bajtowego}
+\subsection{Odczytywanie instrukcji z kodu bajtowego}
 
 Mając zdefiniowane w aplikacji wszystkie operacje maszyny wirtualnej \textbf{Ethereum}, można przystąpić do wyszukiwania wszystkich instrukcji z kodu bajtowego. Na listingu \ref{lst:metoda_wyszukujaca_instrukcje} widać metodę przestawiającą ten proces. 
 
 \begin{center}
-\lstset{language=XML}
+\lstset{language=Java}
 \begin{lstlisting}[caption=Metoda wyszukująca instrukcje instrukcje w kodzie bajtowym, label=lst:metoda_wyszukujaca_instrukcje]
 private List<Instruction> getInstructions(String bytecode) {
     String validBytecode = getValidBytecode(bytecode);
@@ -915,11 +914,43 @@ private List<Instruction> getInstructions(String bytecode) {
 \end{lstlisting}
 \end{center} 
 
-Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStringIterator}, który odczytuje po jednym bajcie dopóki istnieją kolejne bajty. W każdej iteracji pętli jest definiowany konkretny obiekt typu \textbf{Opcode} za pomocą metody \textbf{getOpcodeByHex} przedstawionej na listingu \ref{lst:mapowanie_na_opcode}. Następnie w zależności od kodu operacji zostają pobierane kolejne bajty, które są parametrem instrukcji \cite{ethereumyellowpaper}. Na podstawie tych informacji tworzony jest obiekt typu \textbf{Instruction}, który jest dodawany do listy \textbf{instructions}, zwracanej na końcu wykonywania metody.
+Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStringIterator}, który odczytuje po jednym bajcie, dopóki istnieją kolejne bajty. W każdej iteracji pętli jest definiowany konkretny obiekt typu \textbf{Opcode} za pomocą metody \textbf{getOpcodeByHex} przedstawionej na listingu \ref{lst:mapowanie_na_opcode}. Następnie w zależności od kodu operacji zostają pobierane kolejne bajty, które są parametrem instrukcji \cite{ethereumyellowpaper}. Na podstawie tych informacji tworzony jest obiekt typu \textbf{Instruction}, który jest dodawany do listy \textbf{instructions}, zwracanej na końcu wykonywania metody.
+
+
+\subsection{Wyszukiwanie selektorów funkcji z listy instrukcji}
+
+Po wykryciu wszystkich operacji wraz z ich parametrami przez klase Disassembly, klasa BytecodeService moze przystapic w wyszukiwania ostatecznych selektorow funkcji. 
+
+Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na \textbf{EVM}, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos \cite{deconstructingsmartcontract}.
+
+\begin{center}
+\lstset{language=Java}
+\begin{lstlisting}[caption=Metoda wyszukująca selektory funkcji na podstawie listy instrukcji, label=lst:metoda_wyszukujaca_selektory]
+private List<String> findFunctionSelectors(String bytecode) {
+    List<Instruction> instructions = disassembler.disassembly(bytecode);
+    List<String> functionSelectors = new ArrayList<>();
+    for (int i = 0; i < instructions.size() - 2; i++) {
+        Instruction first = instructions.get(i);
+        Instruction second = instructions.get(i + 1);
+        Instruction third = instructions.get(i + 2);
+        boolean isFunctionSchemeFound =
+                first.hasMnemonic(PUSH_4_MNEMONIC) && second.hasMnemonic(EQ_MNEMONIC) && third.hasMnemonic(PUSH_2_MNEMONIC);
+        if (isFunctionSchemeFound) {
+            functionSelectors.add(first.getHexParameters());
+        }
+    }
+    return functionSelectors;
+}
+\end{lstlisting}
+\end{center}
+
+Gdy zmienna \textbf{isFunctionSchemeFound} przechowuje wartość \textbf{true}, wtedy wiadomo, że został wyszukany charakterystyczny dla selektorów funkcji schemat kodów operacji. W takim przypadku pobierany jest parametr ze zmiennej \textbf{first} oraz dodawany jest on do listy \textbf{functionSelectors}.
 
 \section{Dopasowywanie implementacji na podstawie kodu bajtowego}
+Ostatnia rzeczą zwieńczającą cały projekt aplikacji jest dopasowywanie najbardziej prawdopodobnej implementacji na podstawie posiadanego kodu bajtowego oraz potencjalnie jak najbardziej uzupełnionej bazy danych plików. 
 
-Literatura: \cite{autor1, autor2}. TODO
+
+Do wyznaczania procentowego dopasowania kodu bajtowego do implementacji można było zastosować kilka podejść. Każde z nim posiada swoje wady i zalety, które zostały przedstawione poniżej.
 
 \section{Wykorzystane technologie}
 
@@ -932,7 +963,7 @@ Literatura: \cite{autor1, autor2}. TODO
 
 
 
-%____________________________________________________________________________________________
+____________________________________________________________________________________________
 %____________________________________________________________________________________________
 % Bibliografia.
 %____________________________________________________________________________________________
@@ -959,6 +990,7 @@ Literatura: \cite{autor1, autor2}. TODO
 \bibitem{soliditygetterfunction} Solidity Documentation \emph{Getter Functions} \url{https://solidity.readthedocs.io/en/v0.5.5/contracts.html#getter-functions}.
 \bibitem{whatisapi} Elliot Bettilyon \emph{What Is an API and Why Should I Use One?} \url{https://medium.com/@TebbaVonMathenstien/what-is-an-api-and-why-should-i-use-one-863c3365726b}.
 \bibitem{resthttpstatuscode} Internet Engineering Task Force (IETF) \emph{Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content} \url{https://tools.ietf.org/html/rfc7231}.
+\bibitem{solidityarrayindex} Solidity Documentation \emph{Arrays} \url{https://solidity.readthedocs.io/en/v0.5.3/types.html#arrays}.
 \bibitem{urlencodedform} Dinesh Balaji \emph{Understanding HTML Form Encoding: URL Encoded and Multipart Forms} \url{https://dev.to/sidthesloth92/understanding-html-form-encoding-url-encoded-and-multipart-forms-3lpa}.
 \bibitem{rfc2616} Network Working Group \emph{Hypertext Transfer Protocol - HTTP/1.1} \url{https://www.ietf.org/rfc/rfc2616.txt}.
 \bibitem{baeldungoptional}  Yannick Majoros \emph{Java 8 Optional - Avoid Null and NullPointerException Altogether - and Keep It Pretty} \url{https://dzone.com/articles/java-8-optional-avoid-null-and}.
