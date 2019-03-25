@@ -184,38 +184,71 @@
 % W nawiasach {} zapisujemy pełną nazwę rozdziału.
 % '\protect \\' służy do dzielenia długiej nazwy rozdziału.
 
-\textbf{Ethereum} jest to otwarta platforma oparta o technologie blockchain, która umożliwia użytkownikom tworzenie i uruchamianie zdecentralizowanych aplikacji. \textbf{Ethereum} podobnie jak \textbf{Bitcoin} nie jest kontrolowane ani nie ma swojego właściciela. Ponieważ \textbf{Boitcoin} był mało elastyczny i miał ograniczenia co do rozwoju, stworzono właśnie \textbf{Ethereum} które miało zapewnić większa elastyczność podczas korzystania \cite{whatisethereum}. 
 
-\textbf{Ethereum} w odróżnieniu od \textbf{Bitcoin}, umożliwia wrzucanie na blockchain aplikacji, do których uruchomienia wykorzystuje \textbf{Ethereum Virtual Machine}. Do tworzenia aplikacji na tę platformę został specjalnie stworzony  język \textbf{Solidity}.
+Ethereum jest to otwarta platforma oparta o technologie blockchain, która umożliwia użytkownikom tworzenie i uruchamianie zdecentralizowanych aplikacji. Programy tworzone i uruchamiane na blockchain nazywane są też inteligentnymi kontraktami. 
 
+Do uruchamiania aplikacji została stworzona maszyna wirtualna o nazwie \textbf{Ethereum Virtual Machine}, która może wykonywać kod inteligentnego kontraktu o dowolnej złożoność algorytmicznej. Kod aplikacji stworzonej na EVM jest przechowywany na blockchainie utrzymywanym przez jego użytkowników. Programiści mogą tworzyć aplikacje na EVM  za pomocą przyjaznych języków programowania wzorowanych na Pythonie czy JavaScript \cite{whatisethereum}.
+
+Na potrzeby platformy Ethereum stworzono dedykowany język \textbf{Solidity}, który został stworzony z myślą o tworzeniu inteligentnych kontraktów.
+
+
+
+ 
 \section{Historia}
 
-Początki \textbf{Ethereum} zostały opisane przez programistę Vitalika Buterina w 2013 roku, kiedy jeszcze \textbf{Ethereum} nie nazywało się \textbf{Ethereum}. Programista Vitalik w październiku 2013 roku pracował z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. \textbf{Mastercoin} było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy \cite{vitalikethereumprehistory}. 
+Początki Ethereum zostały opisane przez programistę Vitalika Buterina w 2013 roku, kiedy jeszcze Ethereum nie nazywało się Ethereum. Programista Vitalik w październiku 2013 roku pracował z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. Mastercoin było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy \cite{vitalikethereumprehistory}. 
 
-W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu \textbf{Ethereum} oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina \cite{vitalikethereumprehistory}.
+W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu Ethereum oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina \cite{vitalikethereumprehistory}.
 
 
-Na początku lipca 2014 \textbf{Ethereum} rozdysponowało początkowy przydział krypto waluty \textbf{Ether} będącej częścią platformy \textbf{Ethereum}. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju \textbf{Ethereum} \cite{ethersaleastatisticaloverview}.
+Na początku lipca 2014 Ethereum rozdysponowało początkowy przydział krypto waluty Ether będącej częścią platformy Ethereum. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju Ethereum \cite{ethersaleastatisticaloverview}. Po wyprzedaży eteru rozwojem Ethereum zajmowała się organizacja non-profit o nazwie ETH DEV, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
 
-Po wyprzedaży eteru, rozwojem \textbf{Ethereum} zajmowała się organizacja non-profit o nazwie \textbf{ETH DEV}, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
+W listopadzie 2014 roku ETH DEV zorganizowało w Berlinie wydarzenie \textbf{DEVCON-0}, które przyciągnęło programistów z całego świata interesujących się Ethereum \cite{devcon0}.
 
-W listopadzie 2014 roku \textbf{ETH DEV} zorganizowało w Berlinie wydarzenie \textbf{DEVCON-0}, które przyciągnęło programistów z całego świata interesujących się \textbf{Ethereum} \cite{devcon0}.
-
-Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchmoieniem, zorganizowane przez miedzy innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej \textbf{pyethereum}. Kontrola bezpieczeństwa wprowadziła do protokołu kilka malych zmian. Jedną zmianą było wprowadzenie funkcji haszującej \textbf{SHA3} dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS \cite{whyethereumusesecuretries}.
+Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchomieniem, zorganizowane przez między innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej \textbf{pyethereum}. Kontrola bezpieczeństwa wprowadziła do protokołu kilka małych zmian. Jedną zmianą było wprowadzenie funkcji haszującej \textbf{SHA3} dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS \cite{whyethereumusesecuretries}.
 
 Siec \textbf{Ethereum} została uruchomiona 30 lipca 2015 roku. Był to moment, w którym użytkownicy przystąpili do sieci \textbf{Ethereum}, aby uzyskać eter z bloków górniczych. Natomiast programiści zaczęli pisać inteligentne umowy oraz zdecentralizowane aplikacje gotowe do wdrożenia w sieci \textbf{Ethereum}. Była to wersja testowa, ale jak się okazało, była ona bardziej udana, niż ktokolwiek by się tego spodziewał \cite{proceswydaniaethereum}.
 
 Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną \textbf{DEVCON-1}, odbyła się ona w Londynie na początku listopada 2015 roku. Konferencja trwała pięć dni, a przedstawiano na niej ponad 100 prezentacji, paneli dyskusyjnych oraz krótkich rozmów. W konferencji wzięło udział ponad 400 uczestników, była to mieszanka przedsiębiorców, myślicieli, programistów oraz przedstawicieli biznesowych. W konferencji brały udział duże firmy jak IBM czy Microsoft, co wyraźnie wskazywało na duże zainteresowanie ta technologia \cite{historyofethereum}. 
 
-\section{Opis platformy}
 
-TODO
+\section{Czym jest Ethereum Virtual Machine?}
 
-\section{Ethereum Virtual Machine}
+EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o Ethereum. Początkowo wirtualna maszyna została opisana w żółtym dokumencie opracowanym przez dr. Gavina Wooda. Maszyna wirtualna jest całkowicie odizolowana od reszty głównej sieci blockchain, co pomaga w zapewnienia bezpieczeństwa wykonywania niezaufanego kodu przez komputery z całego świata. Każdy węzeł w sieci Ethereum uruchamia u siebie własną implementację EVM oraz jest w stanie wykonywać na niej te same instrukcje co pozostałe węzły. 
 
-TODO
 
-\section{Inteligentne kontrakty}
+\subsection{Kody operacji}
+
+Inteligentne kontrakty napisane w takich językach jak Solidity nie mogą być bezpośrednio wykonane na EVM. W celu wykonania kontraktu należy jego kod skompilować do nisko poziomowych instrukcji. 
+
+EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje te wspólnie umożliwiają stworzenie oprogramowania zupełnego w sensie Turinga.  Operacje wykonywane na EVM można podzielić na siedem kategorii:
+
+
+\begin{enumerate}
+\item \textbf{Operacje wykorzystujące stos} (POP, PUSH, DUP, SWAP) 
+
+\item \textbf{Operacje udostępniające działania arytmetyczne} (ADD, SUB, GT, LT, AND, OR)
+
+\item \textbf{Operacje środowiskowe} (CALLER, CALLVALUE, NUMBER)
+
+\item \textbf{Operacje modyfikujące pamięć ulotna - memory} (MLOAD, MSTORE, MSTORE8, MSIZE)
+- jest to przestrzen w ktorej przechowywane sa tymczasowe dane takie jak argumenty funkcji, czy zmienne lokalne. Dane nie sa przechowywane na blockchanie
+
+\item \textbf{Operacje modyfikujące pamięć nieulotna - storage} (SLOAD, SSTORE) - jest to miejsce w którym przechowywane są dane przechowywane na blockchainie. Każdy kontrakt posiada swój oddzielny obszar na blockchain.
+
+\item \textbf{Operacje skoków oraz licznika programu} (JUMP, JUMPI, PC, JUMPDEST)
+
+\item \textbf{Operacje zatrzymujące} (STOP, RETURN, REVERT, INVALID, SELFDESTRUCT)
+\end{enumerate}
+
+\subsection{Kod bajtowy}
+W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt. Przykładowo operacja PUSH1 wrzuca na stos jeden bajt,  jest ona reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1. Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1(0x60), tylko tym razem na stos została wrzucona wartość 0x40 \cite{ethereumyellowpaper}.
+
+Po wykonaniu dwóch pierwszych operacji na stosie powinny znajdować się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. Na czubku stosu powinna znajdować się wartość 0xC0.
+Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwa znaki reprezentujące liczbę w systemie szesnastkowym \cite{ethereumyellowpaper}.
+
+
+\section{Do czego służą Inteligentne kontrakty?}
 
 TODO
 
@@ -917,6 +950,9 @@ Literatura: \cite{autor1, autor2}. TODO
 \bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
 \bibitem{historyofethereum} Ethereum Homestead \emph{History of Ethereum } \url{https://ethereum-homestead.readthedocs.io/en/latest/introduction/history-of-ethereum.html}
 \bibitem{proceswydaniaethereum} Ethereum \emph{Ethereum Launch Process} \url{https://ethereum.github.io/blog/2015/03/03/ethereum-launch-process/}
+
+
+
 \bibitem{soliditygrammar} Ethereum \emph{Solidity Grammar} \url{https://github.com/ethereum/solidity/blob/develop/docs/grammar.txt}
 \bibitem{deconstructingsmartcontract} Alejandro Santander \emph{Deconstructing a Solidity Contract} \url{https://blog.zeppelin.solutions/deconstructing-a-solidity-contract-part-i-introduction-832efd2d7737}. 
 \bibitem{reversingethereumsmartcontract} Brandon Arvanaghi \emph{Reversing Ethereum Smart Contracts} \url{https://arvanaghi.com/blog/reversing-ethereum-smart-contracts/}.

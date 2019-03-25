@@ -1,37 +1,38 @@
 \contentsline {chapter}{Wst\IeC {\k e}p}{5}{chapter*.2}% 
 \contentsline {chapter}{\numberline {1}Ethereum}{7}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Historia}{7}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Opis platformy}{9}{section.1.2}% 
-\contentsline {section}{\numberline {1.3}Ethereum Virtual Machine}{9}{section.1.3}% 
-\contentsline {section}{\numberline {1.4}Inteligentne kontrakty}{9}{section.1.4}% 
-\contentsline {chapter}{\numberline {2}Solidity}{11}{chapter.2}% 
-\contentsline {section}{\numberline {2.1}Sygnatura funkcji}{11}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Selektor funkcji}{11}{section.2.2}% 
-\contentsline {section}{\numberline {2.3}Generowanie akcesor\IeC {\'o}w podczas kompilacji}{11}{section.2.3}% 
-\contentsline {chapter}{\numberline {3}Projekt Aplikacji}{13}{chapter.3}% 
-\contentsline {section}{\numberline {3.1}Opis funkcjonalno\IeC {\'s}ci}{13}{section.3.1}% 
-\contentsline {subsection}{\numberline {3.1.1}Identyfikacja inteligentnych kontrakt\IeC {\'o}w}{14}{subsection.3.1.1}% 
-\contentsline {subsection}{\numberline {3.1.2}Dodanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego kontraktu do aplikacji}{17}{subsection.3.1.2}% 
-\contentsline {subsection}{\numberline {3.1.3}Interfejs programistyczny aplikacji}{17}{subsection.3.1.3}% 
-\contentsline {subsubsection}{Pobieranie informacji o kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym z API}{18}{section*.3}% 
-\contentsline {subsubsection}{Identyfikacja inteligentnego kontraktu za pomoc\IeC {\k a} API}{19}{section*.4}% 
-\contentsline {subsubsection}{Przesy\IeC {\l }anie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego za pomoc\IeC {\k a} API}{20}{section*.5}% 
-\contentsline {section}{\numberline {3.2}Przedstawienie architektury}{22}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{24}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{28}{section.3.4}% 
-\contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{28}{subsection.3.4.1}% 
-\contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{29}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{30}{subsection.3.4.3}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury zadeklarowanej funkcji}{31}{section*.6}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{33}{section*.7}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu tablicowego}{36}{section*.8}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{37}{section*.9}% 
-\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{38}{section.3.5}% 
-\contentsline {subsection}{\numberline {3.5.1}Reprezentacja operacji EVM wewn\IeC {\k a}trz aplikacji}{39}{subsection.3.5.1}% 
-\contentsline {subsection}{\numberline {3.5.2}Wyszukiwanie instrukcji z kodu bajtowego}{41}{subsection.3.5.2}% 
-\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{42}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{42}{section.3.7}% 
-\contentsline {chapter}{Bibliografia}{43}{section*.12}% 
-\contentsline {chapter}{Spis tabel}{47}{chapter*.14}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{49}{chapter*.16}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{52}{chapter*.18}% 
+\contentsline {section}{\numberline {1.2}Czym jest Ethereum Virtual Machine?}{9}{section.1.2}% 
+\contentsline {subsection}{\numberline {1.2.1}Kody operacji}{10}{subsection.1.2.1}% 
+\contentsline {subsection}{\numberline {1.2.2}Kod bajtowy}{11}{subsection.1.2.2}% 
+\contentsline {section}{\numberline {1.3}Do czego s\IeC {\l }u\IeC {\.z}\IeC {\k a} Inteligentne kontrakty?}{11}{section.1.3}% 
+\contentsline {chapter}{\numberline {2}Solidity}{13}{chapter.2}% 
+\contentsline {section}{\numberline {2.1}Sygnatura funkcji}{13}{section.2.1}% 
+\contentsline {section}{\numberline {2.2}Selektor funkcji}{13}{section.2.2}% 
+\contentsline {section}{\numberline {2.3}Generowanie akcesor\IeC {\'o}w podczas kompilacji}{13}{section.2.3}% 
+\contentsline {chapter}{\numberline {3}Projekt Aplikacji}{15}{chapter.3}% 
+\contentsline {section}{\numberline {3.1}Opis funkcjonalno\IeC {\'s}ci}{15}{section.3.1}% 
+\contentsline {subsection}{\numberline {3.1.1}Identyfikacja inteligentnych kontrakt\IeC {\'o}w}{16}{subsection.3.1.1}% 
+\contentsline {subsection}{\numberline {3.1.2}Dodanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego kontraktu do aplikacji}{19}{subsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.1.3}Interfejs programistyczny aplikacji}{19}{subsection.3.1.3}% 
+\contentsline {subsubsection}{Pobieranie informacji o kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym z API}{20}{section*.3}% 
+\contentsline {subsubsection}{Identyfikacja inteligentnego kontraktu za pomoc\IeC {\k a} API}{21}{section*.4}% 
+\contentsline {subsubsection}{Przesy\IeC {\l }anie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego za pomoc\IeC {\k a} API}{22}{section*.5}% 
+\contentsline {section}{\numberline {3.2}Przedstawienie architektury}{24}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{26}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{30}{section.3.4}% 
+\contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{30}{subsection.3.4.1}% 
+\contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{31}{subsection.3.4.2}% 
+\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{32}{subsection.3.4.3}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury zadeklarowanej funkcji}{33}{section*.6}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{35}{section*.7}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu tablicowego}{38}{section*.8}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{39}{section*.9}% 
+\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{40}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Reprezentacja operacji EVM wewn\IeC {\k a}trz aplikacji}{41}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Wyszukiwanie instrukcji z kodu bajtowego}{43}{subsection.3.5.2}% 
+\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{44}{section.3.6}% 
+\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{44}{section.3.7}% 
+\contentsline {chapter}{Bibliografia}{45}{section*.12}% 
+\contentsline {chapter}{Spis tabel}{49}{chapter*.14}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{51}{chapter*.16}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{54}{chapter*.18}% 
