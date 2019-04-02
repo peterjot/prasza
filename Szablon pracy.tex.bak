@@ -36,6 +36,7 @@
 \usepackage{listings}				% listingi
 \usepackage{color}					% kolory
 
+\usepackage{makecell}				% mozliwosc zlamania tekstu w tabeli
 
  % Polecenie usunięcia paginy na pustej stronie.
 \newcommand{\clearemptydoublepage}{\newpage{\pagestyle{empty}\cleardoublepage}} 	
@@ -213,7 +214,13 @@ Siec \textbf{Ethereum} została uruchomiona 30 lipca 2015 roku. Był to moment, 
 Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną \textbf{DEVCON-1}, odbyła się ona w Londynie na początku listopada 2015 roku. Konferencja trwała pięć dni, a przedstawiano na niej ponad 100 prezentacji, paneli dyskusyjnych oraz krótkich rozmów. W konferencji wzięło udział ponad 400 uczestników, była to mieszanka przedsiębiorców, myślicieli, programistów oraz przedstawicieli biznesowych. W konferencji brały udział duże firmy jak IBM czy Microsoft, co wyraźnie wskazywało na duże zainteresowanie ta technologia \cite{historyofethereum}. 
 
 
-\section{Czym jest Ethereum Virtual Machine?}
+\section{Czym są Inteligentne kontrakty?}
+
+TODO
+
+
+
+\section{Ethereum Virtual Machine}
 
 EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o Ethereum. Początkowo wirtualna maszyna została opisana w żółtym dokumencie opracowanym przez dr. Gavina Wooda. Maszyna wirtualna jest całkowicie odizolowana od reszty głównej sieci blockchain, co pomaga w zapewnienia bezpieczeństwa wykonywania niezaufanego kodu przez komputery z całego świata. Każdy węzeł w sieci Ethereum uruchamia u siebie własną implementację EVM oraz jest w stanie wykonywać na niej te same instrukcje co pozostałe węzły. 
 
@@ -222,7 +229,7 @@ EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o
 
 Inteligentne kontrakty napisane w takich językach jak Solidity nie mogą być bezpośrednio wykonane na EVM. W celu wykonania kontraktu należy jego kod skompilować do nisko poziomowych instrukcji. 
 
-EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje te wspólnie umożliwiają stworzenie oprogramowania zupełnego w sensie Turinga.  Operacje wykonywane na EVM można podzielić na siedem kategorii:
+EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje te umożliwiają stworzenie programu zupełnego w sensie Turinga.  Operacje wykonywane na EVM można podzielić na siedem kategorii:
 
 
 \begin{enumerate}
@@ -242,16 +249,20 @@ EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje 
 \item \textbf{Operacje zatrzymujące} (STOP, RETURN, REVERT, INVALID, SELFDESTRUCT)
 \end{enumerate}
 
-\subsection{Kod bajtowy}
-W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt. Przykładowo operacja PUSH1 wrzuca na stos jeden bajt,  jest ona reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1. Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1(0x60), tylko tym razem na stos została wrzucona wartość 0x40 \cite{ethereumyellowpaper}.
+Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda \cite{ethereumyellowpaper}.
 
-Po wykonaniu dwóch pierwszych operacji na stosie powinny znajdować się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. Na czubku stosu powinna znajdować się wartość 0xC0.
+\subsection{Kod bajtowy}
+W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt. Przykładowo operacja PUSH1 wrzuca na stos jeden bajt,  jest ona reprezentowana przez wartość \textbf{0x60}. Dla kodu bajtowego \textbf{0x6080604001}, pierwszy bajt to operacja \textbf{PUSH1}. Zgodnie ze specyfikacją opisaną przed Gavina operacja \textbf{PUSH1} odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość \textbf{0x80}. Następną operacją jest ponownie \textbf{PUSH1}(0x60), tylko tym razem na stos została wrzucona wartość \textbf{0x40} \cite{ethereumyellowpaper}.
+
+Po wykonaniu dwóch pierwszych operacji na stosie znajdują się dwie wartości: \textbf{0x80} oraz \textbf{0x40}. Kolejnym bajtem jest \textbf{0x01}, który oznacza operacje \textbf{ADD}. Operacja \textbf{ADD} pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. W rezultacie górze stosu znajduje się wartość \textbf{0xC0}.
 Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwa znaki reprezentujące liczbę w systemie szesnastkowym \cite{ethereumyellowpaper}.
 
 
-\section{Do czego służą Inteligentne kontrakty?}
+\subsection{Analiza kodu bajtowego}
 
-TODO
+Kontrakty, które zostały umieszczane na blockchainie są przechowywane w postaci kodu bajtowego. Chcąc przeanalizować działanie kontraktu umieszczonego w sieci Ethereum, może okazać się, że kod bajtowy nie jest wystarczająco czytelny. Z tego powodu powstały narzędzia umożliwiające analizę kodu bajtowego. Jednym z takich narzędzi jest \textbf{eveem.org} lub \textbf{ethervm.io}, są to aplikacje internetowe umożliwiające zdekompilowanie do assemblera.
+
+Niestety podczas deasemblacji nazwy funkcji, atrybutów oraz wydarzeń są tracone z powodu optymalizacji. Istnieje jednak sposób na odzyskanie poprzez wykorzystanie bazy danych zawierającej popularne nazwy. Przykładem takiej bazy danych  jest \textbf{4byte.directory}, czyli aplikacja internetowa przechowującą sygnatury funkcji wraz z ich reprezentacjami bajtowymi.
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -660,7 +671,7 @@ Pierwszym przypadkiem są funkcje jawnie zadeklarowane w kodzie źródłowym nie
 ^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
 \end{lstlisting}
 
-Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu źródłowego frazy \textbf{function}, po której następuje nazwa funkcji oraz lista parametrów w nawiasach \ref{soliditygrammar}.
+Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu źródłowego frazy \textbf{function}, po której następuje nazwa funkcji oraz lista parametrów w nawiasach \cite{soliditygrammar}.
 
 Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} została przedstawiona metoda wyszukującą sygnaturę funkcji za pomocą przedstawionego wyrażenia regularnego.
 
@@ -825,6 +836,26 @@ private Optional<SolidityFunction> findNormalVariableGetter(String line) {
 
 Wszystkie wykryte funkcje w poszczególnych liniach implementacji, zostają zapisane w bazie danych wraz z analizowanym kodem źródłowym oraz jego haszem.
 
+\begin{center}
+\lstset{language=Java}
+\begin{lstlisting}[caption=Zapisywanie kodu źródłowego ze zbiorem jego funkcji oraz haszu, label=lst:zapisywanieplikuzfunkcjami]
+SolidityFile save(byte[] sourceCodeBytes) throws IOException {
+    String sourceCode = new String(sourceCodeBytes, StandardCharsets.UTF_8);
+    final String preparedSourceCode = sourceCode
+        .replaceAll("(?m)\\s+$", "").replaceAll("(?m) +", " ")
+        .replaceAll("(?m)^\\s+","");
+         
+        Set<SolidityFunction> functionsFromFile = findSolidityFunctionsFromSourceFile(new ByteArrayInputStream(sourceCodeBytes));
+        
+        return solidityFileRepository.save(new SolidityFile(sha3String(preparedSourceCode), sourceCode, functionsFromFile));
+}
+\end{lstlisting}
+\end{center} 
+
+Na listingu \ref{lst:zapisywanieplikuzfunkcjami} widać metodę klasy \textbf{SolidityService}, która zapisuje do bazy danych kod źródłowy, jego hasz oraz zbiór funkcji zidentyfikowanych w kodzie.
+Przed utworzeniem hasza kodu źródłowego, usuwane są z niego wszystkie nadmierne spacje oraz puste linie, następnie jest tworzony hasz za pomocą funkcji haszującej SHA3.
+
+
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
 
@@ -840,12 +871,9 @@ W celu wykrycia selektorów funkcji należy najpierw uzyskać listę instrukcji 
 \textbf{Opcode} jest to typ wyliczeniowy, który definiuje wszystkie kody operacji, jakie można wykonać na \textbf{Ethereum Virtual Machine}. Wszystkie te operacje zostały opisane w dokumencie definiującym \textbf{EVM} \cite{ethereumyellowpaper}.
 
 
-Typ wyliczeniowy posiada w sobie trzy atrybuty: \textbf{hexValue}, \textbf{operandSize} oraz \textbf{description}, które są przekazywane w konstruktorze. Na listingu \ref{lst:fragment_opcodow} widać fragment deklaracji poszczególnych operacji. Pierwszym parametrem konstruktora jest \textbf{hexValue}, czyli kod operacji w postaci szesnastkowej. Następnie podawany jest \textbf{operandSize}, który określa rozmiar parametru danej operacji za pomocą liczby bajtów. Ostatnią przekazywaną informacją jest opis operacji.
-
-
 \begin{center}
 \lstset{language=Java}
-\begin{lstlisting}[caption=Fragment kodu źródłowego definiującego kody operacji w typie wyliczeniowym, label=lst:fragment_opcodow]
+\begin{lstlisting}[caption=Reprezentacja kodów operacji w postaci typy wyliczeniowego, label=lst:fragment_opcodow]
 ...
 MSIZE(0x59, 0, "Get the size of active memory in bytes."),
 GAS(0x5A, 0, "Get the amount of available gas, including the corresponding reduction the amount of available gas."),
@@ -858,15 +886,15 @@ PUSH3(0x62, 3, "Place 3-byte item on stack."),
 \end{lstlisting}
 \end{center} 
 
-Ponieważ kod bajtowy przechowuje kody operacji oraz ich parametry w postaci szesnastkowej, w tym celu została utworzona klasa \textbf{OpcodeTable}, która umożliwia mapowanie kodu operacji na konkretny obiekt zdefiniowany w typie wyliczeniowym \textbf{Opcode}. Klasa \textbf{OpcodeTable} została zaprezentowana na listingu \ref{lst:mapowanie_na_opcode}. W przypadku, gdy podany kod nie posiada swojego odpowiednika w typie wyliczeniowym, wtedy zostaje zwrócony kod \textbf{UNKNOWNCODE}. 
+
+Typ wyliczeniowy posiada w sobie trzy atrybuty: \textbf{hexValue}, \textbf{operandSize} oraz \textbf{description}, które są przekazywane w konstruktorze. Na listingu \ref{lst:fragment_opcodow} widać fragment deklaracji poszczególnych operacji. Pierwszym parametrem konstruktora jest \textbf{hexValue}, czyli kod operacji w postaci szesnastkowej. Następnie podawany jest \textbf{operandSize}, który określa rozmiar parametru danej operacji za pomocą liczby bajtów. Ostatnią przekazywaną informacją jest opis operacji.
+
 
 \begin{center}
 \lstset{language=Java}
 \begin{lstlisting}[caption=Klasa mapujaca identyfikator operacji na reprezentacje operacji typu wyliczeniowego, label=lst:mapowanie_na_opcode]
 class OpcodeTable {
-    private OpcodeTable() {
-        throw new UnsupportedOperationException();
-    }
+    private OpcodeTable() { throw new UnsupportedOperationException();}
 
     private static final Map<Integer, Opcode> opcodes =
             unmodifiableMap(new HashMap<Integer, Opcode>() {{
@@ -892,6 +920,11 @@ class OpcodeTable {
 }
 \end{lstlisting}
 \end{center} 
+
+
+
+Ponieważ kod bajtowy przechowuje kody operacji oraz ich parametry w postaci szesnastkowej, w tym celu została utworzona klasa \textbf{OpcodeTable}, która umożliwia mapowanie kodu operacji na konkretny obiekt zdefiniowany w typie wyliczeniowym \textbf{Opcode}. Klasa \textbf{OpcodeTable} została zaprezentowana na listingu \ref{lst:mapowanie_na_opcode}. W przypadku, gdy podany kod nie posiada swojego odpowiednika w typie wyliczeniowym, wtedy zostaje zwrócony kod \textbf{UNKNOWNCODE}. 
+
 
 \subsection{Odczytywanie instrukcji z kodu bajtowego}
 
@@ -920,7 +953,7 @@ Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStr
 
 \subsection{Wyszukiwanie selektorów funkcji z listy instrukcji}
 
-Po wykryciu wszystkich operacji wraz z ich parametrami przez klase Disassembly, klasa BytecodeService moze przystapic w wyszukiwania ostatecznych selektorow funkcji. 
+Po wykryciu wszystkich operacji wraz z ich parametrami przez klasę \textbf{Disassembly}, klasa \textbf{BytecodeService} może przystąpić do wyszukiwania ostatecznych selektorów funkcji. 
 
 Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na \textbf{EVM}, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos \cite{deconstructingsmartcontract}.
 
@@ -948,10 +981,104 @@ private List<String> findFunctionSelectors(String bytecode) {
 Gdy zmienna \textbf{isFunctionSchemeFound} przechowuje wartość \textbf{true}, wtedy wiadomo, że został wyszukany charakterystyczny dla selektorów funkcji schemat kodów operacji. W takim przypadku pobierany jest parametr ze zmiennej \textbf{first} oraz dodawany jest on do listy \textbf{functionSelectors}.
 
 \section{Dopasowywanie implementacji na podstawie kodu bajtowego}
-Ostatnia rzeczą zwieńczającą cały projekt aplikacji jest dopasowywanie najbardziej prawdopodobnej implementacji na podstawie posiadanego kodu bajtowego oraz potencjalnie jak najbardziej uzupełnionej bazy danych plików. 
+
+Po wyszukaniu wszystkich selektorów funkcji z kodu bajtowego zostają one wykorzystane do wyszukania odpowiedniej implementacji. Z bazy danych zostają wyszukane wszystkie pliki posiadające chociaż jeden selektor funkcji znajdujący się w kodzie bajtowym. Dla każdego pobranego w ten sposób pliku wyznaczany jest współczynnik dopasowania kodu bajtowego z plikiem. Do wyznaczania współczynnika dopasowania kodu bajtowego dla konkretnej implementacji można było zastosować kilka podejść. Poniżej opiszę trzy przetestowane przez mnie sposoby: 
 
 
-Do wyznaczania procentowego dopasowania kodu bajtowego do implementacji można było zastosować kilka podejść. Każde z nim posiada swoje wady i zalety, które zostały przedstawione poniżej.
+
+\begin{enumerate}
+\item Pierwszym sposobem jest wyznaczenie ilości dopasowanych selektorów funkcji kodu bajtowego w danym pliku Solidity względem wszystkich selektorów funkcji w kodzie bajtowym. 
+Rozwiązanie to można zaprezentować za pomocą wzoru:
+
+\begin{center}
+W = M/B
+\end{center}
+
+gdzie:
+
+W - współczynnik dopasowania implementacji
+
+M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
+
+B - liczba selektorów funkcji występujących w kodzie bajtowym
+
+
+Po zastosowaniu takiego rozwiązania, gdy użytkownik otrzyma wynik 100\%, wtedy może mieć pewność, że wszystkie selektory znalezione w kodzie bajtowym mają swój odpowiednik w implementacji. Problem mogą sprawić implementacje posiadające bardzo dużą ilość selektorów funkcji np. biblioteki matematyczne, wtedy wyniki dla takich bibliotek będą miały równie wysoki współczynnik dopasowania co implementacja, która jest mniejsza oraz bardziej zbliżona do prawdziwej.
+
+\item Drugim sposobem jest zwracanie ilości dopasowanych selektorów funkcji z kodu bajtowego względem ilości wszystkich selektorów zidentyfikowanych w kodzie źródłowym. 
+Rozwiązanie to przedstawia wzór:
+
+\begin{center}
+W = M/S
+\end{center}
+
+W - współczynnik dopasowania implementacji
+
+M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
+
+S - liczba selektorów funkcji występujących w kodzie źródłowym
+
+
+Aplikacja przyjmuje cały kod źródłowy, w którym może być kilka implementacji kontraktu, natomiast w kodzie bajtowym znajdują się selektory tylko jednego kontraktu. Może wystąpić taka sytuacja, w której dla prawdziwej implementacji użytkownik nigdy nie uzyska 100\% dopasowania, ponieważ w implementacji kontraktu zostanie wykryta większa liczba selektorów funkcji, niż jest w kodzie bajtowym.
+
+\item Trzecim sposobem, który mógłby rozwiązać problemy dwóch poprzednich, jest obliczenie współczynnika dopasowania względem sumy wykrytych selektorów funkcji w implementacji oraz kodzie bajtowym. Trzeci reprezentuje wzór:
+
+\end{enumerate}
+
+Zostały przeprowadzone testy trzech wspominanych sposobów. Jako grupę testową pobrałem \textbf{473} implementacji kontraktów ze strony \textbf{etherscan.io} skompilowanych w wersji kompilatora od \textbf{0.4.22} do \textbf{0.4.25}. Do kompilacji kontraktów wykorzystałem kompilator \textbf{solc} oraz bibliotekę \textbf{py-solc}, która ułatwia kompilacje z poziomu języka Python.
+
+
+
+Tabela \ref{tab:tconc} przedstawia ...
+
+\begin{table}[ph!]
+\centering
+\caption{Wyniki testów metod dopasowywania}\label{tab:testydop}
+\begin{tabular}{| r | r | r | r | m{15pt} 1}\hline
+Metoda dopasowywania & 1 & 2	& 3 \\ \hline
+\makecell{Liczba kodów bajtowych} & \multicolumn{3}{c|}{473} \\ \hline
+\makecell{Liczba zidentyfikowanych kodów} & \multicolumn{3}{c|}{471} \\ \hline
+\makecell{Poprawnie zidentyfikowanych} & 431(91.50\%) & 281(59.66\%) & 395(83.86\%)\\ \hline
+\makecell{Średnia wartość współczynnika dla \\poprawnie 
+dopasowanych implementacji} & 95.56\% & 89.33\% & 89.77\% \\ \hline
+\end{tabular}
+\end{table} 
+
+\begin{table}[ph!]
+\centering
+\caption{Akceptacja wniosku}\label{tab:tconc}
+\begin{tabular}{r r r r r m{15pt} l}\hline \rule[5mm]{0cm}{0mm}
+&&	reguła &	&	wniosek &	&	warunek \\ \hline
+1. & jeśli&		$\thicksim a\to b$,	&to&	$b=1,$  	&gdy& 	$a=0\; \vee\; a = -1$ \\
+2. & jeśli&		$\neg a\to b$,	&to&	$b=1,$ 	&gdy&  	$a=-1$ \\ 
+3. & jeśli&		$ a\to b$, 		&to& 	$b=1,$ 	&gdy& 	$a = 1$ \\
+4. & jeśli&		$ a\to \neg b$, 	&to& 	$b=-1,$ 	&gdy&  	$a = 1$ \\[2pt] \hline
+\end{tabular}
+\end{table} 
+
+
+
+Każdy kod źródłowy skompilowałem wersja kompilatora sugerowana przez \textbf{etherscan.io} dla danej implementacji. Dla każdego skompilowanego pliku wybierany był jeden kontrakt, którego kod bajtowy był identyfikowany w testach. Jeśli wybrany kontrakt był interfejsem, wtedy, skompilowany kod bajtowy jest pusty
+
+
+Na 471 implementacji nie udało kompilatorowi poprawnie skompilować dwóch plików.
+
+
+
+
+Na tabeli xx widac przedstawione wszystkie trzy metody dopasowywania 
+
+
+
+
+x
+
+
+x
+
+
+
+Istenieje sposob ktory moglby zagwarantowac niemal 100\% dopasowanie, ale wymaga on przekazania do aplikacji kazdego kontraktu w odzielnym pliku lub sprawdzania w jednej duzej implementacji, ktora metoda nalezy do jakiego kontraktu. W przypadku gdy posiadalbym informacje o selektorach z konkretnego kontraktu, a nie z calej implementacji, wtedy mozna uzyskac bardzo dobre wyniki identyfikacji. Problemem na chwile pisania aplikacji bylo w jaki sposob poprawnie zidentyfikowac ktora sygnatury funkcji nalezy do ktorego kontraktu w calej implementacji pobranej ze strony Etherscan.
 
 \section{Wykorzystane technologie}
 

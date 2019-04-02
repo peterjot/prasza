@@ -1,7 +1,7 @@
 \contentsline {chapter}{Wst\IeC {\k e}p}{5}{chapter*.2}% 
 \contentsline {chapter}{\numberline {1}Ethereum}{7}{chapter.1}% 
 \contentsline {section}{\numberline {1.1}Historia}{7}{section.1.1}% 
-\contentsline {section}{\numberline {1.2}Do czego s\IeC {\l }u\IeC {\.z}\IeC {\k a} Inteligentne kontrakty?}{9}{section.1.2}% 
+\contentsline {section}{\numberline {1.2}Czym s\IeC {\k a} Inteligentne kontrakty?}{9}{section.1.2}% 
 \contentsline {section}{\numberline {1.3}Ethereum Virtual Machine}{9}{section.1.3}% 
 \contentsline {subsection}{\numberline {1.3.1}Kody operacji}{10}{subsection.1.3.1}% 
 \contentsline {subsection}{\numberline {1.3.2}Kod bajtowy}{11}{subsection.1.3.2}% 
@@ -18,23 +18,22 @@
 \contentsline {subsubsection}{Pobieranie informacji o kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym z API}{20}{section*.3}% 
 \contentsline {subsubsection}{Identyfikacja inteligentnego kontraktu za pomoc\IeC {\k a} API}{21}{section*.4}% 
 \contentsline {subsubsection}{Przesy\IeC {\l }anie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego za pomoc\IeC {\k a} API}{22}{section*.5}% 
-\contentsline {section}{\numberline {3.2}Przedstawienie architektury}{23}{section.3.2}% 
-\contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{25}{section.3.3}% 
-\contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{29}{section.3.4}% 
+\contentsline {section}{\numberline {3.2}Przedstawienie architektury}{24}{section.3.2}% 
+\contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{26}{section.3.3}% 
+\contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{30}{section.3.4}% 
 \contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{30}{subsection.3.4.1}% 
 \contentsline {subsection}{\numberline {3.4.2}Kontroler strony internetowej}{31}{subsection.3.4.2}% 
-\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{31}{subsection.3.4.3}% 
+\contentsline {subsection}{\numberline {3.4.3}Przetwarzanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{32}{subsection.3.4.3}% 
 \contentsline {subsubsection}{Wykrywanie sygnatury zadeklarowanej funkcji}{33}{section*.6}% 
 \contentsline {subsubsection}{Generowanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu mapa}{35}{section*.7}% 
-\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu tablicowego}{37}{section*.8}% 
+\contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla publicznych atrybut\IeC {\'o}w typu tablicowego}{38}{section*.8}% 
 \contentsline {subsubsection}{Wykrywanie sygnatury funkcji dla pozosta\IeC {\l }ych publicznych atrybut\IeC {\'o}w}{38}{section*.9}% 
-\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{39}{section.3.5}% 
-\contentsline {subsection}{\numberline {3.5.1}Reprezentacja operacji EVM wewn\IeC {\k a}trz aplikacji}{40}{subsection.3.5.1}% 
-\contentsline {subsection}{\numberline {3.5.2}Odczytywanie instrukcji z kodu bajtowego}{42}{subsection.3.5.2}% 
-\contentsline {subsection}{\numberline {3.5.3}Wyszukiwanie selektor\IeC {\'o}w funkcji z listy instrukcji}{43}{subsection.3.5.3}% 
-\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{44}{section.3.6}% 
-\contentsline {section}{\numberline {3.7}Wykorzystane technologie}{46}{section.3.7}% 
-\contentsline {chapter}{Bibliografia}{47}{section*.12}% 
-\contentsline {chapter}{Spis tabel}{51}{chapter*.14}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{53}{chapter*.16}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{56}{chapter*.18}% 
+\contentsline {section}{\numberline {3.5}Wyszukiwanie selektor\IeC {\'o}w funkcji w kodzie bajtowym}{41}{section.3.5}% 
+\contentsline {subsection}{\numberline {3.5.1}Reprezentacja operacji EVM wewn\IeC {\k a}trz aplikacji}{41}{subsection.3.5.1}% 
+\contentsline {subsection}{\numberline {3.5.2}Odczytywanie instrukcji z kodu bajtowego}{43}{subsection.3.5.2}% 
+\contentsline {subsection}{\numberline {3.5.3}Wyszukiwanie selektor\IeC {\'o}w funkcji z listy instrukcji}{44}{subsection.3.5.3}% 
+\contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{45}{section.3.6}% 
+\contentsline {chapter}{Bibliografia}{49}{section*.12}% 
+\contentsline {chapter}{Spis tabel}{53}{chapter*.14}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{55}{chapter*.16}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{58}{chapter*.18}% 

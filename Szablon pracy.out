@@ -1,7 +1,7 @@
 \BOOKMARK [0][-]{chapter*.2}{Wstep}{}% 1
 \BOOKMARK [0][-]{chapter.1}{Ethereum}{}% 2
 \BOOKMARK [1][-]{section.1.1}{Historia}{chapter.1}% 3
-\BOOKMARK [1][-]{section.1.2}{Do czego s\233uza Inteligentne kontrakty?}{chapter.1}% 4
+\BOOKMARK [1][-]{section.1.2}{Czym sa Inteligentne kontrakty?}{chapter.1}% 4
 \BOOKMARK [1][-]{section.1.3}{Ethereum Virtual Machine}{chapter.1}% 5
 \BOOKMARK [2][-]{subsection.1.3.1}{Kody operacji}{section.1.3}% 6
 \BOOKMARK [2][-]{subsection.1.3.2}{Kod bajtowy}{section.1.3}% 7
@@ -26,8 +26,7 @@
 \BOOKMARK [2][-]{subsection.3.5.2}{Odczytywanie instrukcji z kodu bajtowego}{section.3.5}% 26
 \BOOKMARK [2][-]{subsection.3.5.3}{Wyszukiwanie selektor\363w funkcji z listy instrukcji}{section.3.5}% 27
 \BOOKMARK [1][-]{section.3.6}{Dopasowywanie implementacji na podstawie kodu bajtowego}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.7}{Wykorzystane technologie}{chapter.3}% 29
-\BOOKMARK [0][-]{section*.12}{Bibliografia}{}% 30
-\BOOKMARK [0][-]{chapter*.14}{Spis tabel}{}% 31
-\BOOKMARK [0][-]{chapter*.16}{Spis rysunk\363w}{}% 32
-\BOOKMARK [0][-]{chapter*.18}{Spis listing\363w}{}% 33
+\BOOKMARK [0][-]{section*.12}{Bibliografia}{}% 29
+\BOOKMARK [0][-]{chapter*.14}{Spis tabel}{}% 30
+\BOOKMARK [0][-]{chapter*.16}{Spis rysunk\363w}{}% 31
+\BOOKMARK [0][-]{chapter*.18}{Spis listing\363w}{}% 32
