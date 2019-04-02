@@ -213,7 +213,13 @@ Siec \textbf{Ethereum} została uruchomiona 30 lipca 2015 roku. Był to moment, 
 Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną \textbf{DEVCON-1}, odbyła się ona w Londynie na początku listopada 2015 roku. Konferencja trwała pięć dni, a przedstawiano na niej ponad 100 prezentacji, paneli dyskusyjnych oraz krótkich rozmów. W konferencji wzięło udział ponad 400 uczestników, była to mieszanka przedsiębiorców, myślicieli, programistów oraz przedstawicieli biznesowych. W konferencji brały udział duże firmy jak IBM czy Microsoft, co wyraźnie wskazywało na duże zainteresowanie ta technologia \cite{historyofethereum}. 
 
 
-\section{Czym jest Ethereum Virtual Machine?}
+\section{Do czego służą Inteligentne kontrakty?}
+
+TODO
+
+
+
+\section{Ethereum Virtual Machine}
 
 EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o Ethereum. Początkowo wirtualna maszyna została opisana w żółtym dokumencie opracowanym przez dr. Gavina Wooda. Maszyna wirtualna jest całkowicie odizolowana od reszty głównej sieci blockchain, co pomaga w zapewnienia bezpieczeństwa wykonywania niezaufanego kodu przez komputery z całego świata. Każdy węzeł w sieci Ethereum uruchamia u siebie własną implementację EVM oraz jest w stanie wykonywać na niej te same instrukcje co pozostałe węzły. 
 
@@ -222,7 +228,7 @@ EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o
 
 Inteligentne kontrakty napisane w takich językach jak Solidity nie mogą być bezpośrednio wykonane na EVM. W celu wykonania kontraktu należy jego kod skompilować do nisko poziomowych instrukcji. 
 
-EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje te wspólnie umożliwiają stworzenie oprogramowania zupełnego w sensie Turinga.  Operacje wykonywane na EVM można podzielić na siedem kategorii:
+EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje te umożliwiają stworzenie programu zupełnego w sensie Turinga.  Operacje wykonywane na EVM można podzielić na siedem kategorii:
 
 
 \begin{enumerate}
@@ -242,16 +248,21 @@ EVM wykorzystuje zbiór instrukcji do wykonywania określonych zadań. Operacje 
 \item \textbf{Operacje zatrzymujące} (STOP, RETURN, REVERT, INVALID, SELFDESTRUCT)
 \end{enumerate}
 
+Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda \cite{ethereumyellowpaper}.
+
 \subsection{Kod bajtowy}
 W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt. Przykładowo operacja PUSH1 wrzuca na stos jeden bajt,  jest ona reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1. Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1(0x60), tylko tym razem na stos została wrzucona wartość 0x40 \cite{ethereumyellowpaper}.
 
-Po wykonaniu dwóch pierwszych operacji na stosie powinny znajdować się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. Na czubku stosu powinna znajdować się wartość 0xC0.
+Po wykonaniu dwóch pierwszych operacji na stosie znajdują się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. W rezultacie górze stosu znajduje się wartość 0xC0.
 Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwa znaki reprezentujące liczbę w systemie szesnastkowym \cite{ethereumyellowpaper}.
 
 
-\section{Do czego służą Inteligentne kontrakty?}
+\subsection{Analiza kodu bajtowego}
 
-TODO
+XXXXXXX
+Duza czesc inteligetnych kontraktow udostepnionych w sieci Ethereum jest przechowywana bez kodu zrodlowego. Ze wzgledow bezpieczenstwa istnieje potrzeba analizy tych kontraktow, w celu wykrycia potencjalnych podatnosci na ataki lub w celu zrozumienia samego dzialania kontraktow. 
+Do analizwy kodu bajtowego umieszczanego w sieciu Ethereum
+W sieci ethereum istnieje duza liczba kontraktow ref:xxxliczbakontraktow. Ze wzgledu na potrzebe analizy bezpieczenstwa udostepnianych kontraktow powstal szereg narzedzi umozliwiajacych analize kodu bajtowego. Jednymi z takich narzedzi jest binary ninja ktory pomaga podczas inzynieri wstecznej kontraktu. Innym narzedziem jest bytecode.dictianory - jest to baza danych przechowujaca sygnatury funkcji napisane w jezyku solidity, wraz z ich reprezentacja bajtową, ktora umozliwia wyszukanie sygnatur funkcji dla przekazanego kodu bajtowego. 
 
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -920,7 +931,7 @@ Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStr
 
 \subsection{Wyszukiwanie selektorów funkcji z listy instrukcji}
 
-Po wykryciu wszystkich operacji wraz z ich parametrami przez klase Disassembly, klasa BytecodeService moze przystapic w wyszukiwania ostatecznych selektorow funkcji. 
+Po wykryciu wszystkich operacji wraz z ich parametrami przez klasę \textbf{Disassembly}, klasa \textbf{BytecodeService} może przystąpić do wyszukiwania ostatecznych selektorów funkcji. 
 
 Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na \textbf{EVM}, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos \cite{deconstructingsmartcontract}.
 
@@ -948,10 +959,66 @@ private List<String> findFunctionSelectors(String bytecode) {
 Gdy zmienna \textbf{isFunctionSchemeFound} przechowuje wartość \textbf{true}, wtedy wiadomo, że został wyszukany charakterystyczny dla selektorów funkcji schemat kodów operacji. W takim przypadku pobierany jest parametr ze zmiennej \textbf{first} oraz dodawany jest on do listy \textbf{functionSelectors}.
 
 \section{Dopasowywanie implementacji na podstawie kodu bajtowego}
-Ostatnia rzeczą zwieńczającą cały projekt aplikacji jest dopasowywanie najbardziej prawdopodobnej implementacji na podstawie posiadanego kodu bajtowego oraz potencjalnie jak najbardziej uzupełnionej bazy danych plików. 
+
+Po wyszukaniu wszystkich selektorów funkcji z kodu bajtowego zostają one wykorzystane do wyszukania odpowiedniej implementacji. Z bazy danych zostają wyszukane wszystkie pliki posiadające chociaż jeden selektor funkcji znajdujący się w kodzie bajtowym. Dla każdego pobranego w ten sposób pliku wyznaczany jest współczynnik dopasowania kodu bajtowego z plikiem. Do wyznaczania współczynnika dopasowania kodu bajtowego dla konkretnej implementacji można było zastosować kilka podejść. Poniżej opiszę trzy przetestowane przez mnie sposoby. 
 
 
-Do wyznaczania procentowego dopasowania kodu bajtowego do implementacji można było zastosować kilka podejść. Każde z nim posiada swoje wady i zalety, które zostały przedstawione poniżej.
+
+\begin{enumerate}
+\item Pierwszym sposobem jest wyznaczenie ilości dopasowanych selektorów funkcji kodu bajtowego w danym pliku Solidity względem wszystkich selektorów funkcji w kodzie bajtowym. 
+Rozwiązanie to można zaprezentować za pomocą wzoru:
+
+\begin{center}
+W = M/B
+\end{center}
+
+gdzie:
+
+W - współczynnik dopasowania implementacji
+
+M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
+
+B - liczba selektorów funkcji występujących w kodzie bajtowym
+
+
+Po zastosowaniu takiego rozwiązania, gdy użytkownik otrzyma wynik 100\% ,wtedy jest pewny, że wszystkie selektory znalezione w kodzie bajtowym mają swój odpowiednik w implementacji. Problem mogą sprawić implementacje posiadające bardzo dużą ilość selektorów funkcji np. biblioteki matematyczne, wtedy wyniki dla takich bibliotek napisanych w Solidity będą miały równie wysoki współczynnik dopasowania co implementacja, która jest mniejsza oraz bardziej zbliżona do prawdziwej.
+
+\item Drugim sposobem jest zwracanie ilości dopasowanych selektorów funkcji z kodu bajtowego względem ilości wszystkich selektorów w pliku Solidity. 
+Rozwiązanie to zostało przedstawione za pomocą wzoru:
+
+\begin{center}
+W = M/S
+\end{center}
+
+W - współczynnik dopasowania implementacji
+
+M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
+
+S - liczba selektorów funkcji występujących w pliku Solidity
+
+
+Aplikacja przyjmuje cały kod źródłowy, w którym może być kilka implementacji kontraktu, natomiast w kodzie bajtowym znajdują się selektory tylko jednego kontraktu. Może wystąpić taka sytuacja, w której dla prawdziwej implementacji użytkownik nigdy nie uzyska 100\% dopasowania, ponieważ w implementacji kontraktu zostanie wykryta większa liczba selektorów funkcji, niż jest w kodzie bajtowym.
+
+\item Trzecim sposobem jest ktory moglby rozwiazac problemy twoch pierwszych jest obliczenie wspolczynnika dla dwoch pierwszych metod a nastepnie usrednienie wynikow.
+
+\end{enumerate}
+
+Zostaly przeprowadzone testy trzech wspomianych sposobow. Jako grupe testową pobralem 474 implementacji kontraktow napisanych w jezyku solidity ze strony Etherscan wraz z wersjami w ktorych powinny zostac skompilowane. Kazdy plik zostal skompilowany za pomoca kompilatora solc oraz biblioteki py-solc ktora ulatwia kompilacje z poziomu Pythona. Wszystkie pobrane implementacje zostaly skompilowane za pomoca kompilatora w wersji od 0.22.2 do 0.22.4. Informacja za pomoca jakiej wersji kompilatora nalezy skompilowac kontrakt zostala pobrana z Etherscan w zaleznosci od konkretnego pliku. Testy zostaly napisane w w jezyku Python z wykorzystaniem biblioteki py-solc ktora ulatwia kompilacje w Pythonie. 
+
+
+Na tabeli xx widac przedstawione wszystkie trzy metody dopasowywania 
+
+
+
+
+x
+
+
+x
+
+
+
+Istenieje sposob ktory moglby zagwarantowac niemal 100\% dopasowanie, ale wymaga on przekazania do aplikacji kazdego kontraktu w odzielnym pliku lub sprawdzania w jednej duzej implementacji, ktora metoda nalezy do jakiego kontraktu. W przypadku gdy posiadalbym informacje o selektorach z konkretnego kontraktu, a nie z calej implementacji, wtedy mozna uzyskac bardzo dobre wyniki identyfikacji. Problemem na chwile pisania aplikacji bylo w jaki sposob poprawnie zidentyfikowac ktora sygnatury funkcji nalezy do ktorego kontraktu w calej implementacji pobranej ze strony Etherscan.
 
 \section{Wykorzystane technologie}
 

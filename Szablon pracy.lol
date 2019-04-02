@@ -9,12 +9,12 @@
 \contentsline {lstlisting}{\numberline {3.9}Metoda kontrolera mapuj\IeC {\k a}ca \IeC {\.z}\IeC {\k a}dania POST}{30}{lstlisting.3.9}% 
 \contentsline {lstlisting}{\numberline {3.10}Przechwytywanie \IeC {\.z}\IeC {\k a}dania o dodanie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego}{31}{lstlisting.3.10}% 
 \contentsline {lstlisting}{\numberline {3.11}Metoda wyszukujaca sygnatury funkcji}{32}{lstlisting.3.11}% 
-\contentsline {lstlisting}{\numberline {3.12}Metoda odbieraj\IeC {\k a}ca \IeC {\.z}\IeC {\k a}danie o zapisanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego na serwerze}{34}{lstlisting.3.12}% 
-\contentsline {lstlisting}{\numberline {3.13}Metoda generuj\IeC {\k a}ca selektor funkcji}{35}{lstlisting.3.13}% 
-\contentsline {lstlisting}{\numberline {3.14}P\IeC {\k e}tla wyszukuj\IeC {\k a}ca tablic\IeC {\k e} lub map\IeC {\k e} w typie zwracanym przez map\IeC {\k e}}{36}{lstlisting.3.14}% 
+\contentsline {lstlisting}{\numberline {3.12}Metoda odbieraj\IeC {\k a}ca \IeC {\.z}\IeC {\k a}danie o zapisanie kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego na serwerze}{33}{lstlisting.3.12}% 
+\contentsline {lstlisting}{\numberline {3.13}Metoda generuj\IeC {\k a}ca selektor funkcji}{34}{lstlisting.3.13}% 
+\contentsline {lstlisting}{\numberline {3.14}P\IeC {\k e}tla wyszukuj\IeC {\k a}ca tablic\IeC {\k e} lub map\IeC {\k e} w typie zwracanym przez map\IeC {\k e}}{35}{lstlisting.3.14}% 
 \contentsline {lstlisting}{\numberline {3.15}Tworzenie SolidityFunction na podstawie nazwy funkcji i listy typ\IeC {\'o}w}{37}{lstlisting.3.15}% 
-\contentsline {lstlisting}{\numberline {3.16}Metoda wyszukujaca sygnature funkcji dla atrybut\IeC {\'o}w nieb\IeC {\k e}d\IeC {\k a}cych map\IeC {\k a} ani tablica}{39}{lstlisting.3.16}% 
-\contentsline {lstlisting}{\numberline {3.17}Fragment kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego definiuj\IeC {\k a}cego kody operacji w typie wyliczeniowym}{41}{lstlisting.3.17}% 
-\contentsline {lstlisting}{\numberline {3.18}Klasa mapujaca identyfikator operacji na reprezentacje operacji typu wyliczeniowego}{42}{lstlisting.3.18}% 
-\contentsline {lstlisting}{\numberline {3.19}Metoda wyszukuj\IeC {\k a}ca instrukcje instrukcje w kodzie bajtowym}{43}{lstlisting.3.19}% 
-\contentsline {lstlisting}{\numberline {3.20}Metoda wyszukuj\IeC {\k a}ca selektory funkcji na podstawie listy instrukcji}{44}{lstlisting.3.20}% 
+\contentsline {lstlisting}{\numberline {3.16}Metoda wyszukujaca sygnature funkcji dla atrybut\IeC {\'o}w nieb\IeC {\k e}d\IeC {\k a}cych map\IeC {\k a} ani tablica}{38}{lstlisting.3.16}% 
+\contentsline {lstlisting}{\numberline {3.17}Fragment kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego definiuj\IeC {\k a}cego kody operacji w typie wyliczeniowym}{40}{lstlisting.3.17}% 
+\contentsline {lstlisting}{\numberline {3.18}Klasa mapujaca identyfikator operacji na reprezentacje operacji typu wyliczeniowego}{41}{lstlisting.3.18}% 
+\contentsline {lstlisting}{\numberline {3.19}Metoda wyszukuj\IeC {\k a}ca instrukcje instrukcje w kodzie bajtowym}{42}{lstlisting.3.19}% 
+\contentsline {lstlisting}{\numberline {3.20}Metoda wyszukuj\IeC {\k a}ca selektory funkcji na podstawie listy instrukcji}{43}{lstlisting.3.20}% 
