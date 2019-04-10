@@ -189,7 +189,7 @@
 
 Ethereum jest to otwarta platforma oparta o technologie blockchain, która umożliwia użytkownikom tworzenie i uruchamianie zdecentralizowanych aplikacji. Programy tworzone i uruchamiane na blockchain nazywane są też inteligentnymi kontraktami. 
 
-Do uruchamiania aplikacji została stworzona maszyna wirtualna o nazwie Ethereum Virtual Machine, która może wykonywać kod inteligentnego kontraktu o dowolnej złożoność algorytmicznej. Kod aplikacji stworzonej na EVM jest przechowywany na blockchainie utrzymywanym przez jego użytkowników. Programiści mogą tworzyć aplikacje na EVM  za pomocą przyjaznych języków programowania wzorowanych na Pythonie czy JavaScript \cite{whatisethereum}.
+Do uruchamiania aplikacji została stworzona maszyna wirtualna o nazwie Ethereum Virtual Machine, która może wykonywać kod inteligentnego kontraktu o dowolnej złożoność algorytmicznej. Kod aplikacji stworzonej na EVM jest przechowywany na blockchainie utrzymywanym przez jego użytkowników. Programiści mogą tworzyć aplikacje na EVM  za pomocą przyjaznych języków programowania wzorowanych na Pythonie czy JavaScript.\cite{whatisethereum}
 
 Na potrzeby platformy Ethereum stworzono dedykowany język Solidity, który został stworzony z myślą o tworzeniu inteligentnych kontraktów.
 
@@ -198,16 +198,16 @@ Na potrzeby platformy Ethereum stworzono dedykowany język Solidity, który zost
  
 \section{Historia}
 
-Początki Ethereum zostały opisane przez programistę Vitalika Buterina w 2013 roku, kiedy jeszcze Ethereum nie nazywało się Ethereum. Programista Vitalik w październiku 2013 roku pracował z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. Mastercoin było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy \cite{vitalikethereumprehistory}. 
+Początki Ethereum zostały opisane przez programistę Vitalika Buterina w 2013 roku. Vitalik w październiku 2013 roku pracował nad nową kryptowalutą z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. Mastercoin było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy.\cite{vitalikethereumprehistory} 
 
-W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu Ethereum oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina \cite{vitalikethereumprehistory}.
+W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu Ethereum oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina.\cite{vitalikethereumprehistory}
 
 
-Na początku lipca 2014 Ethereum rozdysponowało początkowy przydział krypto waluty Ether będącej częścią platformy Ethereum. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju Ethereum \cite{ethersaleastatisticaloverview}. Po wyprzedaży eteru rozwojem Ethereum zajmowała się organizacja non-profit o nazwie ETH DEV, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
+Na początku lipca 2014 Ethereum rozdysponowało początkowy przydział krypto waluty Ether będącej częścią platformy Ethereum. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju Ethereum.\cite{ethersaleastatisticaloverview} Po wyprzedaży eteru rozwojem Ethereum zajmowała się organizacja non-profit o nazwie ETH DEV, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
 
-W listopadzie 2014 roku ETH DEV zorganizowało w Berlinie wydarzenie DEVCON-0, które przyciągnęło programistów z całego świata interesujących się Ethereum \cite{devcon0}.
+W listopadzie 2014 roku ETH DEV zorganizowało w Berlinie wydarzenie DEVCON-0, które przyciągnęło programistów z całego świata interesujących się Ethereum.\cite{devcon0}
 
-Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchomieniem, zorganizowane przez między innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej pyethereum. Kontrola bezpieczeństwa wprowadziła do protokołu kilka małych zmian. Jedną zmianą było wprowadzenie funkcji haszującej SHA3 dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS \cite{whyethereumusesecuretries}.
+Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchomieniem, zorganizowane przez między innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej pyethereum. Kontrola bezpieczeństwa wprowadziła do protokołu kilka małych zmian. Jedną zmianą było wprowadzenie funkcji haszującej SHA3 dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS.\cite{whyethereumusesecuretries}
 
 Siec Ethereum została uruchomiona 30 lipca 2015 roku. Był to moment, w którym użytkownicy przystąpili do sieci, aby uzyskać eter z bloków górniczych. Natomiast programiści zaczęli pisać inteligentne umowy oraz zdecentralizowane aplikacje gotowe do wdrożenia w sieci Ethereum. Była to wersja testowa, ale jak się okazało, była ona bardziej udana, niż ktokolwiek by się tego spodziewał.\cite{proceswydaniaethereum}
 
@@ -226,7 +226,7 @@ Dzięki inteligentnym kontraktom działa ICO(Initial Coin Offering), czyli nowoc
 Pierwszą popularną kryptowalutą, która wykorzystuje inteligentne kontrakty jest \emph{Bitcoin}. Wadą tej kryptowaluty jest język skryptowy, który umożliwia wykorzystywanie jedynie operacji udostępnionych przez autora. Tworzenie kontraktów jest bardzo ograniczone, ze względu na brak cechy kompletności Turinga w języku. 
 
 
-Inteligentne kontrakty zyskały nowe znaczenie oraz dużą popularność wraz z rozwojem platformy Ethereum. Platforma ta posiada język, który umożliwia tworzenie inteligentnych kontraktów, które mają cechę kompletności Turinga. Dzięki temu Ethereum jest platformą, która właściwie posiada programowalny blockchain, na którym są przechowywane zdecentralizowane aplikacje, które są uruchamiane przez użytkowników sieci za pomocą EVM. Współcześnie każdy użytkownik korzystający z platformy Ethereum może stworzyć aplikacje, która nie posiada jednego serwera, tylko jest rozproszona po całej sieci Ethereum \cite{smartcontractswhatis}.
+Inteligentne kontrakty zyskały nowe znaczenie oraz dużą popularność wraz z rozwojem platformy Ethereum. Platforma ta posiada język, który umożliwia tworzenie inteligentnych kontraktów, które mają cechę kompletności Turinga. Dzięki temu Ethereum jest platformą, która właściwie posiada programowalny blockchain, na którym są przechowywane zdecentralizowane aplikacje, które są uruchamiane przez użytkowników sieci za pomocą EVM. Współcześnie każdy użytkownik korzystający z platformy Ethereum może stworzyć aplikacje, która nie posiada jednego serwera, tylko jest rozproszona po całej sieci Ethereum.\cite{smartcontractswhatis}
 
 
 Niestety inteligentne kontrakty, jak większość rozwiązań informatycznych, posiadają swoje wady. Wszystkie kontrakty umieszczone na blockchainie są widoczne dla każdego użytkownika. W przypadku luki bezpieczeństwa nie ma możliwości szybkiej naprawy kontraktu umieszczonego w sieci, dodatkowo w praktyce jest trudno napisać dobry inteligenty kontrakt, w którym wszystko zostało przewidziane.
@@ -265,18 +265,19 @@ Wirtualna maszyna wykorzystuje zbiór instrukcji do wykonywania określonych zad
 \item \textbf{Operacje zatrzymujące} (STOP, RETURN, REVERT, INVALID, SELFDESTRUCT)
 \end{enumerate}
 
-Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda \cite{ethereumyellowpaper}.
+Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda.\cite{ethereumyellowpaper}
 
 \subsection{Kod bajtowy}
-W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt. Przykładowo operacja PUSH1 wrzuca na stos jeden bajt,  jest ona reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1. Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1(0x60), tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
+W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego w systemie szesnastkowym. Każda operacja ma przydzielony jeden bajt na przykład operacja PUSH1, która wrzuca na stos jeden bajt jest reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1(0x60). Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1, tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
 
 Po wykonaniu dwóch pierwszych operacji na stosie znajdują się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. W rezultacie górze stosu znajduje się wartość 0xC0.
-Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwa znaki reprezentujące liczbę w systemie szesnastkowym.\cite{ethereumyellowpaper}
+Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwie cyfry w systemie szesnastkowym.\cite{ethereumyellowpaper}
+
 
 
 \subsection{Analiza kodu bajtowego}
 
-Kontrakty, które zostały umieszczane na blockchainie są przechowywane w postaci kodu bajtowego. Chcąc przeanalizować działanie kontraktu umieszczonego w sieci Ethereum, może okazać się, że kod bajtowy nie jest wystarczająco czytelny. Z tego powodu powstały narzędzia umożliwiające analizę kodu bajtowego. Jednym z takich narzędzi jest eveem.org lub ethervm.io, są to aplikacje internetowe umożliwiające zdekompilowanie do assemblera.
+Kontrakty, które zostały umieszczane na blockchainie są przechowywane w postaci kodu bajtowego. Chcąc przeanalizować działanie kontraktu umieszczonego w sieci Ethereum, może okazać się, że kod bajtowy nie jest wystarczająco czytelny. Z tego powodu powstały narzędzia umożliwiające analizę kodu bajtowego. Jednym z takich narzędzi jest eveem.org lub ethervm.io, są to aplikacje internetowe umożliwiające zdekompilowanie do asemblera.
 
 Niestety podczas deasemblacji nazwy funkcji, atrybutów oraz wydarzeń są tracone z powodu optymalizacji. Istnieje jednak sposób na odzyskanie poprzez wykorzystanie bazy danych zawierającej popularne nazwy. Przykładem takiej bazy danych  jest 4byte.directory, czyli aplikacja internetowa przechowującą sygnatury funkcji wraz z ich reprezentacjami bajtowymi.
 
@@ -374,14 +375,14 @@ Po prawidłowym dodaniu kodu źródłowego do aplikacji użytkownik powinien zob
 
 
 \subsection{Interfejs programistyczny aplikacji}
-Trzecią funkcjonalnością aplikacji jest interfejs programistyczny. Dzięki niemu można wykorzystać mechanizmy zaimplementowane w aplikacji w innej aplikacji. Przykładowym zastosowaniem API jest utworzenie skryptu umożliwiającego zautomatyzowane wysyłanie kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji \cite{whatisapi}.
+Trzecią funkcjonalnością aplikacji jest interfejs programistyczny. Dzięki niemu można wykorzystać mechanizmy zaimplementowane w aplikacji w innej aplikacji. Przykładowym zastosowaniem API jest utworzenie skryptu umożliwiającego zautomatyzowane wysyłanie kodów źródłowych do aplikacji, bez konieczności korzystania z interfejsu graficznego aplikacji.\cite{whatisapi}
 
 Użytkownik za pomocą API ma możliwość pobrania informacji o kodzie źródłowym, identyfikacji kontraktu oraz przesłania nowego kontraktu do aplikacji.
 
 
 \subsubsection{Pobieranie informacji o kodzie źródłowym z API}
 
-Podczas pobierania informacji o kodzie źródłowym, użytkownik musi posiadać identyfikator pliku, który chce pobrać. Żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji, gdy użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierająca status 500 oznacza, że wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego \cite{resthttpstatuscode}.
+Podczas pobierania informacji o kodzie źródłowym, użytkownik musi posiadać identyfikator pliku, który chce pobrać. Żądanie pobierające plik z API można zobaczyć na listingu \ref{lst:zadanieokodzrodlowy}. W odpowiedzi użytkownik dostaje zwykły tekst zawierający implementację kontraktu oraz status HTTP 200, 404 lub 500. Status 200 oznacza, że wszystko poszło pomyślnie. W sytuacji, gdy użytkownik otrzyma status 404, oznacza to, że nie udało się znaleźć implementacji o podanym haszu. Odpowiedz zawierająca status 500 oznacza, że wystąpił błąd na serwerze i nie udało się zwrócić kodu źródłowego.\cite{resthttpstatuscode}
 
 \begin{center}
 \lstset{language=Java}
@@ -396,7 +397,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 
 \subsubsection{Identyfikacja inteligentnego kontraktu za pomocą API}
-W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/bytecode}. W ciele żądania jest wymagane od użytkownika podanie dwóch atrybutów o nazwach: \textbf{bytecode} oraz \textbf{allFiles}. Atrybuty przesyłane do API powinny być zakodowane według schematu \mbox{\textbf{nazwa\_atrybutu=wartosc}}, a wszystkie tak przygotowane atrybuty należy połączyć ze sobą pomocą ampersandu. Poprawny przykład żądania można zobaczyć na listingu \ref{lst:identyfikacjaapi} \cite{urlencodedform}.
+W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/bytecode}. W ciele żądania jest wymagane od użytkownika podanie dwóch atrybutów o nazwach: \textbf{bytecode} oraz \textbf{allFiles}. Atrybuty przesyłane do API powinny być zakodowane według schematu \mbox{\textbf{nazwa\_atrybutu=wartosc}}, a wszystkie tak przygotowane atrybuty należy połączyć ze sobą pomocą ampersandu. Poprawny przykład żądania można zobaczyć na listingu \ref{lst:identyfikacjaapi}.\cite{urlencodedform}
 
 
 \begin{center}
@@ -502,7 +503,7 @@ W tym podrozdziale opiszę architekturę aplikacji, która realizuje funkcjonaln
 
 
 \section{Połączenie z bazą danych}
-W celu integracji aplikacji z bazą danych MongoDB został wykorzystany framework Spring oraz moduł Spring Data MongoDB. W związku z tym, że projekt aplikacji jest budowany za pomocą narzędzia Apache Maven, należy dodać do pliku \textbf{pom.xml} wykorzystywane moduły \cite{mongoguide}. 
+W celu integracji aplikacji z bazą danych MongoDB został wykorzystany framework Spring oraz moduł Spring Data MongoDB. W związku z tym, że projekt aplikacji jest budowany za pomocą narzędzia Apache Maven, należy dodać do pliku \textbf{pom.xml} wykorzystywane moduły.\cite{mongoguide} 
 
 Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \textbf{pom.xml} odpowiedzialny za dodawanie modułu \mbox{\textbf{spring-boot-start-data-mongodb}} do projektu. Dodawanie innych modułów jest analogiczne do przykładu z listingu.
 
@@ -516,7 +517,7 @@ Na listingu \ref{lst:dodaniezaleznosci} został przedstawiony fragment pliku \te
 \end{lstlisting}
 \end{center}
 
-W pliku konfiguracyjnym \mbox{\textbf{application.properties}} zostały skonfigurowane dane do połączenia z bazą danych. Przykładowa zawartość pliku konfiguracyjnego została przedstawiona na listingu \ref{lst:applicationproperties} \cite{mongoguide}.
+W pliku konfiguracyjnym \mbox{\textbf{application.properties}} zostały skonfigurowane dane do połączenia z bazą danych. Przykładowa zawartość pliku konfiguracyjnego została przedstawiona na listingu \ref{lst:applicationproperties}.\cite{mongoguide}
  
 \begin{center}
 \begin{lstlisting}[caption=Kofiguracja bazy danych, label=lst:applicationproperties]
@@ -609,12 +610,12 @@ Klasa \textbf{SolidityFunction}, która jest częścią klasy \textbf{SolidityFi
 
 Wyszukiwanie sygnatur funkcji jest rozpoczynane podczas przesłania nowego kodu źródłowego do aplikacji. W momencie wyszukiwania sygnatur funkcji są generowane selektory funkcji, które są finalnie używane podczas identyfikacji kodu bajtowego. 
 
-Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna, ponieważ są one dodatkowo generowane podczas kompilacji dla wybranych atrybutów kontraktu \cite{soliditygetterfunction}. 
+Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna, ponieważ są one dodatkowo generowane podczas kompilacji dla wybranych atrybutów kontraktu.\cite{soliditygetterfunction} 
 
 
 \subsection{Kontroler interfejsu programistycznego}
 
-Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController} umożliwiająca przesyłanie kodu źródłowego. Adnotacje, które wykorzystuje ta metoda, są częścią modułu Spring MVC. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres, pod którym aplikacja oczekuje żądania \cite{springmvc}. 
+Na listingu \ref{lst:kontrolerapiupload} została przedstawiona metoda kontrolera \textbf{SolidityApiController} umożliwiająca przesyłanie kodu źródłowego. Adnotacje, które wykorzystuje ta metoda, są częścią modułu Spring MVC. Pierwszą adnotacją wykorzystaną w metodzie jest \textbf{@PostMapping}, która zajmuje się mapowaniem żądań HTTP przesyłanych do API. W parametrze tej adnotacji podany został adres, pod którym aplikacja oczekuje żądania.\cite{springmvc} 
 
 \begin{center}
 \lstset{language=Java}
@@ -636,7 +637,7 @@ Głównym celem tej metody jest zapisanie nowego kodu źródłowego do aplikacji
 
 \subsection{Kontroler strony internetowej}
 
-\textbf{SolidityControler} jest to klasa odpowiedzialna, za tworzenie strony internetowej korzystając z szablonów HTML oraz modułu Thymeleaf. Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadku API, tylko w tym przypadku zwracana zostaje zwrócona nazwa szablonu wykorzystywanego do renderowania strony. Istnieje możliwość przekazania danych do szablonu, w tym celu wykorzystywany jest parametr \textbf{model}, na którym wywoływana jest metoda \textbf{addAttribute} \cite{thymeleafguide}.
+\textbf{SolidityControler} jest to klasa odpowiedzialna, za tworzenie strony internetowej korzystając z szablonów HTML oraz modułu Thymeleaf. Listing \ref{lst:uploadowanie} przedstawia metodę przyjmująca w żądaniu HTTP kod źródłowy. Metoda ta działa podobnie jak w przypadku API, tylko w tym przypadku zwracana zostaje zwrócona nazwa szablonu wykorzystywanego do renderowania strony. Istnieje możliwość przekazania danych do szablonu, w tym celu wykorzystywany jest parametr \textbf{model}, na którym wywoływana jest metoda \textbf{addAttribute}.\cite{thymeleafguide}
 
 \begin{center}
 \lstset{language=Java}
@@ -681,7 +682,7 @@ Optional<SolidityFunction> findFunctionInLine(String line) {
 \end{lstlisting}
 \end{center}
 
-Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} widać metodę klasy \textbf{SolidityParser} wyszukującą funkcję w implementacji kontraktu. Metoda po przyjęciu linii w rezultacie zwraca obiekt klasy \textbf{Optional<SolidityFunction>} \cite{baeldungoptional}. Metoda sprawdza cztery możliwe przypadki, w których istnieje możliwość wykrycia funkcji w kodzie źródłowym kontraktu.
+Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} widać metodę klasy \textbf{SolidityParser} wyszukującą funkcję w implementacji kontraktu. Metoda po przyjęciu linii w rezultacie zwraca obiekt klasy \textbf{Optional<SolidityFunction>}.\cite{baeldungoptional} Metoda sprawdza cztery możliwe przypadki, w których istnieje możliwość wykrycia funkcji w kodzie źródłowym kontraktu.
 
 Do wykrywania błędów podczas wyszukiwania funkcji sprawdzane są wszystkie cztery przypadki, jeśli okaże się, że więcej niż jedna metoda wykryła funkcję, oznacza to, że jedna z metod działa niepoprawnie i fałszywie wykrywa funkcje. Wszystkie cztery przypadki zostały opisane poniżej.
 
@@ -694,7 +695,7 @@ Pierwszym przypadkiem są funkcje jawnie zadeklarowane w kodzie źródłowym nie
 ^\s*function\s*([a-zA-Z_][a-zA-Z0-9_]*)\s*\(\s*([^(){}]*)\s*\)\s*(?!.*(internal|private)).*$
 \end{lstlisting}
 
-Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu źródłowego frazy \textbf{function}, po której następuje nazwa funkcji oraz lista parametrów w nawiasach \cite{soliditygrammar}.
+Pierwsza grupa w wyrażeniu wyciąga z linii kodu źródłowego nazwę funkcji, natomiast druga parametry funkcji. Wyrażenie wyszukuje w pojedynczej linii kodu źródłowego frazy \textbf{function}, po której następuje nazwa funkcji oraz lista parametrów w nawiasach.\cite{soliditygrammar}
 
 Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} została przedstawiona metoda wyszukującą sygnaturę funkcji za pomocą przedstawionego wyrażenia regularnego.
 
@@ -739,7 +740,7 @@ Po pomyślnej identyfikacji zadeklarowanej funkcji zwracany jest obiekt \textbf{
 
 \subsubsection{Generowanie sygnatury funkcji dla publicznych atrybutów typu mapa}
 
-Drugim rodzajem jest atrybut publiczny typu \textbf{mapping}. W tym przypadku nie zostało jawnie pokazane, że istnieje w kodzie źródłowym sygnatura funkcji, ponieważ jest ona generowana przez kompilator \cite{soliditygetterfunction}. W tej sekcji przedstawię proces generowania sygnatury funkcji na podstawie wspomnianego atrybutu. 
+Drugim rodzajem jest atrybut publiczny typu \textbf{mapping}. W tym przypadku nie zostało jawnie pokazane, że istnieje w kodzie źródłowym sygnatura funkcji, ponieważ jest ona generowana przez kompilator.\cite{soliditygetterfunction} W tej sekcji przedstawię proces generowania sygnatury funkcji na podstawie wspomnianego atrybutu. 
 
 W celu wykrycia deklaracji mapy w kodzie źródłowym, zostało wykorzystane wyrażenie regularne przedstawione poniżej:
 
@@ -820,7 +821,7 @@ Trzecią metodą widoczną na listingu \ref{lst:wyszukiwaniesygnaturyfunkcji} je
 Wyrażenie to wyszukuje w linii kodu źródłowego publiczny atrybut tablicowy. Pierwsza grupa w wyrażeniu wyodrębnia nawiasy definiujące ilość wymiarów tablicy. Kolejna grupa, znajdująca się po wyrazie \textbf{public}, reprezentuje nazwę atrybutu. Wyrażenie regularne bierze pod uwagę możliwość inicjalizacji wartości podczas deklaracji atrybutu.
 
 
-Liczba wymiarów tablicy zostaje określona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodany typ \textbf{uint256} do listy typów parametrów, ponieważ tablica posiada numeryczny indeks \cite{solidityarrayindex}.
+Liczba wymiarów tablicy zostaje określona na podstawie liczby podanych nawiasów podczas deklaracji tablicy. Dla każdego wymiaru zostaje dodany typ \textbf{uint256} do listy typów parametrów, ponieważ tablica posiada numeryczny indeks.\cite{solidityarrayindex}
 
  Bazując na nazwie oraz liście typów tworzony jest obiekt\\ \textbf{Optional<SolidityFunction>} w analogiczny sposób, jaki został przedstawiony na listingu \ref{lst:tworzenie_solidity_function}.
 
@@ -891,7 +892,7 @@ W celu wykrycia selektorów funkcji należy najpierw uzyskać listę instrukcji 
 
 \subsection{Reprezentacja operacji EVM wewnątrz aplikacji}
 
-\textbf{Opcode} jest to typ wyliczeniowy, który definiuje wszystkie kody operacji, jakie można wykonać na Ethereum Virtual Machine. Wszystkie te operacje zostały opisane w dokumencie definiującym EVM \cite{ethereumyellowpaper}.
+\textbf{Opcode} jest to typ wyliczeniowy, który definiuje wszystkie kody operacji, jakie można wykonać na Ethereum Virtual Machine. Wszystkie te operacje zostały opisane w dokumencie definiującym EVM.\cite{ethereumyellowpaper}
 
 
 \begin{center}
@@ -971,14 +972,14 @@ private List<Instruction> getInstructions(String bytecode) {
 \end{lstlisting}
 \end{center} 
 
-Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStringIterator}, który odczytuje po jednym bajcie, dopóki istnieją kolejne bajty. W każdej iteracji pętli jest definiowany konkretny obiekt typu \textbf{Opcode} za pomocą metody \textbf{getOpcodeByHex} przedstawionej na listingu \ref{lst:mapowanie_na_opcode}. Następnie w zależności od kodu operacji zostają pobierane kolejne bajty, które są parametrem instrukcji \cite{ethereumyellowpaper}. Na podstawie tych informacji tworzony jest obiekt typu \textbf{Instruction}, który jest dodawany do listy \textbf{instructions}, zwracanej na końcu wykonywania metody.
+Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStringIterator}, który odczytuje po jednym bajcie, dopóki istnieją kolejne bajty. W każdej iteracji pętli jest definiowany konkretny obiekt typu \textbf{Opcode} za pomocą metody \textbf{getOpcodeByHex} przedstawionej na listingu \ref{lst:mapowanie_na_opcode}. Następnie w zależności od kodu operacji zostają pobierane kolejne bajty, które są parametrem instrukcji.\cite{ethereumyellowpaper} Na podstawie tych informacji tworzony jest obiekt typu \textbf{Instruction}, który jest dodawany do listy \textbf{instructions}, zwracanej na końcu wykonywania metody.
 
 
 \subsection{Wyszukiwanie selektorów funkcji z listy instrukcji}
 
 Po wykryciu wszystkich operacji wraz z ich parametrami przez klasę \textbf{Disassembly}, klasa \textbf{BytecodeService} może przystąpić do wyszukiwania ostatecznych selektorów funkcji. 
 
-Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na EVM, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos \cite{deconstructingsmartcontract}.
+Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na EVM, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos.\cite{deconstructingsmartcontract}
 
 \begin{center}
 \lstset{language=Java}
