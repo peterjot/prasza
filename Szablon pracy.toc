@@ -33,7 +33,10 @@
 \contentsline {subsection}{\numberline {3.5.2}Odczytywanie instrukcji z kodu bajtowego}{45}{subsection.3.5.2}% 
 \contentsline {subsection}{\numberline {3.5.3}Wyszukiwanie selektor\IeC {\'o}w funkcji z listy instrukcji}{46}{subsection.3.5.3}% 
 \contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{47}{section.3.6}% 
-\contentsline {chapter}{Bibliografia}{51}{section*.12}% 
-\contentsline {chapter}{Spis tabel}{55}{chapter*.14}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{57}{chapter*.16}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{60}{chapter*.18}% 
+\contentsline {subsection}{\numberline {3.6.1}Sposoby na wyznaczanie wsp\IeC {\'o}\IeC {\l }czynnika dopasowania}{48}{subsection.3.6.1}% 
+\contentsline {subsection}{\numberline {3.6.2}Testowanie aplikacji pod k\IeC {\k a}tem dopasowywania implementacji}{50}{subsection.3.6.2}% 
+\contentsline {subsection}{\numberline {3.6.3}Jak poprawi\IeC {\'c} dopasowywanie implementacji?}{52}{subsection.3.6.3}% 
+\contentsline {chapter}{Bibliografia}{55}{section*.12}% 
+\contentsline {chapter}{Spis tabel}{59}{chapter*.14}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{61}{chapter*.16}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{64}{chapter*.18}% 

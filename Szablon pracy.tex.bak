@@ -1006,7 +1006,11 @@ Gdy zmienna \textbf{isFunctionSchemeFound} przechowuje wartość \textbf{true}, 
 
 \section{Dopasowywanie implementacji na podstawie kodu bajtowego}
 
-Po wyszukaniu wszystkich selektorów funkcji z kodu bajtowego zostają one wykorzystane do wyszukania odpowiedniej implementacji. Z bazy danych zostają wyszukane wszystkie pliki posiadające chociaż jeden selektor funkcji znajdujący się w kodzie bajtowym. Dla każdego pobranego w ten sposób pliku wyznaczany jest współczynnik dopasowania kodu bajtowego z plikiem. Do wyznaczania współczynnika dopasowania kodu bajtowego dla konkretnej implementacji można było zastosować kilka podejść. Poniżej opiszę trzy przetestowane przez mnie sposoby: 
+Po wyszukaniu wszystkich selektorów funkcji z kodu bajtowego zostają one wykorzystane do wyszukania odpowiedniej implementacji. Z bazy danych zostają wyszukane wszystkie pliki posiadające chociaż jeden selektor funkcji znajdujący się w kodzie bajtowym. Dla każdego pobranego w ten sposób pliku wyznaczany jest współczynnik dopasowania kodu bajtowego z plikiem. 
+
+\subsection{Sposoby na wyznaczanie współczynnika dopasowania}
+
+Do wyznaczania współczynnika dopasowania kodu bajtowego dla konkretnej implementacji można było zastosować kilka podejść. Poniżej opiszę trzy przetestowane przez mnie sposoby: 
 
 
 
@@ -1027,7 +1031,7 @@ M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego
 B - liczba selektorów funkcji występujących w kodzie bajtowym
 
 
-Po zastosowaniu takiego rozwiązania, gdy użytkownik otrzyma wynik 100\%, wtedy może mieć pewność, że wszystkie selektory znalezione w kodzie bajtowym mają swój odpowiednik w implementacji. Problem mogą sprawić implementacje posiadające bardzo dużą ilość selektorów funkcji np. biblioteki matematyczne, wtedy wyniki dla takich bibliotek będą miały równie wysoki współczynnik dopasowania co implementacja, która jest mniejsza oraz bardziej zbliżona do prawdziwej.
+Po zastosowaniu takiego rozwiązania, gdy użytkownik otrzyma wynik 100\%, wtedy może mieć pewność, że wszystkie selektory znalezione w kodzie bajtowym mają swój odpowiednik w implementacji. Problem mogą sprawić implementacje posiadające bardzo dużą ilość selektorów funkcji np. biblioteki matematyczne, wtedy wyniki dla takich bibliotek będą miały równie wysoki współczynnik dopasowania co implementacja, która jest mniejsza oraz bardziej zbliżona do prawdziwej, a to z kolei może fałszywie zakłamywać wyniki.
 
 \item Drugim sposobem jest zwracanie ilości dopasowanych selektorów funkcji z kodu bajtowego względem ilości wszystkich selektorów zidentyfikowanych w kodzie źródłowym. 
 Rozwiązanie to przedstawia wzór:
@@ -1043,38 +1047,78 @@ M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego
 S - liczba selektorów funkcji występujących w kodzie źródłowym
 
 
-Aplikacja przyjmuje cały kod źródłowy, w którym może być kilka implementacji kontraktu, natomiast w kodzie bajtowym znajdują się selektory tylko jednego kontraktu. Może wystąpić taka sytuacja, w której dla prawdziwej implementacji użytkownik nigdy nie uzyska 100\% dopasowania, ponieważ w implementacji kontraktu zostanie wykryta większa liczba selektorów funkcji, niż jest w kodzie bajtowym.
+Problemem w tym rozwiązaniu jest to, że podczas wyszukiwania sygnatur funkcji w implementacji wyszukiwane są wszystkie funkcje w pliku z różnych kontraktów zależnych od siebie. Podczas dziedziczenia jest też dziedziczona sygnatura funkcji, która jest zapisywana w kodzie bajtowym ostatecznego kontraktu. Natomiast w przypadku innej relacji kontraktów w kodzie bajtowym nie występują selektory funkcji z innego kontraktu. Przykładowo podczas parsowania pliku Solidity możne być taka sytuacja, że zostaną wykryte wszystkie sygnatury funkcji, natomiast podczas analizy kodu bajtowego nie zostaną one wykryte. W takim wypadku zaprezentowany współczynnik będzie mógł zawyżać wynik dopasowania.
 
-\item Trzecim sposobem, który mógłby rozwiązać problemy dwóch poprzednich, jest obliczenie współczynnika dopasowania względem sumy wykrytych selektorów funkcji w implementacji oraz kodzie bajtowym. Trzeci reprezentuje wzór:
+\item Trzecim sposobem, który może rozwiązać problemy dwóch poprzednich, jest obliczenie \textbf{współczynnika podobieństwa Jaccarda}. Współczynnik ten jest zdefiniowany jako iloraz mocy części wspólnej zbiorów i mocy sumy zbiorów. Biorąc pod uwagę, że zarówno wyszukiwanie funkcji w kodzie bajtowym, jak i w implementacji może zwrócić czasami niedokładny wynik, wtedy współczynnik ten będzie odpowiednio ustalać wynik, mając na uwadze problemy dwóch poprzednich sposobów. Po dostosowaniu indeksu Jaccarda w aplikacji wzór będzie wyglądać następująco:
 
+\begin{center}
+W = M / ( S + B - M )
+\end{center}
+
+W - współczynnik dopasowania implementacji
+
+M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
+
+S - liczba selektorów funkcji występujących w kodzie źródłowym
+
+B - liczba selektorów funkcji występujących w kodzie bajtowym
+
+Mianownik jest to 
 \end{enumerate}
 
-Zostały przeprowadzone testy trzech wspominanych sposobów. Jako grupę testową pobrałem 473 implementacji kontraktów ze strony etherscan.io skompilowanych w wersji kompilatora od 0.4.22 do 0.4.25. Do kompilacji kontraktów wykorzystałem kompilator solc oraz bibliotekę py-solc, która ułatwia kompilacje z poziomu języka Python.
+\subsection{Testowanie aplikacji pod kątem dopasowywania implementacji}
+
+Zostały przeprowadzone testy trzech wspominanych sposobów. Jako grupę testową pobrałem 441 implementacji kontraktów ze strony etherscan.io skompilowanych dla wersji kompilatora od 0.4.22 do 0.4.25. Do kompilacji kontraktów wykorzystałem kompilator solc oraz bibliotekę py-solc, która ułatwia kompilacje z poziomu języka Python.
 
 
-Każdy kod źródłowy skompilowałem wersja kompilatora sugerowana przez etherscan.io dla danej implementacji. Dla każdego skompilowanego pliku wybierany był jeden kontrakt, którego kod bajtowy był identyfikowany w testach. Jeśli wybrany kontrakt był interfejsem, wtedy plik z zapisane kodem bajtowym jest pusty.
+Każdy kod źródłowy skompilowałem wersją kompilatora sugerowaną przez etherscan.io dla danej implementacji. Dla każdego skompilowanego pliku wybrany został kod bajtowy kontraktu wskazanego na stronie etherscan.io.
 
-Na 473 implementacji nie udało kompilatorowi poprawnie skompilować dwóch plików.
+Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystkich trzech wspomnianych metodach wyznaczania współczynnika dopasowania. Wyniki testów przedstawiają następujące wartości:
+\begin{enumerate}
+
+\item \textbf{Liczba dopasowanych implementacji} oznacza sumę implementacji posiadających współczynnik dopasowania powyżej 80\% dla wszystkich identyfikowanych kodów bajtowych. Wysoka liczba dopasowanych implementacji oznacza zawyżone wyniki dopasowania.
 
 
-Tabela \ref{tab:testydop} przedstawia ...
-%\begin{table}[ph!]
-\begin{table}
+\item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka dopasowana implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje czy podczas dopasowania prawdziwa implementacja jest na pierwszej pozycji.
+
+\item \textbf{Średnia wartość współczynnika dla skutecznie dopasowanych implementacji} - przedstawia średni wynik realnych implementacji wszystkich testowanych kodów bajtowych
+\end{enumerate}
+
+
+\begin{table}[ph!]
+%\begin{table}
 \centering
 \caption{Wyniki testów metod dopasowywania}\label{tab:testydop}
 \begin{tabular}{| c | c | c | c | m{15pt}}\hline \rule[5mm]{0cm}{0mm}
 Metoda dopasowywania & 1 & 2	& 3 \\ \hline
-\makecell{Liczba kodów bajtowych} & \multicolumn{3}{c|}{473} \\ \hline
-\makecell{Liczba zidentyfikowanych kodów} & \multicolumn{3}{c|}{471} \\ \hline
-\makecell{Poprawnie zidentyfikowanych} & 431(91.50\%) & 281(59.66\%) & 395(83.86\%)\\ \hline
-\makecell{Średnia wartość współczynnika dla \\poprawnie 
-dopasowanych implementacji} & 95.56\% & 89.33\% & 89.77\% \\ \hline
+\makecell{Liczba identyfikowanych kodów bajtowych} & \multicolumn{3}{c|}{441} \\ \hline
+\makecell{Liczba dopasowanych implementacji} & 18398 & 9485 & 2722\\ \hline
+\makecell{Liczba skutecznie dopasowanych \\implementacji} & 422 & 311  & 388\\ \hline
+\makecell{Średnia wartość współczynnika dla \\skutecznie 
+dopasowanych implementacji} & 96.64\% & 82.58\% & 80.58\% \\ \hline
 \end{tabular}
 \end{table} 
 
 
-Istenieje sposob ktory moglby zagwarantowac niemal 100\% dopasowanie, ale wymaga on przekazania do aplikacji kazdego kontraktu w odzielnym pliku lub sprawdzania w jednej duzej implementacji, ktora metoda nalezy do jakiego kontraktu. W przypadku gdy posiadalbym informacje o selektorach z konkretnego kontraktu, a nie z calej implementacji, wtedy mozna uzyskac bardzo dobre wyniki identyfikacji. Problemem na chwile pisania aplikacji bylo w jaki sposob poprawnie zidentyfikowac ktora sygnatury funkcji nalezy do ktorego kontraktu w calej implementacji pobranej ze strony Etherscan.
+Dla pierwszej metody uzyskano bardzo wysoką skuteczność dopasowania. Problemem w przypadku tej metody jest bardzo duża liczba dopasowanych implementacji, która świadczy o bardzo zawyżonych wynikach. Metoda ta sprawdzała, czy dla danego kodu bajtowego, zostały dopasowane w nim wszystkie selektory funkcji. W przypadku bardzo dużych implementacji ten wynik jest zawyżany, ponieważ jest szansa, że pliki z dużą ilością sygnatur funkcji będą miały często wysoki współczynnik dopasowania podczas identyfikacji małych kodów bajtowych. Mimo wysokiej skuteczności w testach jest bardzo dużo dopasowanych implementacji, co świadczy o niejednoznacznych wynikach dopasowania.
 
+Drugie rozwiązanie mimo mniejszej liczby dopasowanych implementacji posiada nie największą liczbę skutecznie dopasowanych implementacji. Problemem są duże implementacje z wieloma kontraktami, które nie są dziedziczone przez główny kontrakt. Natomiast w kodzie bajtowym są wykrywane tylko te selektory funkcji, które są częścią kontraktu lub są dziedziczone po innym.
+
+Okazuje się, że najlepszym sposobem na wyznaczanie współczynnika dopasowania jest metoda 3 (indeks Jaccarda), ze względu na wysoką liczbę poprawnie zidentyfikowanych implementacji (co świadczy wysokiej o skuteczności) oraz małą liczbę implementacji uznanych za dopasowane (co świadczy o mniejszej ilości zawyżonych wyników).
+
+
+
+
+\subsection{Jak poprawić dopasowywanie implementacji?}
+
+
+Pomimo wyznaczenia najlepszego sposobu na wyliczanie współczynnika dopasowania, są jeszcze pewne problemy, przez które dla pewnych kodów bajtowych nie da się uzyskać 100\% wartości dopasowania dla realnej implementacji kodu bajtowego, mimo tego, że implementacja ta znajduje się w bazie danych.
+
+Na ten moment największym problemem jest poprawne parsowanie pliku Solidity. W celu polepszenia wyników dopasowywania można ulepszyć aktualny parser tak, aby podczas parsowania ignorował sygnatury funkcji, które nie są dziedziczone przez finalny kontrakt lub można skorzystać z innych gotowych rozwiązań do parsowania plików Solidity. Najprostszym sposobem będzie wykorzystanie kompilatora solc, który po kompilacji zwraca ABI (Application Binary Interface) dla danego kontraktu. 
+
+ABI jest to standardowy sposób komunikacji w Ethereum, który informuje jak wywoływać funkcje na kodzie bajtowym. Specyfikacja ABI przechowuje nazwy i parametry funkcji, na podstawie których można łatwo uzyskać selektory i sygnatury funkcji. 
+
+Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzonego przez mnie parsera, średnia wartość dopasowania powinna być bliska 100\%. Wtedy podczas przesyłania nowego kontraktu do aplikacji wystarczyłoby podać wersje kompilatora. Po przesłaniu aplikacja kompilowałaby implementacje, po udanej kompilacji zostanie zwrócone ABI, z którego można wyciągnąć wszystkie sygnatury funkcji.
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
 \clearemptydoublepage 
