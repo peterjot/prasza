@@ -1060,16 +1060,31 @@ W - współczynnik dopasowania implementacji
 M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
 
 S - liczba selektorów funkcji występujących w kodzie źródłowym
+<<<<<<< HEAD
+
+B - liczba selektorów funkcji występujących w kodzie bajtowym
+=======
 
 B - liczba selektorów funkcji występujących w kodzie bajtowym
 
-Mianownik oznacza moc sumy zbiorów
+
+Mianownik oznacza moc sumy zbiorów.
 \end{enumerate}
 
 \subsection{Testowanie aplikacji pod kątem dopasowywania implementacji}
 
+
 Zostały przeprowadzone testy trzech wspominanych sposobów. Jako grupę testową pobrałem 441 implementacji kontraktów ze strony etherscan.io skompilowanych dla wersji kompilatora od 0.4.22 do 0.4.25. Do kompilacji kontraktów wykorzystałem kompilator solc oraz bibliotekę py-solc, która ułatwia kompilacje z poziomu języka Python.
 
+<<<<<<< HEAD
+Każdy kod źródłowy skompilowałem wersją kompilatora sugerowaną przez etherscan.io dla danej implementacji. Dla każdego skompilowanego pliku wybrany został kod bajtowy kontraktu wskazanego na stronie etherscan.io.
+
+Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystkich trzech wspomnianych metodach wyznaczania współczynnika dopasowania. Wyniki testów przedstawiają następujące wartości:
+\begin{enumerate}
+
+\item \textbf{Liczba dopasowanych implementacji} oznacza sumę implementacji posiadających współczynnik dopasowania powyżej 80\% dla wszystkich identyfikowanych kodów bajtowych. Wysoka liczba dopasowanych implementacji oznacza zawyżone wyniki dopasowania.
+
+=======
 
 Każdy kod źródłowy skompilowałem wersją kompilatora sugerowaną przez etherscan.io dla danej implementacji. Dla każdego skompilowanego pliku wybrany został kod bajtowy kontraktu wskazanego na stronie etherscan.io.
 
@@ -1078,6 +1093,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 
 \item \textbf{Liczba dopasowanych implementacji} oznacza sumę implementacji posiadających współczynnik dopasowania powyżej 80\% dla wszystkich identyfikowanych kodów bajtowych. Wysoka liczba dopasowanych implementacji oznacza zawyżone wyniki dopasowania.
 
+>>>>>>> 80c897242124cd1b670bf013d36d4b33f6135767
 
 \item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka dopasowana implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje czy podczas dopasowania prawdziwa implementacja jest na pierwszej pozycji.
 

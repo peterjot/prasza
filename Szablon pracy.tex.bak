@@ -1064,6 +1064,10 @@ S - liczba selektorów funkcji występujących w kodzie źródłowym
 B - liczba selektorów funkcji występujących w kodzie bajtowym
 
 Mianownik jest to 
+<<<<<<< HEAD
+=======
+w 
+>>>>>>> 80c897242124cd1b670bf013d36d4b33f6135767
 \end{enumerate}
 
 \subsection{Testowanie aplikacji pod kątem dopasowywania implementacji}
