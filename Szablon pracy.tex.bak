@@ -890,7 +890,7 @@ Na listingu \ref{lst:wyszukiwaniesygnaturyfunkcjizfunkjci} została przedstawion
 
 \begin{center}
 \lstset{language=Java}
-\begin{lstlisting}[caption=Metoda odbierająca żądanie o zapisanie kodu źródłowego na serwerze, label=lst:wyszukiwaniesygnaturyfunkcjizfunkjci]
+\begin{lstlisting}[caption=Metoda wyszukująca sygnaturę funkcji, label=lst:wyszukiwaniesygnaturyfunkcjizfunkjci]
 private Optional<SolidityFunction> findFunctionSignature(String line) {
     Matcher matcher = FUNCTION_PATTERN.matcher(line);
     if (matcher.find()) {
@@ -911,7 +911,9 @@ Po wykryciu funkcji za pomocą wyrażenia regularnego wyciągana jest informacja
 \begin{center}
 uint => uint256\\
 int => int256\\
-byte => bytes1
+byte => bytes1\\
+fixed => fixed128x18\\
+ufixed => ufixed128x18
 \end{center}
 
 Po utworzeniu sygnatury funkcji zostaje wygenerowany selektor. Na listingu \ref{lst:metoda_generująca_selektor_funkcji} została przedstawiona metoda tworząca selektor. Sygnatura funkcji zostaje haszowana za pomocą funkcji \textbf{sha3String}, ktora pochodzi z biblioteki web3j, następnie z hasza pobierane są cztery pierwsze bajty, które są selektorem funkcji. Metoda \textbf{sha3String} zwraca hasz w systemie szesnastkowym w postaci napisu, dlatego wyłuskiwane są znaki od dwa do dziesięć. 
@@ -1168,30 +1170,65 @@ Do iteracji po kodzie bajtowym został wykorzystany iterator typu \textbf{HexStr
 
 Po wykryciu wszystkich operacji wraz z ich parametrami przez klasę \textbf{Disassembly}, klasa \textbf{BytecodeService} może przystąpić do wyszukiwania ostatecznych selektorów funkcji. 
 
-Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. Odczytując z listy po trzy kolejne instrukcje, zostaje wyszukiwany schemat operacji wykonywanych na EVM, na podstawie którego aplikacja wyszukuje moment wrzucenia selektora funkcji na stos.\cite{deconstructingsmartcontract}
-
 \begin{center}
 \lstset{language=Java}
 \begin{lstlisting}[caption=Metoda wyszukująca selektory funkcji na podstawie listy instrukcji, label=lst:metoda_wyszukujaca_selektory]
-private List<String> findFunctionSelectors(String bytecode) {
-    List<Instruction> instructions = disassembler.disassembly(bytecode);
-    List<String> functionSelectors = new ArrayList<>();
-    for (int i = 0; i < instructions.size() - 2; i++) {
-        Instruction first = instructions.get(i);
-        Instruction second = instructions.get(i + 1);
-        Instruction third = instructions.get(i + 2);
-        boolean isFunctionSchemeFound =
-                first.hasMnemonic(PUSH_4_MNEMONIC) && second.hasMnemonic(EQ_MNEMONIC) && third.hasMnemonic(PUSH_2_MNEMONIC);
-        if (isFunctionSchemeFound) {
-            functionSelectors.add(first.getHexParameters());
+    private List<String> findFunctionSelectors(String bytecode) {
+        final List<Instruction> instructions = disassembler.disassembly(bytecode);
+        final List<String> functionSelectors = new LinkedList<>();
+        int i = 0;
+        final int size = instructions.size();
+
+        while (i < size - 2) {
+            Instruction first = instructions.get(i);
+            Instruction second = instructions.get(i + 1);
+            Instruction third = instructions.get(i + 2);
+
+            boolean isCreationCodeEndFound =
+                    first.hasOpcode(PUSH1) && first.hasHexParameter("00") &&
+                            second.hasOpcode(RETURN) &&
+                            third.hasOpcode(STOP);
+
+            if (isCreationCodeEndFound) {i += 3;break;}
+            i++;
         }
+        
+        boolean isCalldataloadOpcodeFound = false;
+        while (i < size) {
+            Instruction instruction = instructions.get(i);
+            if (instruction.hasOpcode(JUMPDEST)) {break;}
+            if (instruction.hasOpcode(CALLDATALOAD)) {isCalldataloadOpcodeFound = true;}
+
+            if (isCalldataloadOpcodeFound &&
+                    instruction.hasOpcode(PUSH4) &&
+                    !(instruction.hasHexParameter(PUSH4_MASK))) {
+                functionSelectors.add(instruction.getHexParameter());
+            }
+            i++;
+        }
+        return functionSelectors;
     }
-    return functionSelectors;
-}
 \end{lstlisting}
 \end{center}
 
-Gdy zmienna \textbf{isFunctionSchemeFound} przechowuje wartość \textbf{true}, wtedy wiadomo, że został wyszukany charakterystyczny dla selektorów funkcji schemat kodów operacji. W takim przypadku pobierany jest parametr ze zmiennej \textbf{first} oraz dodawany jest on do listy \textbf{functionSelectors}.
+Na listingu \ref{lst:metoda_wyszukujaca_selektory} została przedstawiona metoda \textbf{findFunctionSelectors} zwracająca listę selektorów funkcji znajdujących się w kodzie bajtowym. 
+
+Kod bajtowy dzieli się na część creation oraz runtime. Cześć creation odpowiada za utworzenie kontraktu, natomiast runtime za uruchamianie go. Sygnatury funkcji są zdefiniowane na początku części runtime, wiec cześć creation można pominąć.\cite{deconstructingsmartcontract}
+
+
+
+Pierwsza pętla widoczna na listingu \ref{lst:metoda_wyszukujaca_selektory} pomija wszystkie instrukcje znajdujące się w części creation. Koniec części creation określa schemat trzech instrukcji. Pierwszą instrukcją jest PUSH1, która umieszcza na stosie wartość 0, po niej muszą występują kolejno operacja RETURN oraz STOP.\cite{deconstructingsmartcontract} Na listingu \ref{lst:metoda_wyszukujaca_selektory} w 12 linii zostały zaimplementowane wspomniane warunki.
+
+
+Po pominięciu pierwszej części kodu bajtowego należy wyciągnąć selektory funkcji z części runtime. W tym celu wyszukiwana jest operacja CALLDATALOAD. Jeśli operacja została znaleziona oznacza to że następnie będzie odczytywany selektor funkcji z wiadomości przekazanej od użytkownika.\cite{deconstructingsmartcontract}
+
+Selektor ten zostaje poddany serii skoków warunkowych. Każdy skok odpowiada jednej funkcji. Przed każdym skokiem warunkowym musi zostać wrzucona na stos wartość wykorzystana do porównania. W związku z tym wszystkie selektory funkcji są wrzucane na stos za pomocą operacji PUSH4, a przed konkretnym skokiem warunkowym są porównywane za pomocą operacji EQ.\cite{deconstructingsmartcontract}
+
+Jeśli selektor przekazany przez użytkownika pasuje do jednego z selektorów funkcji znajdujących się w kodzie bajtowym, wtedy następuje skok do fragmentu kodu bajtowego zawierającego implementacje tej funkcji. W innym przypadku skok nastąpi do operacji JUMPDEST znajdującej się po serii skoków warunkowych.\cite{deconstructingsmartcontract}
+
+W związku z powyższym druga pętla widoczna na listingu \ref{lst:metoda_wyszukujaca_selektory} iteruje po kodzie bajtowym w celu wyszukania operacji CALLDATALOAD. Następnie wszystkie znalezione parametry operacji PUSH4 zostają dodane do listy \textbf{functionSelectors} do momentu wyszukania operacji JUMPSTDEST. Jedynym wyjątkiem będzie czterobajtowa maska która zostaje pominięta.
+
+
 
 \section{Dopasowywanie implementacji na podstawie kodu bajtowego}
 
