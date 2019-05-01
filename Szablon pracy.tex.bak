@@ -525,15 +525,13 @@ Pierwszą opcją dostępną w  aplikacji jest identyfikacja inteligentnych kontr
 \end{figure}
 
 
-Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane są najbardziej prawdopodobne implementacje kontraktu, posortowane malejąco według współczynnika dopasowania. Na rysunku \ref{rys:wynik_identyfikacji} został przedstawiony przykładowy wynik identyfikacji.
+Po wprowadzeniu danych i zatwierdzeniu ich przyciskiem, aplikacja rozpoczyna proces analizy wprowadzonego kodu bajtowego oraz wyszukiwane jest dziesięć najbardziej prawdopodobnych implementacji kontraktów (posortowanych malejąco według współczynnika dopasowania). Na rysunku \ref{rys:wynik_identyfikacji} został przedstawiony przykładowy wynik identyfikacji.
 
 \begin{figure}[bp!]\centering 	
 \includegraphics[scale=0.55]{wynik_identyfikacji.png}
 \caption{Wynik identyfikacji inteligentnego kontraktu}
 \label{rys:wynik_identyfikacji}
 \end{figure}
-
-Domyślnie jest wyświetlanych dziesięć najbardziej prawdopodobnych implementacji, po naciśnięciu przycisku \textbf{Get all}, znajdującego się pod listą kontraktów, zostaną wyświetlone wszystkie dopasowania.
 
 
 Po naciśnięciu w jedną z wyświetlanych implementacji użytkownik zostanie przeniesiony na podstronę umożliwiającą podgląd implementacji. Na rysunku \ref{rys:podglad_impelementacji} znajduje się przykład przeglądania kodu źródłowego na stronie. Rozwiązanie z numerowaniem linii zostało zaimplementowane w taki sposób, aby podczas kopiowania kodu źródłowego ze strony, nie były kopiowane z nim liczby identyfikujące konkretną linię w kodzie. Istnieje też możliwość pobrania kodu źródłowego ze strony z rozszerzeniem \textbf{.sol}
@@ -552,7 +550,7 @@ Strona umożliwia dodanie własnego kodu źródłowego kontraktu napisanego w j�
 Pierwszym sposobem jest przesłanie do aplikacji pliku zawierającego implementacje kontraktu. W tym celu użytkownik powinien nacisnąć przycisk \textbf{Browse} i wybrać konkretny plik, a następnie zatwierdzić go przyciskiem \textbf{Upload} widocznym na rysunku \ref{rys:ekran_pozuploadowaniu}. 
 
 
-Innym sposobem na przesłania kodu źródłowego do aplikacji jest wklejenie kodu źródłowego bezpośrednio do formularza znajdującego się po prawej części strony internetowej.
+Innym sposobem na przesłania kodu źródłowego do aplikacji jest wklejenie kodu źródłowego bezpośrednio do formularza znajdującego się po prawej stronie.
 
 
 Po prawidłowym dodaniu kodu źródłowego do aplikacji użytkownik powinien zobaczyć podobny rezultat do tego na rysunku \ref{rys:ekran_pozuploadowaniu}. W momencie dodania nowej implementacji, na stronie pojawia się hasz dodanego pliku oraz lista sygnatur funkcji wraz z ich selektorami. Po naciśnięciu na wyświetlany na rysunku \ref{rys:ekran_pozuploadowaniu} hasz pliku, użytkownikowi wyświetli się przesłany kod źródłowy.
@@ -587,7 +585,7 @@ User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
 
 
 \subsubsection{Identyfikacja inteligentnego kontraktu za pomocą API}
-W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/bytecode}. W ciele żądania jest wymagane od użytkownika podanie dwóch atrybutów o nazwach: \textbf{bytecode} oraz \textbf{allFiles}. Atrybuty przesyłane do API powinny być zakodowane według schematu \mbox{\textbf{nazwa\_atrybutu=wartosc}}, a wszystkie tak przygotowane atrybuty należy połączyć ze sobą pomocą ampersandu. Poprawny przykład żądania można zobaczyć na listingu \ref{lst:identyfikacjaapi}.\cite{urlencodedform}
+W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/bytecode}. W ciele żądania jest wymagane od użytkownika podanie kodu bajtowego, służącego do identyfikacji. Poprawny przykład żądania można zobaczyć na listingu \ref{lst:identyfikacjaapi}.\cite{urlencodedform}
 
 
 \begin{center}
@@ -595,15 +593,15 @@ W celu identyfikacji kontraktu należy wysłać żądanie pod adres \mbox{/api/b
 \begin{lstlisting}[caption=Żądanie wysylane w celu identyfikacji kontraktu za pomocą API, label=lst:identyfikacjaapi]
 POST /api/bytecode HTTP/1.1
 Host: localhost:8080
-Content-Type: application/x-www-form-urlencoded
-Content-Length: 13
+Content-Type: text/plain
+Content-Length: 26
 
-bytecode=60803350200fe56abcede00229&allFiles=false
+60803350200fe56abcede00229
 
 \end{lstlisting}
 \end{center}
 
-Na listingu \ref{lst:identyfikacjaapi} do atrybutu \textbf{bytecode} został wprowadzony kod bajtowy kontraktu. Do zmiennej \textbf{allFiles} została wprowadzona wartość \textbf{false}, wiec w rezultacie zostanie zwrócone przez aplikację dziesięć najbardziej prawdopodobnych implementacji. Jeśli użytkownik chce pobrać wszystkie możliwe dopasowania, należy ustawić tą zmienną na \textbf{true}. W żądaniu został wprowadzony nagłówek \textbf{Content-Length} określający długość przesyłanych danych oraz \textbf{Content-Type} oznaczający rodzaj przesyłanych danych. 
+Na listingu \ref{lst:identyfikacjaapi} został wprowadzony kod bajtowy kontraktu. W żądaniu został wprowadzony nagłówek \textbf{Content-Length} określający długość przesyłanych danych oraz \textbf{Content-Type} oznaczający rodzaj przesyłanych danych. 
 
 
 Jeśli wszystko poszło pomyślnie, użytkownik otrzyma status HTTP 200 wraz z listą składającą się z haszu pliku i współczynnika dopasowania danego pliku w formacie JSON. W przypadku gdy nie zostanie dopasowana żadna implementacja, to aplikacja zwróci status 404, natomiast jeśli w aplikacji wystąpi błąd, to zostanie zwrócony status 500.
@@ -711,9 +709,10 @@ W pliku konfiguracyjnym \mbox{\textbf{application.properties}} zostały skonfigu
  
 \begin{center}
 \begin{lstlisting}[caption=Kofiguracja bazy danych, label=lst:applicationproperties]
-spring.data.mongodb.uri=mongodb://${ADMIN_DB_LOGIN}:${ADMIN_DB_PASSWORD}@ds129904.mlab.com:29904/${DATABASE_NAME_CONTRACT}
 admin.login=${ADMIN_LOGIN}
 admin.password=${ADMIN_PASSWORD}
+spring.data.mongodb.uri=${DB_URI}
+server.port=${SERVER_PORT:8080}
 \end{lstlisting}
 \end{center}
 
@@ -1272,7 +1271,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 \item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje, czy podczas dopasowania, prawdziwa implementacja posiada największy współczynnik dopasowania względem innych.
 \end{enumerate}
 
-\begin{table}[ph!]
+\begin{table}[]
 %\begin{table}
 \centering
 \caption{Wyniki testów metod dopasowywania}\label{tab:testydop}
@@ -1280,8 +1279,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 Metoda dopasowywania & 1 & 2	& 3 \\ \hline\hline
 \makecell{Liczba identyfikowanych kodów bajtowych} & \multicolumn{3}{c|}{441} \\ \hline
 \makecell{Liczba dopasowanych implementacji} & 21975 & 21234 & 3728\\ \hline
-\makecell{Liczba skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\
-\makecell{Średni procent skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\ \hline
+\makecell{Liczba skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\ \hline
 \end{tabular}
 \end{table} 
 
