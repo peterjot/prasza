@@ -38,9 +38,9 @@
 \contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{53}{section.3.6}% 
 \contentsline {subsection}{\numberline {3.6.1}Sposoby na wyznaczanie wsp\IeC {\'o}\IeC {\l }czynnika dopasowania}{53}{subsection.3.6.1}% 
 \contentsline {subsection}{\numberline {3.6.2}Testowanie aplikacji pod k\IeC {\k a}tem dopasowywania implementacji}{56}{subsection.3.6.2}% 
-\contentsline {subsection}{\numberline {3.6.3}Jak poprawi\IeC {\'c} dopasowywanie implementacji?}{57}{subsection.3.6.3}% 
-\contentsline {chapter}{Podsumowanie}{61}{chapter*.11}% 
-\contentsline {chapter}{Bibliografia}{63}{section*.14}% 
-\contentsline {chapter}{Spis tabel}{67}{chapter*.16}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{69}{chapter*.18}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{72}{chapter*.20}% 
+\contentsline {subsection}{\numberline {3.6.3}Jak poprawi\IeC {\'c} dopasowywanie implementacji?}{58}{subsection.3.6.3}% 
+\contentsline {chapter}{Podsumowanie}{59}{chapter*.11}% 
+\contentsline {chapter}{Bibliografia}{61}{section*.14}% 
+\contentsline {chapter}{Spis tabel}{65}{chapter*.16}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{67}{chapter*.18}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{70}{chapter*.20}% 

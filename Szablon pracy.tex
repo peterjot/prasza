@@ -313,7 +313,7 @@ Dodatkowo zostały utworzone cztery modyfikatory dla funkcji i zmiennych:
 	
 	\item{\textbf{public}} - funkcja określona w ten sposób jest częścią interfejsu kontraktu. Funkcja ta może zostać wywołana zarówno wewnętrznie jak i zewnętrznie. W przypadku publicznych zmiennych zostanie automatycznie wygenerowana  funkcja zwana akcesorem. Modyfikator public jest domyślnie używany dla funkcji.
 	
-	\item{\textbf{internal}} - funkcje i zmienne z tym specyfikatorem są dostępne tylko wewnątrz kontraktu, w której się znajdują, ponad to są dostępne dla kontraktów pochodnych. Ten modyfikator jest domyślnie ustawiony dla utworzonych zmiennych.
+	\item{\textbf{internal}} - funkcje i zmienne z tym specyfikatorem są dostępne tylko wewnątrz kontraktu, w której się znajdują, ponad to są dostępne dla kontraktów pochodnych. Ten modyfikator jest domyślnie ustawiony dla utworzonych akcesorów zmiennych.
 	
 	\item{\textbf{private}} - funkcje i zmienne, która są prywatne są widoczne tylko wewnątrz kontraktu i nie mogą zostać odziedziczone.
 
@@ -376,7 +376,7 @@ contract C {
 \end{lstlisting}
 \end{center} 
 
-Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor zewnętrzny, oznacza to, że można go wywołać na zewnątrz kontaktu. Natomiast można również odwołać się do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
+Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor zewnętrzny, oznacza to, że można go wywołać tylko na zewnątrz kontaktu. Natomiast można również odwołać się do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
 
 \begin{center}
 \begin{lstlisting}[caption=Przykłady bardziej skomplikowanej zmiennej publicznej w Solidity, label=lst:przyklad_skomplikowanej_zmiennej_public]
@@ -1272,7 +1272,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 \item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje, czy podczas dopasowania, prawdziwa implementacja posiada największy współczynnik dopasowania względem innych.
 \end{enumerate}
 
-\begin{table}[ph!]
+\begin{table}[]
 %\begin{table}
 \centering
 \caption{Wyniki testów metod dopasowywania}\label{tab:testydop}
@@ -1280,8 +1280,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 Metoda dopasowywania & 1 & 2	& 3 \\ \hline\hline
 \makecell{Liczba identyfikowanych kodów bajtowych} & \multicolumn{3}{c|}{441} \\ \hline
 \makecell{Liczba dopasowanych implementacji} & 21975 & 21234 & 3728\\ \hline
-\makecell{Liczba skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\
-\makecell{Średni procent skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\ \hline
+\makecell{Liczba skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\ \hline
 \end{tabular}
 \end{table} 
 

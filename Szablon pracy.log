@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  1 MAY 2019 10:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6930 64-bit) (preloaded format=pdflatex 2019.2.4)  1 MAY 2019 10:38
 entering extended mode
 **"./Szablon pracy.tex"
 ("Szablon pracy.tex"
@@ -846,164 +846,171 @@ Overfull \hbox (51.56868pt too wide) has occurred while \output is active
 T1/cmr/m/n/12 55
  []
 
-[55] [56]
+[55]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 1275.
+
+[56]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
 Overfull \hbox (51.56868pt too wide) has occurred while \output is active
 \T1/cmr/m/sl/12 3.6.  DOPASOWYWANIE IMPLEMENTACJI NA PODSTAWIE KODU BAJTOWEGO \
 T1/cmr/m/n/12 57
  []
 
-[57] [58] [59] [60
+[57] [58] [59
 
-] [61
 
-] [62
+] [60
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1338--1339
+Underfull \hbox (badness 10000) in paragraph at lines 1337--1338
 []\T1/cmr/m/n/12 What is Ethe-reum []$\T1/cmtt/m/n/12 http : / / ethdocs . org 
 / en / latest / introduction /
  []
 
 
-Underfull \hbox (badness 2221) in paragraph at lines 1340--1341
+Underfull \hbox (badness 2221) in paragraph at lines 1339--1340
 []\T1/cmr/m/n/12 Ethereum Blog \T1/cmr/m/it/12 Ether Sa-le: A Sta-ti-sti-cal Ov
 e-rview  []$\T1/cmtt/m/n/12 https : / / blog .
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1343
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1342
 []\T1/cmr/m/n/12 Seung Woo Kim \T1/cmr/m/it/12 Se-cu-re Tree: Why Sta-te Tries
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1342--1343
+Underfull \hbox (badness 10000) in paragraph at lines 1341--1342
 \T1/cmr/m/it/12 Key is 256 Bits []$\T1/cmtt/m/n/12 https : / / medium . com / c
 odechain /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1348--1349
+Underfull \hbox (badness 10000) in paragraph at lines 1347--1348
 []\T1/cmr/m/n/12 Ethos - \T1/cmr/m/it/12 What are smart con-tracts? []$\T1/cmtt
 /m/n/12 https : / / www . ethos . io /
  []
 
-[63
+[61
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 1350--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1349--1350
 []\T1/cmr/m/n/12 Alejandro San-tan-der \T1/cmr/m/it/12 De-con-struc-ting a So-l
 i-di-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1350--1351
+Underfull \hbox (badness 10000) in paragraph at lines 1349--1350
 \T1/cmr/m/it/12 ty Con-tract []$\T1/cmtt/m/n/12 https : / / blog . zeppelin . s
 olutions /
  []
 
 
-Overfull \hbox (31.97032pt too wide) in paragraph at lines 1350--1351
+Overfull \hbox (31.97032pt too wide) in paragraph at lines 1349--1350
 \T1/cmtt/m/n/12 deconstructing-[]a-[]solidity-[]contract-[]part-[]i-[]introduct
 ion-[]832efd2d7737$[]\T1/cmr/m/n/12 . 
  []
 
 
-Underfull \hbox (badness 3780) in paragraph at lines 1351--1352
+Underfull \hbox (badness 3780) in paragraph at lines 1350--1351
 []\T1/cmr/m/n/12 Brandon Arva-na-ghi \T1/cmr/m/it/12 Re-ver-sing Ethe-reum Smar
 t Con-tracts []$\T1/cmtt/m/n/12 https : / /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1352--1353
+Underfull \hbox (badness 10000) in paragraph at lines 1351--1352
 []\T1/cmr/m/n/12 Solidity Do-cu-men-ta-tion \T1/cmr/m/it/12 Get-ter Func-tions 
 []$\T1/cmtt/m/n/12 https : / / solidity .
  []
 
 
-Underfull \hbox (badness 1043) in paragraph at lines 1354--1355
+Underfull \hbox (badness 1043) in paragraph at lines 1353--1354
 []\T1/cmr/m/n/12 Solidity Do-cu-men-ta-tion \T1/cmr/m/it/12 Ty-pes []$\T1/cmtt/
 m/n/12 https : / / solidity . readthedocs . io / en /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+Underfull \hbox (badness 10000) in paragraph at lines 1356--1357
 []\T1/cmr/m/n/12 Elliot Bet-ti-lyon \T1/cmr/m/it/12 What Is an API and Why Sho-
 uld I
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1357--1358
+Underfull \hbox (badness 10000) in paragraph at lines 1356--1357
 \T1/cmr/m/it/12 Use One? []$\T1/cmtt/m/n/12 https : / / medium . com / @TebbaVo
 nMathenstien /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1360
 []\T1/cmr/m/n/12 Dinesh Ba-la-ji \T1/cmr/m/it/12 Un-der-stan-ding HTML Form En-
 co-ding: URL En-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1360--1361
+Underfull \hbox (badness 10000) in paragraph at lines 1359--1360
 \T1/cmr/m/it/12 co-ded and Mul-ti-part Forms []$\T1/cmtt/m/n/12 https : / / dev
  . to / sidthesloth92 /
  []
 
 
-Overfull \hbox (45.3173pt too wide) in paragraph at lines 1360--1361
+Overfull \hbox (45.3173pt too wide) in paragraph at lines 1359--1360
 \T1/cmtt/m/n/12 understanding-[]html-[]form-[]encoding-[]url-[]encoded-[]and-[]
 multipart-[]forms-[]3lpa$[]\T1/cmr/m/n/12 . 
  []
 
-[64]
-Underfull \hbox (badness 1590) in paragraph at lines 1362--1363
+[62]
+Underfull \hbox (badness 1590) in paragraph at lines 1361--1362
 \T1/cmr/m/it/12 tion Al-to-ge-ther - and Ke-ep It Pret-ty []$\T1/cmtt/m/n/12 ht
 tps : / / dzone . com / articles /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1363--1364
+Underfull \hbox (badness 10000) in paragraph at lines 1362--1363
 []\T1/cmr/m/n/12 Baeldung \T1/cmr/m/it/12 Spring Web An-no-ta-tions []$\T1/cmtt
 /m/n/12 https : / / www . baeldung . com /
  []
 
 
-Underfull \hbox (badness 1845) in paragraph at lines 1364--1365
+Underfull \hbox (badness 1845) in paragraph at lines 1363--1364
 \T1/cmr/m/it/12 tes []$\T1/cmtt/m/n/12 https : / / www . thymeleaf . org / doc 
 / articles / springmvcaccessdata .
  []
 
-[65] [66
+[63] [64
 
 ] ("Szablon pracy.lot")
 \tf@lot=\write5
 \openout5 = `"Szablon pracy.lot"'.
 
- [67
+ [65
 
-] [68
+] [66
 
 ] ("Szablon pracy.lof")
 \tf@lof=\write6
 \openout6 = `"Szablon pracy.lof"'.
 
- [69
+ [67
 
-] [70
+] [68
 
 ]
-("Szablon pracy.lol" [71
+("Szablon pracy.lol" [69
 
 ])
 \tf@lol=\write7
 \openout7 = `"Szablon pracy.lol"'.
 
- [72]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1404.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1404.
+ [70]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1403.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1403.
  ("Szablon pracy.aux")
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1404.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1404.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1403.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1403.
 
 Package rerunfilecheck Info: File `"Szablon pracy".out' has not changed.
 (rerunfilecheck)             Checksum: 7AEA5FCDB0149016F214761930C28AA3;2997.
@@ -1011,11 +1018,11 @@ Package rerunfilecheck Info: File `"Szablon pracy".out' has not changed.
 
 LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1404.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1403.
  ) 
 Here is how much of TeX's memory you used:
- 9927 strings out of 492946
- 144404 string characters out of 3125823
+ 9925 strings out of 492946
+ 144390 string characters out of 3125823
  494308 words of memory out of 3000000
  13092 multiletter control sequences out of 15000+200000
  18787 words of font info for 49 fonts, out of 3000000 for 9000
@@ -1033,9 +1040,9 @@ petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1728.pk>
 cbx1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfour/jknappen/
 ec/dpi600\ecrm1200.pk> <C:\Users\petjot\AppData\Local\MiKTeX\2.9\fonts/pk/ljfou
 r/jknappen/ec/dpi600\ecrm1728.pk>
-Output written on "Szablon pracy.pdf" (72 pages, 637809 bytes).
+Output written on "Szablon pracy.pdf" (70 pages, 636273 bytes).
 PDF statistics:
- 1779 PDF objects out of 2073 (max. 8388607)
- 525 named destinations out of 1000 (max. 500000)
+ 1770 PDF objects out of 2073 (max. 8388607)
+ 523 named destinations out of 1000 (max. 500000)
  335 words of extra memory for PDF output out of 10000 (max. 10000000)
 
