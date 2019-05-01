@@ -225,9 +225,9 @@ Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną DEVC
 
 Określenie inteligentne kontrakty to zostało zaproponowane już w 1994 roku przez Nicka Szabo, który cztery lata później zajmował się projektowaniem kryptowaluty Bitgold, która ostatecznie nie została zaimplementowana. 
 
-Ogólnym celem projektowania inteligentnych umów według Nicka Szabo było spełnienie wspólnych warunków umowy (taki jak warunki płatności czy poufności) oraz zminimalizowanie potrzeby zaufanych pośredników. Inteligentne kontrakty miały za zadanie zapewnić większe bezpieczeństwo niż tradycyjne umowy oraz obniżenie kosztów transakcji związanych z tworzeniem umów.\cite{ethereumyellowpaper}
+Ogólnym celem projektowania inteligentnych umów według Nicka Szabo było spełnienie wspólnych warunków umowy (takich jak warunki płatności czy poufności) oraz zminimalizowanie potrzeby zaufanych pośredników. Inteligentne kontrakty miały za zadanie zapewnić większe bezpieczeństwo niż tradycyjne umowy oraz obniżyć koszty transakcji związanych z tworzeniem umów.\cite{ethereumyellowpaper}
 
-Dzięki inteligentnym kontraktom działa ICO(Initial Coin Offering), czyli nowoczesna metoda crowdfundingu, która umożliwia zbieranie kapitału za pomocą kryptowalut. W ICO umowy inwestycyjne są zastępowane cyfrowymi kontraktami, a płatności są rozliczane w kryptowalutach.\cite{smartcontractswhatis}
+Dzięki inteligentnym kontraktom działa ICO (Initial Coin Offering), czyli nowoczesna metoda crowdfundingu, która umożliwia zbieranie kapitału za pomocą kryptowalut. W ICO umowy inwestycyjne są zastępowane cyfrowymi kontraktami, a płatności są rozliczane w kryptowalutach.\cite{smartcontractswhatis}
 
 
 Pierwszą popularną kryptowalutą, która wykorzystuje inteligentne kontrakty jest \emph{Bitcoin}. Wadą tej kryptowaluty jest język skryptowy, który umożliwia wykorzystywanie jedynie operacji udostępnionych przez autora. Tworzenie kontraktów jest bardzo ograniczone, ze względu na brak cechy kompletności Turinga w języku. 
@@ -275,7 +275,7 @@ Wirtualna maszyna wykorzystuje zbiór instrukcji do wykonywania określonych zad
 Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda.\cite{ethereumyellowpaper}
 
 \subsection{Kod bajtowy}
-W celu efektywnego przechowywania operacji są one kompilowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt na przykład operacja PUSH1, która wrzuca na stos jeden bajt jest reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1(0x60). Zgodnie ze specyfikacją opisaną przez Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1, tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
+W celu efektywnego przechowywania operacji są one kompilowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt na przykład operacja PUSH1, która umieszcza na stosie jeden bajt jest reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1(0x60). Zgodnie ze specyfikacją opisaną przez Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1, tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
 
 Po wykonaniu dwóch pierwszych operacji na stosie znajdują się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. W rezultacie górze stosu znajduje się wartość 0xC0.
 Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwie cyfry w systemie szesnastkowym.\cite{ethereumyellowpaper}
@@ -309,9 +309,9 @@ Dodatkowo zostały utworzone cztery modyfikatory dla funkcji i zmiennych:
 
 \begin{enumerate}
 	
-	\item{\textbf{external}} - dzięki temu modyfikatorowi funkcja jest możliwa tylko do wywołania na zewnątrz kontraktu, wywołanie jej wewnątrz tego samego kontraktu spowoduje błąd kompilacji. Co ciekawe wywołanie takiej funkcji \textbf{f} za pomocą \textbf{f()} nie zadziała, natomiast \textbf{this.f()} już zadziała. 
+	\item{\textbf{external}} - dzięki temu modyfikatorowi funkcja jest możliwa tylko do wywołania na zewnątrz kontraktu, wywołanie jej wewnątrz tego samego kontraktu spowoduje błąd kompilacji.
 	
-	\item{\textbf{public}} - funkcja określona w ten sposób jest częścią interfejsu kontraktu. Funkcja ta może zostać wywołana zarówno wewnętrznie jak i zewnętrznie. W przypadku publicznych zmiennych zostanie automatyczna wygenerowana  funkcja zwana akcesorem. Modyfikator public jest domyślnie używany dla funkcji.
+	\item{\textbf{public}} - funkcja określona w ten sposób jest częścią interfejsu kontraktu. Funkcja ta może zostać wywołana zarówno wewnętrznie jak i zewnętrznie. W przypadku publicznych zmiennych zostanie automatycznie wygenerowana  funkcja zwana akcesorem. Modyfikator public jest domyślnie używany dla funkcji.
 	
 	\item{\textbf{internal}} - funkcje i zmienne z tym specyfikatorem są dostępne tylko wewnątrz kontraktu, w której się znajdują, ponad to są dostępne dla kontraktów pochodnych. Ten modyfikator jest domyślnie ustawiony dla utworzonych zmiennych.
 	
@@ -363,7 +363,7 @@ W kontrakcie \textbf{cont1} znajduje się wewnętrzna funkcja \textbf{compute}. 
 Kompilator podczas kompilacji tworzy zewnętrze akcesory dla wszystkich zmiennych z modyfikatorem public.
 
 \begin{center}
-\begin{lstlisting}[caption=Przykłady zmiennej publicznej w Solidity, label=lst:przyklad_zmiennej_public]
+\begin{lstlisting}[caption=Przykład zmiennej publicznej w Solidity, label=lst:przyklad_zmiennej_public]
 pragma solidity ^0.4.0;
 
 contract C {
@@ -376,7 +376,7 @@ contract C {
 \end{lstlisting}
 \end{center} 
 
-Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor zewnętrzny, oznacza to, że można go wywołać wewnątrz kontaktu (wykorzystując słowo kluczowe \textbf{this}). Natomiast można również odwołać się do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
+Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor publiczny, oznacza to, że można go wywołać wewnątrz kontaktu (wykorzystując słowo kluczowe \textbf{this}). Natomiast można również odwołać się do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
 
 \begin{center}
 \begin{lstlisting}[caption=Przykłady bardziej skomplikowanej zmiennej publicznej w Solidity, label=lst:przyklad_skomplikowanej_zmiennej_public]
@@ -394,7 +394,7 @@ contract RealyComplex {
 \end{center} 
 
 
-Na listingu \ref{lst:przyklad_skomplikowanej_zmiennej_public} widać trochę skomplikowany przykład tworzenia funkcji na podstawie publicznej zmiennej. W tym przypadku funkcji, która zostanie wygenerowana, będzie wyglądać następująco:
+Na listingu \ref{lst:przyklad_skomplikowanej_zmiennej_public} widać bardziej skomplikowany przykład tworzenia funkcji na podstawie publicznej zmiennej. W tym przypadku funkcja, która zostanie wygenerowana, będzie wyglądać następująco:
 
 \begin{verbatim}
 function data(uint x1, bool x2, uint x3) 
@@ -402,7 +402,7 @@ returns (uint foo, bytes3 bar) {
 foo = data[x1][x2][x3].foo;   bar = data[x1][x2][x3].bar; }
 \end{verbatim}
 
-Warto zauważyć, że w przypadku struktury mapa jest pomijana, ponieważ nie ma dobrego sposobu na przekazanie klucza do struktury.\cite{soliditygetterfunction} 
+Warto zauważyć, że mapa znajdująca się w strukturze jest pomijana, ponieważ nie ma dobrego sposobu na przekazanie klucza mapy do struktury.\cite{soliditygetterfunction} 
 
 \section{Interakcja z inteligentnymi kontraktami}
 
@@ -1269,9 +1269,8 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 \item \textbf{Liczba dopasowanych implementacji} oznacza sumę implementacji posiadających współczynnik dopasowania powyżej 80\% dla wszystkich identyfikowanych kodów bajtowych. Wysoka liczba dopasowanych implementacji oznacza zawyżone wyniki dopasowania.
 
 
-\item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka dopasowana implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje, czy podczas dopasowania, prawdziwa implementacja posiada największy współczynnik dopasowania względem innych.
+\item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje, czy podczas dopasowania, prawdziwa implementacja posiada największy współczynnik dopasowania względem innych.
 \end{enumerate}
-
 
 \begin{table}[ph!]
 %\begin{table}
@@ -1304,7 +1303,7 @@ Pomimo wyznaczenia najlepszego sposobu na wyliczanie współczynnika dopasowania
 Na ten moment największym problemem jest poprawne parsowanie pliku Solidity. W celu polepszenia wyników dopasowywania można ulepszyć aktualny parser tak, aby podczas parsowania ignorował sygnatury funkcji, które nie są dziedziczone przez finalny kontrakt lub można skorzystać z innych gotowych rozwiązań do parsowania plików Solidity. Najprostszym sposobem będzie wykorzystanie kompilatora solc, który po kompilacji zwraca ABI dla danego kontraktu. 
 
 
-Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzonego przez mnie parsera, średnia wartość dopasowania powinna wzrosnąć. Wtedy podczas przesyłania nowego kontraktu do aplikacji wystarczyłoby podać wersje kompilatora. Po przesłaniu aplikacja kompilowałaby implementacje, po udanej kompilacji zostanie zwrócone ABI, z którego można wyciągnąć wszystkie sygnatury funkcji.
+Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzonego przez mnie parsera, liczba skutecznie dopasowanych implementacji powinna wzrosnąć. Podczas przesyłania nowego kontraktu do aplikacji wystarczyłoby podać wersje kompilatora. Po przesłaniu aplikacja kompilowałaby implementacje, po udanej kompilacji zostanie zwrócone ABI, z którego można wyciągnąć wszystkie sygnatury funkcji. Zmniejszyłoby to nadmiarową ilość wyszukanych sygnatur funkcji w kodzie źródłowym.
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
 \clearemptydoublepage 
@@ -1341,7 +1340,7 @@ Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gr
 \bibitem{ethersaleastatisticaloverview} Ethereum Blog \emph{Ether Sale: A Statistical Overview } \url{https://blog.ethereum.org/2014/08/08/ether-sale-a-statistical-overview/}.
 \bibitem{devcon0} Ethereum \emph{DEVCON-8 recap} \url{https://blog.ethereum.org/2014/12/05/d%CE%BEvcon-0-recap/}
 \bibitem{whyethereumusesecuretries} Seung Woo Kim \emph{Secure Tree: Why State Tries Key is 256 Bits} \url{https://medium.com/codechain/secure-tree-why-state-tries-key-is-256-bits-1276beb68485}.
-\bibitem{ethereumyellowpaper} Dr Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
+\bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
 \bibitem{historyofethereum} Ethereum Homestead \emph{History of Ethereum } \url{https://ethereum-homestead.readthedocs.io/en/latest/introduction/history-of-ethereum.html}.
 \bibitem{proceswydaniaethereum} Ethereum \emph{Ethereum Launch Process} \url{https://ethereum.github.io/blog/2015/03/03/ethereum-launch-process/}.
 
@@ -1403,9 +1402,3 @@ Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gr
 % koniec
 
 \end{document}
-koniec
-
-\end{document}
-
-
-

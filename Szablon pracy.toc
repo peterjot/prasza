@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {1.3.3}Analiza kodu bajtowego}{13}{subsection.1.3.3}% 
 \contentsline {chapter}{\numberline {2}Solidity}{15}{chapter.2}% 
 \contentsline {section}{\numberline {2.1}Modyfikatory widoczno\IeC {\'s}ci funkcji oraz zmiennych}{15}{section.2.1}% 
-\contentsline {section}{\numberline {2.2}Generowanie akcesor\IeC {\'o}w podczas kompilacji}{18}{section.2.2}% 
+\contentsline {section}{\numberline {2.2}Generowanie akcesor\IeC {\'o}w podczas kompilacji}{17}{section.2.2}% 
 \contentsline {section}{\numberline {2.3}Interakcja z inteligentnymi kontraktami}{19}{section.2.3}% 
 \contentsline {subsection}{\numberline {2.3.1}Czym jest ABI?}{19}{subsection.2.3.1}% 
 \contentsline {subsection}{\numberline {2.3.2}Przyk\IeC {\l }ad interakcji z innym kontraktem}{20}{subsection.2.3.2}% 
@@ -21,7 +21,7 @@
 \contentsline {subsubsection}{Pobieranie informacji o kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym z API}{28}{section*.4}% 
 \contentsline {subsubsection}{Identyfikacja inteligentnego kontraktu za pomoc\IeC {\k a} API}{29}{section*.5}% 
 \contentsline {subsubsection}{Przesy\IeC {\l }anie nowego kodu \IeC {\'z}r\IeC {\'o}d\IeC {\l }owego za pomoc\IeC {\k a} API}{30}{section*.6}% 
-\contentsline {section}{\numberline {3.2}Przedstawienie architektury}{31}{section.3.2}% 
+\contentsline {section}{\numberline {3.2}Architektura aplikacji}{31}{section.3.2}% 
 \contentsline {section}{\numberline {3.3}Po\IeC {\l }\IeC {\k a}czenie z baz\IeC {\k a} danych}{33}{section.3.3}% 
 \contentsline {section}{\numberline {3.4}Identyfikacja sygnatur funkcji w kodzie \IeC {\'z}r\IeC {\'o}d\IeC {\l }owym}{37}{section.3.4}% 
 \contentsline {subsection}{\numberline {3.4.1}Kontroler interfejsu programistycznego}{38}{subsection.3.4.1}% 
@@ -38,9 +38,9 @@
 \contentsline {section}{\numberline {3.6}Dopasowywanie implementacji na podstawie kodu bajtowego}{53}{section.3.6}% 
 \contentsline {subsection}{\numberline {3.6.1}Sposoby na wyznaczanie wsp\IeC {\'o}\IeC {\l }czynnika dopasowania}{53}{subsection.3.6.1}% 
 \contentsline {subsection}{\numberline {3.6.2}Testowanie aplikacji pod k\IeC {\k a}tem dopasowywania implementacji}{56}{subsection.3.6.2}% 
-\contentsline {subsection}{\numberline {3.6.3}Jak poprawi\IeC {\'c} dopasowywanie implementacji?}{58}{subsection.3.6.3}% 
-\contentsline {chapter}{Podsumowanie}{59}{chapter*.11}% 
-\contentsline {chapter}{Bibliografia}{61}{section*.14}% 
-\contentsline {chapter}{Spis tabel}{65}{chapter*.16}% 
-\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{67}{chapter*.18}% 
-\contentsline {chapter}{Spis listing\IeC {\'o}w}{70}{chapter*.20}% 
+\contentsline {subsection}{\numberline {3.6.3}Jak poprawi\IeC {\'c} dopasowywanie implementacji?}{57}{subsection.3.6.3}% 
+\contentsline {chapter}{Podsumowanie}{61}{chapter*.11}% 
+\contentsline {chapter}{Bibliografia}{63}{section*.14}% 
+\contentsline {chapter}{Spis tabel}{67}{chapter*.16}% 
+\contentsline {chapter}{Spis rysunk\IeC {\'o}w}{69}{chapter*.18}% 
+\contentsline {chapter}{Spis listing\IeC {\'o}w}{72}{chapter*.20}% 

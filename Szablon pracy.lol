@@ -1,5 +1,5 @@
 \contentsline {lstlisting}{\numberline {2.1}Przyk\IeC {\l }ady r\IeC {\'o}\IeC {\.z}nych specyfikator\IeC {\'o}w w Solidity}{16}{lstlisting.2.1}% 
-\contentsline {lstlisting}{\numberline {2.2}Przyk\IeC {\l }ady zmiennej publicznej w Solidity}{18}{lstlisting.2.2}% 
+\contentsline {lstlisting}{\numberline {2.2}Przyk\IeC {\l }ad zmiennej publicznej w Solidity}{18}{lstlisting.2.2}% 
 \contentsline {lstlisting}{\numberline {2.3}Przyk\IeC {\l }ady bardziej skomplikowanej zmiennej publicznej w Solidity}{18}{lstlisting.2.3}% 
 \contentsline {lstlisting}{\numberline {2.4}Przyk\IeC {\l }ad wywo\IeC {\l }ania metody z innego kontraktu}{20}{lstlisting.2.4}% 
 \contentsline {lstlisting}{\numberline {2.5}Listing przedstawiaj\IeC {\k a}cy ro\IeC {\.z}ne sygnatury funkcji}{21}{lstlisting.2.5}% 
