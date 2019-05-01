@@ -177,7 +177,7 @@ Niniejsza praca została podzielona na trzy części - wstęp teoretyczny z wied
 
 Pierwszy rozdział zawiera informacje dotyczące powstania sieci Ethereum, zalet wykorzystania inteligentnych kontraktów oraz opisuje wykorzystanie maszyny wirtualnej jako cześć sieci Ethereum.
 
-Drugi rozdział omawia specyfikę języka Solidity, sposób generowania akcesorów do zmiennych podczas kompilacji oraz metody interakcji z kontraktami. Podczas omawiania interakcji z inteligentnymi kontraktami została przybliżona tematyka generowania selektorów funkcji wykorzystywanych podczas implementacji rozwiązania.
+Drugi rozdział omawia specyfikę języka Solidity, sposób generowania akcesorów do zmiennych podczas kompilacji oraz interakcje z kontraktami. Podczas omawiania interakcji z inteligentnymi kontraktami została przybliżona tematyka generowania selektorów funkcji wykorzystywanych podczas implementacji rozwiązania.
 
 Ostatni rozdział pracy przedstawia funkcjonalności utworzonej aplikacji, sposób wykrywania sygnatur funkcji w kodzie źródłowym oraz wyszukiwania selektorów funkcji w kodzie bajtowym. Po zaimplementowaniu aplikacji zostały przeprowadzone testy metod wyznaczania współczynnika dopasowania implementacji oraz skuteczności aplikacji pod kątem dopasowania implementacji do kodu bajtowego.
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -1322,12 +1322,15 @@ Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzoneg
 \addcontentsline{toc}{chapter}{Podsumowanie} 	% bez numeru w spisie treści
 
 
-Celem powyższej pracy było utworzenie aplikacji umożliwiającej identyfikacje kodu bajtowego kontraktu. Dokładniejsza analiza tych założeń spowodowała, że zdecydowano się zrealizować stronę internetową, która pozwala na korzystanie z aplikacji na dowolnej platformie z dostępem do internetu bez konieczności instalowania aplikacji.
-Efektem pracy jest aplikacja internetowa Ethereum Smart Contract Identifier. Aplikacja udostępnia przyjazny interfejs użytkownika oraz API. 
-Identyfikacja kontraktów polega na wyszukanie odpowiedniej implementacji ze zgromadzonej bazy danych, jeśli użytkownik chce dodać nowy kontrakt do bazy danych, wtedy musi przejść proces autoryzacji.
+Celem powyższej pracy było utworzenie aplikacji umożliwiającej identyfikacje kodu bajtowego kontraktu. Dokładniejsza analiza tych założeń spowodowała, że zdecydowano się zrealizować stronę internetową, która pozwala na korzystanie z aplikacji bez konieczności instalacji.
+
+Efektem pracy jest aplikacja internetowa o nazwie Ethereum Smart Contract Identifier. Aplikacja udostępnia przyjazny interfejs użytkownika oraz API dla programistów. 
+Identyfikacja kontraktów polega na wyszukaniu odpowiedniej implementacji ze zgromadzonej bazy danych, jeśli użytkownik chce dodać nowy kontrakt do bazy danych, wtedy musi przejść proces autoryzacji.
 Na podstawie powyższego opisu aplikacji, można stwierdzić, że cele pracy zostały w pełni zrealizowane. 
 
-W przyszłości aplikacja możne zostać ulepszona o lepszy sposób wyszukiwania sygnatur funkcji w implementacjach oraz o dokładniejszy sposób wyszukiwania selektorów funkcji w kodzie bajtowym. Dalszym kierunkiem rozwoju może ulepszenie parsera do implementacji Solidity, tak aby wspierał wszystkie wersje języka lub zastąpienie utworzonego parsera do Solidity przez inne gotowe narzędzie.
+W przyszłości aplikacja możne zostać ulepszona o lepszy sposób wyszukiwania sygnatur funkcji w implementacjach oraz o dokładniejszy sposób wyszukiwania selektorów funkcji w kodzie bajtowym. Można ulepszyć parser do Solidity, tak aby wspierał wszystkie wersje języka lub zastąpić parser przez inne gotowe narzędzie.
+
+Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gromadzenia implementacji kontraktów z całego internetu oraz połączenie takiego systemu z utworzona przez mnie aplikacją. Dzięki dużej ilości implementacji kontraktów można uzyskać bardzo dokładne wyniki podczas identyfikacji kontraktów.
 
 
 %____________________________________________________________________________________________

@@ -177,7 +177,7 @@ Niniejsza praca została podzielona na trzy części - wstęp teoretyczny z wied
 
 Pierwszy rozdział zawiera informacje dotyczące powstania sieci Ethereum, zalet wykorzystania inteligentnych kontraktów oraz opisuje wykorzystanie maszyny wirtualnej jako cześć sieci Ethereum.
 
-Drugi rozdział omawia specyfikę języka Solidity, sposób generowania akcesorów do zmiennych podczas kompilacji oraz metody interakcji z kontraktami. Podczas omawiania interakcji z inteligentnymi kontraktami została przybliżona tematyka generowania selektorów funkcji wykorzystywanych podczas implementacji rozwiązania.
+Drugi rozdział omawia specyfikę języka Solidity, sposób generowania akcesorów do zmiennych podczas kompilacji oraz interakcje z kontraktami. Podczas omawiania interakcji z inteligentnymi kontraktami została przybliżona tematyka generowania selektorów funkcji wykorzystywanych podczas implementacji rozwiązania.
 
 Ostatni rozdział pracy przedstawia funkcjonalności utworzonej aplikacji, sposób wykrywania sygnatur funkcji w kodzie źródłowym oraz wyszukiwania selektorów funkcji w kodzie bajtowym. Po zaimplementowaniu aplikacji zostały przeprowadzone testy metod wyznaczania współczynnika dopasowania implementacji oraz skuteczności aplikacji pod kątem dopasowania implementacji do kodu bajtowego.
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
@@ -205,18 +205,18 @@ Na potrzeby platformy Ethereum stworzono dedykowany język Solidity, który zost
  
 \section{Historia}
 
-Początki Ethereum zostały opisane przez programistę Vitalika Buterina w 2013 roku. Vitalik w październiku 2013 roku pracował nad nową kryptowalutą z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. Mastercoin było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty, mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy.\cite{vitalikethereumprehistory} 
+Początki Ethereum zostały opisane przez programistę Vitalika Buterina w 2013 roku. Vitalik w październiku 2013 roku pracował nad nową kryptowalutą z zespołem Mastercoin. Zaproponował im stworzenie bardziej uogólnionego protokołu, który wspierałby rożne rodzaje umów bez dodawania  kolejnych funkcjonalności. Mastercoin było pod wrażeniem jego pomysłu, natomiast nie byli zainteresowania zmianami w tym kierunku. Vitalik czuł, że jego koncepcja jest słuszna i postanowił iść w tym kierunku. Około drugiego grudnia Vitalik uświadomił sobie, że inteligentne kontrakty mogą być w pełni uogólnione, a do opisywania ich warunków można zastosować język skryptowy.\cite{vitalikethereumprehistory}
 
 W grudniu 2013 do zespołu Valika dołączył między innymi Gavin Wood oraz programista klienta w języku Go Jeffrey Wilcke. Latem 2014 roku była już pierwsza stabilna wersja protokołu Ethereum oraz pół formalna specyfikacja w postaci żółtego papieru stworzonego przez Gavina.\cite{vitalikethereumprehistory}
 
 
-Na początku lipca 2014 Ethereum rozdysponowało początkowy przydział krypto waluty Ether będącej częścią platformy Ethereum. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów eterów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju Ethereum.\cite{ethersaleastatisticaloverview} Po wyprzedaży eteru rozwojem Ethereum zajmowała się organizacja non-profit o nazwie ETH DEV, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
+Na początku lipca 2014 Ethereum rozdysponowało początkowy przydział krypto waluty Ether będącej częścią platformy Ethereum. Rozdysponowana wartość wynosiła około 18 milionów dolarów w zamian za ponad 50 milionów Etherów. Wyniki sprzedażny zostały początkowo wykorzystane na opłacenie prac programistów oraz na finansowanie ciągłego rozwoju Ethereum.\cite{ethersaleastatisticaloverview} Po wyprzedaży Etheru rozwojem Ethereum zajmowała się organizacja non-profit o nazwie ETH DEV, której dyrektorami stali się: Vitalik Buterin, Gavin Wood oraz Jeffrey Wilcke.
 
 W listopadzie 2014 roku ETH DEV zorganizowało w Berlinie wydarzenie DEVCON-0, które przyciągnęło programistów z całego świata interesujących się Ethereum.\cite{devcon0}
 
 Na początku 2015 roku odbyły się audyty bezpieczeństwa przed uruchomieniem, zorganizowane przez między innymi Jutta Steinera. Audyty dotyczyły przede wszystkim implementacji w Go i C++. Przeprowadzony został też mniejszy audyt dotyczący implementacji Vilika nazwanej pyethereum. Kontrola bezpieczeństwa wprowadziła do protokołu kilka małych zmian. Jedną zmianą było wprowadzenie funkcji haszującej SHA3 dla klucza i adresu drzewa Trie, która miała zapobiec atakowi DOS.\cite{whyethereumusesecuretries}
 
-Siec Ethereum została uruchomiona 30 lipca 2015 roku. Był to moment, w którym użytkownicy przystąpili do sieci, aby uzyskać eter z bloków górniczych. Natomiast programiści zaczęli pisać inteligentne umowy oraz zdecentralizowane aplikacje gotowe do wdrożenia w sieci Ethereum. Była to wersja testowa, ale jak się okazało, była ona bardziej udana, niż ktokolwiek by się tego spodziewał.\cite{proceswydaniaethereum}
+Sieć Ethereum została uruchomiona 30 lipca 2015 roku. Był to moment, w którym użytkownicy przystąpili do sieci, aby uzyskać eter z bloków górniczych. Natomiast programiści zaczęli pisać inteligentne umowy oraz zdecentralizowane aplikacje gotowe do wdrożenia w sieci Ethereum. Była to wersja testowa, ale jak się okazało, była ona bardziej udana, niż ktokolwiek by się tego spodziewał.\cite{proceswydaniaethereum}
 
 Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną DEVCON-1, odbyła się ona w Londynie na początku listopada 2015 roku. Konferencja trwała pięć dni, a przedstawiano na niej ponad 100 prezentacji, paneli dyskusyjnych oraz krótkich rozmów. W konferencji wzięło udział ponad 400 uczestników, była to mieszanka przedsiębiorców, myślicieli, programistów oraz przedstawicieli biznesowych. W konferencji brały udział duże firmy jak IBM czy Microsoft, co wyraźnie wskazywało na duże zainteresowanie ta technologia.\cite{historyofethereum} 
 
@@ -225,15 +225,15 @@ Idąc za ciosem, zorganizowano druga konferencje dla programistów nazwaną DEVC
 
 Określenie inteligentne kontrakty to zostało zaproponowane już w 1994 roku przez Nicka Szabo, który cztery lata później zajmował się projektowaniem kryptowaluty Bitgold, która ostatecznie nie została zaimplementowana. 
 
-Ogólnym celem projektowania inteligentnych umów według Nicka Szabo było spełnienie wspólnych warunków umowny (taki jak warunki płatności czy poufności) oraz zminimalizowanie potrzeby zaufanych pośredników. Inteligentne kontrakty miały za zadanie zapewnić większe bezpieczeństwo niż tradycyjne umowy oraz obniżenie kosztów transakcji związanych z tworzeniem umów.\cite{ethereumyellowpaper} 
+Ogólnym celem projektowania inteligentnych umów według Nicka Szabo było spełnienie wspólnych warunków umowy (taki jak warunki płatności czy poufności) oraz zminimalizowanie potrzeby zaufanych pośredników. Inteligentne kontrakty miały za zadanie zapewnić większe bezpieczeństwo niż tradycyjne umowy oraz obniżenie kosztów transakcji związanych z tworzeniem umów.\cite{ethereumyellowpaper}
 
-Dzięki inteligentnym kontraktom działa ICO(Initial Coin Offering), czyli nowoczesnej metodzie crowdfundingu, która umożliwia zbieranie kapitału za pomocą kryptowalut. W ICO umowy inwestycyjne są zastępowane cyfrowymi kontraktami, a płatności są rozliczane w kryptowalutach.\cite{smartcontractswhatis}
+Dzięki inteligentnym kontraktom działa ICO(Initial Coin Offering), czyli nowoczesna metoda crowdfundingu, która umożliwia zbieranie kapitału za pomocą kryptowalut. W ICO umowy inwestycyjne są zastępowane cyfrowymi kontraktami, a płatności są rozliczane w kryptowalutach.\cite{smartcontractswhatis}
 
 
 Pierwszą popularną kryptowalutą, która wykorzystuje inteligentne kontrakty jest \emph{Bitcoin}. Wadą tej kryptowaluty jest język skryptowy, który umożliwia wykorzystywanie jedynie operacji udostępnionych przez autora. Tworzenie kontraktów jest bardzo ograniczone, ze względu na brak cechy kompletności Turinga w języku. 
 
 
-Inteligentne kontrakty zyskały nowe znaczenie oraz dużą popularność wraz z rozwojem platformy Ethereum. Platforma ta posiada język, który umożliwia tworzenie inteligentnych kontraktów, które mają cechę kompletności Turinga. Dzięki temu Ethereum jest platformą, która właściwie posiada programowalny blockchain, na którym są przechowywane zdecentralizowane aplikacje, które są uruchamiane przez użytkowników sieci za pomocą EVM. Współcześnie każdy użytkownik korzystający z platformy Ethereum może stworzyć aplikacje, która nie posiada jednego serwera, tylko jest rozproszona po całej sieci Ethereum.\cite{smartcontractswhatis}
+Inteligentne kontrakty zyskały nowe znaczenie oraz dużą popularność wraz z rozwojem platformy Ethereum. Platforma ta posiada język, który umożliwia tworzenie inteligentnych kontraktów, które mają cechę kompletności Turinga. Dzięki temu Ethereum jest platformą, która właściwie posiada programowalny blockchain, na którym są przechowywane zdecentralizowane aplikacje. Aplikacje te są uruchamiane przez użytkowników sieci za pomocą EVM. Współcześnie każdy użytkownik korzystający z platformy Ethereum może stworzyć aplikacje, która nie posiada jednego serwera, tylko jest rozproszona po całej sieci Ethereum.\cite{smartcontractswhatis}
 
 
 Niestety inteligentne kontrakty, jak większość rozwiązań informatycznych, posiadają swoje wady. Wszystkie kontrakty umieszczone na blockchainie są widoczne dla każdego użytkownika. W przypadku luki bezpieczeństwa nie ma możliwości szybkiej naprawy kontraktu umieszczonego w sieci, dodatkowo w praktyce jest trudno napisać dobry inteligenty kontrakt, w którym wszystko zostało przewidziane.
@@ -245,7 +245,7 @@ W dalszej części pracy zostanie przedstawione, w jaki sposób stworzyć aplika
 
 \section{Ethereum Virtual Machine}
 
-EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o Ethereum. Początkowo wirtualna maszyna została opisana w żółtym dokumencie opracowanym przez dr. Gavina Wooda. Maszyna wirtualna jest całkowicie odizolowana od reszty głównej sieci blockchain, co pomaga w zapewnienia bezpieczeństwa wykonywania niezaufanego kodu przez komputery z całego świata. Każdy węzeł w sieci uruchamia u siebie własną implementację EVM oraz jest w stanie wykonywać na niej te same instrukcje co pozostałe węzły. 
+EVM jest to środowisko uruchomieniowe dla inteligentnych kontraktów opartych o Ethereum. Początkowo wirtualna maszyna została opisana w żółtym dokumencie opracowanym przez dr. Gavina Wooda. Maszyna wirtualna jest całkowicie odizolowana od reszty głównej sieci blockchain, co pomaga w zapewnienia bezpieczeństwa wykonywania niezaufanego kodu przez komputery z całego świata. Każdy węzeł w sieci uruchamia u siebie własną implementację EVM oraz jest w stanie wykonywać na niej te same instrukcje co pozostałe węzły.
 
 
 \subsection{Kody operacji}
@@ -275,7 +275,7 @@ Wirtualna maszyna wykorzystuje zbiór instrukcji do wykonywania określonych zad
 Powyżej przedstawiono tylko przykłady operacji z danej kategorii, natomiast pozostałe operacje zostały przedstawione w dokumencie dr. Gavina Wooda.\cite{ethereumyellowpaper}
 
 \subsection{Kod bajtowy}
-W celu efektywnego przechowywania operacji są one kodowane do kodu bajtowego w systemie szesnastkowym. Każda operacja ma przydzielony jeden bajt na przykład operacja PUSH1, która wrzuca na stos jeden bajt jest reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1(0x60). Zgodnie ze specyfikacją opisaną przed Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1, tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
+W celu efektywnego przechowywania operacji są one kompilowane do kodu bajtowego. Każda operacja ma przydzielony jeden bajt na przykład operacja PUSH1, która wrzuca na stos jeden bajt jest reprezentowana przez wartość 0x60. Dla kodu bajtowego 0x6080604001, pierwszy bajt to operacja PUSH1(0x60). Zgodnie ze specyfikacją opisaną przez Gavina operacja PUSH1 odczytuje kolejny bajt z kodu bajtowego i wrzuca go na stos, w tym przypadku na stos zostanie wrzucona wartość 0x80. Następną operacją jest ponownie PUSH1, tylko tym razem na stos została wrzucona wartość 0x40.\cite{ethereumyellowpaper}
 
 Po wykonaniu dwóch pierwszych operacji na stosie znajdują się dwie wartości: 0x80 oraz 0x40. Kolejnym bajtem jest 0x01, który oznacza operacje ADD. Operacja ADD pobiera ze stosu dwie wartości, wykonuje operacje dodawania, po czym wynik wrzuca z powrotem na stos. W rezultacie górze stosu znajduje się wartość 0xC0.
 Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy bajt są to dwie cyfry w systemie szesnastkowym.\cite{ethereumyellowpaper}
@@ -284,7 +284,7 @@ Podczas wykonywania kodu bajtowego jest on dzielony na pojedyncze bajty. Każdy 
 
 \subsection{Analiza kodu bajtowego}
 
-Kontrakty, które zostały umieszczane na blockchainie są przechowywane w postaci kodu bajtowego. Chcąc przeanalizować działanie kontraktu umieszczonego w sieci Ethereum, może okazać się, że kod bajtowy nie jest wystarczająco czytelny. Z tego powodu powstały narzędzia umożliwiające analizę kodu bajtowego. Jednym z takich narzędzi jest eveem.org lub ethervm.io, są to aplikacje internetowe umożliwiające zdekompilowanie do asemblera.
+Kontrakty, które zostały umieszczone na blockchainie są przechowywane w postaci kodu bajtowego. Chcąc przeanalizować działanie kontraktu umieszczonego w sieci Ethereum, może okazać się, że kod bajtowy nie jest wystarczająco czytelny. Z tego powodu powstały narzędzia umożliwiające analizę kodu bajtowego. Jednym z takich narzędzi jest eveem.org lub ethervm.io, są to aplikacje internetowe umożliwiające zdekompilowanie do asemblera.
 
 Niestety podczas deasemblacji nazwy funkcji, atrybutów oraz wydarzeń są tracone z powodu optymalizacji. Istnieje jednak sposób na odzyskanie poprzez wykorzystanie bazy danych zawierającej popularne nazwy. Przykładem takiej bazy danych  jest 4byte.directory, czyli aplikacja internetowa przechowującą sygnatury funkcji wraz z ich reprezentacjami bajtowymi.
 
@@ -311,16 +311,16 @@ Dodatkowo zostały utworzone cztery modyfikatory dla funkcji i zmiennych:
 	
 	\item{\textbf{external}} - dzięki temu modyfikatorowi funkcja jest możliwa tylko do wywołania na zewnątrz kontraktu, wywołanie jej wewnątrz tego samego kontraktu spowoduje błąd kompilacji. Co ciekawe wywołanie takiej funkcji \textbf{f} za pomocą \textbf{f()} nie zadziała, natomiast \textbf{this.f()} już zadziała. 
 	
-	\item{\textbf{public}} - funkcja określona w ten sposób jest częścią interfejsu kontraktu. Funkcja ta może zostać wywołana zarówno wewnętrznie jak i zewnętrznie. W przypadku publiczny zmiennych zostanie automatyczna wygenerowana  funkcja zwana akcesorem. Widocznosc public posiadaja domyslnei funkcje.
+	\item{\textbf{public}} - funkcja określona w ten sposób jest częścią interfejsu kontraktu. Funkcja ta może zostać wywołana zarówno wewnętrznie jak i zewnętrznie. W przypadku publicznych zmiennych zostanie automatyczna wygenerowana  funkcja zwana akcesorem. Modyfikator public jest domyślnie używany dla funkcji.
 	
-	\item{\textbf{internal}} - funkcje i zmienne z tym specyfikatorem są dostępne tylko wewnątrz umowy, w której się znajdują, ponad to są dostępne dla kontraktów pochodnych. Ten modyfikator jest domyślnie ustawiony dla utworzonych zmiennych.
+	\item{\textbf{internal}} - funkcje i zmienne z tym specyfikatorem są dostępne tylko wewnątrz kontraktu, w której się znajdują, ponad to są dostępne dla kontraktów pochodnych. Ten modyfikator jest domyślnie ustawiony dla utworzonych zmiennych.
 	
 	\item{\textbf{private}} - funkcje i zmienne, która są prywatne są widoczne tylko wewnątrz kontraktu i nie mogą zostać odziedziczone.
 
 
 \end{enumerate}
 
-Specyfikator widoczności znajduje się po typie zmiennej oraz w przypadku funkcji pomiędzy listą parametrów, a wartością zwracana. 
+Specyfikator widoczności znajduje się po typie zmiennej oraz w przypadku funkcji pomiędzy listą parametrów, a wartością zwracaną. 
 
 \begin{center}
 \begin{lstlisting}[caption=Przykłady różnych specyfikatorów w Solidity, label=lst:przyklady_specyfikatorow]
@@ -354,9 +354,9 @@ contract cont3 is cont1 {
 \end{lstlisting}
 \end{center} 
 
-Na listingu \ref{lst:przyklady_specyfikatorow} widać przykład trzech kontraktów posiadających funkcje z różnego rodzaju specyfikatorami. Kontrakt \textbf{cont1} posiada funkcję prywatną \textbf{func}, oznacza to, że może ona zostać wywołana tylko wewnątrz kontraktu. W przypadku gdy w kontrakcie \textbf{cont2} zostanie utworzony obiekt kontraktu \textbf{cont1}, to podczas odwołania się do funkcji \textbf{func} z kontraktu \textbf{cont1} programista otrzyma błąd kompilacji. \cite{soliditygetterfunction}
+Na listingu \ref{lst:przyklady_specyfikatorow} widać przykład trzech kontraktów posiadających funkcje z różnego rodzaju specyfikatorami. Kontrakt \textbf{cont1} posiada funkcję prywatną \textbf{func}. Oznacza to, że może ona zostać wywołana tylko wewnątrz kontraktu. W przypadku gdy w kontrakcie \textbf{cont2} zostanie utworzony obiekt kontraktu \textbf{cont1}, to podczas odwołania się do funkcji \textbf{func} z kontraktu \textbf{cont1} programista otrzyma błąd kompilacji. \cite{soliditygetterfunction}
 
-W kontrakcie \textbf{cont1} znajduje się wewnętrzna funkcja \textbf{compute}, mimo tego, że nie można jej wywołać z innego kontrakt, to można wykorzystać dziedziczenie w celu wywołania tej funkcji. Kontrakt \textbf{cont3} jest przykładem takiej rozwiązania. Kontrakt \textbf{cont3} dziedziczy po \textbf{cont1}, a następnie prawidłowo wywołuje wewnętrzną funkcję kontraktu \textbf{cont1}.\cite{soliditygetterfunction}
+W kontrakcie \textbf{cont1} znajduje się wewnętrzna funkcja \textbf{compute}. Mimo tego, że nie można jej wywołać z innego kontraktu, to można wykorzystać dziedziczenie w celu wywołania tej funkcji. Kontrakt \textbf{cont3} jest przykładem takiego rozwiązania. Kontrakt \textbf{cont3} dziedziczy po \textbf{cont1}, a następnie prawidłowo wywołuje wewnętrzną funkcję kontraktu \textbf{cont1}.\cite{soliditygetterfunction}
 
 \section{Generowanie akcesorów podczas kompilacji}
 
@@ -376,7 +376,7 @@ contract C {
 \end{lstlisting}
 \end{center} 
 
-Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor zewnętrzny, oznacza to, że można go wywołać wewnątrz kontaktu tylko wykorzystując słowo kluczowe \textbf{this}. Natomiast można oczywiście odwołać się też do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
+Na listingu \ref{lst:przyklad_zmiennej_public} widać zadeklarowaną zmienną \textbf{data} z modyfikatorem public. Dla takich zmiennych tworzony jest akcesor zewnętrzny, oznacza to, że można go wywołać wewnątrz kontaktu (wykorzystując słowo kluczowe \textbf{this}). Natomiast można również odwołać się do zmiennej wewnątrz kontraktu bez wykorzystywania akcesora.\cite{soliditygetterfunction}
 
 \begin{center}
 \begin{lstlisting}[caption=Przykłady bardziej skomplikowanej zmiennej publicznej w Solidity, label=lst:przyklad_skomplikowanej_zmiennej_public]
@@ -394,7 +394,7 @@ contract RealyComplex {
 \end{center} 
 
 
-Na listingu \ref{lst:przyklad_skomplikowanej_zmiennej_public} widać trochę bardziej skomplikowany przykład tworzenia funkcji na podstawie publicznej zmiennej. W tym przypadku funkcji, która zostanie wygenerowana, będzie wyglądać następująco:
+Na listingu \ref{lst:przyklad_skomplikowanej_zmiennej_public} widać trochę skomplikowany przykład tworzenia funkcji na podstawie publicznej zmiennej. W tym przypadku funkcji, która zostanie wygenerowana, będzie wyglądać następująco:
 
 \begin{verbatim}
 function data(uint x1, bool x2, uint x3) 
@@ -410,7 +410,7 @@ Inteligentne kontrakty po umieszczeniu na blockchanie są przechowywane w postac
 
 \subsection{Czym jest ABI?}
 
-ABI(Application Binary Interface) jest to ustandaryzowany sposób interakcji z kontraktem w sieci Ethereum, ułatwia on wykorzystywanie funkcji udostępnionych przez kontrakty. ABI zawiera specyfikacje udostępnionych przez kontrakt funkcji wraz z nazwami i typami danych wejściowych i wyjściowych. Na podstawie ABI można wygenerować selektor funkcji, który umożliwia wywołanie konkretnej funkcji na kodzie bajtowym kontraktu.\cite{whatisabi}
+ABI(Application Binary Interface) jest to ustandaryzowany sposób interakcji z kontraktem w sieci Ethereum. Ułatwia on wykorzystywanie funkcji udostępnionych przez kontrakty. ABI zawiera specyfikacje udostępnionych przez kontrakt funkcji wraz z nazwami i typami danych wejściowych i wyjściowych. Na podstawie ABI można wygenerować selektor funkcji, który umożliwia wywołanie konkretnej funkcji na kodzie bajtowym kontraktu.\cite{whatisabi}
 
 Podczas upubliczniania kontraktu w sieci Ethereum, zalecane jest upublicznienie kodu źródłowego kontraktu z danymi umieszczonych w konstruktorze, wersją kompilatora oraz flagami użytymi podczas kompilacji kontraktu. Dzięki temu użytkownicy mogą zweryfikować czy kontrakt umieszczony w sieci pasuje do upublicznionego kodu źródłowego, a upubliczniony kod źródłowy sprawi, że kontrakt umieszczony w sieci będzie bardziej zaufany wśród innych użytkowników.
 
@@ -658,7 +658,7 @@ Po pomyślnym przesłaniu kontraktu w odpowiedzi od serwera użytkownik otrzymuj
 \end{center}
 
 
-\section{Przedstawienie architektury}
+\section{Architektura aplikacji}
 
 W tym podrozdziale opiszę architekturę aplikacji, która realizuje funkcjonalności opisane w sekcji 3.1. Poniżej zostały krótko opisane główne klasy będące częścią aplikacji, widoczne na rysunku \ref{rys:architektura}.
 
@@ -669,7 +669,7 @@ W tym podrozdziale opiszę architekturę aplikacji, która realizuje funkcjonaln
 \end{figure}
 
 \begin{description}
-\item[LoginController] - jest to klasa odpowiedzialna za wyświetlenie ekranu logowania
+\item[LoginController] - jest to klasa odpowiedzialna za wyświetlenie ekranu logowania.
 
 \item[ErrorController] - jej zadaniem jest przechwytywane wszystkich błędów w aplikacji. Po złapaniu błędu, zostaje wyświetlona użytkownikowi strona informująca, że pojawił się błąd w aplikacji, który jest zapisywany w logach aplikacji.
 
@@ -798,7 +798,7 @@ Klasa \textbf{SolidityFunction}, która jest częścią klasy \textbf{SolidityFi
 \section{Identyfikacja sygnatur funkcji w kodzie źródłowym}
 
 
-Wyszukiwanie sygnatur funkcji jest rozpoczynane podczas przesłania nowego kodu źródłowego do aplikacji. W momencie wyszukiwania sygnatur funkcji są generowane selektory funkcji, które są finalnie używane podczas identyfikacji kodu bajtowego. 
+Wyszukiwanie sygnatur funkcji jest rozpoczynane podczas przesłania nowego kodu źródłowego do aplikacji. W momencie wyszukiwania sygnatur funkcji są generowane selektory funkcji, które są finalnie używane podczas identyfikacji kodu źródłowego. 
 
 Problemem podczas wyszukiwania sygnatur w kodzie źródłowym jest to, że część sygnatur jest niejawna, ponieważ są one dodatkowo generowane podczas kompilacji dla wybranych atrybutów kontraktu.\cite{soliditygetterfunction} 
 
@@ -1073,7 +1073,7 @@ Przed utworzeniem hasza kodu źródłowego, usuwane są z niego wszystkie nadmie
 \section{Wyszukiwanie selektorów funkcji w kodzie bajtowym}
 
 
-Podczas identyfikacji inteligentnego kontraktu podawany jest kod bajtowy, który posiada w sobie informacje selektory funkcji. Następnie na podstawie selektorów funkcji zawartych w kodzie bajtowym, zostają dopasowane implementacje inteligentnych kontraktów przechowywane w bazie danych. 
+Podczas identyfikacji inteligentnego kontraktu podawany jest kod bajtowy, który posiada w sobie selektory funkcji. Następnie na podstawie selektorów funkcji zawartych w kodzie bajtowym, zostają dopasowane implementacje inteligentnych kontraktów przechowywane w bazie danych. 
 
 W tym podrozdziale przedstawię, w jaki sposób na podstawie kodu bajtowego są wyszukiwane selektory funkcji wykorzystywane podczas dopasowywania implementacji.
 
@@ -1237,7 +1237,7 @@ M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego
 S - liczba selektorów funkcji występujących w kodzie źródłowym
 
 
-Problemem w tym rozwiązaniu jest to, że podczas wyszukiwania sygnatur funkcji w implementacji wyszukiwane są wszystkie funkcje w pliku z różnych kontraktów zależnych od siebie. Podczas dziedziczenia jest też dziedziczona sygnatura funkcji, która jest zapisywana w kodzie bajtowym ostatecznego kontraktu. Natomiast w przypadku innej relacji kontraktów w kodzie bajtowym nie występują selektory funkcji z innego kontraktu. Przykładowo podczas parsowania pliku Solidity możne być taka sytuacja, że zostaną wykryte wszystkie sygnatury funkcji, natomiast podczas analizy kodu bajtowego nie zostaną one wykryte. W takim wypadku zaprezentowany współczynnik będzie mógł zawyżać wynik dopasowania.
+Problemem w tym rozwiązaniu jest to, że podczas wyszukiwania sygnatur funkcji w implementacji wyszukiwane są wszystkie funkcje w pliku z różnych kontraktów zależnych od siebie. Podczas dziedziczenia jest też dziedziczona sygnatura funkcji, która jest zapisywana w kodzie bajtowym ostatecznego kontraktu. Natomiast w przypadku innej relacji kontraktów w kodzie bajtowym nie występują selektory funkcji z innego kontraktu. Przykładowo podczas parsowania pliku Solidity może być taka sytuacja, że zostaną wykryte wszystkie sygnatury funkcji, natomiast podczas analizy kodu bajtowego nie zostaną one wykryte. W takim wypadku zaprezentowany współczynnik będzie mógł zawyżać wynik dopasowania.
 
 \item Trzecim sposobem, który może rozwiązać problemy dwóch poprzednich, jest obliczenie \textbf{współczynnika podobieństwa Jaccarda}. Współczynnik ten jest zdefiniowany jako iloraz mocy części wspólnej zbiorów i mocy sumy zbiorów. Biorąc pod uwagę, że zarówno wyszukiwanie funkcji w kodzie bajtowym, jak i w implementacji może zwrócić czasami niedokładny wynik, wtedy współczynnik ten będzie odpowiednio ustalać wynik, mając na uwadze problemy dwóch poprzednich sposobów. Po dostosowaniu indeksu Jaccarda w aplikacji wzór będzie wyglądać następująco:
 
@@ -1250,13 +1250,8 @@ W - współczynnik dopasowania implementacji
 M - liczba selektorów funkcji wspólnych dla pliku oraz kodu bajtowego 
 
 S - liczba selektorów funkcji występujących w kodzie źródłowym
-<<<<<<< HEAD
 
 B - liczba selektorów funkcji występujących w kodzie bajtowym
-=======
-
-B - liczba selektorów funkcji występujących w kodzie bajtowym
-
 
 Mianownik oznacza moc sumy zbiorów.
 \end{enumerate}
@@ -1266,7 +1261,7 @@ Mianownik oznacza moc sumy zbiorów.
 
 Zostały przeprowadzone testy trzech wspominanych sposobów. Jako grupę testową pobrałem 441 implementacji kontraktów ze strony etherscan.io skompilowanych dla wersji kompilatora od 0.4.22 do 0.4.25. Do kompilacji kontraktów wykorzystałem kompilator solc oraz bibliotekę py-solc, która ułatwia kompilacje z poziomu języka Python.
 
-Każdy kod źródłowy skompilowałem wersją kompilatora sugerowaną przez etherscan.io dla danej implementacji. Dla każdego skompilowanego pliku wybrany został kod bajtowy kontraktu wskazanego na stronie etherscan.io.
+Każdy kod źródłowy skompilowałem wersją kompilatora sugerowaną przez etherscan.io dla danej implementacji. Po kompilacji kompilator zwraca listę kodów bajtowych dla każdego zadeklarowanego w kodzie źródłowym kontraktu. Dla każdego skompilowanego pliku został wybrany kod bajtowy kontraktu wskazanego na stronie etherscan.io.
 
 Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystkich trzech wspomnianych metodach wyznaczania współczynnika dopasowania. Wyniki testów przedstawiają następujące wartości:
 \begin{enumerate}
@@ -1274,9 +1269,7 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 \item \textbf{Liczba dopasowanych implementacji} oznacza sumę implementacji posiadających współczynnik dopasowania powyżej 80\% dla wszystkich identyfikowanych kodów bajtowych. Wysoka liczba dopasowanych implementacji oznacza zawyżone wyniki dopasowania.
 
 
-\item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka dopasowana implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje czy podczas dopasowania prawdziwa implementacja jest na pierwszej pozycji.
-
-\item \textbf{Średnia wartość współczynnika dla skutecznie dopasowanych implementacji} - przedstawia średni wynik realnych implementacji wszystkich testowanych kodów bajtowych
+\item \textbf{Liczba skutecznie dopasowanych implementacji} - skutecznie dopasowana implementacja to taka dopasowana implementacja, z której rzeczywiście powstał identyfikowany kod bajtowy. Jeśli przesłana implementacja po dopasowaniu ma najwyższą wartość współczynnika dopasowania względem innych, oznacza to, że jest skutecznie dopasowana. Test ten pokazuje, czy podczas dopasowania, prawdziwa implementacja posiada największy współczynnik dopasowania względem innych.
 \end{enumerate}
 
 
@@ -1287,17 +1280,16 @@ Tabela \ref{tab:testydop} przedstawia wyniki testów przeprowadzonych na wszystk
 \begin{tabular}{| c | c | c | c | m{15pt}}\hline \rule[5mm]{0cm}{0mm}
 Metoda dopasowywania & 1 & 2	& 3 \\ \hline\hline
 \makecell{Liczba identyfikowanych kodów bajtowych} & \multicolumn{3}{c|}{441} \\ \hline
-\makecell{Liczba dopasowanych implementacji} & 18398 & 9485 & 2722\\ \hline
-\makecell{Liczba skutecznie dopasowanych \\implementacji} & 422 & 311  & 388\\ \hline
-\makecell{Średnia wartość współczynnika dla \\skutecznie 
-dopasowanych implementacji} & 96.64\% & 82.58\% & 80.58\% \\ \hline
+\makecell{Liczba dopasowanych implementacji} & 21975 & 21234 & 3728\\ \hline
+\makecell{Liczba skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\
+\makecell{Średni procent skutecznie dopasowanych \\implementacji} & 427 & 270  & 393\\ \hline
 \end{tabular}
 \end{table} 
 
 
 Dla pierwszej metody uzyskano bardzo wysoką skuteczność dopasowania. Problemem w przypadku tej metody jest bardzo duża liczba dopasowanych implementacji, która świadczy o bardzo zawyżonych wynikach. Metoda ta sprawdzała, czy dla danego kodu bajtowego, zostały dopasowane w nim wszystkie selektory funkcji. W przypadku bardzo dużych implementacji ten wynik jest zawyżany, ponieważ jest szansa, że pliki z dużą ilością sygnatur funkcji będą miały często wysoki współczynnik dopasowania podczas identyfikacji małych kodów bajtowych. Mimo wysokiej skuteczności w testach jest bardzo dużo dopasowanych implementacji, co świadczy o niejednoznacznych wynikach dopasowania.
 
-Drugie rozwiązanie mimo mniejszej liczby dopasowanych implementacji posiada nie największą liczbę skutecznie dopasowanych implementacji. Problemem są duże implementacje z wieloma kontraktami, które nie są dziedziczone przez główny kontrakt. Natomiast w kodzie bajtowym są wykrywane tylko te selektory funkcji, które są częścią kontraktu lub są dziedziczone po innym.
+Drugie rozwiązanie mimo mniejszej liczby dopasowanych implementacji posiada najmniejszą liczbę skutecznie dopasowanych implementacji. Problemem są duże implementacje z wieloma kontraktami, które nie są dziedziczone przez główny kontrakt. Natomiast w kodzie bajtowym są wykrywane tylko te selektory funkcji, które są częścią kontraktu lub są dziedziczone po innym.
 
 Okazuje się, że najlepszym sposobem na wyznaczanie współczynnika dopasowania jest metoda 3 (indeks Jaccarda), ze względu na wysoką liczbę poprawnie zidentyfikowanych implementacji (co świadczy wysokiej o skuteczności) oraz małą liczbę implementacji uznanych za dopasowane (co świadczy o mniejszej ilości zawyżonych wyników).
 
@@ -1312,7 +1304,7 @@ Pomimo wyznaczenia najlepszego sposobu na wyliczanie współczynnika dopasowania
 Na ten moment największym problemem jest poprawne parsowanie pliku Solidity. W celu polepszenia wyników dopasowywania można ulepszyć aktualny parser tak, aby podczas parsowania ignorował sygnatury funkcji, które nie są dziedziczone przez finalny kontrakt lub można skorzystać z innych gotowych rozwiązań do parsowania plików Solidity. Najprostszym sposobem będzie wykorzystanie kompilatora solc, który po kompilacji zwraca ABI dla danego kontraktu. 
 
 
-Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzonego przez mnie parsera, średnia wartość dopasowania powinna być bliska 100\%. Wtedy podczas przesyłania nowego kontraktu do aplikacji wystarczyłoby podać wersje kompilatora. Po przesłaniu aplikacja kompilowałaby implementacje, po udanej kompilacji zostanie zwrócone ABI, z którego można wyciągnąć wszystkie sygnatury funkcji.
+Wykorzystując kompilator solc do uzyskania sygnatur funkcji, zamiast stworzonego przez mnie parsera, średnia wartość dopasowania powinna wzrosnąć. Wtedy podczas przesyłania nowego kontraktu do aplikacji wystarczyłoby podać wersje kompilatora. Po przesłaniu aplikacja kompilowałaby implementacje, po udanej kompilacji zostanie zwrócone ABI, z którego można wyciągnąć wszystkie sygnatury funkcji.
 
 % Wyczyszczenie strony z numeracji i paginy górnej, jeśli strona jest pusta. 
 \clearemptydoublepage 
@@ -1330,8 +1322,9 @@ Na podstawie powyższego opisu aplikacji, można stwierdzić, że cele pracy zos
 
 W przyszłości aplikacja możne zostać ulepszona o lepszy sposób wyszukiwania sygnatur funkcji w implementacjach oraz o dokładniejszy sposób wyszukiwania selektorów funkcji w kodzie bajtowym. Można ulepszyć parser do Solidity, tak aby wspierał wszystkie wersje języka lub zastąpić parser przez inne gotowe narzędzie.
 
-Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gromadzenia implementacji kontraktów z całego internetu oraz połączenie takiego systemu z utworzona przez mnie aplikacją. Dzięki dużej ilości implementacji kontraktów można uzyskać bardzo dokładne wyniki podczas identyfikacji kontraktów.
+Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gromadzenia implementacji kontraktów z całego internetu oraz połączenie takiego systemu z utworzoną aplikacją. Dzięki dużej ilości implementacji kontraktów można uzyskać bardzo dokładne wyniki podczas identyfikacji kontraktów.
 
+\clearemptydoublepage	
 
 %____________________________________________________________________________________________
 %____________________________________________________________________________________________
@@ -1348,7 +1341,7 @@ Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gr
 \bibitem{ethersaleastatisticaloverview} Ethereum Blog \emph{Ether Sale: A Statistical Overview } \url{https://blog.ethereum.org/2014/08/08/ether-sale-a-statistical-overview/}.
 \bibitem{devcon0} Ethereum \emph{DEVCON-8 recap} \url{https://blog.ethereum.org/2014/12/05/d%CE%BEvcon-0-recap/}
 \bibitem{whyethereumusesecuretries} Seung Woo Kim \emph{Secure Tree: Why State Tries Key is 256 Bits} \url{https://medium.com/codechain/secure-tree-why-state-tries-key-is-256-bits-1276beb68485}.
-\bibitem{ethereumyellowpaper} Dr. Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
+\bibitem{ethereumyellowpaper} Dr Gavin Wood \emph{Ethereum: A secure decentralised generalised transaction Ledger. Byzantium version 4e05aa0 - 2019-03-04}.
 \bibitem{historyofethereum} Ethereum Homestead \emph{History of Ethereum } \url{https://ethereum-homestead.readthedocs.io/en/latest/introduction/history-of-ethereum.html}.
 \bibitem{proceswydaniaethereum} Ethereum \emph{Ethereum Launch Process} \url{https://ethereum.github.io/blog/2015/03/03/ethereum-launch-process/}.
 
@@ -1410,3 +1403,9 @@ Dalszym kierunkiem rozwoju może być utworzenie zautomatyzowanego systemu do gr
 % koniec
 
 \end{document}
+koniec
+
+\end{document}
+
+
+
